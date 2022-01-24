@@ -1,14 +1,308 @@
-\documentclass{article}
+\documentclass[11pt,a4paper,twoside,openright]{book}
+
+% Fonte mais próxima de Times New Roman
+\usepackage{mathptmx}
+
+
+% Alterar margens do documento
+\usepackage[margin=2.5cm]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\fancyhead[RO]{\bfseries\rightmark}
+\fancyhead[LE]{\bfseries\leftmark}
+\setlength{\headheight}{15pt}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt}
+\fancypagestyle{plain}{
+  \fancyhead{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\usepackage{hyperref}
+
+% Package que permite incluir imagens
+\usepackage{graphicx}
+
+% Comentar para não incluir a lista de figuras e tabelas no índice
+\usepackage[nottoc]{tocbibind}
+
+% Para citar referências
+%\usepackage{natbib}
+%\bibliographystyle{humannat}
+%\setcitestyle{authoryear}
+
+
+\usepackage[backend=biber,style=authoryear,maxcitenames=1,autocite=inline,natbib=true]{biblatex}
+\addbibresource{tese.bib}
+
+%Indentar primeiro parágrafo
+\usepackage{indentfirst}
+
+% Incluir até à subsecção no índice
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% Permite remover os espaços entre itens
+\usepackage{enumitem}
+
+% Caption para imagens
+\usepackage[font=footnotesize]{caption}
+
+% Referenciar anexos
+\usepackage[toc,page]{appendix}
+
+%Adicionar pdfs
+\usepackage{pdfpages}
+
+%Alterar nome de capitulo para a referencia
+\usepackage{fmtcount}
+
+\usepackage{url}
+
+%Para expressões Matemáticas
+\usepackage{amsmath}
+\usepackage{bm}
+
+%Bibliotecas
+%\usepackage{biblatex}
+
+\usepackage[portuguese]{babel}
+
+
 \usepackage[utf8]{inputenc}
 
-\title{PhD Thesis}
-\author{Ines Mendes}
-\date{January 2022}
+\usepackage{filecontents}
+\usepackage{float}
+
+\raggedbottom
+
+\usepackage{subcaption}
+\usepackage{eurosym}
+
+\usepackage{booktabs}
+
+\usepackage[T1]{fontenc}
+%\usepackage[scaled]{helvet}
+%\renewcommand*\familydefault{\sfdefault}
+
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother \clearpage{\pagestyle{plain}\cleardoublepage}
+
+\providecommand{\keywords}[1]{\textbf{Keywords:} #1}
+\providecommand{\keywordsP}[1]{\textbf{Palavras chave:} #1}
 
 \begin{document}
+%\onehalfspacing
+\begin{sloppy}
 
-\maketitle
+%    \makeatletter
+%    \renewcommand{\@makechapterhead}[1]{%
+%    \vspace*{50 pt}%
+%    {\setlength{\parindent}{0pt} \raggedright \normalfont
+%    \bfseries\Huge
+%    \ifnum \value{secnumdepth}>1 
+%        \if@mainmatter\thechapter.\ \fi%
+%    \fi
+%    #1\par\nobreak\vspace{40 pt}}}
+%    \makeatother
 
-\section{Introduction}
+\frontmatter
+%-----------------------------------------------------------------
+%
+% Capa (FRENTE)
+%
+%------------------------------------------------------------------
 
+%Esta capa é apenas um exemplo. Devem retirar a capa oficial do site da faculdade, alterar de acordo com o trabalho realizado, guardar como pdf e fazer o upload para o overleaf. Deve ser depois substituído no comando seguinte (includepdf) pelo seu respectivo nome.
+\begin{titlepage}
+\includepdf[]{capa mestrado_trabalho projeto_provisoria}
+\end{titlepage}
+
+
+%-----------------------------------------------------------------
+%
+% Capa (TRÁS)
+%
+%------------------------------------------------------------------
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
+%\pagenumbering{roman}
+%\newpage
+%\thispagestyle{plain}
+%\mbox{}
+
+
+
+
+%-----------------------------------------------------------------
+%
+% RESUMO
+%
+%------------------------------------------------------------------
+\newpage
+\thispagestyle{plain}
+\chapter*{Resumo}
+
+\keywordsP{um, dois, três, quatro, cinco}
+
+%-----------------------------------------------------------------
+%
+% ABSTRACT
+%
+%------------------------------------------------------------------
+\newpage
+\thispagestyle{plain}
+\chapter*{Abstract}
+
+\keywords{one, two, three, four, five}
+%-----------------------------------------------------------------
+%
+% AGRADECIMENTOS
+%
+%------------------------------------------------------------------
+\newpage
+\thispagestyle{plain}
+\chapter*{Agradecimentos}
+
+
+%-----------------------------------------------------------------
+%
+% ÍNDICE
+%
+%------------------------------------------------------------------
+\newpage
+\thispagestyle{plain}
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+\newpage
+\thispagestyle{plain}
+\listoffigures
+\newpage
+\thispagestyle{plain}
+\listoftables
+\clearpage \thispagestyle{plain}\mbox{}\clearpage
+
+\mainmatter
+%\pagenumbering{arabic} %numeros em numeração árabe
+
+%-----------------------------------------------------------------
+%
+% INTRODUÇÃO
+%
+%------------------------------------------------------------------
+\newpage
+\thispagestyle{plain}
+\chapter{Introdução\label{ch:intro}}
+
+\section{Nome da secção}
+
+Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. \citet{Sotomayor2018} e ao mesmo tempo testar o trabalho de \citep{Hollingsworth1999}. \citet{Candidate2014} ms também \citep{Coelli1998} \citet{Grosskopf1987}
+
+\subsection{teste1}
+When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her.
+
+\subsubsection{teste2}
+
+Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.
+
+When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her.
+
+Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.
+
+When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+
+Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way \citet{small}.
+
+On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again. And if she hasn’t been rewritten, then they are still using her. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left 
+
+\subsection{Nome da subsecção}
+
+Exemplos de algumas citações. As citações podem ser construídas num ficheiro de extensão bib e são chamadas usadas o comando citet ou citep. A bibliografia é actualizada automaticamente à medida que se incluem novas citações no texto. O formato da bibliografia pode ser alterado, como podemos ver em \citep{latexcompanion} ou em \citep{knuthwebsite}. 
+
+As citações podem também ser feitas usando o nome dos autores directamente como em \citet{einstein}.
+
+%Exemplo de equação matemática
+%\begin{subequations} 
+\begin{align}
+    \max_{\bm{w}} \quad & \lambda\bm{w'\xi} - (1-\lambda)\bm{w'}\Sigma \bm{w}  \label{eq:meanvariance1}\\
+    \text{s.t.} \quad & \bm{w'1} = 1 \nonumber\\
+    & \bm{w} \geq 0,
+\end{align}
+%\end{subequations} 
+
+%Outro exemplo
+\begin{align*}
+    \max_{\bm{w}} \quad & \lambda\bm{w'\xi} - (1-\lambda)\bm{w'}\Sigma \bm{w} \label{eq:meanvariance2}\\
+    \text{s.t.} \quad & \bm{w'1} = 1\\
+    & \bm{w} \geq 0,
+\end{align*}
+
+
+
+
+
+
+%-----------------------------------------------------------------
+%
+% Resultados
+%
+%-----------------------------------------------------------------
+\chapter{Resultados \label{ch:resultados}}
+
+% Para introduzir figuras
+\begin{figure}[ht!]
+\centering
+\includegraphics{example.eps}
+% legenda da figura por baixo
+\caption{Legenda da figura}
+\label{fig:1}       % referência única
+\end{figure}
+
+%Para construir tabelas
+\begin{table}[ht!]
+\centering
+% A legenda da tabela deve ficar por cima da tabela
+\caption{Legenda da tabela}
+\label{tab:1}       % referência única
+\begin{tabular}{lll}
+\hline\noalign{\smallskip}
+first & second & third  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+number & number & number \\
+number & number & number \\
+\noalign{\smallskip}\hline
+\end{tabular}
+\end{table}
+
+%-----------------------------------------------------------------
+%
+% Conclusão
+%
+%-----------------------------------------------------------------
+\chapter{Conclusão \label{ch:conclusao}}
+
+
+
+%-----------------------------------------------------------------
+%
+% Referências Bibliográficas
+% 
+%-----------------------------------------------------------------
+%\renewcommand{\bibname}{Bibliografia}
+%\bibliographystyle{babplain}      % basic style, author-year citations
+%\bibliography{tese.bib}
+\printbibliography
+
+\end{sloppy}
 \end{document}
