@@ -23,8 +23,6 @@
 \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 \usepackage{titlesec}
-%\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
-%\titlespacing{\chapter}{0pt}{0pt}{0pt}
 \fancyhf{}
 \fancyhead[RO]{\bfseries\rightmark}
 \fancyhead[LE]{\bfseries\leftmark}
@@ -40,7 +38,7 @@
 \usepackage{hyperref} % To add urls
 \usepackage{graphicx} % To add images
 \usepackage[nottoc]{tocbibind}
-\usepackage[backend=biber,style=authoryear,maxcitenames=1,autocite=inline,natbib=true]{biblatex} % References
+\usepackage[backend=biber,style=authoryear,maxcitenames=1,autocite=inline,natbib=true,sorting=nty]{biblatex} % References
 \addbibresource{references.bib}
 \usepackage{indentfirst} % Add indentation to first paragraph
 \setlength{\parskip}{1em}
@@ -62,6 +60,7 @@
 \usepackage{eurosym}
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
+\usepackage[acronym]
 
 \makeatletter
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
@@ -195,7 +194,12 @@ As opiniões expressas nesta publicação são da exclusiva responsabilidade do 
 \chapter{General Introduction\label{ch:introduction}}
 \thispagestyle{empty}
 \newpage
+\begin{refsection}
 \include{chapters/introduction}
+\newpage
+\printbibliography
+\end{refsection}
+
 
 %-----------------------------------------------------------------
 % Conclusion
