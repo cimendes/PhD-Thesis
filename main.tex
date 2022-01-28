@@ -9,11 +9,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{{figures/}}
-
-%-----------------------------------------------------------------
-% Document Metadata
-%------------------------------------------------------------------
-\title{Thesis Title}
+\def\blankpage{%
+      \clearpage%
+      \thispagestyle{empty}%
+      \null%
+      \clearpage}
 
 %-----------------------------------------------------------------
 % Packages
@@ -22,6 +22,9 @@
 \usepackage{fancyhdr}
 \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\usepackage{titlesec}
+%\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{1em}{} 
+%\titlespacing{\chapter}{0pt}{0pt}{0pt}
 \fancyhf{}
 \fancyhead[RO]{\bfseries\rightmark}
 \fancyhead[LE]{\bfseries\leftmark}
@@ -35,39 +38,22 @@
   \renewcommand{\headrulewidth}{0pt}
 }
 \usepackage{hyperref} % To add urls
-\usepackage{graphicx} % To add imagess
-% Comentar para não incluir a lista de figuras e tabelas no índice
+\usepackage{graphicx} % To add images
 \usepackage[nottoc]{tocbibind}
 \usepackage[backend=biber,style=authoryear,maxcitenames=1,autocite=inline,natbib=true]{biblatex} % References
 \addbibresource{references.bib}
-\usepackage{indentfirst} % Add identation to first paragraph
-
-% Incluir até à subsecção no índice
+\usepackage{indentfirst} % Add indentation to first paragraph
+\setlength{\parskip}{1em}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
-
-% Permite remover os espaços entre itens
 \usepackage{enumitem}
-
-% Caption para imagens
 \usepackage[font=footnotesize]{caption}
-
-% Referenciar anexos
 \usepackage[toc,page]{appendix}
 \usepackage{pdfpages}
-
-%Alterar nome de capitulo para a referencia
 \usepackage{fmtcount}
-
 \usepackage{url}
-
-%Para expressões Matemáticas
 \usepackage{amsmath}
 \usepackage{bm}
-
-%Bibliotecas
-%\usepackage{biblatex}
-%\usepackage[portuguese]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{filecontents}
 \usepackage{float}
@@ -94,12 +80,11 @@
 
 \begin{document}
 \begin{sloppy}
-
 \frontmatter
+
 %-----------------------------------------------------------------
 % Cover
 %------------------------------------------------------------------
-
 \input{titlepage}
 \clearpage \thispagestyle{empty}\mbox{}\clearpage
 
@@ -109,17 +94,26 @@
 \input{coverpage}
 \clearpage \thispagestyle{empty}\mbox{}\clearpage
 
+%-----------------------------------------------------------------
+% Disclaimer
+%------------------------------------------------------------------
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+As opiniões expressas nesta publicação são da exclusiva responsabilidade do seu autor.
+\blankpage
 
 %-----------------------------------------------------------------
 % Dedication
 %------------------------------------------------------------------
 \newpage
-\thispagestyle{plain}
+\thispagestyle{empty}
 \vspace*{3cm}
 \begin{center}
 \emph{``I'm so happy to be done with this shit''} \\
 \end{center} 
 \begin{flushright}- Inês Mendes\end{flushright}
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 
 %-----------------------------------------------------------------
@@ -127,8 +121,9 @@
 %------------------------------------------------------------------
 \newpage
 \thispagestyle{plain}
-\addcontentsline{toc}{chapter}{Acknowledgments}
+\addcontentsline{toc}{chapter}{Acknowledgements}
 \chapter*{Acknowledgements}
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 %-----------------------------------------------------------------
 % Summary
@@ -139,6 +134,7 @@
 \chapter*{Summary}
 
 \keywords{one, two, three, four, five}
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 %-----------------------------------------------------------------
 % Resumo
@@ -149,6 +145,7 @@
 \chapter*{Resumo}
 
 \keywords{um, dois, três, quatro, cinco}
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 %-----------------------------------------------------------------
 % Thesis Outline
@@ -157,6 +154,8 @@
 \thispagestyle{plain}
 \addcontentsline{toc}{chapter}{Thesis Outline}
 \chapter*{Thesis Outline}
+\input{chapters/thesis_outline}
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 %-----------------------------------------------------------------
 % Abbreviations
@@ -165,6 +164,7 @@
 \thispagestyle{plain}
 \addcontentsline{toc}{chapter}{Abbreviation}
 \chapter*{Abbreviation}
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 %-----------------------------------------------------------------
 % Table of Contents
@@ -174,7 +174,15 @@
 \addcontentsline{toc}{chapter}{Table of Contents}
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
-
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
+\newpage
+\thispagestyle{plain}
+\listoftables
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
+\newpage
+\thispagestyle{plain}
+\listoffigures
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
 
 \mainmatter
 %\pagenumbering{arabic} %numeros em numeração árabe
@@ -183,22 +191,27 @@
 % Introduction
 %------------------------------------------------------------------
 \newpage
-\chapter{Introduction\label{ch:introduction}}
-\input{chapters/introduction}
+\thispagestyle{empty}
+\chapter{General Introduction\label{ch:introduction}}
+\thispagestyle{empty}
+\newpage
+\include{chapters/introduction}
 
 %-----------------------------------------------------------------
 % Conclusion
 %-----------------------------------------------------------------
 \newpage
 \chapter{Conclusion \label{ch:conclusion}}
-\input{chapters/conclusion}
+\thispagestyle{empty}
+\newpage
+\include{chapters/conclusion}
 
 %-----------------------------------------------------------------
 % Appendix
 %-----------------------------------------------------------------
 \appendix
 \chapter{Appendix}
-\input{chapters/appendix}
+\include{chapters/appendix}
 \includepdf[pages={1-}]{resources/papers/s41598-018-31873-w.pdf}
 \includepdf[pages={1-}]{resources/papers/dkz363.pdf}
 \includepdf[pages={1-}]{resources/papers/mgen000328.pdf}
