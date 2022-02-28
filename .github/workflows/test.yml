@@ -35,7 +35,7 @@ jobs:
           root_file: main.tex
           compiler: latexmk 
           # Extra arguments to be passed to the LaTeX engine
-          #args: # optional, default is -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+          args: "--jobname=thesis"
       - name: Check pdf files
         run: |
           file thesis.pdf | grep -q ' PDF '
