@@ -1,4 +1,4 @@
 
 .DS_Store
-main.fls
-main.log
+*.fls
+*.log
