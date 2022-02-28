@@ -1,0 +1,57 @@
+#Adapted from https://github.com/xu-cheng/latex-action/blob/master/action.yml
+name: Github Action for LaTeX
+description: GitHub Action to compile LaTeX documents
+author: Cheng XU
+inputs:
+  root_file:
+    description: The root LaTeX file to be compiled
+    required: true
+  glob_root_file:
+    description: Interpret the root_file input as bash glob pattern
+  working_directory:
+    description: The working directory for this action
+  work_in_root_file_dir:
+    description: Change directory into each root file's directory before compiling each documents.
+  compiler:
+    description: The LaTeX engine to be invoked
+    default: latexmk
+  args:
+    description: Extra arguments to be passed to the LaTeX engine
+    default: "-pdf -file-line-error -halt-on-error -interaction=nonstopmode"
+  extra_packages:
+    description: "[Deprecated] Install extra packages by tlmgr"
+  extra_system_packages:
+    description: Install extra packages by apk
+  extra_fonts:
+    description: Install extra .ttf/.otf fonts.
+  pre_compile:
+    description: Arbitrary bash codes to be executed before compiling LaTeX documents
+  post_compile:
+    description: Arbitrary bash codes to be executed after compiling LaTeX documents
+  latexmk_shell_escape:
+    description: Instruct latexmk to enable --shell-escape
+  latexmk_use_lualatex:
+    description: Instruct latexmk to use LuaLaTeX
+  latexmk_use_xelatex:
+    description: Instruct latexmk to use XeLaTeX
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.root_file }}
+    - ${{ inputs.glob_root_file }}
+    - ${{ inputs.working_directory }}
+    - ${{ inputs.work_in_root_file_dir }}
+    - ${{ inputs.compiler }}
+    - ${{ inputs.args }}
+    - ${{ inputs.extra_packages }}
+    - ${{ inputs.extra_system_packages }}
+    - ${{ inputs.extra_fonts }}
+    - ${{ inputs.pre_compile }}
+    - ${{ inputs.post_compile }}
+    - ${{ inputs.latexmk_shell_escape }}
+    - ${{ inputs.latexmk_use_lualatex }}
+    - ${{ inputs.latexmk_use_xelatex }}
+branding:
+  icon: book
+  color: blue
