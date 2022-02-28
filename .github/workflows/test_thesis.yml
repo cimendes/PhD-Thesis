@@ -23,11 +23,12 @@ jobs:
         uses: ./
         with:
           root_file: |
-             main.tex
+            main.tex
           pre_compile: |
             rm thesis.pdf
           post_compile: |
             ls thesis.pdf
+            mv thesis.pdf test
       - name: Test Action with Github Default Template
         uses: ./
         with:
@@ -35,10 +36,10 @@ jobs:
           root_file: main.tex
           compiler: latexmk 
           # Extra arguments to be passed to the LaTeX engine
-          args: "--jobname=thesis"
+          args: "--jobname=thesis -f"
       - name: Check pdf files
         run: |
-          file thesis.pdf | grep -q ' PDF '
+          file test/thesis.pdf | grep -q ' PDF '
       - name: Upload
         uses: actions/upload-artifact@master
         with:
