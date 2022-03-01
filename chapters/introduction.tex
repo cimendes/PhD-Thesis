@@ -59,8 +59,14 @@ The emerging application of genomic technologies in the clinic to combat infecti
 
 \subsection{Twenty five years of microbial genome sequencing} \label{ssec:sequencing}
 
-Since thes discovery of the structure of DNA \citep{watson_molecular_1953}, great strides have been made in understanding the complexity and diversity of genomes in health and disease. The ability to determine the sequence in a DNA molecule  
-The development and commercialisation of high-throughput, massively parallel sequencing, has democratised sequencing by offering individual laboratories, either in research or in health, access to the technology.
+Since the discovery of the structure of DNA \citep{watson_molecular_1953}, great strides have been made in understanding the complexity and diversity of genomes in health and disease. The development and commercialisation of high-throughput, massively parallel sequencing, has democratised sequencing by offering individual laboratories, either in research or in health, access to the technology. Over the last quarter of a century, three main revolutions can be considered in genomic sequencing (see Figure ~\ref{fig:figure3}).
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/Figure 3.png}
+\caption{\textbf{The three revolutions in sequencing technology that have transformed the landscape of bacterial genome sequencing.} The first-generation, also known as Sanger sequencers, is represented by the ABI Capillary Sequencer (Applied Biosystems). During the sequencing reaction, at each nucleotide incorporation event a fluorescently labelled ddNTP is incorporated, terminating the elongation of the DNA molecule. The resulting electropherogram for sequencing reaction is below, and is read from left to right. The second-generation, also known as high-throughput sequencers, is represented by the MiSeq, a 4-channel sequencer, and the NextSeq, a 2-channel sequencer (Illumina), both sequencing by synthesis instruments. For both instruments, the loaded flowcell is sequenced in massive parallel reactions, with each nucleotide incorporation emitting a light signal that is captured and latter basecalled into a fastq file, with indication of the confidence of the call, presented bellow. In a 4-channel instrument each nucleotide has it's own marker (A: yellow, T: green, C: red, G: blue) but in a 2-channel instrument only 2 markers exist (A: green plus red, T: green, C: red, G: no marker). These instrument allow the sequencing of both ends of the DNA fragment. Lastly, the third-generation, also known as long-read sequencers, is represented by Pacific Bioscience BS sequencer and Oxford Nanopore MinION sequencer. In the first, immobilised polymerases in a SMRT Cell incorporating nucleotides with identifying fluorescent labels. In the latter, a nanopore embedded in a solid-state membrane causes a a change in an ionic current across the membrane each time a nucleotide is pushed though the pore. This difference in potential is then used for basecalling. Adapted from \cite{hagemann_overview_2015, loman_twenty_2015,goodwin_coming_2016, wang_nanopore_2021, metzker_sequencing_2010, xu_recent_2020}}
+\label{fig:figure3}
+\end{figure*}
 
 \subsubsection{The first-generation of DNA sequencing} \label{ssec:1st_gen_seq}
 
