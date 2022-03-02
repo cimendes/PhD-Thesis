@@ -172,18 +172,18 @@ All sequencing technologies, regardless of generation, produce data in the the s
     \item \textbf{Line 4} encodes the quality values for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.
 \end{itemize}
 
-In FASTQ both the sequence letter and quality score are each encoded with a single ASCII character for brevity. The quality of a sequence in a FASTQ file is represented by a quality value Q is an integer mapping of p, where p is the probability that the corresponding base call is incorrect (see \ref{tab:phred_quality}). This is called the Phred score \citep{ewing_base-calling_1998} and is defined by the following equation:
+In FASTQ both the sequence letter and quality score are each encoded with a single ASCII character for brevity. The quality of a sequence in a FASTQ file is represented by a quality value Q is an integer mapping of p, where p is the probability that the corresponding base call is incorrect (see \ref{tab:PHRED_quality}). This is called the PHRED score \citep{ewing_base-calling_1998} and is defined by the following equation:
 
 \begin{equation}
 \centering
 \mathbf{Q}\textsc{phred} = - 10 \times \log \mathbf{P}
 \end{equation}
  
-The Phred quality scores \mathbf{Q} is defined as a property which is logarithmically related to the base-calling error probability \mathbf{P}.
+The PHRED quality scores $\mathbf{Q}$ is defined as a property which is logarithmically related to the base-calling error probability $\mathbf{P}$.
 
-%TABLE HERE - Phred and error rate
+%TABLE HERE - PHRED and error rate
 
-Since their introduction, Phred scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode Phred qualities from 0 to 93 (i.e. Phred scores with an ASCII offset of 33). A full list of available encoding is available in \ref{}. 
+Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of available encoding is available in \ref{}. 
 
 %ADD FIGURE!
 
