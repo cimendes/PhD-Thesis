@@ -157,13 +157,66 @@ In addition to negative controls, already a common practise in any sequencing as
 
 \section{The role of bioinformatics} \label{sec:bioinformatics}
 
-As stated previously (see \secref{sec:genomics_approach} and \secref{ssec:metagenomics}), one of the biggest challenges when dealing with genomic, and in particular metagenomic, data is the lack of golden standards. This is also applicable to the bioinformatic analysis, required due to the amount of data produced by genomic sequencing technologies. This is currently one of the bottleneck in the deployment of sequencing technology in clinical microbiology as there's no standard in how to deal with the increasing amount of data produced in a fit-for-purpose manner \citep{carrico_primer_2018}. 
+As stated previously (see \secref{sec:genomics_approach} and \secref{ssec:metagenomics}), one of the biggest challenges when dealing with genomic, and in particular metagenomic, data is the lack of golden standards. This is also applicable to the bioinformatic analysis, required due to the amount of data produced by genomic sequencing technologies. This is currently one of the bottleneck in the deployment of sequencing technology in clinical microbiology as there's no standard in how to deal with the increasing amount of data produced in a fit-for-purpose manner \citep{carrico_primer_2018}. Bioinformatics is an interdisciplinary research field that applies methodologies from computer science, applied mathematics and statistics to the study of biological phenomena\citep{carrico_primer_2018}. With the widespread use and continuous development of sequencing technologies, bioinformatics has become a cornerstone in modern clinical microbiology. 
 
 Major efforts are being made on the standardisation and assessment of software for the analysis of genomic data, both commercial and open-source \cite{angers-loustau_challenges_2018, gruening_recommendations_2019, sczyrba_critical_2017, couto_critical_2018}. 
 
+\subsection{The FASTQ file}
+
+All sequencing technologies, regardless of generation, produce data in the the same standard file format: the FASTQ, a text-based format for storing both a biological sequence (usually nucleotide sequence) and its corresponding quality scores \citep{cock_sanger_2010}. Originally developed at the Wellcome Trust Sanger Institute, the FASTQ has emerged as a common file format for sharing sequencing read data (see \ref{fig:figure3}). The FASTQ can be considered as an extension of the ‘FASTA sequence file format’, originally invented by \cite{pearson_improved_1988}, which includes just the sequence information. A FASTQ file normally uses four lines per sequence:
+
+\begin{itemize}
+    \item \textbf{Line 1} begins with a '@' character and is followed by a sequence identifier and an optional description;
+    \item \textbf{Line 2} is the raw sequence letters;
+    \item \textbf{Line 3} begins with a '+' character and is optionally followed by the same sequence identifier (and any description) again;
+    \item \textbf{Line 4} encodes the quality values for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.
+\end{itemize}
+
+In FASTQ both the sequence letter and quality score are each encoded with a single ASCII character for brevity. The quality of a sequence in a FASTQ file is represented by a quality value Q is an integer mapping of p, where p is the probability that the corresponding base call is incorrect (see \ref{tab:phred_quality}). This is called the Phred score \citep{ewing_base-calling_1998} and is defined by the following equation:
+
+\begin{equation}
+\centering
+\mathbf{Q}\textsc{phred} = - 10 \times \log \mathbf{P}
+\end{equation}
+ 
+The Phred quality scores \mathbf{Q} is defined as a property which is logarithmically related to the base-calling error probability \mathbf{P}.
+
+\begin{table*}[h!]
+\begin{tabular}{@{}lll@{}}
+
+\caption{\textbf{Phred quality scores are logarithmically linked to error probabilities.}}\label{tab:phred_quality}
+
+\toprule
+Phred Quality Score & Probability of incorrect base call & Base call accuracy \\ 
+\midrule
+10                  & 1 in 10                            & 90\%               \\
+20                  & 1 in 100                           & 99\%               \\
+30                  & 1 in 1000                          & 99.9\%             \\
+40                  & 1 in 10,000                        & 99.99\%            \\
+50                  & 1 in 100,000                       & 99.999\%           \\
+60                  & 1 in 1,000,000                     & 99.9999\%          \\ \bottomrule
+\end{tabular}
+\end{table*}
+
+Since their introduction, Phred scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode Phred qualities from 0 to 93 (i.e. Phred scores with an ASCII offset of 33). A full list of available encoding is available in \ref{}. %ADD FIGURE!
+
+\subsubsection{FASTQ file simulation}
+
+\subsubsection{FASTQ quality assessment and quality control}
+
+Quality assessment and control is a basal step to any analysis, and aims to remove and/or filter low quality and low complexity reads, trim adapters, and remove host sequences from the samples’ raw data. There are many tools available but the most commonly used are FastQC\footnote{\url{https://www.bioinformatics.babraham.ac.uk/projects/fastqc/}} (Babraham Bioinformatics) for quality control, followed by Trimmomatic \citep{bolger_trimmomatic_2014}, Cutadapt \citep{martin_cutadapt_2011} or fastp \citep{chen_fastp_2018} to trim and/or filter adaptors, low quality and low complexity sequences. For long-read sequencing, tools like NanoPlot and NanoStats \citep{de_coster_nanopack_2018}, and Filtlong\footnote{\url{https://github.com/rrwick/Filtlong/}} can perform basic quality assessment and control, adapter trimming and low quality trimming respectively. 
+
+
+The removal of host sequences is usually done through mapping. Bowtie2 \citep{langmead_fast_2012} is usually the go-tool for this process, specially as pre-built indexes of the human genome are available on-line\footnote{\url{https://support.illumina.com/sequencing/sequencing\_software/igenome.html}}, useful when processing clinical metagenomic samples. Minimap2 \citep{li_minimap2_2018} has recently gained a lot of traction due to its minimizers approach that reduce the mapping time to a fraction of the one needed for Bowtie2 with comparable accuracy. Both tools can handle reads from all generations of sequencing instruments. The same approach can be used to remove contaminants present in the negative control by using it as reference for mapping.  
+
+
+\subsection{From reads to genomes}
+
+The term ‘draft genome’ is commonly used because the new technologies that use short reads do not generate a single closed genome but rather a series of sequences (contigs) that may cover up to 95\% to 9\% of the strain genome.
+
 \section{Bioinformatic Analysis for Shotgun Metagenomics}
 
- A plethora of open-source tools are available specifically for metagenomic data, both short and long-read data, and several combinations of these tools can be used to characterize the causative agent in a patient's infection in a fraction of the time required by the traditional methods. Alongside, there are several commercial alternatives, such as CLC Genomics Workbench (QIAGEN Bioinformatics), Taxonomer (Flygare et al., 2016) and BaseSpace (Illumina), that offer ready to use complete workflows at the cost of lack of transparency, reproducibility and control in the analysis.
+A plethora of open-source tools are available specifically for metagenomic data, both short and long-read data, and several combinations of these tools can be used to characterize the causative agent in a patient's infection in a fraction of the time required by the traditional methods. Alongside, there are several commercial alternatives, such as CLC Genomics Workbench (QIAGEN Bioinformatics), Taxonomer (Flygare et al., 2016) and BaseSpace (Illumina), that offer ready to use complete workflows at the cost of lack of transparency, reproducibility and control in the analysis.
 Several steps that can be implemented to ensure the transparency and reproducibility of the chosen workflow. Favouring open-source tools, with clear documentation describing the methodology implemented, and stating the version of the software used and which parameters were used enables the comparison of results. This can be simplified by containerizing all the software tools with one of the many solutions available, like Docker (https://www.docker.com/) or Singularity (Kurtzer et al., 2017). The use of workflow managers, like nextflow (Tommaso et al., 2017) or the Galaxy Project (Afgan et al., 2016), will push reproducibility to the next level by taking advantage of the containerization and scalability, enabling the workflow to be executed with the same parameters in the same conditions in a multitude of different environments. The FlowCraft project (https://github.com/assemblerflow/flowcraft) leverages the combination of Nextflow and docker/singularity containers to assemble, monitor and report scientific pipelines created from the combination of pre-built components, many of them supporting metagenomic analysis.
 Additional difficulties of metagenomic data are the overpowering quantities of host DNA that are often sequenced (Couto et al., 2018), making the microbial community close to undetectable, the presence of contaminants, from the bench process to the biota, and the cost associated with this methodology. They account for major caveats and must be made aware of when analysing the data.
 The basic strategies for analysing metagenomic data can be simplified in the scheme in Figure 1. One of the biggest challenges when doing metagenomic analysis is differentiating between colonization and infection and to successfully discriminate between a potential pathogen and background microbiota. In the latter, when analysing samples from presumably sterile sites, like CSF and blood, it is safe to assume that all organisms found are of interest. In locations with a microbiota, the use of spiked metagenomic samples as positive control might guide the detection of the possible pathogens by comparing relative abundance between the samples. The inclusion of negative controls is essential for the correct identification of contaminants in the taxonomic results, whether originated from the sample collection, handling or sequencing process. These controls should be processed similarly to the samples and the taxonomic results should be filtered out from the final reports. 
