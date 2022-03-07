@@ -197,7 +197,14 @@ The PHRED quality scores $\mathbf{Q}$ is defined as a property which is logarith
 
 Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of available encoding is available in \ref{}. 
 
-%ADD FIGURE!
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/Figure 4.png}
+\caption{\textbf{World Health Organisation Global Priority Pathogens list.} This catalogue includes, besides \textit{Mycobacterium tuberculosis} considered the number one global priority, a list of twelve microorganisms grouped under three priority tiers according to their antimicrobial resistance: critical (\textit{Acinetobacter baumannii}, \textit{Pseudomonas aeruginosa} and \textit{Enterobacteriaceae}), high (\textit{Enterococcus faecium}, \textit{Helicobacter pylori}, \textit{Salmonella} species, \textit{Staphylococcus aureus}, \textit{Campylobacter} species and \textit{Neisseria gonorrhoeae}), and medium (\textit{Streptococcus pneumoniae}, \textit{Haemophilus influenzae} and \textit{Shigella} species). The major objective was to encourage the prioritisation of funding and incentives, align research and development priorities of public health relevance, and garner global coordination in the fight against antimicrobial resistant bacteria. Adapted from \cite{world_health_organization_prioritization_2017}.}
+\label{fig:figure1}
+\end{figure*}
+
+
 
 \subsubsection{FASTQ file simulation}
 
