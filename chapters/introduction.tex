@@ -397,6 +397,15 @@ The \textit{de novo} assembly methods provide longer sequences that are more inf
 
 \paragraph{De Bruijn graph assembly} \label{sssec:dbg_assembly} \mbox{}\\
 
+In the De Bruijn assembly graph, reads are split into overlapping k-mers where nodes of the graph represent k-mers where:
+
+\begin{itemize}
+    \item A directed edge from node N\textsubscript{a} to node N\textsubscript{b} indicates that N\textsubscript{b} is next to N\textsubscript{a} in a read;
+    \item The number of nodes in the De Bruijn graph is theoretically the total number of identical k-mers in the genome
+    \item The weight on the edge indicates the number of times  N\textsubscript{b} is observed next to  N\textsubscript{a} in all reads
+\end{itemize}
+
+Thus, the weight of an edge indicates the possibility that two k-mers appear after each other in the DNA sequence. A path in the graph where all edges have the highest weight is the most likely to be a part of the genome \citep{bayat_methods_2020}.
 
 \subsubsection{Assembly quality assessment and quality control}
 
