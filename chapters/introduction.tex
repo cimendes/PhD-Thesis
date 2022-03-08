@@ -368,21 +368,37 @@ OTU clustering methods can be categorised into: (1) computationally expensive hi
 
 \subsection{From reads to genomes}
 
-Due to the technological limitations of current sequencing technologies (see \secref{ssec:sequencing}), the order of the reads produced by these machines cannot be preserved. Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur. The term "draft genome" is commonly used because the sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:2nd_gen_seq}) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome. Long-read technologies (see \secref{ssec:3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes.
+Due to the limitations of current sequencing technologies (see \secref{ssec:sequencing}), the order of the reads produced by these machines cannot be preserved. 
+Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur. 
+The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:2nd_gen_seq}) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
+Long-read technologies (see \secref{ssec:3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}. 
+Two methods are used to obtain draft genomes: (1) through reference-guided sequence assembly, or (2), through \textit{de novo} sequence assembly.
 
 \subsubsection{Genomes through reference-guided sequence assembly}
 
-A reference-guided genome assembly uses an already sequenced reference genome to assemble a new genome \citep{}. 
+A reference-guided genome assembly uses an already sequenced reference genome to assemble a new genome, making use of the similarity between target and reference species to gain additional information, which often lead to a more complete and improved genome \citep{rausch_consistency-based_2009, lischer_reference-guided_2017}. 
+This process is usually done through the mapping of the reads to a closely related reference sequence, and as more and more species get sequenced, the chance that a genome of the same or related species is already available, in which a significant proportion of the reads can be mapped, increase greatly. 
+This process usually includes the following steps: (1) the reference genome has to be indexed, allowing compression of the input text while still permitting fast sub-string queries, (2) for each short-read several sub sequences (seeds) are taken and searched to find their exact matches in the reference  (candidate regions), (3) each short-read is then aligned to all corresponding candidate regions, and (4) the consensus sequence is computed in which the reference sequence is corrected when there is enough evidence of an difference based on the mapped
+reads, identifying the differences between it and the newly generated consensus sequence \citep{bayat_methods_2020}.
+Besides variants, the new consensus genome might have insertions or deletions with respect to the reference genome.
 
-The new genome might have insertions or deletions with respect to the reference genome.
+Besides the generation of a consensus sequence, the mapping of the reads to the reference sequence can be used to estimate sequence depth and breadth of coverage. 
+Depth of coverage, often referred to simply as coverage, refers to the average number of times each nucleotide position in the strain's genome has a read that aligns to that position. Depending on the study goals, bacterial species and the intended analyses, the optimal depth of coverage varies. 
+In public repositories, most submissions have a depth of coverage ranging from 15 to 500 times \citep{carrico_primer_2018}. 
+Breadth of coverage is defined as the ratio of covered sequence on the reference by the aligned reads.
 
 \subsubsection{Genomes through \textit{de novo} sequence assembly}
+
+De novo assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads.
 
 The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
 
 \paragraph{Overlap, Layout Consensusus assembly} \label{sssec:OLC_assembly} \mbox{}\\
 
 \paragraph{De Bruijn graph assembly} \label{sssec:dbg_assembly} \mbox{}\\
+
+
+\subsubsection{Assembly quality assessment and quality control}
 
 
 \section{Bioinformatic Analysis for Shotgun Metagenomics}
