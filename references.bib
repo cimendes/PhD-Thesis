@@ -1,4 +1,116 @@
 
+@techreport{vaser_yet_2019,
+	type = {preprint},
+	title = {Yet another de novo genome assembler},
+	url = {http://biorxiv.org/lookup/doi/10.1101/656306},
+	abstract = {Abstract
+          
+            Advances in sequencing technologies have pushed the limits of genome assemblies beyond imagination. The sheer amount of long read data that is being generated enables the assembly for even the largest and most complex organism for which efficient algorithms are needed. We present a new tool, called Ra, for de novo genome assembly of long uncorrected reads. It is a fast and memory friendly assembler based on sequence classification and assembly graphs, developed with large genomes in mind. It is freely available at
+            https://github.com/lbcb-sci/ra
+            .
+          
+          This work has been supported in part by the Croatian Science Foundation under the project Single genome and metagenome assembly (IP-2018-01-5886), and in part by the European Regional Development Fund under the grant KK.01.1.1.01.0009 (DATACROSS). In addition, M.Š. is partly supported by funding from A*STAR, Singapore.},
+	language = {en},
+	urldate = {2022-03-09},
+	institution = {Bioinformatics},
+	author = {Vaser, Robert and Šikić, Mile},
+	month = may,
+	year = {2019},
+	doi = {10.1101/656306},
+}
+
+@article{koren_canu_2017,
+	title = {Canu: scalable and accurate long-read assembly via adaptive k-mer weighting and repeat separation},
+	volume = {27},
+	issn = {1088-9051, 1549-5469},
+	shorttitle = {Canu},
+	url = {https://genome.cshlp.org/content/27/5/722},
+	doi = {10.1101/gr.215087.116},
+	abstract = {Long-read single-molecule sequencing has revolutionized de novo genome assembly and enabled the automated reconstruction of reference-quality genomes. However, given the relatively high error rates of such technologies, efficient and accurate assembly of large repeats and closely related haplotypes remains challenging. We address these issues with Canu, a successor of Celera Assembler that is specifically designed for noisy single-molecule sequences. Canu introduces support for nanopore sequencing, halves depth-of-coverage requirements, and improves assembly continuity while simultaneously reducing runtime by an order of magnitude on large genomes versus Celera Assembler 8.2. These advances result from new overlapping and assembly algorithms, including an adaptive overlapping strategy based on tf-idf weighted MinHash and a sparse assembly graph construction that avoids collapsing diverged repeats and haplotypes. We demonstrate that Canu can reliably assemble complete microbial genomes and near-complete eukaryotic chromosomes using either Pacific Biosciences (PacBio) or Oxford Nanopore technologies and achieves a contig NG50 of {\textgreater}21 Mbp on both human and Drosophila melanogaster PacBio data sets. For assembly structures that cannot be linearly represented, Canu provides graph-based assembly outputs in graphical fragment assembly (GFA) format for analysis or integration with complementary phasing and scaffolding techniques. The combination of such highly resolved assembly graphs with long-range scaffolding information promises the complete and automated assembly of complex genomes.},
+	language = {en},
+	number = {5},
+	urldate = {2022-03-09},
+	journal = {Genome Research},
+	author = {Koren, Sergey and Walenz, Brian P. and Berlin, Konstantin and Miller, Jason R. and Bergman, Nicholas H. and Phillippy, Adam M.},
+	month = may,
+	year = {2017},
+	pmid = {28298431},
+	note = {Company: Cold Spring Harbor Laboratory Press
+Distributor: Cold Spring Harbor Laboratory Press
+Institution: Cold Spring Harbor Laboratory Press
+Label: Cold Spring Harbor Laboratory Press
+Publisher: Cold Spring Harbor Lab},
+	pages = {722--736},
+}
+
+@article{lin_novo_2017,
+	title = {De novo assembly of highly polymorphic metagenomic data using in situ generated reference sequences and a novel {BLAST}-based assembly pipeline},
+	volume = {18},
+	issn = {1471-2105},
+	url = {https://doi.org/10.1186/s12859-017-1630-z},
+	doi = {10.1186/s12859-017-1630-z},
+	abstract = {The accuracy of metagenomic assembly is usually compromised by high levels of polymorphism due to divergent reads from the same genomic region recognized as different loci when sequenced and assembled together. A viral quasispecies is a group of abundant and diversified genetically related viruses found in a single carrier. Current mainstream assembly methods, such as Velvet and SOAPdenovo, were not originally intended for the assembly of such metagenomics data, and therefore demands for new methods to provide accurate and informative assembly results for metagenomic data.},
+	number = {1},
+	urldate = {2022-03-09},
+	journal = {BMC Bioinformatics},
+	author = {Lin, You-Yu and Hsieh, Chia-Hung and Chen, Jiun-Hong and Lu, Xuemei and Kao, Jia-Horng and Chen, Pei-Jer and Chen, Ding-Shinn and Wang, Hurng-Yi},
+	year = {2017},
+	keywords = {Assembly pipeline, Hepatitis B virus, Metagenomics, Next generation sequencing, Sequence assembly},
+	pages = {223},
+}
+
+@article{afiahayati_extended_2013,
+	title = {An extended genovo metagenomic assembler by incorporating paired-end information},
+	volume = {1},
+	issn = {2167-8359},
+	url = {https://peerj.com/articles/196},
+	doi = {10.7717/peerj.196},
+	abstract = {Metagenomes present assembly challenges, when assembling multiple genomes from mixed reads of multiple species. An assembler for single genomes can’t adapt well when applied in this case. A metagenomic assembler, Genovo, is a de novo assembler for metagenomes under a generative probabilistic model. Genovo assembles all reads without discarding any reads in a preprocessing step, and is therefore able to extract more information from metagenomic data and, in principle, generate better assembly results. Paired end sequencing is currently widely-used yet Genovo was designed for 454 single end reads. In this research, we attempted to extend Genovo by incorporating paired-end information, named Xgenovo, so that it generates higher quality assemblies with paired end reads.First, we extended Genovo by adding a bonus parameter in the Chinese Restaurant Process used to get prior accounts for the unknown number of genomes in the sample. This bonus parameter intends for a pair of reads to be in the same contig and as an effort to solve chimera contig case. Second, we modified the sampling process of the location of a read in a contig. We used relative distance for the number of trials in the symmetric geometric distribution instead of using distance between the offset and the center of contig used in Genovo. Using this relative distance, a read sampled in the appropriate location has higher probability. Therefore a read will be mapped in the correct location.Results of extensive experiments on simulated metagenomic datasets from simple to complex with species coverage setting following uniform and lognormal distribution showed that Xgenovo can be superior to the original Genovo and the recently proposed metagenome assembler for 454 reads, MAP. Xgenovo successfully generated longer N50 than Genovo and MAP while maintaining the assembly quality even for very complex metagenomic datasets consisting of 115 species. Xgenovo also demonstrated the potential to decrease the computational cost. This means that our strategy worked well. The software and all simulated datasets are publicly available online at http://xgenovo.dna.bio.keio.ac.jp.},
+	language = {en},
+	urldate = {2022-03-09},
+	journal = {PeerJ},
+	author = {Afiahayati and Sato, Kengo and Sakakibara, Yasubumi},
+	month = oct,
+	year = {2013},
+	note = {Publisher: PeerJ Inc.},
+	pages = {e196},
+}
+
+@article{myers_whole-genome_2000,
+	title = {A whole-genome assembly of {Drosophila}},
+	volume = {287},
+	issn = {0036-8075},
+	doi = {10.1126/science.287.5461.2196},
+	abstract = {We report on the quality of a whole-genome assembly of Drosophila melanogaster and the nature of the computer algorithms that accomplished it. Three independent external data sources essentially agree with and support the assembly's sequence and ordering of contigs across the euchromatic portion of the genome. In addition, there are isolated contigs that we believe represent nonrepetitive pockets within the heterochromatin of the centromeres. Comparison with a previously sequenced 2.9- megabase region indicates that sequencing accuracy within nonrepetitive segments is greater than 99. 99\% without manual curation. As such, this initial reconstruction of the Drosophila sequence should be of substantial value to the scientific community.},
+	language = {eng},
+	number = {5461},
+	journal = {Science (New York, N.Y.)},
+	author = {Myers, E. W. and Sutton, G. G. and Delcher, A. L. and Dew, I. M. and Fasulo, D. P. and Flanigan, M. J. and Kravitz, S. A. and Mobarry, C. M. and Reinert, K. H. and Remington, K. A. and Anson, E. L. and Bolanos, R. A. and Chou, H. H. and Jordan, C. M. and Halpern, A. L. and Lonardi, S. and Beasley, E. M. and Brandon, R. C. and Chen, L. and Dunn, P. J. and Lai, Z. and Liang, Y. and Nusskern, D. R. and Zhan, M. and Zhang, Q. and Zheng, X. and Rubin, G. M. and Adams, M. D. and Venter, J. C.},
+	month = mar,
+	year = {2000},
+	pmid = {10731133},
+	keywords = {Algorithms, Animals, Chromatin, Computational Biology, Contig Mapping, Drosophila melanogaster, Euchromatin, Genes, Insect, Genome, Heterochromatin, Molecular Sequence Data, Physical Chromosome Mapping, Repetitive Sequences, Nucleic Acid, Sequence Analysis, DNA, Sequence Tagged Sites},
+	pages = {2196--2204},
+}
+
+@incollection{hutchison_genovo_2010,
+	address = {Berlin, Heidelberg},
+	title = {Genovo: {De} {Novo} {Assembly} for {Metagenomes}},
+	volume = {6044},
+	isbn = {978-3-642-12682-6 978-3-642-12683-3},
+	shorttitle = {Genovo},
+	url = {http://link.springer.com/10.1007/978-3-642-12683-3_22},
+	urldate = {2022-03-09},
+	booktitle = {Research in {Computational} {Molecular} {Biology}},
+	publisher = {Springer Berlin Heidelberg},
+	author = {Laserson, Jonathan and Jojic, Vladimir and Koller, Daphne},
+	editor = {Hutchison, David and Kanade, Takeo and Kittler, Josef and Kleinberg, Jon M. and Mattern, Friedemann and Mitchell, John C. and Naor, Moni and Nierstrasz, Oscar and Pandu Rangan, C. and Steffen, Bernhard and Sudan, Madhu and Terzopoulos, Demetri and Tygar, Doug and Vardi, Moshe Y. and Weikum, Gerhard and Berger, Bonnie},
+	year = {2010},
+	doi = {10.1007/978-3-642-12683-3_22},
+	note = {Series Title: Lecture Notes in Computer Science},
+	pages = {341--356},
+}
+
 @article{van_der_putten_software_nodate,
 	title = {Software testing in microbial bioinformatics: a call to action},
 	volume = {8},
@@ -320,20 +432,6 @@ Place: New Delhi
 Publisher: World Health Organization},
 }
 
-@techreport{____2012,
-	address = {Лион, Франция},
-	title = {Инструмент для оценки качества лабораторий},
-	url = {https://apps.who.int/iris/handle/10665/87135},
-	language = {ru},
-	urldate = {2022-03-07},
-	institution = {Бюро ВОЗ в Лионе по обеспечению готовности к эпидемиям и реагирования на национальном уровне},
-	author = {{Всемирная организация здравоохранения} and {Бюро ВОЗ в Лионе по обеспечению готовности к эпидемиям и реагирования на национальном уровне}},
-	year = {2012},
-	note = {Section: 35 стр.
-WHO/HSE/GCR/LYO/2012.2},
-	keywords = {Laboratories, Surveys and Questionnaires, стандарты},
-}
-
 @article{world_health_organization_international_2011,
 	title = {The {International} {Food} {Safety} {Authorities} {Network} ({INFOSAN}) progress report 2004 - 2010},
 	issn = {9789241501286 (WHO)},
@@ -404,22 +502,6 @@ EUR/RC64/REP},
 	author = {{World Health Organization}},
 	year = {2009},
 	pages = {261--264},
-}
-
-@book{world_health_organization_regional_office_for_the_eastern_mediterranean__2016,
-	address = {Cairo},
-	edition = {3rd.},
-	title = {دليل إصحاح السفن},
-	isbn = {978-92-9022-087-9},
-	url = {https://apps.who.int/iris/handle/10665/206390},
-	abstract = {إن النسخة الثالثة ل"دليل إصحاح السفن” تستعرض أهمية الصحة العامة للسفن من ناحية الأمراض، وتسلّط الضوء على أهمية تطبيق تدابير المكافحة الملائمة. والغرض من الدليل أن يكون أساسًا لإعدادنُهُجٍ وطنية لمكافحة المخاطر، وتقديم إطار لوضع السياسات واتخاذ القرارات المحلية. كما يمكن الاستفادةمنه كمرجع للمشرفين على التنظيم، وشركات تشغيل وتصنيع السفن علاوة على تقييم التأثير الصحيالمحتمل للمشاريع المتعلقة بتصميم السفن},
-	language = {ar},
-	urldate = {2022-03-07},
-	publisher = {World Health Organization. Regional Office for the Eastern Mediterranean},
-	author = {{World Health Organization. Regional Office for the Eastern Mediterranean}},
-	year = {2016},
-	note = {Section: 168 p.},
-	keywords = {Communicable Disease Control, Communicable Diseases, Public Health, Sanitation, Ships},
 }
 
 @techreport{world_health_organization_regional_office_for_south-east_asia_who_2014,
@@ -619,20 +701,6 @@ WHO/HSE/GCR/LYO/2014.12},
 	keywords = {Hepatitis, Viral, Human, Public Health Surveillance, epidemiology},
 }
 
-@techreport{_2017522-31_2017,
-	address = {日内瓦},
-	title = {第六十一届世界卫生大会：2017年5月22-31日于日内瓦：决议和决定：附件},
-	url = {https://apps.who.int/iris/handle/10665/260368},
-	language = {zh},
-	urldate = {2022-03-07},
-	institution = {世界卫生组织},
-	author = {{第七十届世界卫生大会}},
-	year = {2017},
-	note = {Section: xxxiii, 302
-WHA70/2017/REC/1},
-	keywords = {Health Planning, Health Policy, Resolutions and decisions, World Health Organization},
-}
-
 @techreport{world_health_organization_joint_2017,
 	address = {Geneva},
 	title = {Joint external evaluation of {IHR} core capacities of the {Republic} of the {Gambia}: mission report, {September} 24-29, 2017},
@@ -646,21 +714,6 @@ WHA70/2017/REC/1},
 	note = {Section: 60 p.
 WHO/WHE/CPI/REP/2017.61},
 	keywords = {Capacity Building, Gambia, International Cooperation, Medical Missions, Technical Report},
-}
-
-@techreport{____2017,
-	address = {Женева},
-	title = {Обзор Механизма обеспечения готовности к пандемическому гриппу: доклад Генерального директора},
-	shorttitle = {Обзор Механизма обеспечения готовности к пандемическому гриппу},
-	url = {https://apps.who.int/iris/handle/10665/274777},
-	language = {ru},
-	urldate = {2022-03-07},
-	institution = {Всемирная организация здравоохранения},
-	author = {Всемирная ассамблея здравоохранения, 70},
-	year = {2017},
-	note = {Section: 131 P.
-A70/17},
-	keywords = {Influenza Vaccines, Influenza, Human, Pandemics},
 }
 
 @book{organisation_mondiale_de_la_sante_bureau_regional_de_lafrique_lignes_2015,
@@ -897,21 +950,6 @@ Section: 56 p},
 	author = {{World Health Organization. Regional Office for South-East Asia}},
 	year = {2013},
 	keywords = {JOURNAL},
-}
-
-@techreport{___2017,
-	address = {Женева},
-	title = {Обзор Механизма обеспечения готовности к пандемическому гриппу: доклад Генерального директора},
-	shorttitle = {Обзор Механизма обеспечения готовности к пандемическому гриппу},
-	url = {https://apps.who.int/iris/handle/10665/273218},
-	language = {ru},
-	urldate = {2022-03-07},
-	institution = {Всемирная организация здравоохранения},
-	author = {Исполнительный комитет, 140},
-	year = {2017},
-	note = {Section: 131 p.
-EB140/16},
-	keywords = {Influenza Vaccines, Influenza, Human, Pandemics},
 }
 
 @book{organisation_mondiale_de_la_sante_cadre_2010,
@@ -1307,35 +1345,6 @@ WHO/EURO:2019-2378-42133-58035},
 	keywords = {Disease Outbreaks, Emergencies, Europe, Global Health, Intersectoral Collaboration, Natural Disasters, Risk Management, Sustainable Development, United Nations},
 }
 
-@techreport{__2017,
-	address = {日内瓦},
-	title = {审查大流行性流感防范框架 总干事的报告},
-	url = {https://apps.who.int/iris/handle/10665/273219},
-	language = {zh},
-	urldate = {2022-03-07},
-	institution = {世界卫生组织},
-	author = {执行委员会, 140},
-	year = {2017},
-	note = {Section: 107 p.
-EB140/16},
-	keywords = {Influenza Vaccines, Influenza, Human, Pandemics},
-}
-
-@techreport{__2017-1,
-	address = {日内瓦},
-	title = {审查大流行性流感防范框架: 总干事的报告},
-	shorttitle = {审查大流行性流感防范框架},
-	url = {https://apps.who.int/iris/handle/10665/274778},
-	language = {zh},
-	urldate = {2022-03-07},
-	institution = {世界卫生组织},
-	author = {{第七十届世界卫生大会}},
-	year = {2017},
-	note = {Section: 106 p.
-A70/17},
-	keywords = {Influenza Vaccines, Influenza, Human, Pandemics},
-}
-
 @techreport{world_health_organization_scientific_2015,
 	address = {Geneva},
 	title = {Scientific and technical advisory group on geographical yellow fever risk mapping ({GRYF}): terms of reference},
@@ -1522,7 +1531,7 @@ WHO/WHE/CPI/2018.13},
 	keywords = {Emergencies, Smallpox Vaccine, Variola virus, supply and distribution},
 }
 
-@book{world_health_organization_who_2018,
+@book{world_health_organization_who_2018-2,
 	address = {Geneva},
 	series = {{WHO} technical report series;1011},
 	title = {{WHO} {Expert} {Committee} on {Biological} {Standardization}: sixty-eighth report},

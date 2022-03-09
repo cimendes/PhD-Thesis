@@ -372,7 +372,8 @@ Due to the limitations of current sequencing technologies (see \secref{ssec:sequ
 Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur. 
 The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:2nd_gen_seq}) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
 Long-read technologies (see \secref{ssec:3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}. 
-Two methods are used to obtain draft genomes: (1) through reference-guided sequence assembly, or (2), through \textit{de novo} sequence assembly.
+
+Assembling reads into contigs has many advantages, namely that longer sequences are more informative, allowing the consideration of whole genes or even gene clusters within a genome and to understand larger genetic variants and repeats. Additionally, it has the effect of removing most sequencing errors, though this can be at the expense of new assembly errors \citep{ayling_new_2020}. Two methods are used to obtain draft genomes: (1) through reference-guided sequence assembly, or (2), through \textit{de novo} sequence assembly.
 
 \subsubsection{Genomes through reference-guided sequence assembly}
 
@@ -389,18 +390,29 @@ Breadth of coverage is defined as the ratio of covered sequence on the reference
 
 \subsubsection{Genomes through \textit{de novo} sequence assembly}
 
-De novo assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads. Two methods are used to obtain draft genomes without the need of a reference genome: (1) through Overlap, Layout and Consensus, or (2) De Bruijn graph assembly (see Figure \ref{fig:figure6}).
-
-The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
+De novo assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads. Two methods are used to obtain draft genomes without the need of a reference genome: (1) through Overlap, Layout and Consensus, or (2) De Bruijn graph assembly (see Figure \ref{fig:figure6}). The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 6.png}
-\caption{\textbf{Approaches to \textit{de novo} genome assemble.} BLABLA. Adapted from \cite{ayling_new_2020}}.
+\caption{\textbf{Approaches to \textit{de novo} genome assemble.} In Overlap, Layout, Consensus assembly, (1) overlaps are found between reads and an overlap graph constructed (edges indicate overlapping reads). (2) Reads are laid out into contigs based on the overlaps (lines indicate overlapping portions). (3) The most likely sequence is chosen to construct consensus sequence. In De Bruijn graph assembly, (1) reads are decomposed into kmers of a determined size by sliding a window of size k (in here of k=3) across the reads. (2) The kmers become vertices in the De Bruijn graph, with edges connecting overlapping kmers. Polymorphisms (red) form branches in the graph. A count is kept of how many times a kmer is seen, shown here as numbers above kmers. (3) Contigs are built by walking the graph from edge nodes. A variety of heuristics handle branches in the graphs—for example, low coverage paths, as shown here, may be ignored. Adapted from \cite{ayling_new_2020}}.
 \label{fig:figure6}
 \end{figure*}
 
-\paragraph{Overlap, Layout and Consensus assembly} \label{sssec:OLC_assembly} \mbox{}\\
+\paragraph{Overlap, Layout and Consensus assembly} \label{sssec:OLC_assembly} \mbox\\
+
+First generation sequencing technology (see \secref{ssec:1st_gen_seq}) produces far fewer reads than second generation sequencing technology (see \secref{ssec:2nd_gen_seq}, but individual reads are longer (500–1000 bp). 
+Assembly of Sanger data usually uses overlap-layout consensus (OLC) approaches (see Figure \ref{fig:figure6}), in which:
+
+\begin{itemize}
+    \item Overlaps are computed by comparing all reads to all other reads;
+    \item Overlaps are grouped together to form contigs;
+    \item A consensus contiguous sequence, or contig, is determined by picking the most likely nucleotides from the overlapping reads.
+\end{itemize}
+
+These type of assemblers were very popular in the early 2010s, with assemblers such as Celera\footnote{\url{https://www.cbcb.umd.edu/software/celera-assembler}},  Genovo\footnote{\url{https://cs.stanford.edu/genovo }}, xGenovo\footnote{\url{http://xgenovo.dna.bio.keio.ac.jp/}} and BBAP\footnote{\url{http://homepage.ntu.edu.tw/~youylin/BBAP.html}} having been widely used \citep{myers_whole-genome_2000, hutchison_genovo_2010, afiahayati_extended_2013, lin_novo_2017}.
+With the emergence of third-generation sequencing (see \secref{ssec:3rd_gen_seq}), OLC assemblers have been increasingly developed and adopted by the community to assembly long-read data. 
+In the latest years, ra\footnote{\url{https://github.com/lbcb-sci/ra}}, raven\footnote{\url{https://github.com/lbcb-sci/raven}} and canu\footnote{\url{https://github.com/marbl/canu}}, the latter being a a fork of the Celera Assembler, have become staples in the community, showing good reliability and amassing over 3000 citations \citep{vaser_yet_2019, koren_canu_2017, wick_benchmarking_2021}.  %missing raven
 
 \paragraph{De Bruijn graph assembly} \label{sssec:dbg_assembly} \mbox{}\\
 
@@ -408,14 +420,13 @@ In the De Bruijn assembly graph, reads are split into overlapping k-mers where n
 
 \begin{itemize}
     \item A directed edge from node N\textsubscript{a} to node N\textsubscript{b} indicates that N\textsubscript{b} is next to N\textsubscript{a} in a read;
-    \item The number of nodes in the De Bruijn graph is theoretically the total number of identical k-mers in the genome
-    \item The weight on the edge indicates the number of times  N\textsubscript{b} is observed next to  N\textsubscript{a} in all reads
+    \item The number of nodes in the De Bruijn graph is theoretically the total number of identical k-mers in the genome;
+    \item The weight on the edge indicates the number of times  N\textsubscript{b} is observed next to  N\textsubscript{a} in all reads.
 \end{itemize}
 
 Thus, the weight of an edge indicates the possibility that two k-mers appear after each other in the DNA sequence. A path in the graph where all edges have the highest weight is the most likely to be a part of the genome \citep{bayat_methods_2020}.
 
 \subsubsection{Assembly quality assessment and quality control}
-
 
 \section{Bioinformatic Analysis for Shotgun Metagenomics}
 
@@ -430,7 +441,6 @@ For virulence gene detection and antimicrobial resistance characterization a map
 It is possible to genotype the bacterial population in a metagenomic sample, but only for short-read sequencing data.  MetaMLST (Zolfo et al., 2017) reconstructs the MultiLocus Sequence Typing (MLST) loci directly from the sequencing data and provides a pre-built database for the analysis.
 
 
-s
 A plethora of open-source tools are available specifically for metagenomic data, both short and long-read data, and several combinations of these tools can be used to characterize the causative agent in a patient's infection in a fraction of the time required by the traditional methods. Alongside, there are several commercial alternatives, such as CLC Genomics Workbench (QIAGEN Bioinformatics), Taxonomer (Flygare et al., 2016) and BaseSpace (Illumina), that offer ready to use complete workflows at the cost of lack of transparency, reproducibility and control in the analysis.
 Several steps that can be implemented to ensure the transparency and reproducibility of the chosen workflow. Favouring open-source tools, with clear documentation describing the methodology implemented, and stating the version of the software used and which parameters were used enables the comparison of results. This can be simplified by containerizing all the software tools with one of the many solutions available, like Docker (https://www.docker.com/) or Singularity (Kurtzer et al., 2017). The use of workflow managers, like nextflow (Tommaso et al., 2017) or the Galaxy Project (Afgan et al., 2016), will push reproducibility to the next level by taking advantage of the containerization and scalability, enabling the workflow to be executed with the same parameters in the same conditions in a multitude of different environments. The FlowCraft project (https://github.com/assemblerflow/flowcraft) leverages the combination of Nextflow and docker/singularity containers to assemble, monitor and report scientific pipelines created from the combination of pre-built components, many of them supporting metagenomic analysis.
 Additional difficulties of metagenomic data are the overpowering quantities of host DNA that are often sequenced (Couto et al., 2018), making the microbial community close to undetectable, the presence of contaminants, from the bench process to the biota, and the cost associated with this methodology. They account for major caveats and must be made aware of when analysing the data.
