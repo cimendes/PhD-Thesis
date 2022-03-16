@@ -38,7 +38,7 @@ For the purpose of this dissertation work, we will be focusing on bacterial and 
 
 For patients with bacterial infections, the crucial steps are (1) to grow an isolate from a specimen, (2) identify its species, and (3) determine its pathogenic potential and test its susceptibility to antimicrobial drugs  \citep{didelot_transforming_2012}. 
 Together this information facilitates the specific and rational treatment of patients. 
-For public health purposes, knowledge also needs to be gained about (4) the relatedness of the pathogen to other strains of the same species to investigate transmission routes and enable the recognition of outbreaks \citep{foxman_choosing_2005} \ref{fig:figure2}. 
+For public health purposes, knowledge also needs to be gained about (4) the relatedness of the pathogen to other strains of the same species to investigate transmission routes and enable the recognition of outbreaks \citep{foxman_choosing_2005} (see Figure \ref{fig:figure2}). 
 
 \begin{figure*}[h!]
 \centering
@@ -111,11 +111,7 @@ A better knowledge of causes and consequences of certain human activities, lifes
 
 \section{A genomic approach to clinical microbiology} \label{sec:genomics_approach}
 
-Since the publication of the first complete microbial genome a quarter of a century ago, that of the bacterium \textit{Haemophilus influenzae} \citep{hood_dna_1996}, genomics has transformed the field of microbiology, and in particular its clinical application. 
-The paper describing the DNA-sequencing method with chain-terminating inhibitors used in the sequencing of the first microbial genome \citep{sanger_dna_1977}, which earned the late Frederick Sanger his share of the 1980 Nobel Prize in Chemistry alongside Walter Gilbert, was, in 2014, the top fourth in the number of citations with 60335, highlighting its impact in the field of biological sciences, and by extension medicine \citep{van_noorden_top_2014}. 
-Currently, this number has increased to 84546 according to PubMed Central\textsuperscript{\small\textregistered} (PMC)\footnote{\url{https://pubmed.ncbi.nlm.nih.gov/}}\footnote{\url{ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC431765/}}. 
-Since its emergence, reductions in cost, technical advances in sequencing technologies and new computational developments have made genomic sequencing one of the most influential tools in biomedical research, yielding unprecedented insights into microbial evolution and diversity, and the complexity of the genetic variation in both commensal and pathogenic microbes. 
-The emerging application of genomic technologies in the clinic to combat infectious diseases is transforming clinical diagnostics and the detection and surveillance of outbreaks. 
+Since the publication of the first complete microbial genome a quarter of a century ago, that of the bacterium \textit{Haemophilus influenzae} \citep{hood_dna_1996}, genomics has transformed the field of microbiology, and in particular its clinical application (see Figure \ref{fig:figure3}). 
 
 \begin{figure*}[h!]
 \centering
@@ -125,18 +121,22 @@ After sequencing, the main processes for yielding information will be computatio
 \label{fig:figure3}
 \end{figure*}
 
+The paper describing the DNA-sequencing method with chain-terminating inhibitors used in the sequencing of the first microbial genome \citep{sanger_dna_1977}, which earned the late Frederick Sanger his share of the 1980 Nobel Prize in Chemistry alongside Walter Gilbert, was, in 2014, the top fourth in the number of citations with 60335, highlighting its impact in the field of biological sciences, and by extension medicine \citep{van_noorden_top_2014}. 
+Currently, this number has increased to 84546 according to PubMed Central\textsuperscript{\small\textregistered} (PMC)\footnote{\url{https://pubmed.ncbi.nlm.nih.gov/}}\footnote{\url{ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC431765/}}. 
+Since its emergence, reductions in cost, technical advances in sequencing technologies and new computational developments have made genomic sequencing one of the most influential tools in biomedical research, yielding unprecedented insights into microbial evolution and diversity, and the complexity of the genetic variation in both commensal and pathogenic microbes. 
+The emerging application of genomic technologies in the clinic to combat infectious diseases is transforming clinical diagnostics and the detection and surveillance of outbreaks. 
 
 \subsection{Twenty five years of microbial genome sequencing} \label{ssec:sequencing}
 
 Since the discovery of the structure of DNA \citep{watson_molecular_1953}, great strides have been made in understanding the complexity and diversity of genomes in health and disease. 
 The development and commercialisation of high-throughput, massively parallel sequencing, has democratised sequencing by offering individual laboratories, either in research or in health, access to the technology. 
-Over the last quarter of a century, three main revolutions can be considered in genomic sequencing (see Figure ~\ref{fig:figure3}).
+Over the last quarter of a century, three main revolutions can be considered in genomic sequencing (see Figure ~\ref{fig:figure5}).
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/introduction/Figure 3.png}
+\includegraphics[width=\textwidth]{figures/introduction/Figure 5.png}
 \caption{\textbf{The three revolutions in sequencing technology that have transformed the landscape of bacterial genome sequencing.} The first-generation, also known as Sanger sequencers, is represented by the ABI Capillary Sequencer (Applied Biosystems). During the sequencing reaction, at each nucleotide incorporation event a fluorescently labelled ddNTP is incorporated, terminating the elongation of the DNA molecule. The resulting electropherogram for sequencing reaction is below, and is read from left to right. The second-generation, also known as high-throughput sequencers, is represented by the MiSeq, a 4-channel sequencer, and the NextSeq, a 2-channel sequencer (Illumina), both sequencing by synthesis instruments. For both instruments, the loaded flowcell is sequenced in massive parallel reactions, with each nucleotide incorporation emitting a light signal that is captured and latter basecalled into a fastq file, with indication of the confidence of the call, presented bellow. In a 4-channel instrument each nucleotide has it's own marker (A: yellow, T: green, C: red, G: blue) but in a 2-channel instrument only 2 markers exist (A: green plus red, T: green, C: red, G: no marker). These instrument allow the sequencing of both ends of the DNA fragment. Lastly, the third-generation, also known as long-read sequencers, is represented by Pacific Bioscience BS sequencer and Oxford Nanopore MinION sequencer. In the first, immobilised polymerases in a SMRT Cell incorporating nucleotides with identifying fluorescent labels. In the latter, a nanopore embedded in a solid-state membrane causes a a change in an ionic current across the membrane each time a nucleotide is pushed though the pore. This difference in potential is then used for basecalling. Adapted from \cite{hagemann_overview_2015, loman_twenty_2015,goodwin_coming_2016, wang_nanopore_2021, metzker_sequencing_2010, xu_recent_2020}}
-\label{fig:figure3}
+\label{fig:figure5}
 \end{figure*}
 
 \subsubsection{The first-generation of DNA sequencing} \label{ssec:1st_gen_seq}
@@ -269,6 +269,15 @@ Unlike PCR or microarrays, it usually does not require primer or probe design, i
 While most molecular assays target only a limited number of pathogens, metagenomic approaches characterise all DNA or RNA present in a sample, enabling analysis of the entire microbiome as well as the human host genome or transcriptome in patient samples \citep{chiu_clinical_2019}. 
 Whether or not it can entirely replace routine microbiology depends on several conditions and future developments, both technological and computational (see \secref{sec:bioinformatics}).
 
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/introduction/Figure 4.pdf}
+\caption{\textbf{Principles of current processing of bacterial pathogens based on whole genome sequencing.} Schematic representation of the workflow for processing samples for bacterial pathogens after adoption of whole genome sequencing, with an expected timescale that could fit within a single day. The culture steps would be the same as currently used in a routine microbiology laboratory. Once a likely pathogen is ready for sequencing, DNA will be extracted, taking as little as 2 hours to prepare the DNA for sequencing.
+After sequencing, the main processes for yielding information will be computational. Automated sequence assembly algorithms are necessary for processing the raw sequence data, from which species, relationship to other isolates of the same species, antimicrobial resistance profile and virulence gene content can be assessed. All the results will also be used for outbreak detection and infectious diseases surveillance. Adapted from \cite{didelot_transforming_2012}}
+\label{fig:figure3}
+\end{figure*}
+
+
 Albeit lacking consensus in the field, metagenomics can be classified into two variants as proposed by \citep{marchesi_vocabulary_2015}: (1) metaxonomics where marker genes ubiquitous in many taxa are targeted and sequenced, and (2) the untargeted "shotgun" sequencing of all microbial genomes present in a sample. 
 
 \subsubsection{Metataxonomics and Targeted Metagenomics} \label{sssec:metataxonomics}
@@ -346,26 +355,26 @@ The PHRED quality scores $\mathbf{Q}$ is defined as a property which is logarith
 \end{tabular}
 \end{table}
 
-Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of available encoding is available in \ref{figure4}. 
+Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of available encoding is available in \ref{fig:figure6}. 
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/introduction/Figure 4.png}
+\includegraphics[width=\textwidth]{figures/introduction/Figure 6.png}
 \caption{\textbf{Range of FASTQ quality scores andd their corresponding ASCII encoding.} For raw reads, the range of scores will depend on the technology and the base caller used. Starting in Illumina 1.8, the quality scores have returned to the use of the Sanger format (PHRED+33). For processed reads and long accurate reads, scores may be even higher with, For example, quality values of up to 93 observed in reads from PacBio HiFi reads.}
-\label{fig:figure4}
+\label{fig:figure6}
 \end{figure*}
 
 \subsubsection{FASTQ file simulation}
 
 With the lack of golden standards for metagenomic analysis, the use of simulated mock communities, with known composition, abundance and genomic information, provides a ground truth against which evaluations of success can be made. Given their standard structure and adoption, the generation of simulated FASTQ files from a reference, or a set of references, is very straightforward. 
 
-Multiple computational tools for the simulation of sequencing data, particularly for second and third-generation sequencing technologies, have been developed in recent years, which could be used to compare existing and new bioinformatic analytical pipelines. \cite{escalona_comparison_2016} provides a comprehensive assessment of 23 different read-simulation tools,  highlighting their distinct functionality, requirements and potential applications, as well as providing a selection of suggestions for different simulation tools depending on their purpose. For \textit{in silico} genomic and metagenomic sequence generation, a pletora of tools are available for first, second and third-generation reads (see \ref{fig:figure5}).
+Multiple computational tools for the simulation of sequencing data, particularly for second and third-generation sequencing technologies, have been developed in recent years, which could be used to compare existing and new bioinformatic analytical pipelines. \cite{escalona_comparison_2016} provides a comprehensive assessment of 23 different read-simulation tools,  highlighting their distinct functionality, requirements and potential applications, as well as providing a selection of suggestions for different simulation tools depending on their purpose. For \textit{in silico} genomic and metagenomic sequence generation, a pletora of tools are available for first, second and third-generation reads (see \ref{fig:figure7}).
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/introduction/Figure 5.png}
+\includegraphics[width=\textwidth]{figures/introduction/Figure 7.png}
 \caption{\textbf{Sequence simulators for genomic and metagenomic data.} For first generation sequencing, Metasim (\url{https://github.com/gwcbi/metagenomics_simulation}) and Grider (\url{https://sourceforge.net/projects/biogrinder/}) can generate mock genomic and metagenomic data, with and without error models respectively. For Illumina data, ART (\url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}), InSilicoSeq (\url{https://github.com/HadrienG/InSilicoSeq}) and CAMISIM (\url{https://github.com/CAMI-challenge/CAMISIM}) represent options for in silico data generation. Due to their differences, the third generation Pacific BioSciences (PacBio) and Oxford Nanopore (ONT) have distict software for in silico data generation. The first can be accomplished by LongISLND (\url{https://bioinform.github.io/longislnd/}) and PBSIM2 (\url{https://github.com/yukiteruono/pbsim2}) got genomic data, and SimLORD (\url{https://bitbucket.org/genomeinformatics/simlord/src}) fot metagenomic data, with and without error model. The latter BadRead (\url{https://github.com/rrwick/Badread}) and NanoSim (\url{https://github.com/bcgsc/NanoSim}) can genenrate genomic and metagenomic \textit{in silico} data, with and withouth error model. Additionally, for genomic data, LongISLND and SiLiCO (\url{https://github.com/ethanagb/SiLiCO}) generate data with and without error, respectively. Adapted from \cite{escalona_comparison_2016}.}
-\label{fig:figure5}
+\label{fig:figure7}
 \end{figure*}
 
 \subsubsection{FASTQ quality assessment and quality control}
@@ -404,13 +413,13 @@ Breadth of coverage is defined as the ratio of covered sequence on the reference
 
 \subsubsection{Genomes through \textit{de novo} sequence assembly}
 
-De novo assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads. Two methods are used to obtain draft genomes without the need of a reference genome: (1) through Overlap, Layout and Consensus, or (2) De Bruijn graph assembly (see Figure \ref{fig:figure6}). The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
+De novo assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads. Two methods are used to obtain draft genomes without the need of a reference genome: (1) through Overlap, Layout and Consensus, or (2) De Bruijn graph assembly (see Figure \ref{fig:figure8}). The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/introduction/Figure 6.png}
+\includegraphics[width=\textwidth]{figures/introduction/Figure 8.png}
 \caption{\textbf{Approaches to \textit{de novo} genome assemble.} In Overlap, Layout, Consensus assembly, (1) overlaps are found between reads and an overlap graph constructed (edges indicate overlapping reads). (2) Reads are laid out into contigs based on the overlaps (lines indicate overlapping portions). (3) The most likely sequence is chosen to construct consensus sequence. In De Bruijn graph assembly, (1) reads are decomposed into kmers of a determined size by sliding a window of size k (in here of k=3) across the reads. (2) The kmers become vertices in the De Bruijn graph, with edges connecting overlapping kmers. Polymorphisms (red) form branches in the graph. A count is kept of how many times a kmer is seen, shown here as numbers above kmers. (3) Contigs are built by walking the graph from edge nodes. A variety of heuristics handle branches in the graphs—for example, low coverage paths, as shown here, may be ignored. Adapted from \cite{ayling_new_2020}}.
-\label{fig:figure6}
+\label{fig:figure8}
 \end{figure*}
 
 \paragraph{Overlap, Layout and Consensus assembly} \label{sssec:OLC_assembly} \mbox\\
