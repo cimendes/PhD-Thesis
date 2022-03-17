@@ -318,7 +318,7 @@ Bioinformatics is an interdisciplinary research field that applies methodologies
 
 Major efforts are being made on the standardisation and assessment of software for the analysis of genomic data, both commercial and open-source \cite{angers-loustau_challenges_2018, gruening_recommendations_2019, sczyrba_critical_2017, couto_critical_2018}. 
 
-\subsection{The FASTQ file}
+\subsection{The FASTQ file} \label{ssec:fastq}
 
 In all sequencing technologies (see \secref{ssec:sequencing}), many copies of the source DNA are randomly fragmented and sequenced. To these sequences, we refer to as reads. In the case of second-generation sequencing (see \secref{ssec:2nd_gen_seq}), one or both ends of the fragment can be sequenced. If a fragment is sequenced from one end, we refer to it as single-end sequencing. If a fragment is sequenced on both ends, spanning the entire fragment, it is called paired-end sequencing.
 
@@ -363,11 +363,11 @@ Since their introduction, PHRED scores have become the \textit{de facto} standar
 \label{fig:figure6}
 \end{figure*}
 
-\subsubsection{FASTQ file simulation}
+\subsubsection{FASTQ file simulation} \label{ssec:fastq_sim}
 
 With the lack of golden standards for metagenomic analysis, the use of simulated mock communities, with known composition, abundance and genomic information, provides a ground truth against which evaluations of success can be made. Given their standard structure and adoption, the generation of simulated FASTQ files from a reference, or a set of references, is very straightforward. 
 
-Multiple computational tools for the simulation of sequencing data, particularly for second and third-generation sequencing technologies, have been developed in recent years, which could be used to compare existing and new bioinformatic analytical pipelines. \cite{escalona_comparison_2016} provides a comprehensive assessment of 23 different read-simulation tools,  highlighting their distinct functionality, requirements and potential applications, as well as providing a selection of suggestions for different simulation tools depending on their purpose. For \textit{in silico} genomic and metagenomic sequence generation, a pletora of tools are available for first, second and third-generation reads (see \ref{fig:figure7}).
+Multiple computational tools for the simulation of sequencing data, particularly for second and third-generation sequencing technologies, have been developed in recent years, which could be used to compare existing and new bioinformatic analytical pipelines. \cite{escalona_comparison_2016} provides a comprehensive assessment of 23 different read-simulation tools,  highlighting their distinct functionality, requirements and potential applications, as well as providing a selection of suggestions for different simulation tools depending on their purpose. For \textit{in silico} genomic and metagenomic sequence generation, a pletora of tools are available for first, second and third-generation reads (see Figure \ref{fig:figure7}).
 
 \begin{figure*}[h!]
 \centering
@@ -376,11 +376,11 @@ Multiple computational tools for the simulation of sequencing data, particularly
 \label{fig:figure7}
 \end{figure*}
 
-\subsubsection{FASTQ quality assessment and quality control}
+\subsubsection{FASTQ quality assessment and quality control} \label{ssec:fastq_quality}
 
 Quality assessment and control is a basal step to any analysis, and aims to (1) remove and/or filter low quality and low complexity reads, (2) trim adapters, and (3) remove host sequences from the samples’ raw data. There are many tools available but the most commonly used are FastQC\footnote{\url{https://www.bioinformatics.babraham.ac.uk/projects/fastqc/}} (Babraham Bioinformatics) for quality control, followed by Trimmomatic \citep{bolger_trimmomatic_2014}, Cutadapt \citep{martin_cutadapt_2011} or fastp \citep{chen_fastp_2018} to trim and/or filter adaptors, low quality and low complexity sequences. For long-read sequencing, tools like NanoPlot and NanoStats \citep{de_coster_nanopack_2018}, and Filtlong\footnote{\url{https://github.com/rrwick/Filtlong/}} can perform the equivalent quality assessment and control, adapter trimming and low quality trimming, respectively. 
 
-\subsection{Direct taxonomic assignment and characterisation}
+\subsection{Direct taxonomic assignment and characterisation} \label{ssec:taxonomic_assignment}
 
 A piece of important information that can be retrieved directly from the quality-controlled read data: (1) the identification and characterisation of the microbes present in a sample and (2) their relative abundance. Taxonomic classification methods can vary depending on the sequencing methodology used: pure culture, metataxonomics and amplicon metagenomics, and shotgun metagenomics.
 
@@ -388,7 +388,7 @@ From pure culture, taxonomic identification of the read content of a sample is u
 
 These tools are also extremely useful to assess the contents of a metagenomic sample. Alternatives such as Midas \citep{nayfach_integrated_2016}, Kaiju, \citep{menzel_fast_2016}, and MetaPhlAn2 \citep{truong_metaphlan2_2015} offer the same analysis as Kraken and Bracken using different algorithms, and with the disadvantage that they come prepackaged with their own databases, without the option to create a tailored database, limiting their applicability. Kaiju differs from the other tools by using a protein reference database, instead of nucleotide, but no pre-built version is available, requiring significant resources to build and index the database pre-use. The long-read data of third-generation sequencing technologies (see \secref{ssec:3rd_gen_seq}) can be treated as single-end reads, and all tools mentioned accommodate the classification of single-end files. 
 
-\subsection{From reads to genomes}
+\subsection{From reads to genomes} \label{ssec:reads_2_genomes}
 
 Due to the limitations of current sequencing technologies (see \secref{ssec:sequencing}), the order of the reads produced by these machines cannot be preserved. 
 Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur. 
@@ -424,7 +424,7 @@ De novo assembly refers to the bioinformatics process whereby reads are assemble
 \paragraph{Overlap, Layout and Consensus assembly} \label{sssec:OLC_assembly} \mbox\\
 
 First generation sequencing technology (see \secref{ssec:1st_gen_seq}) produces far fewer reads than second generation sequencing technology (see \secref{ssec:2nd_gen_seq}, but individual reads are longer (500–1000 bp). 
-Assembly of Sanger data usually uses overlap-layout consensus (OLC) approaches (see Figure \ref{fig:figure6}), in which:
+Assembly of Sanger data usually uses overlap-layout consensus (OLC) approaches, in which:
 
 \begin{itemize}
     \item Overlaps are computed by comparing all reads to all other reads;
@@ -450,36 +450,54 @@ Thus, the weight of an edge indicates the possibility that two k-mers appear aft
 
 Most second-generation sequencing (see \secref{ssec:2nd_gen_seq} assemblers, such as SPAdes\footnote{\url{https://github.com/ablab/spades/}}, SKESA\footnote{\url{https://github.com/ncbi/SKESA/}} and MEGAHIT\footnote{\url{https://github.com/voutcn/megahit/}}, use a multiple k-mer De Bruijn graph, starting with the lowest size and iteratively adding k-mers of increasing length to connect the graph \citep{bankevich_spades_2012, souvorov_skesa_2018, li_megahit_2015}. Older assemblers, such as Velvet\footnote{\url{https://www.ebi.ac.uk/~zerbino/velvet/}}, Ray\footnote{\url{https://sourceforge.net/projects/denovoassembler/f}} and SoapDeNovo2\footnote{\url{https://sourceforge.net/projects/soapdenovo2/}} use a single k-mer strategy for the De Bruijn graph construction \citep{zerbino_velvet_2008, boisvert_ray_2010, luo_soapdenovo2_2012}. 
 
-\subsubsection{Assembly quality assessment and quality control}
+\subsubsection{Assembly quality assessment and quality control} \label{ssec:assembly_quality}
 
 The success of an assembly is evaluated in two steps: (1) globally, through intrinsic characteristics of the assembly itself, and (2) relative to a reference genome. The computation of the global metrics is performed through statistics inherent to the complete set of contigs assembled per sample, independent of the species/sample of origin. Commonly, these statistics include information on contig number, its median size and number ambiguous bases. The comparison with a reference sequence allows for statistics such as number of misassemblies, meaning contigs that do not reflect the structural organisation in the reference sequence, to be computed. 
 
-The assessment and evaluation of genome assemblies has been a relevant field ever since the emergence of the assembly process itself. The most widely adopted is QUAST\footnote{\url{http://quast.sourceforge.net/quast}}, can evaluate assemblies both with a reference genome, as well as without a reference, producing many reports, summary tables and plots to help compare and assess assembly success \citep{gurevich_quast_2013}. 
+The assessment and evaluation of genome assemblies has been a relevant field ever since the emergence of the assembly process itself. 
+The most widely adopted is QUAST\footnote{\url{http://quast.sourceforge.net/quast}}, can evaluate assemblies both with a reference genome, as well as without a reference, producing many reports, summary tables and plots to help compare and assess assembly success \citep{gurevich_quast_2013}. 
 
-\section{Bioinformatic Analysis for Metagenomics}
+\subsection{Reproducibility and transparency} \label{ssec:reproducibility}
+
+Several steps that can be implemented to ensure the transparency and reproducibility of the chosen bioinformatic workflow. 
+Favouring open-source tools, with clear documentation describing the methodology implemented, and stating the version of the software used and which parameters were used enables the comparison of results. 
+This can be simplified by containerising all the software tools with one of the many solutions available, like Docker\footnote{\url{https://www.docker.com/}} or Singularity\footnote{\url{https://sylabs.io/}} \citep{kurtzer_singularity_2017}. 
+
+The use of workflow managers, like nextflow\footnote{\url{https://www.nextflow.io/}}, snakemake\footnote{\url{https://snakemake.github.io/}} or the Galaxy Project\footnote{\url{https://galaxyproject.org/}}, will push reproducibility to the next level by taking advantage of the containerisation and scalability, enabling the workflow to be executed with the same parameters in the same conditions in a multitude of different environments \citep{di_tommaso_nextflow_2017, molder_sustainable_2021, afgan_galaxy_2018}. 
+
+
+\section{Bioinformatic Analysis for Metagenomics} \label{sec:metagenomics_bioinfo}
 
 As mentioned previously (see \secref{ssec:metagenomics}, Metagenomic shotgun sequencing circumvents the need for cultivation and, compared with metataxonomics, avoids biases from primer choice, enables the detection of organisms across all domains of life and \textit{de novo} assembly of genomes and functional genome analyses. However, highly uneven sequencing depth of different organisms and low depth of coverage per species are drawbacks that limit taxa
 
-\subsubsection{Metataxonomics}
+\subsubsection{Metataxonomics} \label{ssec:metataxonomics_bioinfo}
 
 Metataxonomics (see \secref{sssec:metataxonomics}) is the most widely used technique for microbial diversity analysis \citep{hilton_metataxonomic_2016}, and due to its particularities, the analysis of this data is also very particular. Data analyses are mostly carried out through specialised pipelines that wrap and combine several tools, offering the possibility to follow a simple protocol with default configurations or choose between a plethora of different configurations to adjust for any particular needs. Quantitative Insights Into Microbial Ecology 2 (QUIIME2)\footnote{\url{https://qiime2.org/}} \citep{bolyen_reproducible_2019} has become the \textit{de facto} tool for metataxonomic analysis as a framework with an ever-growing suite of plugins and intuitive data visualisation tools for the assessment of results. Mothur \citep{schloss_introducing_2009} and UPARSE \citep{edgar_uparse_2013} are also a popular alternative although resulting outputs differing significantly between pipelines despite using the same inputs having been reported by \cite{marizzoni_comparison_2020}, with a magnitude that is comparable to differences in upstream sample treatment and sequencing procedures.  A typical workflow starts with quality filtering, error correction and removal of chimeric sequences. These quality control steps are followed by either taxonomic assignment of reads or a clustering step where reads are gathered into OTUs given their sequence identity, followed by statistical analysis to assess differences between given groups. Taxonomic assignment methods classify query sequences based on the best hit found in reference databases of annotated sequences, being heavily dependent on the completeness of the reference databases (see \secref{sssec:metataxonomics}). Classification is further limited by lack of species annotation in most reference databases \citep{westcott_novo_2015}. Alternatively, the same approach of direct taxonomic classification, without OTU clustering, can be followed as with genomic and shotgun metagenomic data, given that the databases include rRNA sequences.
 
 OTU clustering methods can be categorised into: (1) computationally expensive hierarchical methods that cluster sequences based on a distance matrix measuring the difference between each pair of sequences, (2) less expensive heuristic methods cluster sequences into OTUs based on a pre-defined threshold, generally, with a sequence being selected as a seed and the rest of the sequences being analysed sequentially and added to existing or new clusters according to the defined threshold, and (3) model based clustering methods that do not rely on a pre-defined and fixed threshold, defining OTUs based on a soft threshold and carrying out the clustering process based on methods such as an unsupervised probabilistic Bayesian clustering algorithm \citep{hao_clustering_2011}. These methods offer the possibility to cluster sequences based on criteria that do not depend on reference databases and are especially useful in less characterised microbial communities or with a high representation of uncultured microbes. Due to the assumptions made with this strategy, it is sensitive to under or overestimation of the number of OTUs in a sample as defining a threshold to accurately cluster sequences is difficult \citep{westcott_novo_2015}.
 
-\subsubsection{Shotgun metagenomics}
+\subsubsection{Shotgun metagenomics} \label{ssec:shotgun_metagenomics_bioinfo}
 
 A plethora of open-source tools are available specifically for shotgun metagenomic data, and several combinations of these tools can be used to characterise the causative agent in a patient's infection in a fraction of the time required by the traditional methods. 
+
+A major additional difficulty of shotgun metagenomic data is the overpowering quantities of host DNA that are often sequenced, making the microbial community sometimes close to undetectable \citep{couto_critical_2018}.
+The presence of contaminants, from the bench process to the pre-existing biota, and the cost associated with this methodology, are also major hinders in its applicability in the clinic.
+They account for major caveats and must be made aware of when analysing the data.
+
+
+The basic strategies for analysing shotgun metagenomic data can be simplified in the scheme in Figure \ref{}. 
+One of the biggest challenges when doing metagenomic analysis is differentiating between colonisation and infection by successfully discriminating between a potential pathogen and background microbiota. 
+In the latter, when analysing samples from presumably sterile sites, like Cerebrospinal fluid (CSF) and blood, it is safe to assume that all organisms found are of interest. 
+In locations with a microbiota, the inclusion of negative controls is essential for the correct identification of contaminants in the taxonomic results, whether originated from the sample collection, handling or sequencing process. 
+The use of spiked metagenomic samples as positive control might guide the detection of the possible pathogens by comparing relative abundance between the samples. 
+These controls should be processed similarly to the samples and the taxonomic results should be filtered out from the final report. 
+
+As explored in \secref{ssec:reads_2_genomes}, longer sequences are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given samples. 
 
 \subsubsection{Trash text}
 
 For virulence gene detection and antimicrobial resistance characterization a mapping approach, with an adequate database, is usually followed, using as reference the Virulence Factors Database (Chen et al., 2016), and ResFinder (Zankari et al., 2012) or CARD (Jia et al., 2017) for antimicrobial resistance gene detection. Besides mapping, other strategies have been applied, like Mash Screen (Ondov et al., 2016), that offer similar results in a faster way.  Similar strategies can be applied to plasmid detection by using the PlasmidFinder (Carattoli et al., 2014) or RefSeq plasmid (O’Leary et al., 2016) databases. The minimap 2 tool (Li, 2018) is a good alternative to map long-read data to any of the resistance and virulence databases mentioned. 
 It is possible to genotype the bacterial population in a metagenomic sample, but only for short-read sequencing data.  MetaMLST (Zolfo et al., 2017) reconstructs the MultiLocus Sequence Typing (MLST) loci directly from the sequencing data and provides a pre-built database for the analysis.
-
-
-A plethora of open-source tools are available specifically for shotgun metagenomic data, both short and long-read data, and several combinations of these tools can be used to characterize the causative agent in a patient's infection in a fraction of the time required by the traditional methods. Alongside, there are several commercial alternatives, such as CLC Genomics Workbench (QIAGEN Bioinformatics), Taxonomer (Flygare et al., 2016) and BaseSpace (Illumina), that offer ready to use complete workflows at the cost of lack of transparency, reproducibility and control in the analysis.
-Several steps that can be implemented to ensure the transparency and reproducibility of the chosen workflow. Favouring open-source tools, with clear documentation describing the methodology implemented, and stating the version of the software used and which parameters were used enables the comparison of results. This can be simplified by containerizing all the software tools with one of the many solutions available, like Docker (https://www.docker.com/) or Singularity (Kurtzer et al., 2017). The use of workflow managers, like nextflow (Tommaso et al., 2017) or the Galaxy Project (Afgan et al., 2016), will push reproducibility to the next level by taking advantage of the containerization and scalability, enabling the workflow to be executed with the same parameters in the same conditions in a multitude of different environments. The FlowCraft project (https://github.com/assemblerflow/flowcraft) leverages the combination of Nextflow and docker/singularity containers to assemble, monitor and report scientific pipelines created from the combination of pre-built components, many of them supporting metagenomic analysis.
-Additional difficulties of metagenomic data are the overpowering quantities of host DNA that are often sequenced (Couto et al., 2018), making the microbial community close to undetectable, the presence of contaminants, from the bench process to the biota, and the cost associated with this methodology. They account for major caveats and must be made aware of when analysing the data.
-The basic strategies for analysing metagenomic data can be simplified in the scheme in Figure 1. One of the biggest challenges when doing metagenomic analysis is differentiating between colonization and infection and to successfully discriminate between a potential pathogen and background microbiota. In the latter, when analysing samples from presumably sterile sites, like CSF and blood, it is safe to assume that all organisms found are of interest. In locations with a microbiota, the use of spiked metagenomic samples as positive control might guide the detection of the possible pathogens by comparing relative abundance between the samples. The inclusion of negative controls is essential for the correct identification of contaminants in the taxonomic results, whether originated from the sample collection, handling or sequencing process. These controls should be processed similarly to the samples and the taxonomic results should be filtered out from the final reports. 
 
 \subsection{Metagenome Assembly}
 
