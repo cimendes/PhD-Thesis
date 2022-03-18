@@ -1,0 +1,90 @@
+\mbox{}\\
+\vspace{8cm}
+
+\section{Abstract} \label{sec:abstract}
+
+High throughput sequencing has been proposed as a one-stop solution for diagnostics and molecular typing directly from patient samples, allowing timely and appropriate implementation of measures for treatment, infection prevention and control. 
+However, it is unclear how the variety of available methods impacts the end results. 
+We applied shotgun metagenomics on diverse types of patient samples using three different methods to deplete human DNA prior to DNA extraction.
+Libraries were prepared and sequenced with Illumina chemistry. 
+Data was analysed using methods likely to be available in clinical microbiology laboratories using genomics. 
+The results of microbial identification were compared to standard culture-based microbiological methods. 
+On average, 75\% of the reads were corresponded to human DNA, being a major determinant in the analysis outcome. 
+None of the kits was clearly superior suggesting that the initial ratio between host and microbial DNA or other sample characteristics were the major determinants of the proportion of microbial reads. 
+Most pathogens identified by culture were also identified through metagenomics, but substantial differences were noted between the taxonomic classification tools. 
+In two cases the high number of human reads resulted in insufficient sequencing depth of bacterial DNA for identification. 
+In three samples, we could infer the probable multilocus sequence type of the most abundant species. 
+The tools and databases used for taxonomic classification and antimicrobial resistance identification had a key impact on the results, recommending that efforts need to be aimed at standardisation of the analysis methods if metagenomics is to be used routinely in clinical microbiology.
+
+\section{Introduction} \label{sec:introduction}
+
+Classical microbial culture is still considered the gold standard in medical microbiology. 
+Several molecular detection techniques have been implemented but these are generally geared towards specific pathogens (e.g. specific RT-PCR or microarrays). 
+Even when unbiased molecular approaches are used, such as 16S/18S rRNA gene sequencing, these do not provide all the information that can be obtained by culturing, e.g., antimicrobial susceptibility and molecular typing information. 
+However, microbial culture is laborious and time-consuming and new methods are needed to replace it. 
+Ideally, a single method should provide rapid identification and characterisation of clinically relevant pathogens directly from a sample in order to guide therapy, predict potential treatment failures and to reveal possible transmission events.
+
+Shotgun metagenomics (SMg) is a culture-independent technique that provides valuable information not only at the identification level, but also at the level of molecular characterisation. 
+Studies have shown that it has added value in terms of detection sensitivity and personalised treatment in clinical microbiology, when identifying bacteria \citep{hasman_rapid_2014, willmann_antibiotic_2015} or viruses \citep{graf_unbiased_2016}. 
+Indeed Gyarmati et al., 2016 \citep{gyarmati_metagenomic_2016}, used a sequence-based metagenomics approach directly from blood to detect non-culturable, difficult-to-culture and non-bacterial pathogens. 
+The authors were able, through SMg, to detect viral and fungal pathogens together with bacteria, which had not been detected through classical microbiology. 
+Additionally, SMg can be used for infection prevention, having the potential to identify transmission events directly from clinical samples \citep{olson_metagenomic_2017}. 
+For example, SMg was proven valuable for the identification of inter-host nucleotide variations occurring after direct transmission of noroviruses causing gastroenteritis \citep{olson_metagenomic_2017}. 
+Hasman and colleagues (2014) \citep{hasman_rapid_2014} were able to identify urinary pathogens directly from urine, as well as antimicrobial resistant genes compatible with the resistant phenotype determined through antimicrobial susceptibility testing. They also identified almost perfect phylogenetic matches between whole-genome sequence (WGS) data obtained by metagenomics and WGS of pure isolates. 
+
+Despite the promise of SMg of becoming a one-stop solution in clinical microbiology, SMg still has several challenges to overcome. 
+One of the greatest challenges is the choice of the extraction and sequencing protocols, as well of the type of controls \citep{schlaberg_validation_2017}. 
+The extraction protocol should efficiently and specifically isolate microbial DNA/RNA, while removing the host DNA/RNA \citep{street_molecular_2017}. 
+However, the variety of clinical samples used in the diagnosis of distinct types of infection (e.g. tissues versus fluids), poses a serious challenge for standardisation, an essential step if these methods are to be used by routine diagnostic laboratories. 
+The sequencing protocol is also dependent on the pathogens of interest (e.g. bacteria versus viruses), sequencing strategy (DNA and/or RNA), required turnaround time, sequencing depth and error tolerance \citep{schlaberg_validation_2017}. The use of defined controls is necessary for validation of each experiment and these should be adapted for every type of infection and sample type and should consist of a combination of known positive specimens, pathogen-negative patient specimens and pathogen-negative patient specimens spiked with live microorganisms or pure DNA \citep{schlaberg_validation_2017}.
+
+Another potential challenge are the metagenomics analysis tools. 
+Recent studies have evaluated the different SMg sequence classification methods \citep{peabody_evaluation_2015}. 
+These use different methodologies for classification: sequence similarity-based methods, sequence composition-based methods and hybrid methods \citep{peabody_evaluation_2015}. 
+They differ not only in the algorithms for detecting the microorganisms present, but also in the databases used. 
+This high variability leads to different results, not only at the microorganism classification level but also when evaluating the relative abundance of these pathogens \citep{peabody_evaluation_2015}. 
+A recent study evaluated the accuracy of 38 bioinformatics methods using both \textit{in silico} and \textit{in vitro} generated mock bacterial communities.
+Dozens to hundreds of species were falsely predicted by the most popular software, and no software clearly outperformed the others \citep{peabody_evaluation_2015}. 
+In the absence of studies comparing the outputs of different analysis methods in clinical samples, users may decide which methods to use based on personal experience with a given tool, availability of the tool in the laboratory or its ease of use.
+This poses a great challenge when providing reproducible results and creates uncertainty regarding the reliability of the information derived. This is a major barrier to the implementation of SMg approaches in routine clinical microbiology laboratories.
+
+In this study, the aim was to identify the critical steps when using SMg for the identification and characterization of microbial pathogens directly from clinical specimens using methods that are likely to be available in clinical microbiology laboratories wanting to implement genomics for pathogen identification or molecular epidemiology studies. 
+For this purpose, we used three human-DNA depletion kits and evaluated a diverse set of bioinformatics tools (commercial and non-commercial) in order to investigate how well they performed and what would the differences be in terms of taxonomic classification, antimicrobial resistance gene detection and typing directly from patient samples, bypassing culture. 
+
+\section{Methods} \label{sec:methods}
+
+\subsection{Sample collection} \label{ssec:sample_collection}
+
+Nine body fluid samples and one tissue sample entering the Medical Microbiology laboratory were selected for metagenomics sequencing. 
+These included one sample from peritoneal fluid, five from pus (3 abscesses and 2 empyema), two from synovial fluid of knees with prosthesis, one from sputum and one from a bone biopsy (Table \ref{tab:table_1}). 
+All samples were stored at 4ºC for a variable period (2-10 days). 
+The samples used for the present analyses were collected during routine diagnostics and infection prevention and control investigations. 
+All procedures were carried out according to guidelines and regulations of University Medical Centre Groningen (UMCG) concerning the use of patient materials for the validation of clinical methods, which are in compliance with the guidelines of the Federation of Dutch Medical Scientific Societies (FDMSS).
+Every patient entering the UMCG is informed that samples taken may be used for research and publication purposes, unless they indicate that they do not agree to it. 
+This procedure has been approved by the Medical Ethical Committee of the UMCG. 
+Informed consent was obtained from all individuals or their guardians prior to study participation. 
+All samples were used after performing and completing a conventional microbiological diagnosis and were coded to protect patients’ confidentiality. 
+All experiments were performed in accordance with the guidelines of the Declaration of Helsinki and the institutional regulations. 
+
+\begin{table}[]
+\caption{Characteristics of the samples and mapping of trimmed reads against a human genome hg19 (\%) using CLC Genomics Workbench v10.0.1.}
+\label{tab:table_1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+\textbf{Sample} & Sample type & DNA extraction method & Total number of reads & Mapped reads against hg19 & \textbf{Unmapped reads} \\ \midrule
+Sample 1         & Peritoneal fluid & Ultra-Deep Microbiome Prep (Molzym) & 5892978 & 5,249,063 (89.2\%) & 632,951 (10.8\%)   \\
+Sample 2         & Pus (abscess)    & Ultra-Deep Microbiome Prep (Molzym) & 9603346 & 7,828.746 (81.6\%) & 1,770,558 (18.4\%) \\
+Sample 3         & Synovial fluid   & Ultra-Deep Microbiome Prep (Molzym) & 8615810 & 8,254,594 (95.9\%) & 355,200 (4.1\%)    \\
+Sample 4         & Synovial fluid   & Ultra-Deep Microbiome Prep (Molzym) & 6078166 & 6,015,945 (99.0\%) & 61,099 (1.0\%)     \\
+Sample 5         & Pus (abscess)    & Ultra-Deep Microbiome Prep (Molzym) & 8368930 & 309,588 (3.7\%)    & 8,052,272 (96.3\%) \\
+Sample 6         & Pus (empyema)    & QIAamp DNA Microbiome Kit (Qiagen)  & 2912802 & 2,877,066 (98.8\%) & 34,506 (1.1\%)     \\
+Sample 7         & Pus (empyema)    & QIAamp DNA Microbiome Kit (Qiagen)  & 1486700 & 922,932 (62.2\%)   & 561,772 (37.8\%)   \\
+Sample 8         & Bone biopsy      & Micro-DXTM (Molzym)                 & 6534866 & 229,149 (3.5\%)    & 6,303,803 (96.5\%) \\
+Sample 9         & Pus (abscess)    & Micro-DXTM (Molzym)                 & 6173132 & 6,081,612 (98.5\%) & 89,922 (1.5\%)     \\
+Sample 10        & Sputum           & Micro-DXTM (Molzym)                 & 7596836 & 7,337,832 (96.7\%) & 235,520 (3.3\%)    \\
+Negative control & Water            & QIAamp DNA Microbiome Kit (Qiagen)  & 1730738 & 1,706,861 (98.9\%) & 19,805 (1.2\%)     \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+

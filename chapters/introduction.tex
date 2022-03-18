@@ -494,9 +494,9 @@ These controls should be processed similarly to the samples and the taxonomic re
 
 As explored in \secref{ssec:reads_2_genomes}, longer sequences are more informative than shorter sequencing data, as the one obtained from second-generation sequencing (see \secref{ssec:2nd_gen_seq}), and can provide a more complete picture of the microbial community in a given samples. 
 Several dedicated metagenomic assembly tools are available, such as metaSPAdes\footnote{\url{}}  and MegaHIT\footnote{\url{}} \citep{nurk_metaspades_2017, li_megahit_2015}. 
-These tools, in comparison to single-cell data assemblers, are better at dealing with the combination of intragenomic and intergenomic repeats and uneven sequencing coverage \citep{olson_metagenomic_2017}.
+These tools, in comparison to single-cell data assemblers, are better at dealing with the combination of intra and intergenomic repeats and uneven sequencing coverage \citep{olson_metagenomic_2017}.
 
-\subsubsection{Trash text}
+\section{Trash text}
 
 For virulence gene detection and antimicrobial resistance characterization a mapping approach, with an adequate database, is usually followed, using as reference the Virulence Factors Database (Chen et al., 2016), and ResFinder (Zankari et al., 2012) or CARD (Jia et al., 2017) for antimicrobial resistance gene detection. Besides mapping, other strategies have been applied, like Mash Screen (Ondov et al., 2016), that offer similar results in a faster way.  Similar strategies can be applied to plasmid detection by using the PlasmidFinder (Carattoli et al., 2014) or RefSeq plasmid (O’Leary et al., 2016) databases. The minimap 2 tool (Li, 2018) is a good alternative to map long-read data to any of the resistance and virulence databases mentioned. 
 It is possible to genotype the bacterial population in a metagenomic sample, but only for short-read sequencing data.  MetaMLST (Zolfo et al., 2017) reconstructs the MultiLocus Sequence Typing (MLST) loci directly from the sequencing data and provides a pre-built database for the analysis.
