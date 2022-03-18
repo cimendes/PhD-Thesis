@@ -88,3 +88,57 @@ Negative control & Water            & QIAamp DNA Microbiome Kit (Qiagen)  & 1730
 }
 \end{table}
 
+\subsection{Classic culturing and susceptibility testing} \label{ssec:sample_culturing}
+
+The samples were cultured following methods routinely used in our institution. 
+Briefly, samples were streaked onto five plates (Mediaproducts BV, Groningen, The Netherlands) - blood agar (aerobic), chocolate agar (aerobic), McConkey agar (aerobic), Brucella agar (anaerobic) and Sabouraud Dextrose +AV (aerobic) - and incubated overnight under aerobic and anaerobic atmosphere at 37ºC. 
+The two pus samples were also plated onto Phenylethyl alcohol sheep blood agar (PEA), Kanamycin vancomycin laked blood (KVLB) agar and Bacteroides bile esculin (BBE) agar and incubated under anaerobic conditions overnight. 
+The isolates recovered were subjected to susceptibility testing by Vitek 2 using either the AST-P559 (Gram-positive bacteria) or the AST-N344 (Gram-negative bacteria) card (bioMérieux, Marcy-l'Étoile, France) and identified by MALDI-TOF MS (Bruker Daltonik, Gmbh, Germany) using standard protocols. 
+
+\subsection{DNA extraction, library preparation and sequencing} \label{ssec:sample_sequencing}
+
+The DNA for metagenomic sequencing was isolated using the Ultra-Deep Microbiome Prep (Molzym Life Science, Bremen, Germany), Micro-Dx\texttrademark kit (Molzym Life Science) or QIAamp DNA Microbiome Kit (Qiagen, Hilden, Germany) directly from the clinical samples and a negative control consisting of a mock sample of DNA and RNA free water (Table \ref{tab:table_1}). 
+These kits include human DNA depletion steps. 
+The QIAamp DNA Microbiome Kit was used according to the manufacturer’s protocol with an additional 5 min air-dry step before elution. 
+For microbial lysis, a Precellys 24 homogeniser (Bertin, Montigny-le-Bretonneux, France) set to 3 times 30 seconds at 5000 rpm separated by 30 seconds was used. 
+After extraction, DNA was quantified with the Qubit 2.0 (Life Technologies, ThermoFisher Scientific, Waltham, Massachusetts, EUA) and NanoDrop 2000 (ThermoFisher Scientific). 
+The DNA quality was assessed using the Genomic DNA ScreenTape and Agilent 2200 TapeStation System (Agilent Technologies, California, United States of America). 
+Isolated DNA was purified using Agencourt AMPure XP beads (Beckman Coulter, California, United States of America) according to the manufacturer’s instructions, to eliminate small DNA fragments and chemical contaminants (e.g. benzonase). 
+The DNA was then diluted to 0.2 ng/$\mu$l and 1 ng was used for the library preparation, using the Nextera XT Library Preparation kit (Illumina, California, United States of America), according to the manufacturer’s protocol. 
+Cluster generation and sequencing were performed with the MiSeq Reagent Kit v2 500-cycles Paired-End in a MiSeq instrument (Illumina). 
+Samples were sequenced in batches of 5 samples on a single flow cell.
+
+For the DNA extraction of bacterial isolates (when an isolate was recovered from culture), we used the UltraClean Microbial DNA Isolation Kit (Mo Bio), with some modifications. 
+We started with solid cultures and resuspended a 10 $\mu$l-loopfull of culture directly into the tube with the microbeads and microbead solution. 
+The library preparation, cluster generation and sequencing was performed as described above. 
+Strains were sequenced in batches of 12 to 16 on a single flow cell.
+
+\subsection{Bioinformatics analyses} \label{ssec:sample_bioinformatics}
+
+In order to evaluate and compare the accuracy and reliability of the bioinformatics analyses in providing the closest results to culture and WGS of any cultured isolates, three different pipelines (two commercially and one freely available) were used (Figure 1).
+Different tools to perform raw read quality control, filtering and trimming were used and reads were mapped against the human genome (hg19) before performing taxonomic classification. 
+Reads mapping to hg19 where removed from the analysis to increase the efficiency of the bioinformatics tools. 
+Typing (MLST), phylogenetic analysis, plasmid analysis, detection of antimicrobial resistance and virulence genes was performed. 
+To determine the appropriateness of SMg as predictor of the WGS (chromosome and plasmids), SMg results obtained were compared with the results of WGS of any bacterial isolates obtained from culturing the sample.
+
+All the parameters used in each approach are available in Supplementary Table 1.
+
+\subsubsection{Unix-based approach}
+
+For the metagenomics data, read quality control and cleaning was performed using FastQC v0.11.5 and Trimmomatic v0.36, respectively, through the INNUca v2.6 pipeline\footnote{\url{https://github.com/B-UMMI/INNUca/}}, excluding assembly and polishing. 
+Using a reference mapping approach against the human genome (UCSC hg19), human reads were discarded using Bowtie 2 v2.3.2 \citep{langmead_fast_2012} and SAMtools v1.3.1 \citep{li_sequence_2009}. 
+Those paired reads that did not map against the human genome were used in subsequent analyses. 
+The bacterial species were identified through Kraken v0.10.5-beta \citep{wood_kraken_2014} using the miniKraken database (pre-built 4 GB database constructed from complete bacterial, archaeal and viral genomes in RefSeq, as of Dec. 8, 2014), MIDAS \citep{nayfach_integrated_2016} using the midas\_db\_v1.2 database (>30,000 bacterial reference genomes, as of May 9, 2018) and MetaPhlAn2 v2.0 \citep{segata_metagenomic_2012} using the database provided by the tool (~13,500 bacterial and archaeal, ~3,500 viral, and ~110 eukaryotic reference genomes, as of May 9, 2018). 
+The sequence type (ST) was obtained through metaMLST v1.1 \citep{zolfo_metamlst_2017} based on the metamlstDB\_2017. 
+Antimicrobial resistance genes were detected using ReMatCh v3.2\footnote{\url{https://github.com/B-UMMI/ReMatCh/}}, a read mapping tool that uses Bowtie 2 v2.3.2 \citep{langmead_fast_2012} and the following rules for gene presence/absence: genes were considered present when $\geq$ 80\% of the reference sequence was covered and the sample sequence was $\geq$ 70\% identical to the one used as reference. 
+For that, ResFinder database (2231 genes, downloaded on 29-06-2017) was used as reference and, due to the low coverage of microbial metagenomics samples, a minimal coverage depth of 1 read was set to consider a reference sequence position as covered (and therefore present in the sample data), as well as to perform base call (used for sequence identity determination).
+Finally, the assembly was accomplished through SPAdes v3.10.1 \citep{bankevich_spades_2012}.
+
+Plasmid detection was achieved by running the script PlasmidCoverage\footnote{\url{https://github.com/tiagofilipe12/PlasmidCoverage}}, using the plasmid sequences downloaded from NCBI RefSeq (\url{ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/plasmid/}, as of May 11, 2017). 
+The script uses Bowtie 2 v2.2.9 \citep{langmead_fast_2012}, to map the pre-processed input reads against the plasmid database (Bowtie2 index for all plasmid sequences). 
+For Bowtie 2 we used the ‘-k’ option, allowing each read to map to as many plasmid sequences as present in the NCBI RefSeq plasmid database (since plasmid sequences are modular) \citep{smillie_mobility_2010, barcia_identification_2011}. 
+Then, this pipeline used SAMtools v1.3.1 \citep{li_sequence_2009} to estimate the coverage for each position, and reported the length of plasmid sequence covered (in percentage) and average depth (mean number of reads mapped against a given position in each plasmid). 
+Plasmids with less than 80\% of its length covered were excluded from the final results in line with what has described elsewhere \citep{jitwasinkul_plasmid_2016}. The pATLAS tool\footnote{\url{http://www.patlas.site/}} was used to visualise which plasmids were present.
+
+For the WGS reads of the bacterial isolates, the whole INNUca v2.6 pipeline was run, including SPAdes assembly and polishing. 
+Plasmids were detected as mentioned previously.
