@@ -39,7 +39,7 @@ $^2$ Institute of Medical Microbiology and Hygiene, University of Tübingen, Ger
 $^3$ Instituto de Microbiologia, Instituto de Medicina Molecular, Faculdade de Medicina, Universidade de Lisboa, Portugal.
 
 
-\section{Abstract} \label{sec:abstract}
+\section{Abstract} \label{sec:ch2_abstract}
 
 High throughput sequencing has been proposed as a one-stop solution for diagnostics and molecular typing directly from patient samples, allowing timely and appropriate implementation of measures for treatment, infection prevention and control. 
 However, it is unclear how the variety of available methods impacts the end results. 
@@ -54,7 +54,7 @@ In two cases the high number of human reads resulted in insufficient sequencing 
 In three samples, we could infer the probable multilocus sequence type of the most abundant species. 
 The tools and databases used for taxonomic classification and antimicrobial resistance identification had a key impact on the results, recommending that efforts need to be aimed at standardisation of the analysis methods if metagenomics is to be used routinely in clinical microbiology.
 
-\section{Introduction} \label{sec:introduction}
+\section{Introduction} \label{sec:ch2_introduction}
 
 Classical microbial culture is still considered the gold standard in medical microbiology. 
 Several molecular detection techniques have been implemented but these are generally geared towards specific pathogens (e.g. specific RT-PCR or microarrays). 
@@ -106,7 +106,7 @@ All experiments were performed in accordance with the guidelines of the Declarat
 
 \begin{table}[]
 \caption{Characteristics of the samples and mapping of trimmed reads against a human genome hg19 (\%) using CLC Genomics Workbench v10.0.1.}
-\label{tab:table_1}
+\label{tab:ch2_table_1}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llllll@{}}
 \toprule
@@ -223,3 +223,114 @@ Classical culture and MALDI-TOF identifications were considered as the gold stan
 The true positives were considered when the same bacterial species were identified by culture/MALDI-TOF and the taxonomic classification method. 
 The false positives were detected when bacterial species different from those identified by culture/MALDI-TOF, were identified by the taxonomic classification method. 
 The false negatives were determined when the bacterial species identified by culture/MALDI-TOF were not identified by the taxonomic classification method.
+
+\section{Results} \label{sec:ch2_results}
+
+\subsection{Classical identification}
+
+Nine body fluid samples and one tissue sample from 9 different patients were sequenced, including one sample from peritoneal fluid, five from pus (3 abscesses and 2 empyemas), two from synovial fluid of knees with prosthesis, one from sputum and one from a bone biopsy (Table \ref{tab:ch2_table_1}).
+In total 15 different isolates obtained from the 10 samples were considered of possible clinical significance and were selected for species identification and antimicrobial susceptibility testing during routine work up of the samples (Table \ref{tab:ch2_table2},\ref{} and \ref{}).
+
+\begin{table}[]
+\caption{Microorganisms identified by conventional methods, WGS and using shotgun metagenomics and the taxonomic classification methods in Unix.}
+\label{tab:ch2_table2}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}|l|l|l|l|lll|@{}}
+\toprule
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{WGS-based identification}}} &
+  \multicolumn{3}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-7} 
+\multicolumn{1}{|c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{\textbf{Kraken$^b$}} &
+  \multicolumn{1}{c|}{\textbf{MIDAS$^c$}} &
+  \multicolumn{1}{c|}{\textbf{MetaPhlAn$^c$}} \\ \midrule
+\textbf{1} &
+  \begin{tabular}[c]{@{}l@{}}10$^3$\\  10$^3$\\  10\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  \textit{C. glabrata}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  -\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (34.6\%)\\  \textit{S. haemolyticus} (10.1\%)\\  -\end{tabular}} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (62.0\%)\\  \textit{S. haemolyticus} (28.0\%)\\  -\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (66.6\%)\\  \textit{S. haemolyticys} (27.7\%)\\  -\end{tabular} \\ \midrule
+\textbf{2} &
+  \begin{tabular}[c]{@{}l@{}}10$^3$\\  1\\  Not determined\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-\#\\  -\#\\  -\#\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (29.5\%)\end{tabular}} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100.0\%)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100.0\%)\end{tabular} \\ \midrule
+\textbf{3} &
+  1 &
+  \textit{S. epidermidis} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{S. aureus (0.2\%)} &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  Not identified$^*$ \\ \midrule
+\textbf{4} &
+  10$^3$ &
+  \textit{S. aureus} &
+  \textit{S. aureus} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (0.73\%)} &
+  \multicolumn{1}{l|}{\textit{S. aureus }(100\%)} &
+  \textit{S. aureus} (100\%) \\ \midrule
+\textbf{5} &
+  \begin{tabular}[c]{@{}l@{}}$\geq$ 10$^5$\\  $\geq$ 10$^5$\\  10$^3$\\  10$^3$\\  Not determined\\  10\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\\  \textit{C. albicans}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  -$^\#$\\  \textit{E. faecalis}\\  -$^\#$\\  -$^\#$\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (9.7\%)\\  \textit{K. oxytoca} (0.5\%)\\  \textit{S. anginosus} (0.07\%)\\  \textit{E. faecalis} (0.3\%)\\  Several species (12.7\%)\\  -\end{tabular}} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (6.5\%)\\  \textit{K. oxytoca} (0.3\%)\\  \textit{S. anginosus} (0.01\%)\\  \textit{E. faecalis} (0.9\%)\\  Several species (96.7\%)\\  -\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli} (8.5\%)\\  \textit{K. oxytoca} (0.3\%)\\  \textit{Streptococcus spp.} (0.09\%)\\  \textit{E. faecalis} (0.7\%)\\  Several species (90.4\%)\\  -\end{tabular} \\ \midrule
+\textbf{6} &
+  10$^3$ &
+  \textit{E. faecium} &
+  \textit{E. faecium} &
+  \multicolumn{1}{l|}{\textit{E. faecium} (0.77\%)} &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  Not identified$^*$ \\ \midrule
+\textbf{7} &
+  10$^2$ &
+  \textit{S. aureus} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{\textit{S. aureus} (82.9\%)} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
+  \textit{S. aureus} (100\%) \\ \midrule
+\textbf{8} &
+  10$^3$ &
+  \textit{O. intermedium} &
+  \textit{O. intermedium} &
+  \multicolumn{1}{l|}{\textit{O. anthropi} (21.3\%)} &
+  \multicolumn{1}{l|}{\textit{O. intermedium} (99.4\%)} &
+  \textit{O. intermedium} (99.1\%) \\ \midrule
+\textbf{9} &
+  10$^3$ &
+  \textit{S. aureus} &
+  \textit{S. aureus} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (22.9\%)} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
+  \textit{S. aureus} (100\%) \\ \midrule
+\textbf{10} &
+  10$^3$ &
+  \textit{S. marcescens} &
+  -\# &
+  \multicolumn{1}{l|}{\textit{S. marcescens} (64.7\%)} &
+  \multicolumn{1}{l|}{\textit{S. marcescens} (99.1\%)} &
+  \textit{S. marcescens} (100\%) \\ \bottomrule
+\end{tabular}%
+}
+\tiny
+\item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
+\item $^b$The relative abundance is calculated using total number of reads as denominator
+\item $^c$The relative abundance is calculated with the total number of classified reads as denominator
+\item $^d$miniKraken database was used
+\item $^\#$Although there was a laboratory identification, no isolates were available for WGS
+\item $^*$No reads matched that specific pathogen, not even at the genus level
+\end{table}
+
+
+In samples 2 and 3, only one colony-forming unit (CFU) of Escherichia coli and Staphylococcus epidermidis, respectively, was detected after 48 hours of incubation. In samples 2 and 5, the anaerobic cultures were mixed to such an extent, that no further characterization of the colonies was performed, and the results were reported as anaerobic mixed culture.
+Antimicrobial susceptibility testing, revealed three isolates to be fully susceptible, while the others were resistant to at least one antimicrobial. Two isolates, one Staphylococcus haemolyticus and one S. epidermidis were oxacillin-resistant and positive in the cefoxitin test (Vitek 2).
+There was fungal growth in 2 samples (1 and 5) that included two Candida species (one Candida glabrata and one Candida albicans). The different bacterial and fungal species identified in each sample are shown in Tables 2, 3 and 4.
