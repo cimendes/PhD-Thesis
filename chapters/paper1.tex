@@ -128,7 +128,7 @@ All the parameters used in each approach are available in Supplementary Table 1.
 For the metagenomics data, read quality control and cleaning was performed using FastQC v0.11.5 and Trimmomatic v0.36, respectively, through the INNUca v2.6 pipeline\footnote{\url{https://github.com/B-UMMI/INNUca/}}, excluding assembly and polishing. 
 Using a reference mapping approach against the human genome (UCSC hg19), human reads were discarded using Bowtie 2 v2.3.2 \citep{langmead_fast_2012} and SAMtools v1.3.1 \citep{li_sequence_2009}. 
 Those paired reads that did not map against the human genome were used in subsequent analyses. 
-The bacterial species were identified through Kraken v0.10.5-beta \citep{wood_kraken_2014} using the miniKraken database (pre-built 4 GB database constructed from complete bacterial, archaeal and viral genomes in RefSeq, as of Dec. 8, 2014), MIDAS \citep{nayfach_integrated_2016} using the midas\_db\_v1.2 database (>30,000 bacterial reference genomes, as of May 9, 2018) and MetaPhlAn2 v2.0 \citep{segata_metagenomic_2012} using the database provided by the tool (~13,500 bacterial and archaeal, ~3,500 viral, and ~110 eukaryotic reference genomes, as of May 9, 2018). 
+The bacterial species were identified through Kraken v0.10.5-beta \citep{wood_kraken_2014} using the miniKraken database (pre-built 4 GB database constructed from complete bacterial, archaeal and viral genomes in RefSeq, as of Dec. 8, 2014), MIDAS \citep{nayfach_integrated_2016} using the midas\_db\_v1.2 database (>30,000 bacterial reference genomes, as of May 9, 2018) and MetaPhlAn2 v2.0 \citep{segata_metagenomic_2012} using the database provided by the tool ($\sim$13,500 bacterial and archaeal, $\sim$3,500 viral, and $\sim$110 eukaryotic reference genomes, as of May 9, 2018). 
 The sequence type (ST) was obtained through metaMLST v1.1 \citep{zolfo_metamlst_2017} based on the metamlstDB\_2017. 
 Antimicrobial resistance genes were detected using ReMatCh v3.2\footnote{\url{https://github.com/B-UMMI/ReMatCh/}}, a read mapping tool that uses Bowtie 2 v2.3.2 \citep{langmead_fast_2012} and the following rules for gene presence/absence: genes were considered present when $\geq$ 80\% of the reference sequence was covered and the sample sequence was $\geq$ 70\% identical to the one used as reference. 
 For that, ResFinder database (2231 genes, downloaded on 29-06-2017) was used as reference and, due to the low coverage of microbial metagenomics samples, a minimal coverage depth of 1 read was set to consider a reference sequence position as covered (and therefore present in the sample data), as well as to perform base call (used for sequence identity determination).
@@ -142,3 +142,46 @@ Plasmids with less than 80\% of its length covered were excluded from the final 
 
 For the WGS reads of the bacterial isolates, the whole INNUca v2.6 pipeline was run, including SPAdes assembly and polishing. 
 Plasmids were detected as mentioned previously.
+
+\subsubsection{Commercial-based approach}
+
+The fastq files containing the reads were uploaded into CLC Genomics Workbench v10.1.1, using the following options: Illumina import, paired-reads, paired-end (forward-reverse) and minimum distance of 1 and a maximum distance of 1000 (default). 
+The trimming was performed using the default settings, except the quality trimming score limit was set to 0.01 and we added a Trim adapter list containing Illumina adapters. 
+The mapping was performed with the Map Reads to Reference tool, using the hg19 genome as reference. 
+The default settings were used with the addition of the collect un-mapped reads option. The \textit{de novo} assembly tool was used for the assembly (even for the metagenomics reads) and, apart from the word size, which was changed to 29, all the settings were default. 
+Two tools were used for the microbial identification, Taxonomic Profiling and Find Best Matches using K-mer Spectra (Microbial Genomics Module). 
+In both, the bacterial and fungal databases were downloaded from NCBI RefSeq (with the Only Complete Genomes option turned off; minimum length 500,000 nucleotides) on 08-07-2017 (bacterial, 70,868 sequences) and 25-05-2017 (fungal, 377 sequences). 
+The antimicrobial resistance genes were detected, based on the assembled contigs, using the Find Resistance tool (Microbial Genomics Module) and were initially only considered present when they were $\geq$ 70\% identical to the reference and $\geq$ 80\% of the sequence was covered. The analysis was also repeated using $\geq$ 40\% and $\geq$ 20\% of sequence coverage for comparison purposes. 
+The database containing the antimicrobial resistance genes was downloaded directly to the software from ResFinder\footnote{\url{https://cge.cbs.dtu.dk/services/data.php}} (downloaded on 05-07-2017, 2156 sequences). The MLST was determined through the Identify MLST tool (Microbial Genomics Module), using all MLST schemes available at PubMLST (04-03-2017). 
+The same database used for plasmid detection in Unix, was used for mapping the reads in CLC Genomics Workbench. Again, plasmids with less than 80\% of its length covered were excluded from the final results. 
+For WGS reads we used the Trim Sequences tool and the assembly, antimicrobial resistance genes detection, and MLST determination were performed as before.
+
+\subsubsection{Web-based approaches}
+
+The fastq files containing the reads were uploaded into the BaseSpace\footnote{\url{https://basespace.illumina.com}} website. 
+First, the raw forward and reverse fastq reads were subjected to FASTQ Toolkit for adapter/quality trimming and length filtering with standard settings and length filtering adjusted to a minimum of 100 and a maximum of 500. 
+The trimmed reads were then used as input for all the following processes. 
+The available microorganism identification apps Kraken v1.0.0, MetaPhlAn v1.0.0 and GENIUS v.1.1.0 were used with the standard settings/parameters.
+SEAR was used to detect antimicrobial resistance genes, maintaining the standard settings except for the clustering stringency which was set to 0.98 and the annotation stringency was set to 40.
+The SPAdes Genome Assembler v3.9.0 app was run with the standard parameters for multi cell data type. 
+For metagenomic datatype settings, the running mode was set to only assembly and careful mode was disabled. 
+
+The reads were uploaded into CosmosID\footnote{\url{https://app.cosmosid.com/login}} and Taxonomer\footnote{\url{https://www.taxonomer.com/}} \citep{flygare_taxonomer_2016} directly without any quality trimming. 
+We used the Full Analysis mode in Taxonomer.
+
+\subsubsection{wgMLST analyses}
+
+Typing was done by MLST and wgMLST analyses obtained using Ridom SeqSphere+ v4.0.1. 
+The genomic data (assembled contigs) obtained from SMg was compared to the data obtained through WGS.
+Since no cg/wgMLST scheme was available for \textit{Escherichia coli}, \textit{Enterococcus faecalis}, \textit{Ochrobactrum intermedium} and \textit{Staphylococcus haemolyticus}, cgMLST and accessory genome schemes were constructed, using Ridom SeqSphere+ cgMLST Target Definer with the following parameters: a minimum length filter that removes all genes smaller than 50 bp; a start codon filter that discards all genes that contain no start codon at the beginning of the gene; a stop codon filter that discards all genes that contain no stop codon or more than one stop codon or that do not have the stop codon at the end of the gene; a homologous gene filter that discards all genes with fragments that occur in multiple copies within a genome (with identity of 90\% and >100 bp overlap); and a gene overlap filter that discards the shorter gene from the cgMLST scheme if the two genes affected overlap $>$4 bp. 
+The remaining genes were then used in a pairwise comparison using BLAST version 2.2.12 (parameters used were word size 11, mismatch penalty −1, match reward 1, gap open costs 5, and gap extension costs 2). 
+All genes of the reference genome that were common in all query genomes with a sequence identity of $\geq$ 90\% and 100\% overlap and, with the default parameter stop codon percentage filter turned on, formed the final cgMLST scheme. 
+The combination of all alleles in each strain formed an allelic profile that was used to generate minimum spanning trees using the parameter “pairwise ignore missing values” during distance calculation \citep{ruppitsch_defining_2015}.
+
+\subsubsection{Statistical analysis}
+
+The sensitivity and positive predictive value of each taxonomic classification method were determined. 
+Classical culture and MALDI-TOF identifications were considered as the gold standard. 
+The true positives were considered when the same bacterial species were identified by culture/MALDI-TOF and the taxonomic classification method. 
+The false positives were detected when bacterial species different from those identified by culture/MALDI-TOF, were identified by the taxonomic classification method. 
+The false negatives were determined when the bacterial species identified by culture/MALDI-TOF were not identified by the taxonomic classification method.
