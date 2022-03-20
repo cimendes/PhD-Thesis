@@ -698,7 +698,6 @@ We were only able to get results in 3 samples, with no resistance genes detected
 
 \subsection{MLST and wgMLST analysis}
  
-
 In three cases when SMg data covered $\geq$ 93\% of the genome we were able to identify the ST, which corresponded to the one found using WGS of the isolated bacteria using CLC Genomics Workbench (n=2) and metaMLST (n=1). 
 These results are summarized in Table \ref{tab:ch2_table7}.
 Assembled genomes and metagenomes, were compared by wgMLST analysis using Ridom SeqSphere+. 
@@ -780,3 +779,13 @@ Figure \ref{fig:chap2_figure2} shows examples of the allele difference between t
 \caption{Minimum-spanning tree based on wgMLST allelic profiles of 2 S. aureus genomes and 2 E. coli genomes obtained through SM and WGS in comparison to reference strains 04-02981 (GenBank accession number NC\_017340) and 06-00048 (NZ\_CP015229), respectively. Each circle represents an allelic profile based on sequence analysis. The numbers on the connecting lines illustrate the numbers of target genes with differing alleles.}
 \label{fig:chap2_figure2}
 \end{figure*}
+
+\subsection{Characterisation of mobile genetic elements}
+
+Two different approaches, i.e. CLC Genomics Workbench and Bowtie2 were used to identify plasmids present in the sequence data. 
+Both approaches used mapping of sequences against the same plasmid database. 
+Since some plasmids present in the database are very similar and sequence reads may be mapped to more than one plasmid, we used the pATLAS tool, which provides an overview of the nodes (representing plasmid sequences) and links between plasmids (which connect similar plasmids), to enable the visualisation of the plasmids identified (Figure \ref{}). 
+A colour gradient indicates the sequence coverage of the plasmids. 
+In most cases, the same plasmids were identified by both approaches, with some small differences in sequence coverage. 
+When comparing the plasmids identified in the SMg dataset versus the WGS data, most of the plasmids were also detected in the isolates (an example is shown in Figure \ref{}). 
+However, some plasmids were not identified in any of the isolated bacteria and were probably residing in low-abundant species.
