@@ -339,7 +339,90 @@ The different bacterial and fungal species identified in each sample are shown i
 \item $^*$No reads matched that specific pathogen, not even at the genus level
 \end{table}
 
-
-In samples 2 and 3, only one colony-forming unit (CFU) of Escherichia coli and Staphylococcus epidermidis, respectively, was detected after 48 hours of incubation. In samples 2 and 5, the anaerobic cultures were mixed to such an extent, that no further characterization of the colonies was performed, and the results were reported as anaerobic mixed culture.
-Antimicrobial susceptibility testing, revealed three isolates to be fully susceptible, while the others were resistant to at least one antimicrobial. Two isolates, one Staphylococcus haemolyticus and one S. epidermidis were oxacillin-resistant and positive in the cefoxitin test (Vitek 2).
-There was fungal growth in 2 samples (1 and 5) that included two Candida species (one Candida glabrata and one Candida albicans). The different bacterial and fungal species identified in each sample are shown in Tables 2, 3 and 4.
+\begin{table}[]
+\caption{Microorganisms identified by conventional methods, WGS and using shotgun metagenomics and the taxonomic classification methods in CLC Genomics Workbench.}
+\label{tab:ch2_table3}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}|l|l|l|l|ll|@{}}
+\toprule
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{WGS-based identification}}} &
+  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-6} 
+\multicolumn{1}{|c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{l|}{\textbf{Taxonomic Profiling (CLC)$^b$}} &
+  \textbf{Best match with K-mer spectra (CLC)$^c$} \\ \midrule
+\textbf{1} &
+  \begin{tabular}[c]{@{}l@{}}103\\  10$^3$\\  10\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  \textit{C. glabrata}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  -\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (71\%)\\  \textit{S. haemolyticus} (24\%)\\  \textit{C. glabrata} (100\%)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (41.4\%)\\  \textit{S. haemolyticus} (13.8\%)\\  \textit{C. glabrata} (0.5\%)\end{tabular} \\ \midrule
+\textbf{2} &
+  \begin{tabular}[c]{@{}l@{}}10$^3$\\  1\\  Not determined\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-$^\#$\\  -$^\#$\\  -$^\#$\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (97\%)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (13.2\%)\end{tabular} \\ \midrule
+\textbf{3} &
+  1 &
+  \textit{S. epidermidis} &
+  -\# &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  \textit{S. aureus} (4\%) \\ \midrule
+\textbf{4} &
+  10$^3$ &
+  \textit{S. aureus} &
+  \textit{S. aureus} &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  \textit{S. aureus} (9.7\%) \\ \midrule
+\textbf{5} &
+  \begin{tabular}[c]{@{}l@{}}$\geq$ 10$^5$\\  $\geq$ 10$^5$\\  10$^3$\\  10$^3$\\  Not determined\\  10\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\\  \textit{C. albicans}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  -$^\#$\\  E. faecalis\\  -$^\#$\\  -$^\#$\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (25\%)\\  \textit{K. michiganensis} (0.3\%)\\  Not identified$^*$\\  \textit{E. faecalis} (2\%)\\  Several species (70.0\%)\\  Not identified$^*$\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli} (11.5\%)\\  Not identified$^*$\\  Not identified$^*$\\  \textit{E. faecalis} (0.6\%)\\  Not identified$^*$\\  \textit{C. albicans} (\textless{}0.05\%)\end{tabular} \\ \midrule
+\textbf{6} &
+  10$^3$ &
+  \textit{E. faecium} &
+  \textit{E. faecium} &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  \textit{E. faecium} (4.0\%) \\ \midrule
+\textbf{7} &
+  10$^2$ &
+  \textit{S. aureus} &
+  -$^\#$&
+  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
+  \textit{S. aureus} (95.5\%) \\ \midrule
+\textbf{8} &
+  10$^3$ &
+  \textit{O. intermedium} &
+  \textit{O. intermedium} &
+  \multicolumn{1}{l|}{\textit{O. intermedium }(86.0\%)} &
+  \textit{O. intermedium} (91.2\%) \\ \midrule
+\textbf{9} &
+  10$^3$ &
+  \textit{S. aureus} &
+  \textit{S. aureus} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
+  \textit{S. aureus} (81.2\%) \\ \midrule
+\textbf{10} &
+  10$^3$ &
+  \textit{S. marcescens} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{\textit{S. marscescens} (100\%)} &
+  \textit{S. marcescens} (79.7\%) \\ \bottomrule
+\end{tabular}%
+}
+\tiny
+\item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
+\item $^b$The relative abundance is calculated using total number of reads as denominator
+\item $^c$The relative abundance is calculated with the total number of classified reads as denominator
+\item $^d$miniKraken database was used
+\item $^\#$Although there was a laboratory identification, no isolates were available for WGS
+\item $^*$No reads matched that specific pathogen, not even at the genus level
+\end{table}
