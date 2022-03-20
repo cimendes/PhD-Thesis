@@ -550,7 +550,7 @@ The different bacterial and fungal species identified in each sample are shown i
 
 \subsection{Comparison of standard procedures and shotgun metagenomics for the identification of clinically relevant pathogens}
 
-The tools used for taxonomic classification are shown in Figure \ref{}. 
+The tools used for taxonomic classification are shown in Figure \ref{chap2_figure1}. 
 The total number of reads and the total number of reads mapped against the human genome (hg19) varied between samples, ranging from 3.5\% to 98.9\% (Table \ref{tab:ch2_table_1}). 
 The abundance of human reads was not determined by the type of sample but was probably influenced by individual characteristics of each sample and the success of the methods used in depleting the human DNA. 
 We identified the microorganisms present using different taxonomical methods, including three Unix-based tools (Kraken, Metaphlan2 and MIDAS), web-based tools including both commercial and freely available solutions (BaseSpace, Taxonomer and CosmosID) and one commercial approach having a graphical interface (CLC Genomics Workbench v10.0.1). 
@@ -589,4 +589,187 @@ MIDAS (Unix)                                              & 34   & 7 & 26   & 2 
 \tiny
 \item $^a$aExcluding the samples with non-identified anaerobic bacteria (Samples 2 and 5)
 \item Abbreviations: PPV – positive predictive value
+\end{table}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 2/41598_2018_31873_Fig1_HTML.pdf}
+\caption{Scheme of the bioinformatic analysis of the metagenomics samples.}
+\label{fig:chap2_figure1}
+\end{figure*}
+
+\subsection{Determination of antimicrobial resistance}
+
+Metagenomics provides other sequence information in addition to pathogen detection. 
+We determined the presence of antimicrobial-resistance genes in the SMg sequence data and compared the results with those obtained from WGS and phenotypic resistance testing (Table \ref{ch2_table6}).
+
+AMR genes found with CLC Genomics Workbench and ReMatCh in samples 1, 7 and 9 correlated well with phenotypic results. 
+However, in the other 7 samples, not all antimicrobial resistance genes that could explain the phenotypic profile were identified. 
+In addition, in samples 2, 5, 7 and 10, ReMatCh detected different resistance genes compared to those reported by CLC Genomics Workbench (Table \ref{ch2_table6}).
+Some of these differences (genes \textit{norA}, \textit{blaSST}-1, \textit{fusA}) were due to slight differences in the databases used, however, the other resistance genes were present in both databases. 
+Interestingly, in two samples (samples 2 and 5), we were able to identify several antimicrobial resistance genes usually found in anaerobic bacteria. 
+These were not reported by classical microbiology methods, probably because they were not considered relevant pathogens worthy of subsequent susceptibility study (mixed anaerobic culture).
+
+The SEAR app in BaseSpace (the only one available for antimicrobial resistance gene detection) crashed several times, although we performed the analysis repeatedly, using different parameters.
+We were only able to get results in 3 samples, with no resistance genes detected.
+
+\begin{table}[]
+\caption{Antimicrobial resistance phenotypes and antimicrobial resistance genes detected using different approaches.}
+\label{tab:ch2_table6}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}|l|l|l|l|ll|@{}}
+\toprule
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional susceptibility testing\\  (VITEK 2)b\end{tabular}}}} &
+  \multicolumn{1}{c|}{\textbf{WGS}} &
+  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){4-6} 
+\multicolumn{1}{|c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench}} &
+  \multicolumn{1}{c|}{\textbf{ReMatCh (Unix)}} &
+  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbencha}} \\ \midrule
+\textbf{1} &
+  \begin{tabular}[c]{@{}l@{}}E. faecium\\  S. haemolyticus\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}LEV, ERY, CLI\\  OXA, GEN, CIP, FOS, ERY, CLI\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, dfrG\\  blaZ, mecA, ant(6’)-Ia, aph(3’)-III, aac(6’)-aph(2’’), erm(C), mph(C), msr(A), dfrG\end{tabular} &
+  \multicolumn{1}{l|}{erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, aac(6’)-aph(2’’), blaZ, mecA, erm(C), mph(C), msr(A), dfrG} &
+  erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, aac(6’)-aph(2’’), blaZ, mecA, erm(C), mph(C), msr(A), dfrG \\ \midrule
+\textbf{2} &
+  \begin{tabular}[c]{@{}l@{}}E. avium\\  E. coli\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}DOX, CLI\\  susceptible\\  -\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-\#\\  -\#\\  -\#\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not detected\\  Not detected\\  catS, lnu(D), lsa(C), cepA-44, tet(Q)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}Not detected\\  Not detected\\  catS, lnu(D), lsa(C), cepA-44, tet(Q), fusA\end{tabular} \\ \midrule
+\textbf{3} &
+  S. epidermidis &
+  OXA, GEN, TEC, FUS, CIP, ERY, CLI &
+  -\# &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{4} &
+  S. aureus &
+  PEN, ERY &
+  blaZ, spc, erm(A) &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{5} &
+  \begin{tabular}[c]{@{}l@{}}E. coli\\  K. oxytoca\\  S. anginosus\\  E. faecalis\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}susceptible\\  AMX\\  susceptible\\  DOX, CLI\\  -\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-\#\\  blaOXY-1-3\\  -\#\\  tet(M), lsa(A)\\  -\#\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\\  tet(M)\\  cfxA4, tet(Q)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\\  tet(O)\\  cfxA4, tet(Q)\end{tabular} \\ \midrule
+\textbf{6} &
+  E. faecium &
+  PEN, AMX, CFX, IMP, GENhl, STRhl, LEV, ERY, CLI, AMP/SUL &
+  erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, aac(6’)-aph(2’’), dfrG &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{7} &
+  S. aureus &
+  PEN &
+  blaZ &
+  \multicolumn{1}{l|}{blaZ, norA} &
+  blaZ \\ \midrule
+\textbf{8} &
+  O. intermedium &
+  AMX, PIP/TAZ, CFX, CFT, CTZ, IMP, FOX, TOB, FOS, NIT, TMP &
+  blaOCH-2 &
+  \multicolumn{1}{l|}{blaOCH-5} &
+  blaOCH-2 \\ \midrule
+\textbf{9} &
+  S. aureus &
+  PEN &
+  -\# &
+  \multicolumn{1}{l|}{blaZ} &
+  blaZ \\ \midrule
+\textbf{10} &
+  S. marcescens &
+  AMX, AMC, CFX, FOX, NIT, POL &
+  -\# &
+  \multicolumn{1}{l|}{blaSST-1, tet(41), oqxB, aac(6’)-Ic} &
+  tet(41), oqxB, aac(6’)-Ic \\ \bottomrule
+\end{tabular}%
+}
+\item $^a$The analysis aborted when the script tried to connect to NCBI
+\item $^b$Only non-susceptibility is indicated. \item Abbreviations: AMP/SUL, ampicillin/sulbactam; AMX, amoxicillin; AMC, amoxicillin/clavulanate; CFX, cefuroxime; FOS, fosfomycin; FOX, cefoxitin; CIP, ciprofloxacin; CLI, clindamycin; DOX, doxycycline; ERY, erythromycin; FUS, fusidic acid; GEN, gentamicin; GENhl, gentamicin high-level; LEV, levofloxacin; NIT, nitrofurantoin; PEN, penicillin; POL, polymyxin B; STRhl, streptomycin high-level; TEC, teicoplanin.
+\end{table}
+
+\subsection{MLST and wgMLST analysis}
+ 
+
+In three cases when SMg data covered $\geq$ 93\% of the genome we were able to identify the ST, which corresponded to the one found using WGS of the isolated bacteria using CLC Genomics Workbench (n=2) and metaMLST (n=1). 
+These results are summarized in Table \ref{tab:ch2_table7}.
+Assembled genomes and metagenomes, were compared by wgMLST analysis using Ridom SeqSphere+. 
+Figure \ref{} shows examples of the allele difference between the genomes obtained through WGS versus the genomes obtained through shotgun metagenomics.
+
+\begin{table}[]
+\caption{Results of MLST using by whole genome sequencing and shotgun metagenomics}
+\label{tab:ch2_table7}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}|l|l|l|ll|@{}}
+\toprule
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
+  \multicolumn{1}{c|}{\textbf{WGS}} &
+  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){3-5} 
+\multicolumn{1}{|c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench v10.1.1}} &
+  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench v10.1.1}} &
+  \multicolumn{1}{c|}{\textbf{metaMLST (Unix-based)}} \\ \midrule
+\textbf{1} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}ST117\\  ST25\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not detected (6 alleles identified correctly)\\  Not detected (3 alleles identified correctly)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}ST117\\  Not detected\end{tabular} \\ \midrule
+\textbf{2} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-$^\#$ \\  -$^\#$ \\  -$^\#$ \end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\end{tabular} \\ \midrule
+\textbf{3} &
+  \textit{S. epidermidis} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{4} &
+  \textit{S. aureus} &
+  ST30 &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{5} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}ST141\\  ST40\\  -$^\#$ \\  ST179\\  -$^\#$ \end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}ST141\\  Not detected\\  -\\  Not detected\\  -\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}ST4508\\  Not detected\\  -\\  Not detected\\  -$^\#$ \end{tabular} \\ \midrule
+\textbf{6} &
+ \textit{ E. faecium} &
+  ST117 &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{7} &
+  \textit{S. aureus} &
+  ST30 &
+  \multicolumn{1}{l|}{ST30} &
+  ST667 \\ \midrule
+\textbf{8} &
+  \textit{O. intermedium} &
+  - &
+  \multicolumn{1}{l|}{-} &
+  - \\ \midrule
+\textbf{9} &
+  \textit{S. aureus} &
+  -$^\#$  &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \midrule
+\textbf{10} &
+  \textit{S. marcescens} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{-} &
+  - \\ \bottomrule
+\end{tabular}%
+}
+\item Abbreviations: ST, sequence type
 \end{table}
