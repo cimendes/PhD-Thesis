@@ -3,3 +3,74 @@
 
 This chapter is a reproduction of the following publication:
 
+C. I. Mendes, E. Lizarazo, M. P. Machado, D. N. Silva, A. Tami, M. Ramirez, N. Couto, J. W. A. Rossen, J. A. Carriço, DEN-IM: dengue virus genotyping from amplicon and shotgun metagenomic sequencing. Microbial Genomics, Volume 6, Issue 3, March 2020. DOI: \url{https://doi.org/10.1099/mgen.0.000328}
+
+The supplementary information referred throughout the text can be consulted in this chapter before the section of references. 
+
+LA LA LA 
+
+\cleardoublepage 
+
+\begin{center}
+\large
+\textbf{DEN-IM: dengue virus genotyping from amplicon and shotgun metagenomic sequencing}
+\end{center}
+
+Catarina I Mendes$^1,2,*$, 
+Erley Lizarazo$^2,*$,
+Miguel P Machado$^1$, 
+Diogo N Silva$^1$,
+Adiana Tami$^2$,
+Mário Ramirez$^1$, 
+Natacha Couto$^2$, 
+John W A Rossen$^2$ and João A Carriço$^1$
+
+
+$^1$Instituto de Microbiologia, Instituto de Medicina Molecular, Faculdade de Medicina, Universidade de Lisboa, Lisboa, Portugal 
+
+$^2$University of Groningen, University Medical Center Groningen, Department of Medical Microbiology and Infection Prevention, Groningen, The Netherlands
+
+$^*$Contributed equally
+
+\section{Abstract}
+
+Dengue virus (DENV) represents a public health and economic burden in affected countries. The availability of genomic data is key to understanding viral evolution and dynamics, supporting improved control strategies. Currently, the use of High Throughput Sequencing (HTS) technologies, which can be applied both directly to patient samples (shotgun metagenomics) and PCR amplified viral sequences (targeted metagenomics), is the most informative approach to monitor the viral dissemination and genetic diversity.
+
+Despite many advantages, these technologies require bioinformatics expertise and appropriate infrastructure for the analysis and interpretation of the resulting data. In addition, the many software solutions available can hamper reproducibility and comparison of results.
+Here we present DEN-IM, a one-stop, user-friendly, containerised and reproducible workflow for the analysis of DENV sequencing data, both from shotgun and targeted metagenomics approaches. It is able to infer the DENV coding sequence (CDS), identify the serotype and genotype, and generate a phylogenetic tree. It can easily be run on any UNIX-like system, from local machines to high-performance computing clusters, performing a comprehensive analysis without the requirement of extensive bioinformatics expertise.
+
+Using DEN-IM, we successfully analysed two DENV datasets. The first comprised 25 shotgun metagenomic sequencing samples of variable serotype and genotype, including an in vitro spiked sample containing the four known serotypes. The second dataset consisted of 106 targeted metagenomic sequences of DENV 3 genotype III where DEN-IM allowed detection of the intra-genotype diversity.
+The DEN-IM workflow, parameters and execution configuration files, and documentation are freely available at \url{https://github.com/B-UMMI/DEN-IM}.
+
+\section{Keywords}
+dengue virus, surveillance, metagenomics, reproducibility, workflow, containerization, scalability
+ 
+\section{Author Notes}
+All supporting data, code and protocols have been provided within the article or through supplementary data files.
+
+Metagenomic sequencing data available under BioProject PRJNA474413. DEN-IM reports for the analysed datasets are available in Figshare under https://doi.org/10.6084/m9.figshare.11316599.v1. Phylogeny inference trees for the dengue virus typing database available in Figshare at https://doi.org/10.6084/m9.figshare.11316599.v1. The supplemental material is available in Figshare at https://doi.org/10.6084/m9.figshare.11316599.v1. DEN-IM’s source code and documentation available at https://github.com/B-UMMI/DEN-IM.
+
+\section{Abbreviations}
+ 
+CDS, coding sequence; DENV, dengue virus; HPC, high-performance computing; HTS, high-throughput sequencing; NCR, non-coding region; QC, quality control; RT-PCT, reverse transcription polymerase chain reaction.
+
+\section{Data Summary}
+
+\begin{enumerate}
+    \item The 106 DENV-3 targeted metagenomics paired-end short-read datasets are available under BioProject PRJNA394021. The 25 shotgun metagenomics dataset is available under BioProject PRJNA474413. The accession number for all the samples in the shotgun metagenomics dataset are available in the Supplementary material
+    \item The accession numbers for the 41 samples, belonging to zika virus, chikungunya virus and yellow fever virus shotgun and targeted metagenomic datasets are available in the Supplementary material. 
+    \item Code for the DEN-IM workflow is available at \url{https://github.com/B-UMMI/DEN-IM} and documentation, including step-by-step tutorials, is available at \url{https://github.com/B-UMMI/DEN-IM/wiki}.
+\end{enumerate}
+
+\section{Impact Statement}
+The risk of exposure to DENV is increasing not only by travelling to endemic regions, but also due to the broader dissemination of the mosquito, making the burden of dengue very significant.
+
+The decreasing costs and wider availability of HTS makes it an ideal technology to monitor DENV’s transmission. Metagenomics approaches decrease the time to obtain nearly complete DENV sequences without the need for time-consuming viral culture through the direct processing and sequencing of patient samples. A ready to use bioinformatics workflow, enabling the reproducible analysis of DENV, is therefore particularly relevant for the development of a straightforward HTS workflow.
+
+DEN-IM was designed to perform a comprehensive analysis in order to generate either assemblies or consensus of full DENV CDSs and to identify their serotype and genotype. DEN-IM can also detect all four DENV genotypes present in a spiked sample, raising the possibility that DEN-IM can play a role in the identification of co-infection cases whose prevalence is increasingly appreciated in highly endemic areas. Although being ready-to-use, the DEN-IM workflow can be easily customised to the user’s needs.
+
+DEN-IM enables reproducible and collaborative research, being accessible to a wide group of researchers regardless of their computational expertise and resources available.
+
+\section{Introduction}
+
+The Dengue virus (DENV), a single-stranded positive-sense RNA virus belonging to the Flavivirus genus, is one of the most prevalent arboviruses and is mainly concentrated in tropical and subtropical regions. Infection with DENV results in symptoms ranging from mild fever to haemorrhagic fever and shock syndrome \citep{organization_dengue_2009}. Transmission to humans occurs through the bite of Aedes mosquitoes, namely Aedes aegypti and Aedes albopictus \citep{diamond_molecular_2015}. In 2010, it was predicted that the burden of dengue disease reached 390 million cases/year worldwide \citep{bhatt_global_2013}. The high morbidity and mortality of dengue makes it the arbovirus with the highest clinical significance \citep{lourenco_challenges_2018}. DENV is a significant public health challenge in countries where the infection is endemic due to the high health and economic burden. Despite the emergence of novel therapies and ecological strategies to control the mosquito vector, there are still important knowledge gaps in the virus biology and its epidemiology \citep{diamond_molecular_2015}.
