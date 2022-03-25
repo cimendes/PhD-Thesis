@@ -1,22 +1,25 @@
-The work described in the present thesis intended to XXXXX.
+The work described in the present thesis intended to assess the use of bioinformatics methods for the analysis of metagenomic data to allow the rapid identification, virulence analysis and antimicrobial susceptibility prediction of pathogens with clinical relevance. 
 
-The thesis comprises X chapters, organised as follows:
+The thesis comprises 10 chapters, organised as follows:
 
-\textbf{Chapter 1} corresponds to the general introduction that highlights the impact of genomics in clinical microbiology, both in its diagnostic and surveillance prongs. This chapter further expands on this topic by expanding the concept of whole genome sequencing to metagenomics, both metataxonomics and shotgun, introducing the possibility of the identification and characterisation of a potential pathogen without the need for \textit{a priori} knowledge. In this chapter, the importance of bioinformatic analysis of these data is highlighted, showcasing its complexity and the major pitfalls, such as reproducibility and transparency of the results obtained. In summary, the entire process in clinical microbiology for bacterial and viral infections is showcased through its different approaches: classical biochemical and molecular methods, whole genome sequencing, and sequencing through metagenomics, with a focus on the computational requirements necessary. 
+bioinformatics 
 
-\textbf{Chapter 2} consists in the application of shotgun metagenomics approaches to  nine body fluid samples and one tissue sample from patients at the University Medical Center Groningen (UMCG). In this study, the accuracy and reliability of the bioinformatics analyses was evaluated and compared against the results obtained from traditional culture methods. Most pathogens identified by culture were also identified by metagenomics, but substantial differences were noted between the taxonomic classification tools, highlighting the potential and limitations of shotgun metagenomics as a diagnostic tool, but also the fact that, when applying shotgun metagenomics to diagnostics, the results are highly dependent on the tools, and especially the database chosen for the analysis.
+\textbf{Chapter 2} consists of the application of shotgun metagenomics approach to nine body fluid samples and one tissue sample from patients at the University Medical Center Groningen (UMCG). In this study, the accuracy and reliability of the bioinformatics analyses were evaluated and compared against the results obtained from traditional culture methods. Most pathogens identified by culture were also identified by metagenomics, but substantial differences were noted between the taxonomic classification tools, highlighting the potential and limitations of shotgun metagenomics as a diagnostic tool, but also the fact that, when applying shotgun metagenomics to diagnostics, the results are highly dependent on the tools, and especially the database chosen for the analysis.
 
-\textbf{Chapter 3} describes the ...
+\textbf{Chapter 3} describes the application of both second and third-generation sequencing technologies, also known as next-generation and long-read sequencing, to tap-water samples collected at the University Medical Center Groningen. In this sample a new variant of a colistin resistance (\textit{mcr}) determinants was detected, named \textit{mcr-5.4}, and through hybrid assembly leveraging both second and third-generation sequences, its context was determined, albeit with questionable success. 
 
-\textbf{Chapter 4}
+With the lessons learnt in Chapters 2 and 3, we have developed in \textbf{Chapter 4}  DEN-IM, a one-stop, user-friendly, containerised and reproducible workflow for the analysis of Dengue virus short-read sequencing data from both amplicon and shotgun metagenomics approaches. This ready-to-use bioinformatics workflow enables reproducible analysis of Dengue virus directly from human samples, a public health threat and economic burden in affected countries. Therefore, these are particularly relevant target organisms for the development of straightforward workflows. DEN-IM was designed to perform a comprehensive analysis in order to generate either assemblies or consensus of full viral coding sequences and to identify their serotype and genotype, including the identification of co-infection cases whose prevalence is increasingly perceived in highly endemic areas.
 
-\textbf{Chapter 5}
+\textbf{Chapter 5} employs the same methodology as in Chapter 4, where a one-stop, user-friendly, containerised, and reproducible workflow was developed to assess the performance of de novo assembly of raw sequence data, a key progress in metagenomic data analysis since it allows recovering contigs representing the replicons present in the sample, be it genomes, plasmids, or bacteriophages, from a pool of mixed raw reads. For this purpose, we have developed the LMAS workflow, which allows users to evaluate the assembler performance given known standard communities. Its implementation in Nextflow ensures the transparency and reproducibility of the results obtained, and the use of Docker containers provides additional flexibility. The results are presented in an interactive HTML report where global and reference specific performance metrics can be explored. Currently, 10 assemblers are implemented in LMAS, with the possibility of expansion as novel algorithms are developed.
 
-\textbf{Chapter 6}
 
-\textbf{Chapter 7}
+Despite the advantages of reproducible, containerised workflow, it still does not guarantee the interoperability of results obtained from various sources. With a focus on antimicrobial resistance, \textbf{Chapter 6} presents a standardised output specification for the bioinformatic detection of antimicrobial resistance directly from genomes or metagenomes. This addresses the problem of combining the outputs of disparate antimicrobial resistance gene detection tools into a single unified format, implemented into a python package and command-line utility hAMRonization. As the detection of antimicrobial resistance (AMR) directly from genomic or metagenomic data has become a standard procedure in public health, hAMRonization allows for the barrier of comparison of results and the modularity of tools within bioinformatics workflows to be diminished, as these tools, although implementing similar principles, differ in supported inputs, search algorithms, parameterisation, and underlying reference databases. 
 
-\textbf{Chapter 8} corresponds to the general discussion. In this chapter is provided a
-summary of the main results obtained in this thesis and its integrated discussion. 
 
-\textbf{Chapter 9} Contains the main conclusions driven from this work. It also includes perspectives for future work. 
+\textbf{Chapter 7} presents a direct application of a standardised specification. For this purpose, a SARS-CoV-2 contextual data specification package based on harmonisable, publicly available community standards was developed, implemented through a collection template, as well as a variety of protocols and tools to support both the harmonisation and submission of sequence data and contextual information to public biorepositories. 
+
+bioinformatics 
+
+\textbf{Chapter 9} corresponds to the general discussion. This chapter provides a summary of the main results obtained in this thesis and its integrated discussion. 
+
+\textbf{Chapter 10} Contains the main conclusions driven from this work. It also includes perspectives for future work. 
