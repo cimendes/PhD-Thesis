@@ -7,15 +7,15 @@ N. Couto, L. Schuele, E.C. Raangs, M. P. Machado, C. I. Mendes, T. F. Jesus, M. 
 
 The supplementary information referred throughout the text can be consulted in this chapter before the section of references. 
 
-As mentioned in Chapter \ref{sssec:shotgun_metagenomics}, shotgun metagenomic (SMg) approaches have been a growing interest to deliver clinically relevant results without \textit{a priori} knowledge of what to expect from a particular clinical sample or patient. 
+As mentioned in Chapter \ref{sssec:shotgun_metagenomics}, \ac{SMg} approaches have been a growing interest to deliver clinically relevant results without \textit{a priori} knowledge of what to expect from a particular clinical sample or patient. 
 The capacity to detect all potential pathogens in a sample has great potential utility in the diagnosis of infectious disease. 
 However, it is unclear how the variety of available methods impacts the end results.
 
-In this publication SMg was applied to nine body fluid samples and one tissue sample from patients at the University Medical Center Groningen (UMCG) with varying degrees of contamination: one sample from peritoneal fluid, five from pus , two from synovial fluid of knees with prosthesis, one from sputum and one from a bone biopsy. The results of microbial identification through whole genome sequencing (WGS) and SMg were compared to standard culture-based microbiological methods. 
+In this publication \ac{SMg} was applied to nine body fluid samples and one tissue sample from patients at the University Medical Center Groningen (UMCG) with varying degrees of contamination: one sample from peritoneal fluid, five from pus , two from synovial fluid of knees with prosthesis, one from sputum and one from a bone biopsy. The results of microbial identification through whole genome sequencing (\ac{WGS}) and \ac{SMg} were compared to standard culture-based microbiological methods. 
 
-In order to evaluate and compare the accuracy and reliability of the bioinformatics analyses in providing the closest results to culture and WGS of any cultured isolates, three different bioinformatic pipelines (two commercially and one freely available) were used. Most pathogens identified by culture were also identified through metagenomics, but substantial differences were noted between the taxonomic classification tools. 
+In order to evaluate and compare the accuracy and reliability of the bioinformatics analyses in providing the closest results to culture and \ac{WGS} of any cultured isolates, three different bioinformatic pipelines (two commercially and one freely available) were used. Most pathogens identified by culture were also identified through metagenomics, but substantial differences were noted between the taxonomic classification tools. 
 
-My contribution to this publication included the bioinformatics analysis of all the samples using a unix-based approach. I performed quality assessment and quality control of the WGS and SMg data, the removal of host sequencing from the samples, and the taxonomic identification of the remaining reads in each sample though 3 different methods: MetaPhlan2, Kraken and MIDAS. Gene detection directly from the reads for bacterial typing was also performed using metaMLST, ReMatCh, and Bowtie2 and Samtools. Finally, the reads were assembled using the SPAdes genome assembler, with and without metagenomic mode according to the sample being processed. 
+My contribution to this publication included the bioinformatics analysis of all the samples using a unix-based approach. I performed quality assessment and quality control of the \ac{WGS} and \ac{SMg} data, the removal of host sequencing from the samples, and the taxonomic identification of the remaining reads in each sample though 3 different methods: MetaPhlan2, Kraken and MIDAS. Gene detection directly from the reads for bacterial typing was also performed using metaMLST, ReMatCh, and Bowtie2 and Samtools. Finally, the reads were assembled using the SPAdes genome assembler, with and without metagenomic mode according to the sample being processed. 
 
 \cleardoublepage 
 
@@ -69,31 +69,31 @@ Even when unbiased molecular approaches are used, such as 16S/18S rRNA gene sequ
 However, microbial culture is laborious and time-consuming and new methods are needed to replace it. 
 Ideally, a single method should provide rapid identification and characterisation of clinically relevant pathogens directly from a sample in order to guide therapy, predict potential treatment failures and to reveal possible transmission events.
 
-Shotgun metagenomics (SMg) is a culture-independent technique that provides valuable information not only at the identification level, but also at the level of molecular characterisation. 
+\ac{SMg} is a culture-independent technique that provides valuable information not only at the identification level, but also at the level of molecular characterisation. 
 Studies have shown that it has added value in terms of detection sensitivity and personalised treatment in clinical microbiology, when identifying bacteria \citep{hasman_rapid_2014, willmann_antibiotic_2015} or viruses \citep{graf_unbiased_2016}. 
 Indeed Gyarmati et al., 2016 \citep{gyarmati_metagenomic_2016}, used a sequence-based metagenomics approach directly from blood to detect non-culturable, difficult-to-culture and non-bacterial pathogens. 
-The authors were able, through SMg, to detect viral and fungal pathogens together with bacteria, which had not been detected through classical microbiology. 
-Additionally, SMg can be used for infection prevention, having the potential to identify transmission events directly from clinical samples \citep{olson_metagenomic_2017}. 
-For example, SMg was proven valuable for the identification of inter-host nucleotide variations occurring after direct transmission of noroviruses causing gastroenteritis \citep{olson_metagenomic_2017}. 
-Hasman and colleagues (2014) \citep{hasman_rapid_2014} were able to identify urinary pathogens directly from urine, as well as antimicrobial resistant genes compatible with the resistant phenotype determined through antimicrobial susceptibility testing. They also identified almost perfect phylogenetic matches between whole-genome sequence (WGS) data obtained by metagenomics and WGS of pure isolates. 
+The authors were able, through \ac{SMg}, to detect viral and fungal pathogens together with bacteria, which had not been detected through classical microbiology. 
+Additionally, \ac{SMg} can be used for infection prevention, having the potential to identify transmission events directly from clinical samples \citep{olson_metagenomic_2017}. 
+For example, \ac{SMg} was proven valuable for the identification of inter-host nucleotide variations occurring after direct transmission of noroviruses causing gastroenteritis \citep{olson_metagenomic_2017}. 
+Hasman and colleagues (2014) \citep{hasman_rapid_2014} were able to identify urinary pathogens directly from urine, as well as antimicrobial resistant genes compatible with the resistant phenotype determined through antimicrobial susceptibility testing. They also identified almost perfect phylogenetic matches between \ac{WGS} data obtained by metagenomics and \ac{WGS} of pure isolates. 
 
-Despite the promise of SMg of becoming a one-stop solution in clinical microbiology, SMg still has several challenges to overcome. 
+Despite the promise of \ac{SMg} of becoming a one-stop solution in clinical microbiology, \ac{SMg} still has several challenges to overcome. 
 One of the greatest challenges is the choice of the extraction and sequencing protocols, as well of the type of controls \citep{schlaberg_validation_2017}. 
 The extraction protocol should efficiently and specifically isolate microbial DNA/RNA, while removing the host DNA/RNA \citep{street_molecular_2017}. 
 However, the variety of clinical samples used in the diagnosis of distinct types of infection (e.g. tissues versus fluids), poses a serious challenge for standardisation, an essential step if these methods are to be used by routine diagnostic laboratories. 
 The sequencing protocol is also dependent on the pathogens of interest (e.g. bacteria versus viruses), sequencing strategy (DNA and/or RNA), required turnaround time, sequencing depth and error tolerance \citep{schlaberg_validation_2017}. The use of defined controls is necessary for validation of each experiment and these should be adapted for every type of infection and sample type and should consist of a combination of known positive specimens, pathogen-negative patient specimens and pathogen-negative patient specimens spiked with live microorganisms or pure DNA \citep{schlaberg_validation_2017}.
 
 Another potential challenge are the metagenomics analysis tools. 
-Recent studies have evaluated the different SMg sequence classification methods \citep{peabody_evaluation_2015}. 
+Recent studies have evaluated the different \ac{SMg} sequence classification methods \citep{peabody_evaluation_2015}. 
 These use different methodologies for classification: sequence similarity-based methods, sequence composition-based methods and hybrid methods \citep{peabody_evaluation_2015}. 
 They differ not only in the algorithms for detecting the microorganisms present, but also in the databases used. 
 This high variability leads to different results, not only at the microorganism classification level but also when evaluating the relative abundance of these pathogens \citep{peabody_evaluation_2015}. 
 A recent study evaluated the accuracy of 38 bioinformatics methods using both \textit{in silico} and \textit{in vitro} generated mock bacterial communities.
 Dozens to hundreds of species were falsely predicted by the most popular software, and no software clearly outperformed the others \citep{peabody_evaluation_2015}. 
 In the absence of studies comparing the outputs of different analysis methods in clinical samples, users may decide which methods to use based on personal experience with a given tool, availability of the tool in the laboratory or its ease of use.
-This poses a great challenge when providing reproducible results and creates uncertainty regarding the reliability of the information derived. This is a major barrier to the implementation of SMg approaches in routine clinical microbiology laboratories.
+This poses a great challenge when providing reproducible results and creates uncertainty regarding the reliability of the information derived. This is a major barrier to the implementation of \ac{SMg} approaches in routine clinical microbiology laboratories.
 
-In this study, the aim was to identify the critical steps when using SMg for the identification and characterization of microbial pathogens directly from clinical specimens using methods that are likely to be available in clinical microbiology laboratories wanting to implement genomics for pathogen identification or molecular epidemiology studies. 
+In this study, the aim was to identify the critical steps when using \ac{SMg} for the identification and characterization of microbial pathogens directly from clinical specimens using methods that are likely to be available in clinical microbiology laboratories wanting to implement genomics for pathogen identification or molecular epidemiology studies. 
 For this purpose, we used three human-DNA depletion kits and evaluated a diverse set of bioinformatics tools (commercial and non-commercial) in order to investigate how well they performed and what would the differences be in terms of taxonomic classification, antimicrobial resistance gene detection and typing directly from patient samples, bypassing culture. 
 
 \section{Methods} \label{sec:methods}
@@ -160,11 +160,11 @@ Strains were sequenced in batches of 12 to 16 on a single flow cell.
 
 \subsection{Bioinformatics analyses} \label{ssec:sample_bioinformatics}
 
-In order to evaluate and compare the accuracy and reliability of the bioinformatics analyses in providing the closest results to culture and WGS of any cultured isolates, three different pipelines (two commercially and one freely available) were used (Figure \ref{fig:chap2_figure1}).
+In order to evaluate and compare the accuracy and reliability of the bioinformatics analyses in providing the closest results to culture and \ac{WGS} of any cultured isolates, three different pipelines (two commercially and one freely available) were used (Figure \ref{fig:chap2_figure1}).
 Different tools to perform raw read quality control, filtering and trimming were used and reads were mapped against the human genome (hg19) before performing taxonomic classification. 
 Reads mapping to hg19 where removed from the analysis to increase the efficiency of the bioinformatics tools. 
 Typing (MLST), phylogenetic analysis, plasmid analysis, detection of antimicrobial resistance and virulence genes was performed. 
-To determine the appropriateness of SMg as predictor of the WGS (chromosome and plasmids), SMg results obtained were compared with the results of WGS of any bacterial isolates obtained from culturing the sample.
+To determine the appropriateness of \ac{SMg} as predictor of the \ac{WGS} (chromosome and plasmids), \ac{SMg} results obtained were compared with the results of \ac{WGS} of any bacterial isolates obtained from culturing the sample.
 
 All the parameters used in each approach are available in Supplementary Table 1 (see \ref{ch2_supmaterial}).
 
@@ -185,7 +185,7 @@ For Bowtie 2 we used the ‘-k’ option, allowing each read to map to as many p
 Then, this pipeline used SAMtools v1.3.1 \citep{li_sequence_2009} to estimate the coverage for each position, and reported the length of plasmid sequence covered (in percentage) and average depth (mean number of reads mapped against a given position in each plasmid). 
 Plasmids with less than 80\% of its length covered were excluded from the final results in line with what has described elsewhere \citep{jitwasinkul_plasmid_2016}. The pATLAS tool\footnote{\url{http://www.patlas.site/}} was used to visualise which plasmids were present.
 
-For the WGS reads of the bacterial isolates, the whole INNUca v2.6 pipeline was run, including SPAdes assembly and polishing. 
+For the \ac{WGS} reads of the bacterial isolates, the whole INNUca v2.6 pipeline was run, including SPAdes assembly and polishing. 
 Plasmids were detected as mentioned previously.
 
 \subsubsection{Commercial-based approach}
@@ -199,7 +199,7 @@ In both, the bacterial and fungal databases were downloaded from NCBI RefSeq (wi
 The antimicrobial resistance genes were detected, based on the assembled contigs, using the Find Resistance tool (Microbial Genomics Module) and were initially only considered present when they were $\geq$ 70\% identical to the reference and $\geq$ 80\% of the sequence was covered. The analysis was also repeated using $\geq$ 40\% and $\geq$ 20\% of sequence coverage for comparison purposes. 
 The database containing the antimicrobial resistance genes was downloaded directly to the software from ResFinder\footnote{\url{https://cge.cbs.dtu.dk/services/data.php}} (downloaded on 05-07-2017, 2156 sequences). The MLST was determined through the Identify MLST tool (Microbial Genomics Module), using all MLST schemes available at PubMLST (04-03-2017). 
 The same database used for plasmid detection in Unix, was used for mapping the reads in CLC Genomics Workbench. Again, plasmids with less than 80\% of its length covered were excluded from the final results. 
-For WGS reads we used the Trim Sequences tool and the assembly, antimicrobial resistance genes detection, and MLST determination were performed as before.
+For \ac{WGS} reads we used the Trim Sequences tool and the assembly, antimicrobial resistance genes detection, and MLST determination were performed as before.
 
 \subsubsection{Web-based approaches}
 
@@ -217,8 +217,8 @@ We used the Full Analysis mode in Taxonomer.
 \subsubsection{wgMLST analyses}
 
 Typing was done by MLST and wgMLST analyses obtained using Ridom SeqSphere+ v4.0.1. 
-The genomic data (assembled contigs) obtained from SMg was compared to the data obtained through WGS.
-Since no cg/wgMLST scheme was available for \textit{Escherichia coli}, \textit{Enterococcus faecalis}, \textit{Ochrobactrum intermedium} and \textit{Staphylococcus haemolyticus}, cgMLST and accessory genome schemes were constructed, using Ridom SeqSphere+ cgMLST Target Definer with the following parameters: a minimum length filter that removes all genes smaller than 50 bp; a start codon filter that discards all genes that contain no start codon at the beginning of the gene; a stop codon filter that discards all genes that contain no stop codon or more than one stop codon or that do not have the stop codon at the end of the gene; a homologous gene filter that discards all genes with fragments that occur in multiple copies within a genome (with identity of 90\% and >100 bp overlap); and a gene overlap filter that discards the shorter gene from the cgMLST scheme if the two genes affected overlap $>$4 bp. 
+The genomic data (assembled contigs) obtained from \ac{SMg} was compared to the data obtained through \ac{WGS}.
+Since no cg/wg MLST scheme was available for \textit{Escherichia coli}, \textit{Enterococcus faecalis}, \textit{Ochrobactrum intermedium} and \textit{Staphylococcus haemolyticus}, cgMLST and accessory genome schemes were constructed, using Ridom SeqSphere+ cgMLST Target Definer with the following parameters: a minimum length filter that removes all genes smaller than 50 bp; a start codon filter that discards all genes that contain no start codon at the beginning of the gene; a stop codon filter that discards all genes that contain no stop codon or more than one stop codon or that do not have the stop codon at the end of the gene; a homologous gene filter that discards all genes with fragments that occur in multiple copies within a genome (with identity of 90\% and >100 bp overlap); and a gene overlap filter that discards the shorter gene from the cgMLST scheme if the two genes affected overlap $>$4 bp. 
 The remaining genes were then used in a pairwise comparison using BLAST version 2.2.12 (parameters used were word size 11, mismatch penalty -1, match reward 1, gap open costs 5, and gap extension costs 2). 
 All genes of the reference genome that were common in all query genomes with a sequence identity of $\geq$ 90\% and 100\% overlap and, with the default parameter stop codon percentage filter turned on, formed the final cgMLST scheme. 
 The combination of all alleles in each strain formed an allelic profile that was used to generate minimum spanning trees using the parameter “pairwise ignore missing values” during distance calculation \citep{ruppitsch_defining_2015}.
@@ -248,7 +248,7 @@ The different bacterial and fungal species identified in each sample are shown i
 
 
 \begin{table}[]
-\caption{Microorganisms identified by conventional methods, WGS and using shotgun metagenomics and the taxonomic classification methods in Unix.}
+\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in Unix.}
 \label{tab:ch2_table2}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}|l|l|l|l|lll|@{}}
@@ -256,7 +256,7 @@ The different bacterial and fungal species identified in each sample are shown i
 \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{WGS-based identification}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\ac{WGS}-based identification}}} &
   \multicolumn{3}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-7} 
 \multicolumn{1}{|c|}{} &
   \multicolumn{1}{c|}{} &
@@ -342,12 +342,12 @@ The different bacterial and fungal species identified in each sample are shown i
 \item $^b$The relative abundance is calculated using total number of reads as denominator
 \item $^c$The relative abundance is calculated with the total number of classified reads as denominator
 \item $^d$miniKraken database was used
-\item $^\#$Although there was a laboratory identification, no isolates were available for WGS
+\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
 \item $^*$No reads matched that specific pathogen, not even at the genus level
 \end{table}
 
 \begin{table}[]
-\caption{Microorganisms identified by conventional methods, WGS and using shotgun metagenomics and the taxonomic classification methods in CLC Genomics Workbench.}
+\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in CLC Genomics Workbench.}
 \label{tab:ch2_table3}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}|l|l|l|l|ll|@{}}
@@ -355,7 +355,7 @@ The different bacterial and fungal species identified in each sample are shown i
 \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{WGS-based identification}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\ac{WGS}-based identification}}} &
   \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-6} 
 \multicolumn{1}{|c|}{} &
   \multicolumn{1}{c|}{} &
@@ -429,12 +429,12 @@ The different bacterial and fungal species identified in each sample are shown i
 \item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
 \item $^b$The relative abundance is calculated using total number of reads as denominator
 \item $^c$The relative abundance is calculated with the total number of classified reads as denominator
-\item $^\#$Although there was a laboratory identification, no isolates were available for WGS
+\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
 \item $^*$No reads matched that specific pathogen, not even at the genus level
 \end{table}
 
 \begin{table}[]
-\caption{Microorganisms identified by conventional methods, WGS and using shotgun metagenomics and the taxonomic classification methods in webpages (BaseSpace, Taxonomer and CosmosID).}
+\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in webpages (BaseSpace, Taxonomer and CosmosID).}
 \label{tab:ch2_table4}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}|l|l|l|l|lllll|@{}}
@@ -442,7 +442,7 @@ The different bacterial and fungal species identified in each sample are shown i
 \multirow{2}{*}{\textbf{Sample number}} &
   \multirow{2}{*}{\textbf{Culture result (CFU)$^a$}} &
   \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}l@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}} &
-  \multirow{2}{*}{\textbf{WGS-based identification}} &
+  \multirow{2}{*}{\textbf{\ac{WGS}-based identification}} &
   \multicolumn{5}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-9} 
  &
    &
@@ -551,7 +551,7 @@ The different bacterial and fungal species identified in each sample are shown i
 \item $^c$The relative abundance is calculated with the total number of classified reads as denominator
 \item $^d$miniKraken database was used
 \itel $^e$Full Analysis mode was used 
-\item $^\#$Although there was a laboratory identification, no isolates were available for WGS
+\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
 \item $^*$No reads matched that specific pathogen, not even at the genus level
 \end{table}
 
@@ -608,7 +608,7 @@ MIDAS (Unix)                                              & 34   & 7 & 26   & 2 
 \subsection{Determination of antimicrobial resistance}
 
 Metagenomics provides other sequence information in addition to pathogen detection. 
-We determined the presence of antimicrobial-resistance genes in the SMg sequence data and compared the results with those obtained from WGS and phenotypic resistance testing (Table \ref{tab:ch2_table6}).
+We determined the presence of antimicrobial-resistance genes in the \ac{SMg} sequence data and compared the results with those obtained from \ac{WGS} and phenotypic resistance testing (Table \ref{tab:ch2_table6}).
 
 AMR genes found with CLC Genomics Workbench and ReMatCh in samples 1, 7 and 9 correlated well with phenotypic results. 
 However, in the other 7 samples, not all antimicrobial resistance genes that could explain the phenotypic profile were identified. 
@@ -629,7 +629,7 @@ We were only able to get results in 3 samples, with no resistance genes detected
 \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional susceptibility testing\\  (VITEK 2)$^b$\end{tabular}}}} &
-  \multicolumn{1}{c|}{\textbf{WGS}} &
+  \multicolumn{1}{c|}{\textbf{\ac{WGS}}} &
   \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cline{4-6} 
 \multicolumn{1}{|c|}{} &
   \multicolumn{1}{c|}{} &
@@ -706,10 +706,10 @@ We were only able to get results in 3 samples, with no resistance genes detected
 
 \subsection{MLST and wgMLST analysis}
  
-In three cases when SMg data covered $\geq$ 93\% of the genome we were able to identify the ST, which corresponded to the one found using WGS of the isolated bacteria using CLC Genomics Workbench (n=2) and metaMLST (n=1). 
+In three cases when \ac{SMg} data covered $\geq$ 93\% of the genome we were able to identify the ST, which corresponded to the one found using \ac{WGS} of the isolated bacteria using CLC Genomics Workbench (n=2) and metaMLST (n=1). 
 These results are summarized in Table \ref{tab:ch2_table7}.
 Assembled genomes and metagenomes, were compared by wgMLST analysis using Ridom SeqSphere+. 
-Figure \ref{fig:chap2_figure2} shows examples of the allele difference between the genomes obtained through WGS versus the genomes obtained through shotgun metagenomics.
+Figure \ref{fig:chap2_figure2} shows examples of the allele difference between the genomes obtained through \ac{WGS} versus the genomes obtained through shotgun metagenomics.
 
 \begin{table}[]
 \caption{Results of MLST using by whole genome sequencing and shotgun metagenomics}
@@ -719,7 +719,7 @@ Figure \ref{fig:chap2_figure2} shows examples of the allele difference between t
 \toprule
 \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
   \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\textbf{WGS}} &
+  \multicolumn{1}{c|}{\textbf{\ac{WGS}}} &
   \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){3-5} 
 \multicolumn{1}{|c|}{} &
   \multicolumn{1}{c|}{} &
@@ -784,7 +784,7 @@ Figure \ref{fig:chap2_figure2} shows examples of the allele difference between t
 \begin{figure*}[h!]
 \centering
 \includegraphics[angle=-90,width=\textwidth]{figures/chapter 2/41598_2018_31873_Fig2_HTML.pdf}
-\caption{Minimum-spanning tree based on wgMLST allelic profiles of 2 S. aureus genomes and 2 E. coli genomes obtained through SM and WGS in comparison to reference strains 04-02981 (GenBank accession number NC\_017340) and 06-00048 (NZ\_CP015229), respectively. Each circle represents an allelic profile based on sequence analysis. The numbers on the connecting lines illustrate the numbers of target genes with differing alleles.}
+\caption{Minimum-spanning tree based on wgMLST allelic profiles of 2 S. aureus genomes and 2 E. coli genomes obtained through SM and \ac{WGS} in comparison to reference strains 04-02981 (GenBank accession number NC\_017340) and 06-00048 (NZ\_CP015229), respectively. Each circle represents an allelic profile based on sequence analysis. The numbers on the connecting lines illustrate the numbers of target genes with differing alleles.}
 \label{fig:chap2_figure2}
 \end{figure*}
 
@@ -795,43 +795,43 @@ Both approaches used mapping of sequences against the same plasmid database.
 Since some plasmids present in the database are very similar and sequence reads may be mapped to more than one plasmid, we used the pATLAS tool, which provides an overview of the nodes (representing plasmid sequences) and links between plasmids (which connect similar plasmids), to enable the visualisation of the plasmids identified (Figure \ref{fig:chap2_figure3}). 
 A colour gradient indicates the sequence coverage of the plasmids. 
 In most cases, the same plasmids were identified by both approaches, with some small differences in sequence coverage. 
-When comparing the plasmids identified in the SMg dataset versus the WGS data, most of the plasmids were also detected in the isolates (an example is shown in Figure \ref{fig:chap2_figure4}). 
+When comparing the plasmids identified in the \ac{SMg} dataset versus the \ac{WGS} data, most of the plasmids were also detected in the isolates (an example is shown in Figure \ref{fig:chap2_figure4}). 
 However, some plasmids were not identified in any of the isolated bacteria and were probably residing in low-abundant species.
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[angle=-90,width=\textwidth]{figures/chapter 2/41598_2018_31873_Fig3_HTML.pdf}
-\caption{(a) Overview of the nodes (representing plasmid sequences) and links between plasmids (connecting similar plasmids) found in Sample 1 (SMg) using the pATLAS tool. (b) A closer look at one of the cloud of plasmids. The colour gradient in each cloud of plasmids represents the plasmid sequence coverage (SC), varying between 0-0.79 (grey) and 0.80-1 (red gradient).}
+\caption{(a) Overview of the nodes (representing plasmid sequences) and links between plasmids (connecting similar plasmids) found in Sample 1 (\ac{SMg}) using the pATLAS tool. (b) A closer look at one of the cloud of plasmids. The colour gradient in each cloud of plasmids represents the plasmid sequence coverage (SC), varying between 0-0.79 (grey) and 0.80-1 (red gradient).}
 \label{fig:chap2_figure3}
 \end{figure*}
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[angle=-90,width=\textwidth]{figures/chapter 2/41598_2018_31873_Fig4_HTML.pdf}
-\caption{A heatmap comparing the identified plasmids using bowtie2 in \textit{S. haemolyticus} WGS (1),\textit{ E. faecium} WGS (2) and in the SMg dataset (3) isolated from sample 1.}
+\caption{A heatmap comparing the identified plasmids using bowtie2 in \textit{S. haemolyticus} \ac{WGS} (1),\textit{ E. faecium} \ac{WGS} (2) and in the \ac{SMg} dataset (3) isolated from sample 1.}
 \label{fig:chap2_figure4}
 \end{figure*}
 
 \section{Discussion}
 
-This study evaluated the suitability of SMg for the microbiological diagnosis and (patho- and epi-) typing of microorganisms directly from real patient samples. The whole procedure took between 48-54 hours to complete, which is shorter than culture-based methods if one includes typing. However, the amount of information derived from SMg in most cases, did not overcome the necessity for pathogen isolation and subsequent (phenotypic and genotypic) typing, which can take up to 1-2 weeks (particularly in slow-growing organisms). Nevertheless, SMg can help guide antimicrobial therapy and be helpful in cases where there is a suspicion of transmission and there is a need to quickly determine the genetic relationship between pathogens, although the success of SMg in individual patient samples can be highly variable, as reported here.
+This study evaluated the suitability of \ac{SMg} for the microbiological diagnosis and (patho- and epi-) typing of microorganisms directly from real patient samples. The whole procedure took between 48-54 hours to complete, which is shorter than culture-based methods if one includes typing. However, the amount of information derived from \ac{SMg} in most cases, did not overcome the necessity for pathogen isolation and subsequent (phenotypic and genotypic) typing, which can take up to 1-2 weeks (particularly in slow-growing organisms). Nevertheless, \ac{SMg} can help guide antimicrobial therapy and be helpful in cases where there is a suspicion of transmission and there is a need to quickly determine the genetic relationship between pathogens, although the success of \ac{SMg} in individual patient samples can be highly variable, as reported here.
 
 Different bioinformatics pipelines were evaluated to identify potential differences between them and identify those which could provide the clinical microbiologist with the maximum of relevant and accurate information. In terms of microbial identification, in both Unix and web-based approaches we would recommend MetaPhlAn, since it has good sensitivity and a good positive predictive value (PPV). The find best match K-mer spectra tool should be used in the context of the CLC Genomics Workbench, since it had a higher sensitivity and PPV compared to the Taxonomic Profiling tool.
 
-In a clinical setting, a combination of high sensitivity and high PPV of any new method is key. Popular software designed for bacterial identification, can predict dozens to hundreds of species in in vitro generated bacterial communities of known composition \citep{peabody_evaluation_2015}. We observed the same when using Kraken and Taxonomer when comparing to culture-based methods. For both Kraken and Taxonomer, relative abundance cut-off values may be required to limit the number of species identified. However, which cut-off values should be used are a matter of debate, since in some cases, even if applying a cut-off value as low as 1.0\% (comparable to what was found in the negative control) would have resulted in decreased sensitivity (e.g. the \textit{Streptococcus anginosus} identified by culture in Sample 5 would have been disregarded). The methods that employ several parameters to infer microbial identification are superior, because they not only rely on the relative abundance of bacterial species, but also on the genome coverage and on the proportion of the genome that was covered. On the other hand, in some cases SMg may be more sensitive than culture in identifying pathogens, reflecting the higher sensitivity or the capacity to detect bacterial species which are non-culturable in the conditions used or that are no longer culturable, such as due to prior antimicrobial therapy. In such cases, other methods like 16S rDNA sequencing or the recently described 16S-23S rDNA sequencing method \citep{sabat_targeted_2017} may be used for discrepancy analyses. However, here we decided to use culture-based methods as the gold standard, since this is still the method of choice in clinical microbiology.
+In a clinical setting, a combination of high sensitivity and high PPV of any new method is key. Popular software designed for bacterial identification, can predict dozens to hundreds of species in in vitro generated bacterial communities of known composition \citep{peabody_evaluation_2015}. We observed the same when using Kraken and Taxonomer when comparing to culture-based methods. For both Kraken and Taxonomer, relative abundance cut-off values may be required to limit the number of species identified. However, which cut-off values should be used are a matter of debate, since in some cases, even if applying a cut-off value as low as 1.0\% (comparable to what was found in the negative control) would have resulted in decreased sensitivity (e.g. the \textit{Streptococcus anginosus} identified by culture in Sample 5 would have been disregarded). The methods that employ several parameters to infer microbial identification are superior, because they not only rely on the relative abundance of bacterial species, but also on the genome coverage and on the proportion of the genome that was covered. On the other hand, in some cases \ac{SMg} may be more sensitive than culture in identifying pathogens, reflecting the higher sensitivity or the capacity to detect bacterial species which are non-culturable in the conditions used or that are no longer culturable, such as due to prior antimicrobial therapy. In such cases, other methods like 16S rDNA sequencing or the recently described 16S-23S rDNA sequencing method \citep{sabat_targeted_2017} may be used for discrepancy analyses. However, here we decided to use culture-based methods as the gold standard, since this is still the method of choice in clinical microbiology.
 
 One limitation of this study was the exclusion of culture-negative samples and thus their inclusion would have affected the calculation of the specificity values. However, as mentioned above, culture-negative samples do not necessarily mean that the samples are pathogen-free, but it might only reflect the low sensitivity or capacity of culture-based methods to detect non-culturable bacterial species. As with other (molecular) methods, several controls should be included to validate the obtained results, including a negative control. In our negative control, we detected an \textit{O. intermedium} strain, although with only 1.0\% of the reads mapping to the reference genome and covering only 1.4\% of the reference genome (accession number NZ\_ACQA01000002). These results may be due to contamination during library preparation (e.g. sample-to-sample contamination prior to indexing), the result of sequencing artefacts (e.g. demultiplexing errors), or to incorrect classification during data analysis (e.g. highly similar regions) \citep{graf_unbiased_2016}. Our samples and sequencing libraries were handled in laminar flow cabinets; however, we cannot also exclude the possibility of contamination. Furthermore, the reagents used may also be or become contaminated with DNA leading the detection of these contaminating species, something that has been described previously \citep{street_molecular_2017}. This poses a challenge for interpretation, because some positive samples also had very low numbers of reads for some pathogens (< 1\%). When approaching this limit of detection, small numbers of pathogen reads will be difficult to interpret, as they can represent true-positives with low abundance in the sample, or artefacts such as contamination during library preparation\citep{graf_unbiased_2016}.
 
 In terms of antimicrobial resistance gene detection, ReMatCh (Unix) and the CLC Genomics Workbench Find Resistance tool gave comparable results. Since ReMatCh (Unix) performs the analysis at the read level, while CLC Genomics Workbench performs it at the contig level, we suggest that both strategies should be employed in parallel when looking for antimicrobial resistance genes. It is also important to emphasise that the contig-level approach employed by CLC Genomics Workbench may give negative results if the sequence coverage is set to a high percentage (e.g. above 80\%). This is due to the assembly method, which may split the antimicrobial resistance genes into different contigs, when the number of reads is too low. This phenomenon was observed in Sample 1, for the \textit{aac(6’)-aph(2’’)} gene, which was split into 3 different contigs, each part corresponding to less than 40\% of the gene. Only when applying a cut-off value of $geq$ 20\% for sequence coverage could we identify all three parts of the gene, which in total corresponded to 89\% of the entire sequence. Finally, it is important to point out that the ResFinder database (used here), and other databases, focus on acquired genes, not including chromosomal point mutations resulting in antimicrobial resistance. However, a recently developed tool, PointFinder, was added to ResFinder for the detection of chromosomal point mutations associated with antimicrobial resistance \citep{zankari_pointfinder_2017} and an updated database will be available soon.
 
-Another challenge is to infer where these antimicrobial resistance genes are located (chromosome or plasmid). The study of mobile genetic elements, including plasmids, carrying antimicrobial resistance genes present in clinical samples is important to predict possible treatment failures and the spread of resistance within and across bacterial species. When performing bacterial isolation followed by WGS, information on polymicrobial infections may be lost. This is mainly driven by a bottleneck in culture, where some bacterial species are not isolated with standard work up protocols (frequently anaerobes and slow-growing organisms). The presence of antimicrobial resistance genes in plasmids of bacteria other than those isolated through culture poses a risk since they are not identified by conventional methods but could potentially be horizontally transmitted to pathogenic bacteria under the antimicrobial selective pressure of treatment. Antimicrobial administration may also select minority populations where these resistance determinants are found. Furthermore, the understanding of how plasmids are shared by different bacteria in a bacterial community (e.g. within an infection site or in the gut) can improve our understanding of how these elements disseminate across species and from patient to patient11. The SMg approach is clearly more efficient than culture in identifying the “cloud” of plasmids present in a given sample (Figure \ref{fig:chap2_figure4}) and which can be potentially transferred to more pathogenic species generating problems of resistance, as was the case with the emerge of vancomycin resistance \textit{S. aureus} \citep{melo-cristino_first_2013}.
+Another challenge is to infer where these antimicrobial resistance genes are located (chromosome or plasmid). The study of mobile genetic elements, including plasmids, carrying antimicrobial resistance genes present in clinical samples is important to predict possible treatment failures and the spread of resistance within and across bacterial species. When performing bacterial isolation followed by \ac{WGS}, information on polymicrobial infections may be lost. This is mainly driven by a bottleneck in culture, where some bacterial species are not isolated with standard work up protocols (frequently anaerobes and slow-growing organisms). The presence of antimicrobial resistance genes in plasmids of bacteria other than those isolated through culture poses a risk since they are not identified by conventional methods but could potentially be horizontally transmitted to pathogenic bacteria under the antimicrobial selective pressure of treatment. Antimicrobial administration may also select minority populations where these resistance determinants are found. Furthermore, the understanding of how plasmids are shared by different bacteria in a bacterial community (e.g. within an infection site or in the gut) can improve our understanding of how these elements disseminate across species and from patient to patient11. The \ac{SMg} approach is clearly more efficient than culture in identifying the “cloud” of plasmids present in a given sample (Figure \ref{fig:chap2_figure4}) and which can be potentially transferred to more pathogenic species generating problems of resistance, as was the case with the emerge of vancomycin resistance \textit{S. aureus} \citep{melo-cristino_first_2013}.
 
-Whole-genome sequencing has been used extensively for several purposes \citep{deurenberg_application_2017} and is considered to have the potential of playing an important role in clinical microbiology \citep{rossen_practical_2018}. It is the ongoing goal of medical molecular microbiology to develop faster typing methods that can be used for outbreak surveillance. For this purpose, we assembled the metagenomics data and compared it with the assemblies given by WGS. Surprisingly, the assemblies provided by SPAdes in BaseSpace were closer to the assemblies provided by WGS. When comparing the genomes obtained through WGS and SMg, we could see that in 4 out of 8 bacterial isolates the number of different alleles was $leq$ 7. This showed the potential of SMg to draw phylogenetic relationships from uncultured bacterial genomes, although more potentially limited than those obtained using WGS data from axenic cultures. As for the detection of resistance genes, a key limiting factor may be the number of bacterial reads, reflected in a lower genome coverage (e.g. samples 4 and 6). In these cases, we would have to either improve the human-DNA depletion step, improve the microbial enrichment or perform sequencing at a higher sequencing depth to have enough microbial reads to be able to get a more appropriate genome coverage. Yet, this last step will severely raise the sequencing costs, which might render the methodology unfeasible for routine application.
+Whole-genome sequencing has been used extensively for several purposes \citep{deurenberg_application_2017} and is considered to have the potential of playing an important role in clinical microbiology \citep{rossen_practical_2018}. It is the ongoing goal of medical molecular microbiology to develop faster typing methods that can be used for outbreak surveillance. For this purpose, we assembled the metagenomics data and compared it with the assemblies given by \ac{WGS}. Surprisingly, the assemblies provided by SPAdes in BaseSpace were closer to the assemblies provided by \ac{WGS}. When comparing the genomes obtained through \ac{WGS} and \ac{SMg}, we could see that in 4 out of 8 bacterial isolates the number of different alleles was $leq$ 7. This showed the potential of \ac{SMg} to draw phylogenetic relationships from uncultured bacterial genomes, although more potentially limited than those obtained using \ac{WGS} data from axenic cultures. As for the detection of resistance genes, a key limiting factor may be the number of bacterial reads, reflected in a lower genome coverage (e.g. samples 4 and 6). In these cases, we would have to either improve the human-DNA depletion step, improve the microbial enrichment or perform sequencing at a higher sequencing depth to have enough microbial reads to be able to get a more appropriate genome coverage. Yet, this last step will severely raise the sequencing costs, which might render the methodology unfeasible for routine application.
 
 In this study, we evaluated the results of metagenomics pipelines using three different methods. CLC Genomics Workbench has advantages over the other methods. It does not require previous knowledge of Unix-based tools, it is arguably the most user-friendly and delivered reliable results for microbial identification and antimicrobial resistance gene detection. The downside was the assembly approaches, which provided lower wgMLST allele detection, when compared to the assemblies using SPAdes (BaseSpace and Unix). BaseSpace, the other commercial solution, on the other hand, provided only a few tools that can be used for metagenomics data. Furthermore, since Illumina did not develop the apps themselves, they offered no direct support. Contacting the developers (via email and posting on their forum) does not guarantee a solution to the issues in a time frame compatible with a routine clinical microbiology laboratory work. The dependence and no direct control over a third party to resolve software bugs and provide a stable platform illustrates a disadvantage of a cloud-based system like BaseSpace. Finally, the Unix-based pipeline complemented the data on antimicrobial resistance genes but did not offer better results in terms of microbial identification and MLST typing. However, many more freely available tools for this last purpose could have been used, potentially improving on the results obtained. Reference-guided assembly approaches, taking advantage of the species information derived in the first steps of our analysis pipelines, will deserve further study in the future since these may provide higher quality assemblies from metagenomics data. The main advantage of an open-source approach is its flexibility since it allows the user to choose the most adequate method for each desired outcome.
-There were several limitations to this study. First, the number of samples included was low and some of the bacterial isolates were not available for further WGS analysis. However, the extended data analyses performed in each sample limited the number of samples to be included. It is our intention to move forward with the most adequate pipelines for each purpose and apply them to additional patients’ samples. Second, the samples differed greatly from each other. However, in our point of view, this was beneficial to the study, since it did not bias the analyses as it could have happened if only one type of sample had been used. Finally, we used three different extraction methods that could have influenced the final results. Yet, as can be seen in Table \ref{tab:ch2_table_1}, the number of human reads differed between samples, even when using the same extraction kit. This suggests none of the kits is clearly superior to the others and that the ratio between host and microbial DNA or other individual sample characteristics will be the major determinants of the proportion of microbial reads.
+There were several limitations to this study. First, the number of samples included was low and some of the bacterial isolates were not available for further \ac{WGS} analysis. However, the extended data analyses performed in each sample limited the number of samples to be included. It is our intention to move forward with the most adequate pipelines for each purpose and apply them to additional patients’ samples. Second, the samples differed greatly from each other. However, in our point of view, this was beneficial to the study, since it did not bias the analyses as it could have happened if only one type of sample had been used. Finally, we used three different extraction methods that could have influenced the final results. Yet, as can be seen in Table \ref{tab:ch2_table_1}, the number of human reads differed between samples, even when using the same extraction kit. This suggests none of the kits is clearly superior to the others and that the ratio between host and microbial DNA or other individual sample characteristics will be the major determinants of the proportion of microbial reads.
 
-In conclusion, this study showed the potential but also highlighted the problems of implementing shotgun metagenomics for the identification and typing of pathogens directly from clinical samples. Based on the results obtained here we can conclude that the tools and databases used for taxonomic classification and antimicrobial resistance will have a key impact on the results, cautioning about the comparison between studies using different methods and suggesting that efforts need to be directed towards standardisation of the analysis methods if SMg is to be used routinely in clinical microbiology.
+In conclusion, this study showed the potential but also highlighted the problems of implementing shotgun metagenomics for the identification and typing of pathogens directly from clinical samples. Based on the results obtained here we can conclude that the tools and databases used for taxonomic classification and antimicrobial resistance will have a key impact on the results, cautioning about the comparison between studies using different methods and suggesting that efforts need to be directed towards standardisation of the analysis methods if \ac{SMg} is to be used routinely in clinical microbiology.
 
 \section{Acknowledgements}
 
@@ -857,7 +857,7 @@ The authors declare that they have no conflict of interest.
 \section{Supplemental Material}
 
 \begin{table}[]
-\caption{}
+\caption{Supplementary table 1.}
 \label{tab:ch2_suptable1}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ll}
@@ -898,7 +898,7 @@ Can't set any settings in BaseSpace             &
 \end{table}
 
 \begin{table}[]
-\caption{}
+\caption{Supplementary table 2.}
 \label{tab:ch2_suptable2}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ll}
@@ -973,7 +973,7 @@ Multiple alignment                                 & TRUE
 \newpage
 
 \begin{longtable}{ll}
-\caption{}
+\caption{Supplementary table 3.}
 \label{tab:ch2_suptable3}\\
 \multicolumn{2}{l}{Illumina}                                                                  \\
 \endfirsthead
