@@ -231,7 +231,7 @@ Although substantial advances have been made in reducing response time, most of 
 High-throughput DNA sequencing has found additional new applications in drug discovery and in functional genomics with, for example, SNP-based analysis to identify new drug targets \citep{loman_twenty_2015}.
 
 Although the second-generation DNA sequencing methods have shed light on fundamental aspects of microbial ecology and function, they suffer from issues associated with short read length (see \ref{ssec:_intro_2nd_gen_seq}) and cannot reliably reconstruct long repeats because of uncertainties in mapping read, even when paired-end sequencing is used. 
-Third-generation sequencing methods (see \ref{ssec:_intro_3rd_gen_seq}) have become increasingly used in microbiology, although their accuracy and low throughput make it challenging to implement in a clinical diagnostic setting. 
+Third-generation sequencing methods (see \ref{ssec:_intro_3rd_gen_seq} The third-generation of DNA sequencing) have become increasingly used in microbiology, although their accuracy and low throughput make it challenging to implement in a clinical diagnostic setting. 
 
 \subsubsection{Sequencing and genomic surveillance} \label{sssec:_intro_sequencing_genomic_survaillance}
 
@@ -243,7 +243,7 @@ Enterobase\footnote{\url{https://enterobase.warwick.ac.uk/}} allows for the anal
 Microreact\footnote{\url{https://microreact.org/}}, from the same developers as Pathogenwatch, combines clustering, geographical and temporal data into an interactive visualisation with trees, maps, timelines and tables for a multitude of microorganisms, both bacterial and viral \citep{argimon_microreact_nodate}. 
 Particularly for viruses, GISAID\footnote{\url{https://www.gisaid.org/}}  promotes the rapid sharing of data from all influenza viruses and the coronavirus causing COVID-19, including the genetic sequences and related clinical and epidemiological data \citep{shu_gisaid_2017}. 
 ViPR\footnote{\url{https://www.viprbrc.org/}} provides access to sequence records, gene and protein annotations, immune epitopes, 3D structures, host factor data, and other data types for over 14 viral families, including \textit{Coronaviridae}, from which \ac{SARS-CoV-2} belongs to, and \textit{Faviviridae}, the family of Dengue and Zika virus \citep{pickett_virus_2012}. 
-INSaFLU\footnote{\url{https://insaflu.insa.pt/}} supplies public health laboratories and influenza researchers with a web-based suite for effective and timely influenza and \ac{SARS-CoV-2} laboratory surveillance, identifying the type and subtype/lineage, detection of putative mixed infections and intra-host minor variants \citep{borges_insaflu_2018}. 
+INSaFLU\footnote{\url{https://insaflu.insa.pt/}} supplies public health laboratories and influenza researchers with a web-based suite for effective and timely influenza and \ac{SARS-CoV-2} laboratory surveillance, identifying the type and subtype/lineage, detection of putative mixed infections and intra-host minor variants \citep{borges_insaflu_2018}. Nextrain\footnote{\url{https://nextstrain.org/}} provide a continually-updated view of publicly available data alongside powerful analytic and visualisation tools to aid epidemiological understanding and improve outbreak response for 10 pathogens: Influenza, SARS-CoV-2, West Nile virus, Mumps, Zika, West African Ebola, Dengue, Measles, Enterovirus D68 and Tuberculosis \citep{hadfield_nextstrain_2018}.
 
 In outbreak detection and surveillance, genetic sequencing techniques combined with epidemiological data have undoubtedly provided immeasurable insights regarding evolutionary relationships and transmission pathways in various environments \citep{beckett_pandemic_2021, lancet_genomic_2021}. 
 In a pandemic setting, this approach, although not novel, has been revolutionary, particularly in the COVID-19 setting. 
@@ -260,17 +260,17 @@ This richness in genomic information has been basal to identifying new variants 
 \subsection{From genomics to metagenomics} \label{ssec:_intro_metagenomics}
 
 Despite the increasing adoption of DNA sequencing methods in clinical microbiology, the sequencing of genetic material from a pure culture requires \textit{a priori} knowledge of what to expect from a particular clinical sample or patient \citep{schuele_future_2021}. 
-In most cases, this knowledge is enough to request the most appropriate test, such as multiplexed panels or specific culture media, but this is not always the case. 
+In most cases, this knowledge is enough to request the most appropriate test, such as syndromic panels or specific culture media, but this is not always the case. 
 In recent years, there has been a growing interest in using metagenomics to deliver culture-independent approaches to microbial ecology, surveillance and diagnosis (see Figure \ref{fig:figure4})\citep{loman_twenty_2015, loman_high-throughput_2012}.
 Metagenomic DNA sequence allows detailed characterisation of pathogens in all kinds of samples originating from humans, animals, food and the environment, ligating the diagnostics to surveillance in a true "one health" fashion \citep{rossen__2018}. 
-Unlike \ac{PCR} or microarrays, it usually does not require primer or probe design, it can be easily multiplexed, and the specificity and selectivity of the sequencing can be adjusted computationally after acquiring the data \citep{dunne_next-generation_2012}.  
+Unlike \ac{PCR} or microarrays, it usually does not require primer or probe design, it can be easily multiplexed, and the specificity and selectivity of the sequencing can be adjusted computationally after acquiring the data \citep{dunne_next-generation_2012} (see \ref{sec:_intro_bioinformatics}).  
 While most molecular assays target only a limited number of pathogens, metagenomic approaches characterise all DNA or RNA present in a sample, enabling analysis of the entire microbiome as well as the human host genome or transcriptome in patient samples \citep{chiu_clinical_2019}. 
-Whether or not it can entirely replace routine microbiology depends on several conditions and future developments, both technological and computational (see \secref{sec:_intro_bioinformatics}).
+Whether or not it can entirely replace routine microbiology depends on several conditions and future developments, both technological and computational.
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 4.pdf}
-\caption{\textbf{Hypothetical workflow based on metagenomic sequencing.} Schematic representation of the hypothetical workflow for the direct processing of samples from suspected sources of pathogens after adoption of metagenomic sequencing, with an expected timescale that could fit within a single day. Adapted from \cite{didelot_transforming_2012}}
+\caption{\textbf{Hypothetical workflow based on metagenomic sequencing.} Schematic representation of the hypothetical workflow for the direct processing of samples from suspected sources of pathogens after adoption of metagenomic sequencing, with an expected timescale that could fit within a single day. Adapted from \cite{didelot_transforming_2012}.}
 \label{fig:figure4}
 \end{figure*}
 
@@ -280,15 +280,13 @@ Albeit lacking consensus in the field, metagenomics can be classified into two v
 \subsubsection{Metataxonomics and Targeted Metagenomics} \label{sssec:_intro_metataxonomics}
 
 Molecular barcoding approaches can be combined with second-generation high-throughput sequencing to achieve unprecedented depths of coverage in microbial community profiling, being defined as metataxonomics. 
-For profiling bacterial species, the most popular approach is 16S \ac{rRNA} gene sequencing, an ~1500 base pair gene coding for a catalytic RNA that is part of the 30S ribosomal subunit. 
+For profiling bacterial species, the most popular approach is 16S \ac{rRNA} gene sequencing, an ~1500 base pair gene that encodes catalytic RNA that is part of the 30S ribosomal subunit. 
 Traditionally, the variable regions of the 16S \ac{rRNA} gene (V-regions) are targeted, or ranges thereof (V1-V2, V1-V3, V3-V4, V4, V4-V5, V6-V8, and V7-V9), and are specific to bacterial genus (96\%) and for some, even species (87.5\%), \citep{srinivasan_use_2015, abellan-schneyder_primer_2021}. 
 Moreover, dedicated 16S databases that include near full-length sequences for a large number of strains and their taxonomic placements exist, such as RDP\footnote{\url{http://rdp.cme.msu.edu/}}, Greengenes\footnote{\url{https://greengenes.secondgenome.com/}}, silva\footnote{\url{https://www.arb-silva.de/}} and NCBI's 16S ribosomal RNA project\footnote{\url{https://www.ncbi.nlm.nih.gov/refseq/targetedloci/}} \citep{cole_ribosomal_2009, desantis_greengenes_2006, pruesse_silva_2007}. 
-The sequence from an unknown strain can be compared against the sequences in these databases, after very closely related sequences are grouped into \ac{OTUs},  an operational definition used to classify groups of closely related individuals. This allows for deducing of likely taxonomy, with the assumption that sequences of $>$95\% identity represent the same genus, whereas sequences of $>$97\% identity represent the same species \citep{schloss_introducing_2005}. 
-In addition, NCBI also provides the 23S ribosomal RNA project for Bacteria and Archaea metataxonomics. 
+The sequence of an unknown strain can be compared with the sequences in these databases, after very closely related sequences are grouped into \ac{OTUs},  an operational definition used to classify groups of closely related individuals. This allows the deduction of probable taxonomy, with the assumption that sequences of $>$95\% identity represent the same genus, whereas sequences of $>$97\% identity represent the same species \citep{schloss_introducing_2005}. 
 
 Furthermore, it must necessarily account for intragenomic variation between 16S gene copies. 
-Microbial profiles generated using different primer pairs need independent validation of performance, and the comparison of data sets across V-regions using different databases might be misleading due to differences in nomenclature and varying precisions in classification, and specific but important taxa are not picked up by certain primer pairs (e.g., \textit{Bacteroidetes} is missed using primers 515F-944R) or due to the database used \citep{abellan-schneyder_primer_2021}. 
-Furthermore, targeting of 16S variable regions with short-read sequencing platforms cannot achieve the taxonomic resolution afforded by sequencing the entire (~1500 \ac{bp}) gene \citep{johnson_evaluation_2019}. 
+Furthermore, targeting 16S variable regions with short-read sequencing platforms cannot achieve the taxonomic resolution afforded by sequencing the entire gene and is limited by the database chosen \citep{johnson_evaluation_2019}. 
 The emergence of third generating sequencing technologies (see \secref{ssec:_intro_3rd_gen_seq}) allows for this limitation to be overcome but currently, only a fraction of the databases includes complete 16S \ac{rRNA} sequences.
 
 While viruses are an integral part of the microbiota, no universal viral marker genes are available to perform such taxonomic assignments. 
@@ -299,7 +297,7 @@ As an alternative, broad scope viral targeted sequence capture (TSC) panels offe
 
 \ac{SMg} can offer relatively unbiased pathogen detection and characterisation. The capacity to detect all potential pathogens — bacteria, viruses, fungi and parasites — in a sample has great potential utility in the diagnosis of infectious disease \citep{chiu_clinical_2019}, potentially able to provide genotyping, antimicrobial resistance and virulence profiling in a single methodological step. This comes with the cost of producing massive amounts of information that require expert handling and processing, as well as capable computational infrastructures \citep{couto_critical_2018, rossen_practical_2018}.
 
-Clinical applications of \ac{SMg} derive its roots from the use of microarrays (see \secref{ssec:_intro_current_standards}), where it was successfully applied in in-depth microbiome analysis of different sites in the human body, it was the emergence of second-generation sequencing technology and its high throughput of genomic data at a competitive price that made the sequencing of all genomic content, DNA and/or RNA) if a clinical sample a viable possibility for diagnostics (see \secref{ssec:_intro_2nd_gen_seq}) \citep{miller_basic_2009, palmer_rapid_2006, chiu_clinical_2019}. The first reported case that demonstrated the utility of \ac{SMg} was in 2014 with the clinical diagnosis of neuroleptospirosis in a 14-year-old immunodeficient and critically ill boy with meningoencephalitis by \cite{wilson_actionable_2014}, prompting appropriate targeted antibiotic treatment and eventual recovery of the patient. In this case, traditional methods, including an invasive brain biopsy, failed to provide answers, until the shotgun sequencing of cerebrospinal fluid identified 475 of 3,063,784 sequence reads (0.016\%) corresponding to leptospira, for which clinical assays were negative due to its very low abundance. Ever since many other reports of successful application of \ac{SMg} in clinical metagenomics have been reported. but all in edge cases where traditional diagnostic methods have failed or as proof-of-concept \citep{couto_critical_2018, vijayvargiya_application_2019, sanabria_shotgun-metagenomics_2020, hirakata_application_2021}. 
+Clinical applications of \ac{SMg} derive its roots from the use of microarrays (see \secref{ssec:_intro_current_standards}), where it was successfully applied in in-depth microbiome analysis of different sites in the human body, it was the emergence of second-generation sequencing technology and its high throughput of genomic data at a competitive price that made sequencing of all genomic content, DNA and/or RNA, in a clinical sample a viable possibility for diagnostics (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) \citep{miller_basic_2009, palmer_rapid_2006, chiu_clinical_2019}. The first reported case that demonstrated the utility of \ac{SMg} was in 2014 with the clinical diagnosis of neuroleptospirosis in a 14-year-old immunodeficient and critically ill boy with meningoencephalitis by Wilson et al \cite{wilson_actionable_2014}, prompting appropriate targeted antibiotic treatment and eventual recovery of the patient. In this case, traditional methods, including an invasive brain biopsy, failed to provide answers, until the shotgun sequencing of cerebrospinal fluid identified 475 of 3,063,784 sequence reads (0.016\%) corresponding to leptospira, for which clinical assays were negative due to its very low abundance. Ever since many other reports of successful application of \ac{SMg} in clinical metagenomics have been reported. but all in edge cases where traditional diagnostic methods have failed or as proof-of-concept \citep{couto_critical_2018, vijayvargiya_application_2019, sanabria_shotgun-metagenomics_2020, hirakata_application_2021}. 
 
 In public health microbiology, \ac{SMg} combined with transmission network analysis allowed the investigation and quick action on the food supply of the 2013 outbreak of \ac{STEC} strain O104:H4 from faecal specimens obtained from patients \citep{loman_culture-independent_2013}. A similar approach was followed in the detection of \textit{Salmonella enterica} subsp. \textit{enterica} serovar Heidelberg from faecal samples in two though to be unrelated outbreaks in the United States of America, as well as the \textit{in situ} abundance and level of intrapopulation diversity of the pathogen, and the possibility of co-infections with \textit{Staphylococcus aureus}, overgrowth of commensal \textit{Escherichia coli}, and significant shifts in the gut microbiome during infection relative to reference healthy samples \citep{huang_metagenomics_2017}. More recently, shotgun metagenomic sequencing has evidenced alterations in the gut microbiota of a subset of COVID-19 patients that present the uncommon gastrointestinal (GI) symptoms, shedding a higher understanding of gut–lung axis affecting the progression of COVID-19 \citep{li_microbiome_2021}.
 
@@ -309,15 +307,14 @@ In addition to negative controls, already a common practice in any sequencing as
 
 \section{The role of bioinformatics} \label{sec:_intro_bioinformatics}
 
-As stated previously (see \secref{sec:_intro_genomics_approach} and \secref{ssec:_intro_metagenomics}), one of the biggest challenges when dealing with genomic, and in particular metagenomic, data is the lack of golden standards. This is also applicable to the bioinformatic analysis, required due to the amount of data produced by genomic sequencing technologies. This is currently one of the bottlenecks in the deployment of sequencing technology in clinical microbiology as there's no standard in how to deal with the increasing amount of data produced in a fit-for-purpose manner \citep{carrico_primer_2018}.
+As stated previously (see \secref{sec:_intro_genomics_approach} and \secref{ssec:_intro_metagenomics}), one of the biggest challenges when dealing with genomic, and in particular metagenomic, data is the lack of golden standards. This is also applicable to the bioinformatic analysis, required due to the amount of data produced by genomic sequencing technologies. This is currently one of the bottlenecks in the deployment of sequencing technology in clinical microbiology as there is no standard in how to deal with the increasing amount of data produced in a fit-for-purpose manner \citep{carrico_primer_2018}.
 
 Bioinformatics is an interdisciplinary research field that applies methodologies from computer science, applied mathematics and statistics to the study of biological phenomena\citep{carrico_primer_2018}. With the widespread use and continuous development of sequencing technologies, bioinformatics has become a cornerstone in modern clinical microbiology. 
-
 Major efforts are being made on the standardisation and assessment of software for the analysis of genomic data, both commercial and open-source \cite{angers-loustau_challenges_2018, gruening_recommendations_2019, sczyrba_critical_2017, couto_critical_2018}. 
 
 \subsection{The FASTQ file} \label{ssec:_intro_fastq}
 
-In all sequencing technologies (see \secref{ssec:_intro_sequencing}), many copies of the source DNA are randomly fragmented and sequenced. To these sequences, we refer to as reads. In the case of second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq}), one or both ends of the fragment can be sequenced. If a fragment is sequenced from one end, we refer to it as single-end sequencing. If a fragment is sequenced on both ends, spanning the entire fragment, it is called paired-end sequencing.
+In all sequencing technologies (see \secref{ssec:_intro_sequencing}), many copies of the source DNA are randomly fragmented and sequenced. To these sequences, we refer to as reads. In the case of second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing), one or both ends of the fragment can be sequenced. If a fragment is sequenced from one end, we refer to it as single-end sequencing. If a fragment is sequenced on both ends, spanning the entire fragment, it is called paired-end sequencing.
 
 All sequencing technologies, regardless of generation, produce data in the same standard file format: the FASTQ, a text-based format for storing both a biological sequence (usually nucleotide sequence) and its corresponding quality scores \citep{cock_sanger_2010}. Originally developed at the Wellcome Trust Sanger Institute, the FASTQ has emerged as a common file format for sharing sequencing read data (see \ref{fig:figure3}). The FASTQ can be considered as an extension of the ‘FASTA sequence file format’, originally invented by \cite{pearson_improved_1988}, which includes just the sequence information. A FASTQ file normally uses four lines per sequence:
 
@@ -339,6 +336,7 @@ The PHRED quality scores $\mathbf{Q}$ is defined as a property which is logarith
 
 \begin{table}[h!]
 \caption{\textbf{PHRED quality scores are logarithmically linked to error probabilities.} A PHRED Score of 20 indicates the likelihood of finding 1 incorrect base call among 100 bases. In other words, the precision of the base call is 99\%. $\mathbf{Q}$ scores are classified as a property that is associated logarithmically with the probabilities of base calling error $\mathbf{P}$.} \label{tab:phred_error}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lll@{}}
 \toprule
 \textbf{Phred Quality Score} & \textbf{Probability of incorrect base call} & \textbf{Base call accuracy} \\ \midrule
@@ -348,15 +346,16 @@ The PHRED quality scores $\mathbf{Q}$ is defined as a property which is logarith
 40 & 1 in 10,000    & 99.99\%  \\
 50 & 1 in 100,000   & 100.00\% \\
 60 & 1 in 1,000,000 & 100.00\% \\ \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
-Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of available encoding is available in \ref{fig:figure6}. 
+Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of encoding is available in Figure \ref{fig:figure6}. 
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 6.png}
-\caption{\textbf{Range of FASTQ quality scores andd their corresponding ASCII encoding.} For raw reads, the range of scores will depend on the technology and the base caller used. Starting in Illumina 1.8, the quality scores have returned to the use of the Sanger format (PHRED+33). For processed reads and long accurate reads, scores may be even higher with, For example, quality values of up to 93 observed in reads from PacBio HiFi reads.}
+\caption{\textbf{Range of FASTQ quality scores and their corresponding ASCII encoding.} For raw reads, the range of scores will depend on the technology and the base caller used. Starting in Illumina 1.8, the quality scores have returned to the use of the Sanger format (PHRED+33). For processed reads and long accurate reads, scores may be even higher with, For example, quality values of up to 93 observed in reads from PacBio HiFi reads.}
 \label{fig:figure6}
 \end{figure*}
 
@@ -385,12 +384,43 @@ From pure culture, taxonomic identification of the read content of a sample is u
 
 These tools are also extremely useful to assess the contents of a metagenomic sample. Alternatives such as Midas \citep{nayfach_integrated_2016}, Kaiju, \citep{menzel_fast_2016}, and MetaPhlAn2 \citep{truong_metaphlan2_2015} offer the same analysis as Kraken and Bracken using different algorithms, and with the disadvantage that they come prepackaged with their own databases, without the option to create a tailored database, limiting their applicability. Kaiju differs from the other tools by using a protein reference database, instead of nucleotide, but no pre-built version is available, requiring significant resources to build and index the database pre-use. The long-read data of third-generation sequencing technologies (see \secref{ssec:_intro_3rd_gen_seq}) can be treated as single-end reads, and all tools mentioned accommodate the classification of single-end files. 
 
-\subsection{From reads to genomes} \label{ssec:_intro_reads_2_genomes}
+\subsection{The FASTA file} \label{ssec:_intro_fastq}
+
+In bioinformatics, the FASTA format is a text-based format to represent nucleotide or amino acid sequences using single-letter codes, preceded by a sequence name or any other information relative to the sequence. Similarly to FASTQ (see \ref{ssec:_intro_fastq}), it was developed by the Wellcome Trust Sanger Institute, the FASTQ has emerged as a common file format for sharing sequence data \citep{pearson_improved_1988}. The FASTA file follows the following conformation:
+
+\begin{itemize}
+    \item The \textbf{first line} of a FASTA file starts with a ">" (greater-than) symbol, signifying the comment portion;
+    \item The \textbf{subsequent lines} containing the actual sequence itself represented in the standard IUB/IUPAC amino acid and nucleic acid codes \citep{e_iupac-iub_1970}, usually 80 characters in length.
+\end{itemize}
+
+A multiple sequence FASTA format can be obtained by concatenating several single sequence FASTA files in a common file (also known as multi-FASTA format). The extension of the file indicates the type of sequence (nucleotide or amino acid) present (see Table \ref{tab:fasta_extension}). For genomic data, the ".fasta", ".fa", ".fna", and ".ffn" are the most used, with the first two being generic and the last two specific for nucleic acid and coding regions of a genome. 
+
+\begin{table}[h!]
+\caption{The standard filename extension for a text file containing FASTA formatted sequences.}
+\label{tab:fasta_extension}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Extension} & \textbf{Sequence}                         & \textbf{Definition}                                                                    \\ \midrule
+fasta, fa & generic FASTA                    & Any generic fasta file. See below for other common FASTA file extensions      \\ 
+fna       & FASTA nucleic acid               & Used generically to specify nucleic acids.                                    \\
+ffn       & FASTA nucleotide of gene regions & Contains coding regions for a genome.                                         \\
+faa & FASTA amino acid & Contains amino acid sequences. A multiple protein fasta file can have the more specific extension mpfa. \\
+frn       & FASTA non-coding RNA             & Contains non-coding RNA regions for a genome, in DNA alphabet e.g. tRNA, rRNA \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsubsection{From reads to genomes} \label{sssec:_intro_reads_2_genomes}
 
 Due to the limitations of current sequencing technologies (see \secref{ssec:_intro_sequencing}), the order of the reads produced by these machines cannot be preserved. 
-Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur. 
-The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:_intro_2nd_gen_seq}) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
-Long-read technologies (see \secref{ssec:_intro_3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}. 
+Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur, where FASTQ files, containing the sequencing information, are converted into FASTA files with informative genomic sequences. Information can be inferred through genome annotation software, such as Prokka\footnote{\url{https://github.com/tseemann/prokka}}, identifying and labelling all relevant features in a genome sequence, such as predicted coding regions and their putative products, noncoding RNAs, signal peptides, and so on \citep{seemann_prokka_2014}. 
+
+
+\subsection{Genome assembly} \label{sssec:_intro_genome_assembly}
+
+The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
+Long-read technologies (see \secref{ssec:_intro_3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}.
 
 Assembling reads into contigs has many advantages, namely that longer sequences are more informative, allowing the consideration of whole genes or even gene clusters within a genome and to understand larger genetic variants and repeats. Additionally, it has the effect of removing most sequencing errors, though this can be at the expense of new assembly errors \citep{ayling_new_2020}. Two methods are used to obtain draft genomes: (1) through reference-guided sequence assembly, or (2), through \textit{de novo} sequence assembly.
 
@@ -420,7 +450,7 @@ De novo assembly refers to the bioinformatics process whereby reads are assemble
 
 \paragraph{Overlap, Layout and Consensus assembly} \label{sssec:_intro_OLC_assembly} \mbox\\
 
-First generation sequencing technology (see \secref{ssec:_intro_1st_gen_seq}) produces far fewer reads than second generation sequencing technology (see \secref{ssec:_intro_2nd_gen_seq}, but individual reads are longer (500–1000 \ac{bp}). 
+First generation sequencing technology (see \secref{ssec:_intro_1st_gen_seq}) produces far fewer reads than second generation sequencing technology (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing), but individual reads are longer (500–1000 \ac{bp}). 
 Assembly of Sanger data usually uses \ac{OLC} approaches, in which:
 
 \begin{itemize}
@@ -430,7 +460,7 @@ Assembly of Sanger data usually uses \ac{OLC} approaches, in which:
 \end{itemize}
 
 These type of assemblers were very popular in the early 2010s, with assemblers such as Celera\footnote{\url{https://www.cbcb.umd.edu/software/celera-assembler}},  Genovo\footnote{\url{https://cs.stanford.edu/genovo }}, xGenovo\footnote{\url{http://xgenovo.dna.bio.keio.ac.jp/}} and BBAP\footnote{\url{http://homepage.ntu.edu.tw/~youylin/BBAP.html}} having been widely used \citep{myers_whole-genome_2000, hutchison_genovo_2010, afiahayati_extended_2013, lin_novo_2017}.
-With the emergence of third-generation sequencing (see \secref{ssec:_intro_3rd_gen_seq}), \ac{OLC} assemblers have been increasingly developed and adopted by the community to assembly long-read data. 
+With the emergence of third-generation sequencing (see \secref{ssec:_intro_3rd_gen_seq} The third-generation of DNA sequencing), \ac{OLC} assemblers have been increasingly developed and adopted by the community to assembly long-read data. 
 In the latest years, ra\footnote{\url{https://github.com/lbcb-sci/ra}}, raven\footnote{\url{https://github.com/lbcb-sci/raven}} and canu\footnote{\url{https://github.com/marbl/canu}}, the latter being a a fork of the Celera Assembler, have become staples in the community, showing good reliability and amassing over 3000 citations \citep{vaser_yet_2019, koren_canu_2017, wick_benchmarking_2021}.
 
 \paragraph{De Bruijn graph assembly} \label{sssec:_intro_dbg_assembly} \mbox{}\\
@@ -445,7 +475,7 @@ In the De Bruijn assembly graph, reads are split into overlapping k-mers where n
 
 Thus, the weight of an edge indicates the possibility that two k-mers appear after each other in the DNA sequence. A path in the graph where all edges have the highest weight is the most likely to be a part of the genome \citep{bayat_methods_2020}.
 
-Most second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} assemblers, such as SPAdes\footnote{\url{https://github.com/ablab/spades/}}, SKESA\footnote{\url{https://github.com/ncbi/SKESA/}} and MEGAHIT\footnote{\url{https://github.com/voutcn/megahit/}}, use a multiple k-mer De Bruijn graph, starting with the lowest size and iteratively adding k-mers of increasing length to connect the graph \citep{bankevich_spades_2012, souvorov_skesa_2018, li_megahit_2015}. Older assemblers, such as Velvet\footnote{\url{https://www.ebi.ac.uk/~zerbino/velvet/}}, Ray\footnote{\url{https://sourceforge.net/projects/denovoassembler/f}} and SoapDeNovo2\footnote{\url{https://sourceforge.net/projects/soapdenovo2/}} use a single k-mer strategy for the De Bruijn graph construction \citep{zerbino_velvet_2008, boisvert_ray_2010, luo_soapdenovo2_2012}. 
+Most second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) assemblers, such as SPAdes\footnote{\url{https://github.com/ablab/spades/}}, SKESA\footnote{\url{https://github.com/ncbi/SKESA/}} and MEGAHIT\footnote{\url{https://github.com/voutcn/megahit/}}, use a multiple k-mer De Bruijn graph, starting with the lowest size and iteratively adding k-mers of increasing length to connect the graph \citep{bankevich_spades_2012, souvorov_skesa_2018, li_megahit_2015}. Older assemblers, such as Velvet\footnote{\url{https://www.ebi.ac.uk/~zerbino/velvet/}}, Ray\footnote{\url{https://sourceforge.net/projects/denovoassembler/f}} and SoapDeNovo2\footnote{\url{https://sourceforge.net/projects/soapdenovo2/}} use a single k-mer strategy for the De Bruijn graph construction \citep{zerbino_velvet_2008, boisvert_ray_2010, luo_soapdenovo2_2012}. 
 
 \subsubsection{Assembly quality assessment and quality control} \label{ssec:_intro_assembly_quality}
 
@@ -495,7 +525,7 @@ In locations with a microbiota, the inclusion of negative controls is essential 
 The use of spiked metagenomic samples as positive control might guide the detection of the possible pathogens by comparing relative abundance between the samples. 
 These controls should be processed similarly to the samples and the taxonomic results should be filtered out from the final report. 
 
-As explored in \secref{ssec:_intro_reads_2_genomes}, longer sequences are more informative than shorter sequencing data, as the one obtained from second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq}), and can provide a more complete picture of the microbial community in a given samples. 
+As explored in \secref{ssec:_intro_reads_2_genomes}, longer sequences are more informative than shorter sequencing data, as the one obtained from second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing), and can provide a more complete picture of the microbial community in a given samples. 
 Several dedicated metagenomic assembly tools are available, such as metaSPAdes\footnote{\url{https://github.com/ablab/spades/}}  and MegaHIT\footnote{\url{https://github.com/voutcn/megahit/}} \citep{nurk_metaspades_2017, li_megahit_2015}. 
 These tools, in comparison to single-cell data assemblers, are better at dealing with the combination of intra and intergenomic repeats and uneven sequencing coverage \citep{olson_metagenomic_2017}.
 For third-generation sequencing, dedicated metagenomic assemblers have recently emerged, such as meta-flye\footnote{\url{https://github.com/fenderglass/Flye/}} which expands on the original flye assembler by overcoming a k-mer selection limitation on low abundance species \citep{kolmogorov_metaflye_2020}. Nevertheless, the use of non dedicated assemblers for metagenomics may come with the cost of wrongly interpret variation as error, especially in samples that contained closely related species and the construction of chimeric sequences as traditional assemblers follow the basic principle that the coverage in a sample is constant \citep{teeling_current_2012}. 
