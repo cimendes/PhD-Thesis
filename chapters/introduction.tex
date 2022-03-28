@@ -231,11 +231,11 @@ Although substantial advances have been made in reducing response time, most of 
 High-throughput DNA sequencing has found additional new applications in drug discovery and in functional genomics with, for example, SNP-based analysis to identify new drug targets \citep{loman_twenty_2015}.
 
 Although the second-generation DNA sequencing methods have shed light on fundamental aspects of microbial ecology and function, they suffer from issues associated with short read length (see \ref{ssec:_intro_2nd_gen_seq}) and cannot reliably reconstruct long repeats because of uncertainties in mapping read, even when paired-end sequencing is used. 
-Third-generation sequencing methods (see \ref{ssec:_intro_3rd_gen_seq} The third-generation of DNA sequencing) have become increasingly used in microbiology, although their accuracy and low throughput make it challenging to implement in a clinical diagnostic setting. 
+Third-generation sequencing methods (see \ref{ssec:_intro_3rd_gen_seq} The third-generation of DNA sequencing) have become increasingly used in microbiology, although their accuracy and low throughput make it difficult to implement in a clinical diagnostic setting. 
 
 \subsubsection{Sequencing and genomic surveillance} \label{sssec:_intro_sequencing_genomic_survaillance}
 
-Most notably, \ac{WGS} has become a common tool in surveillance and infection prevention, allowing for pathogen identification and tracking, establishing transmission routes and outbreak control \citep{lo_genomics_2020}. 
+Most notably, \ac{WGS} has become a common tool in infection surveillance and prevention, allowing identification and tracking of pathogens, establishing transmission routes and outbreak control \citep{lo_genomics_2020}. 
 In bacterial infections, initiatives such as Pathogenwatch\footnote{\url{https://pathogen.watch/}} offers a web-based platform for \ac{AMR} analysis and phylogeny generation of \textit{Campylobacter}, \textit{Klebsiella}, \textit{Neisseria gonorrhoeae}, \textit{Staphylococcus aureus}, and \textit{Salmonella Typhi} \citep{afolayan_overcoming_2021}. 
 The Center for Genomic Epidemiology website\footnote{\url{https://www.genomicepidemiology.org/}} offers services for phylogenetic tree building and \ac{AMR} prediction. 
 Chewie Nomenclature Server\footnote{\url{https://chewbbaca.online/}} allows users to share genome-based gene-by-gene typing schemas and to maintain a common nomenclature, simplifying the comparison of results \citep{mamede_chewie_2021}. 
@@ -270,7 +270,7 @@ Whether or not it can entirely replace routine microbiology depends on several c
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 4.pdf}
-\caption{\textbf{Hypothetical workflow based on metagenomic sequencing.} Schematic representation of the hypothetical workflow for the direct processing of samples from suspected sources of pathogens after adoption of metagenomic sequencing, with an expected timescale that could fit within a single day. Adapted from \cite{didelot_transforming_2012}.}
+\caption{\textbf{Hypothetical workflow based on metagenomic sequencing.} Schematic representation of the hypothetical workflow for the direct processing of samples from suspected pathogen sources after adoption of metagenomic sequencing, with an expected timescale that could be accommodated in a single day. Adapted from \cite{didelot_transforming_2012}.}
 \label{fig:figure4}
 \end{figure*}
 
@@ -368,7 +368,7 @@ Multiple computational tools for the simulation of sequencing data, particularly
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 7.png}
-\caption{\textbf{Sequence simulators for genomic and metagenomic data.} For first generation sequencing, Metasim (\url{https://github.com/gwcbi/metagenomics_simulation}) and Grider (\url{https://sourceforge.net/projects/biogrinder/}) can generate mock genomic and metagenomic data, with and without error models respectively. For Illumina data, ART (\url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}), InSilicoSeq (\url{https://github.com/HadrienG/InSilicoSeq}) and CAMISIM (\url{https://github.com/CAMI-challenge/CAMISIM}) represent options for in silico data generation. Due to their differences, the third generation Pacific BioSciences (PacBio) and Oxford Nanopore (ONT) have distict software for in silico data generation. The first can be accomplished by LongISLND (\url{https://bioinform.github.io/longislnd/}) and PBSIM2 (\url{https://github.com/yukiteruono/pbsim2}) got genomic data, and SimLORD (\url{https://bitbucket.org/genomeinformatics/simlord/src}) fot metagenomic data, with and without error model. The latter BadRead (\url{https://github.com/rrwick/Badread}) and NanoSim (\url{https://github.com/bcgsc/NanoSim}) can genenrate genomic and metagenomic \textit{in silico} data, with and withouth error model. Additionally, for genomic data, LongISLND and SiLiCO (\url{https://github.com/ethanagb/SiLiCO}) generate data with and without error, respectively. Adapted from \cite{escalona_comparison_2016}.}
+\caption{\textbf{Sequence simulators for genomic and metagenomic data.} For first generation sequencing, Metasim (\url{https://github.com/gwcbi/metagenomics_simulation}) and Grider (\url{https://sourceforge.net/projects/biogrinder/}) can generate mock genomic and metagenomic data, with and without error models respectively. For Illumina data, ART (\url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}), InSilicoSeq (\url{https://github.com/HadrienG/InSilicoSeq}) and CAMISIM (\url{https://github.com/CAMI-challenge/CAMISIM}) represent options for in silico data generation. Due to their differences, the third-generation Pacific BioSciences (PacBio) and Oxford Nanopore (ONT) have distict software for in silico data generation. The first can be accomplished by LongISLND (\url{https://bioinform.github.io/longislnd/}) and PBSIM2 (\url{https://github.com/yukiteruono/pbsim2}) got genomic data, and SimLORD (\url{https://bitbucket.org/genomeinformatics/simlord/src}) fot metagenomic data, with and without error model. The latter BadRead (\url{https://github.com/rrwick/Badread}) and NanoSim (\url{https://github.com/bcgsc/NanoSim}) can genenrate genomic and metagenomic \textit{in silico} data, with and withouth error model. Additionally, for genomic data, LongISLND and SiLiCO (\url{https://github.com/ethanagb/SiLiCO}) generate data with and without error, respectively. Adapted from \cite{escalona_comparison_2016}.}
 \label{fig:figure7}
 \end{figure*}
 
@@ -411,13 +411,11 @@ frn       & FASTA non-coding RNA             & Contains non-coding RNA regions f
 }
 \end{table}
 
-\subsubsection{From reads to genomes} \label{sssec:_intro_reads_2_genomes}
+\subsection{From reads to genomes} \label{sssec:_intro_reads_2_genomes}
 
 Due to the limitations of current sequencing technologies (see \secref{ssec:_intro_sequencing}), the order of the reads produced by these machines cannot be preserved. 
 Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur, where FASTQ files, containing the sequencing information, are converted into FASTA files with informative genomic sequences. Information can be inferred through genome annotation software, such as Prokka\footnote{\url{https://github.com/tseemann/prokka}}, identifying and labelling all relevant features in a genome sequence, such as predicted coding regions and their putative products, noncoding RNAs, signal peptides, and so on \citep{seemann_prokka_2014}. 
 
-
-\subsection{Genome assembly} \label{sssec:_intro_genome_assembly}
 
 The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
 Long-read technologies (see \secref{ssec:_intro_3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}.
