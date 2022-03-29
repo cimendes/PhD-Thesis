@@ -312,9 +312,11 @@ As stated previously (see \secref{sec:_intro_genomics_approach} and \secref{ssec
 Bioinformatics is an interdisciplinary research field that applies methodologies from computer science, applied mathematics and statistics to the study of biological phenomena\citep{carrico_primer_2018}. With the widespread use and continuous development of sequencing technologies, bioinformatics has become a cornerstone in modern clinical microbiology. 
 Major efforts are being made on the standardisation and assessment of software for the analysis of genomic data, both commercial and open-source \cite{angers-loustau_challenges_2018, gruening_recommendations_2019, sczyrba_critical_2017, couto_critical_2018}. 
 
-\subsection{The FASTQ file} \label{ssec:_intro_fastq}
+\subsection{From molecules to reads}
 
 In all sequencing technologies (see \secref{ssec:_intro_sequencing}), many copies of the source DNA are randomly fragmented and sequenced. To these sequences, we refer to as reads. In the case of second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing), one or both ends of the fragment can be sequenced. If a fragment is sequenced from one end, we refer to it as single-end sequencing. If a fragment is sequenced on both ends, spanning the entire fragment, it is called paired-end sequencing.
+
+\subsubsection{The FASTQ file} \label{sssec:_intro_fastq}
 
 All sequencing technologies, regardless of generation, produce data in the same standard file format: the FASTQ, a text-based format for storing both a biological sequence (usually nucleotide sequence) and its corresponding quality scores \citep{cock_sanger_2010}. Originally developed at the Wellcome Trust Sanger Institute, the FASTQ has emerged as a common file format for sharing sequencing read data (see \ref{fig:figure3}). The FASTQ can be considered as an extension of the ‘FASTA sequence file format’, originally invented by \cite{pearson_improved_1988}, which includes just the sequence information. A FASTQ file normally uses four lines per sequence:
 
@@ -350,25 +352,25 @@ The PHRED quality scores $\mathbf{Q}$ is defined as a property which is logarith
 }
 \end{table}
 
-Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when it is translated to its ASCII representation in the FASTQ file format. For example, the Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (i.e. PHRED scores with an ASCII offset of 33). A full list of encoding is available in Figure \ref{fig:figure6}. 
+Since their introduction, PHRED scores have become the \textit{de facto} standard for representing sequencing read base qualities \citep{cock_sanger_2010}. Despite this convention, the encoding of the Phread score can vary when translated to its ASCII representation in the FASTQ file format. For example, Sanger FASTQ files use ASCII 33–126 to encode PHRED qualities from 0 to 93 (that is, PHRED scores with an ASCII offset of 33). A full list of encoding is available in Figure \ref{fig:figure6}. 
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 6.png}
-\caption{\textbf{Range of FASTQ quality scores and their corresponding ASCII encoding.} For raw reads, the range of scores will depend on the technology and the base caller used. Starting in Illumina 1.8, the quality scores have returned to the use of the Sanger format (PHRED+33). For processed reads and long accurate reads, scores may be even higher with, For example, quality values of up to 93 observed in reads from PacBio HiFi reads.}
+\caption{\textbf{Range of FASTQ quality scores and their corresponding ASCII encoding.} For raw reads, the range of scores will depend on the technology and the base caller used. Starting in Illumina 1.8, the quality scores have returned to the use of the Sanger format (PHRED+33). For processed reads and long accurate reads, scores may be even higher with, for example, quality values of up to 93 observed in reads from PacBio HiFi reads.}
 \label{fig:figure6}
 \end{figure*}
 
 \subsubsection{FASTQ file simulation} \label{ssec:_intro_fastq_sim}
 
-With the lack of golden standards for metagenomic analysis, the use of simulated mock communities, with known composition, abundance and genomic information, provides a ground truth against which evaluations of success can be made. Given their standard structure and adoption, the generation of simulated FASTQ files from a reference, or a set of references, is very straightforward. 
+With the lack of golden standards for metagenomic analysis, the use of simulated mock communities, with known composition, abundance, and genomic information, provides a ground truth against which success evaluations can be made. Given their standard structure and adoption, the generation of simulated FASTQ files from a reference or a set of references is very straightforward. 
 
-Multiple computational tools for the simulation of sequencing data, particularly for second and third-generation sequencing technologies, have been developed in recent years, which could be used to compare existing and new bioinformatic analytical pipelines. \cite{escalona_comparison_2016} provides a comprehensive assessment of 23 different read-simulation tools,  highlighting their distinct functionality, requirements and potential applications, as well as providing a selection of suggestions for different simulation tools depending on their purpose. For \textit{in silico} genomic and metagenomic sequence generation, a pletora of tools are available for first, second and third-generation reads (see Figure \ref{fig:figure7}).
+Multiple computational tools have been developed in recent years for the simulation of sequencing data, particularly for second and third-generation sequencing technologies, which could be used to compare existing and new bioinformatic analytical pipelines. \cite{escalona_comparison_2016} provides a comprehensive assessment of 23 different read-simulation tools,  highlighting their distinct functionality, requirements, and potential applications, as well as providing a selection of suggestions for different simulation tools depending on their purpose. For \textit{in silico} genomic and metagenomic sequence generation, a plethora of tools are available for first, second and third-generation reads (see Figure \ref{fig:figure7}).
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 7.png}
-\caption{\textbf{Sequence simulators for genomic and metagenomic data.} For first generation sequencing, Metasim (\url{https://github.com/gwcbi/metagenomics_simulation}) and Grider (\url{https://sourceforge.net/projects/biogrinder/}) can generate mock genomic and metagenomic data, with and without error models respectively. For Illumina data, ART (\url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}), InSilicoSeq (\url{https://github.com/HadrienG/InSilicoSeq}) and CAMISIM (\url{https://github.com/CAMI-challenge/CAMISIM}) represent options for in silico data generation. Due to their differences, the third-generation Pacific BioSciences (PacBio) and Oxford Nanopore (ONT) have distict software for in silico data generation. The first can be accomplished by LongISLND (\url{https://bioinform.github.io/longislnd/}) and PBSIM2 (\url{https://github.com/yukiteruono/pbsim2}) got genomic data, and SimLORD (\url{https://bitbucket.org/genomeinformatics/simlord/src}) fot metagenomic data, with and without error model. The latter BadRead (\url{https://github.com/rrwick/Badread}) and NanoSim (\url{https://github.com/bcgsc/NanoSim}) can genenrate genomic and metagenomic \textit{in silico} data, with and withouth error model. Additionally, for genomic data, LongISLND and SiLiCO (\url{https://github.com/ethanagb/SiLiCO}) generate data with and without error, respectively. Adapted from \cite{escalona_comparison_2016}.}
+\caption{\textbf{Sequence simulators for genomic and metagenomic data.} For first generation sequencing, Metasim (\url{https://github.com/gwcbi/metagenomics_simulation}) and Grider (\url{https://sourceforge.net/projects/biogrinder/}) can generate mock genomic and metagenomic data, with and without error models, respectively. For Illumina data, ART (\url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}), InSilicoSeq (\url{https://github.com/HadrienG/InSilicoSeq}) and CAMISIM (\url{https://github.com/CAMI-challenge/CAMISIM}) represent options for in silico data generation. Due to their differences, the third-generation Pacific BioSciences (PacBio) and Oxford Nanopore (ONT) have distict software for in silico data generation. The first can be accomplished by LongISLND (\url{https://bioinform.github.io/longislnd/}) and PBSIM2 (\url{https://github.com/yukiteruono/pbsim2}) got genomic data, and SimLORD (\url{https://bitbucket.org/genomeinformatics/simlord/src}) fot metagenomic data, with and without error model. The latter BadRead (\url{https://github.com/rrwick/Badread}) and NanoSim (\url{https://github.com/bcgsc/NanoSim}) can genenrate genomic and metagenomic \textit{in silico} data, with and withouth error model. Additionally, for genomic data, LongISLND and SiLiCO (\url{https://github.com/ethanagb/SiLiCO}) generate data with and without error, respectively. Adapted from \cite{escalona_comparison_2016}.}
 \label{fig:figure7}
 \end{figure*}
 
@@ -376,15 +378,26 @@ Multiple computational tools for the simulation of sequencing data, particularly
 
 Quality assessment and control is a basal step to any analysis, and aims to (1) remove and/or filter low quality and low complexity reads, (2) trim adapters, and (3) remove host sequences from the samples’ raw data. There are many tools available but the most commonly used are FastQC\footnote{\url{https://www.bioinformatics.babraham.ac.uk/projects/fastqc/}} (Babraham Bioinformatics) for quality control, followed by Trimmomatic \citep{bolger_trimmomatic_2014}, Cutadapt \citep{martin_cutadapt_2011} or fastp \citep{chen_fastp_2018} to trim and/or filter adaptors, low quality and low complexity sequences. For long-read sequencing, tools like NanoPlot and NanoStats \citep{de_coster_nanopack_2018}, and Filtlong\footnote{\url{https://github.com/rrwick/Filtlong/}} can perform the equivalent quality assessment and control, adapter trimming and low quality trimming, respectively. 
 
-\subsection{Direct taxonomic assignment and characterisation} \label{ssec:_intro_taxonomic_assignment}
+\subsubsection{Direct taxonomic assignment and characterisation} \label{sssec:_intro_taxonomic_assignment}
 
 A piece of important information that can be retrieved directly from the quality-controlled read data: (1) the identification and characterisation of the microbes present in a sample and (2) their relative abundance. Taxonomic classification methods can vary depending on the sequencing methodology used: pure culture, metataxonomics and amplicon metagenomics, and shotgun metagenomics.
 
-From pure culture, taxonomic identification of the read content of a sample is useful to assess contamination. Tools like Kraken2 \citep{wood_kraken_2014, wood_improved_2019} and Braken \citep{lu_bracken_2017}. These tools, relying on a database, assign taxonomic labels to reads and are therefore biased to the contents of the database used. Various databases are available\footnote{\url{https://benlangmead.github.io/aws-indexes/k2}}, varying in size and content (archaea, bacteria, viral, plasmid, human and eukaryotic pathogens), and therefore in sensitivity depending on the resources available and the purpose intended. Alternatively, there are options to create custom databases.  
+From pure culture, taxonomic identification of the read content of a sample is useful to assess contamination. Tools like Kraken2 \citep{wood_kraken_2014, wood_improved_2019} and Braken \citep{lu_bracken_2017}. These tools, relying on a database, assign taxonomic labels to reads and are therefore biased to the contents of the database used. Various databases are available\footnote{\url{https://benlangmead.github.io/aws-indexes/k2}}, varying in size and content (archaea, bacteria, viral, plasmid, human and eukaryotic pathogens) and therefore in sensitivity depending on the resources available and the purpose intended. Alternatively, there are options to create custom databases.  
 
-These tools are also extremely useful to assess the contents of a metagenomic sample. Alternatives such as Midas \citep{nayfach_integrated_2016}, Kaiju, \citep{menzel_fast_2016}, and MetaPhlAn2 \citep{truong_metaphlan2_2015} offer the same analysis as Kraken and Bracken using different algorithms, and with the disadvantage that they come prepackaged with their own databases, without the option to create a tailored database, limiting their applicability. Kaiju differs from the other tools by using a protein reference database, instead of nucleotide, but no pre-built version is available, requiring significant resources to build and index the database pre-use. The long-read data of third-generation sequencing technologies (see \secref{ssec:_intro_3rd_gen_seq}) can be treated as single-end reads, and all tools mentioned accommodate the classification of single-end files. 
+These tools are also extremely useful to assess the contents of a metagenomic sample. Alternatives such as Midas \citep{nayfach_integrated_2016}, Kaiju, \citep{menzel_fast_2016}, and MetaPhlAn2 \citep{truong_metaphlan2_2015} offer the same analysis as Kraken and Bracken using different algorithms, and with the disadvantage that they come prepackaged with their own databases, without the option to create a tailored database, limiting their applicability. Kaiju differs from the other tools by using a protein reference database, instead of nucleotide, but no pre-built version is available, requiring significant resources to build and index the database pre-use. Long-read data from third-generation sequencing technologies (see \secref{ssec:_intro_3rd_gen_seq}) can be treated as single-end reads, and all mentioned tools accommodate the classification of single-end files. 
 
-\subsection{The FASTA file} \label{ssec:_intro_fastq}
+\subsection{From reads to genomes} \label{sssec:_intro_reads_2_genomes}
+
+Due to the limitations of current sequencing technologies (see \secref{ssec:_intro_sequencing}), the order of the reads produced by these machines cannot be preserved. 
+Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur, where FASTQ files, containing the sequencing information, are converted into FASTA files with informative genomic sequences. Information can be inferred through genome annotation software, such as Prokka\footnote{\url{https://github.com/tseemann/prokka}}, identifying and labelling all relevant features in a genome sequence, such as predicted coding regions and their putative products, noncoding RNAs, signal peptides, and so on \citep{seemann_prokka_2014}. 
+
+
+The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
+Long-read technologies (see \secref{ssec:_intro_3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}.
+
+Assembling reads into contigs has many advantages, namely that longer sequences are more informative, allowing the consideration of whole genes or even gene clusters within a genome and to understand larger genetic variants and repeats. Additionally, it has the effect of removing most sequencing errors, though this can be at the expense of new assembly errors \citep{ayling_new_2020}. Two methods are used to obtain draft genomes: (1) through reference-guided sequence assembly, or (2), through \textit{de novo} sequence assembly.
+
+\subsubsection{The FASTA file} \label{sssec:_intro_fastq}
 
 In bioinformatics, the FASTA format is a text-based format to represent nucleotide or amino acid sequences using single-letter codes, preceded by a sequence name or any other information relative to the sequence. Similarly to FASTQ (see \ref{ssec:_intro_fastq}), it was developed by the Wellcome Trust Sanger Institute, the FASTQ has emerged as a common file format for sharing sequence data \citep{pearson_improved_1988}. The FASTA file follows the following conformation:
 
@@ -411,44 +424,33 @@ frn       & FASTA non-coding RNA             & Contains non-coding RNA regions f
 }
 \end{table}
 
-\subsection{From reads to genomes} \label{sssec:_intro_reads_2_genomes}
-
-Due to the limitations of current sequencing technologies (see \secref{ssec:_intro_sequencing}), the order of the reads produced by these machines cannot be preserved. 
-Therefore, to obtain the true original genomic sequence the process of "genome assembly" has to occur, where FASTQ files, containing the sequencing information, are converted into FASTA files with informative genomic sequences. Information can be inferred through genome annotation software, such as Prokka\footnote{\url{https://github.com/tseemann/prokka}}, identifying and labelling all relevant features in a genome sequence, such as predicted coding regions and their putative products, noncoding RNAs, signal peptides, and so on \citep{seemann_prokka_2014}. 
-
-
-The term "draft genome" is commonly used because these sequencing technologies do not generate a single closed genome, particularly short-read such as in second generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) which need to be assembled into usually a series of sequences (contigs) that may cover up to 95\% to 99\% of the strain genome \citep{carrico_primer_2018}. 
-Long-read technologies (see \secref{ssec:_intro_3rd_gen_seq}) allow for this value to reach 100\%, effectively producing closed, complete genomes, notwithstanding that this value can sometimes overcome the 100\% due to overlap \citep{wick_benchmarking_2021}.
-
-Assembling reads into contigs has many advantages, namely that longer sequences are more informative, allowing the consideration of whole genes or even gene clusters within a genome and to understand larger genetic variants and repeats. Additionally, it has the effect of removing most sequencing errors, though this can be at the expense of new assembly errors \citep{ayling_new_2020}. Two methods are used to obtain draft genomes: (1) through reference-guided sequence assembly, or (2), through \textit{de novo} sequence assembly.
-
 \subsubsection{Genomes through reference-guided sequence assembly}
 
 A reference-guided genome assembly uses an already sequenced reference genome to assemble a new genome, making use of the similarity between target and reference species to gain additional information, which often lead to a more complete and improved genome \citep{rausch_consistency-based_2009, lischer_reference-guided_2017}. 
-This process is usually done through the mapping of the reads to a closely related reference sequence, and as more and more species get sequenced, the chance that a genome of the same or related species is already available, in which a significant proportion of the reads can be mapped, increase greatly. 
+This process is usually done through the mapping of the reads to a closely related reference sequence, and as more and more species get sequenced, the chances that a genome of the same or related species is already available, in which a significant proportion of the reads can be mapped, increase greatly. 
 This process usually includes the following steps: (1) the reference genome has to be indexed, allowing compression of the input text while still permitting fast sub-string queries, (2) for each short-read several sub sequences (seeds) are taken and searched to find their exact matches in the reference  (candidate regions), (3) each short-read is then aligned to all corresponding candidate regions, and (4) the consensus sequence is computed in which the reference sequence is corrected when there is enough evidence of an difference based on the mapped
 reads, identifying the differences between it and the newly generated consensus sequence \citep{bayat_methods_2020}.
-Besides variants, the new consensus genome might have insertions or deletions with respect to the reference genome.
+In addition to variants, the new consensus genome might have insertions or deletions with respect to the reference genome.
 
 Besides the generation of a consensus sequence, the mapping of the reads to the reference sequence can be used to estimate sequence depth and breadth of coverage. 
-Depth of coverage, often referred to simply as coverage, refers to the average number of times each nucleotide position in the strain's genome has a read that aligns to that position. Depending on the study goals, bacterial species and the intended analyses, the optimal depth of coverage varies. 
+Depth of coverage, often referred to simply as coverage, refers to the average number of times each nucleotide position in the strain's genome has a read that aligns to that position. Depending on the study goals, bacterial species, and the intended analyses, the optimal depth of coverage varies. 
 In public repositories, most submissions have a depth of coverage ranging from 15 to 500 times \citep{carrico_primer_2018}. 
-Breadth of coverage is defined as the ratio of covered sequence on the reference by the aligned reads.
+The breadth of coverage is defined as the ratio of covered sequence on the reference by aligned reads.
 
 \subsubsection{Genomes through \textit{de novo} sequence assembly}
 
-De novo assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads. Two methods are used to obtain draft genomes without the need of a reference genome: (1) through Overlap, Layout and Consensus, or (2) De Bruijn graph assembly (see Figure \ref{fig:figure8}). The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
+The \textit{de novo} assembly refers to the bioinformatics process whereby reads are assembled into a draft genome using only the sequence information of the reads. Two methods are used to obtain draft genomes without the need of a reference genome: (1) through Overlap, Layout and Consensus, or (2) De Bruijn graph assembly (see Figure \ref{fig:figure8}). The \textit{de novo} assembly methods provide longer sequences that are more informative than shorter sequencing data and can provide a more complete picture of the microbial community in a given sample.
 
 \begin{figure*}[h!]
 \centering
 \includegraphics[width=\textwidth]{figures/introduction/Figure 8.png}
-\caption{\textbf{Approaches to \textit{de novo} genome assemble.} In Overlap, Layout, Consensus assembly, (1) overlaps are found between reads and an overlap graph constructed (edges indicate overlapping reads). (2) Reads are laid out into contigs based on the overlaps (lines indicate overlapping portions). (3) The most likely sequence is chosen to construct consensus sequence. In De Bruijn graph assembly, (1) reads are decomposed into kmers of a determined size by sliding a window of size k (in here of k=3) across the reads. (2) The kmers become vertices in the De Bruijn graph, with edges connecting overlapping kmers. Polymorphisms (red) form branches in the graph. A count is kept of how many times a kmer is seen, shown here as numbers above kmers. (3) Contigs are built by walking the graph from edge nodes. A variety of heuristics handle branches in the graphs—for example, low coverage paths, as shown here, may be ignored. Adapted from \cite{ayling_new_2020}}.
+\caption{\textbf{Approaches to \textit{de novo} genome assemble.} In Overlap, Layout, Consensus assembly, (1) overlaps are found between reads and an overlap graph constructed (edges indicate overlapping reads). (2) Reads are laid out into contigs based on the overlaps (lines indicate overlapping portions). (3) The most likely sequence is chosen to construct consensus sequence. In the De Bruijn graph assembly, (1) reads are decomposed into kmers of a determined size by sliding a window of size k (in here of k=3) across the reads. (2) The kmers become vertices in the De Bruijn graph, with edges connecting overlapping kmers. Polymorphisms (red) form branches in the graph. A count is kept of how many times a kmer is seen, shown here as the numbers above kmers. (3) Contigs are built by walking the graph from the edge nodes. A variety of heuristics handle branches in the graphs—for example, low coverage paths, as shown here, may be ignored. Adapted from \cite{ayling_new_2020}}.
 \label{fig:figure8}
 \end{figure*}
 
 \paragraph{Overlap, Layout and Consensus assembly} \label{sssec:_intro_OLC_assembly} \mbox\\
 
-First generation sequencing technology (see \secref{ssec:_intro_1st_gen_seq}) produces far fewer reads than second generation sequencing technology (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing), but individual reads are longer (500–1000 \ac{bp}). 
+First-generation sequencing technology (see \secref{ssec:_intro_1st_gen_seq}) produces far fewer reads than second-generation sequencing technology (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing), but individual reads are longer (500 to 1000 \ac{bp}). 
 Assembly of Sanger data usually uses \ac{OLC} approaches, in which:
 
 \begin{itemize}
@@ -457,7 +459,7 @@ Assembly of Sanger data usually uses \ac{OLC} approaches, in which:
     \item A consensus contiguous sequence, or contig, is determined by picking the most likely nucleotides from the overlapping reads.
 \end{itemize}
 
-These type of assemblers were very popular in the early 2010s, with assemblers such as Celera\footnote{\url{https://www.cbcb.umd.edu/software/celera-assembler}},  Genovo\footnote{\url{https://cs.stanford.edu/genovo }}, xGenovo\footnote{\url{http://xgenovo.dna.bio.keio.ac.jp/}} and BBAP\footnote{\url{http://homepage.ntu.edu.tw/~youylin/BBAP.html}} having been widely used \citep{myers_whole-genome_2000, hutchison_genovo_2010, afiahayati_extended_2013, lin_novo_2017}.
+These types of assemblers were very popular in the early 2010s, with assemblers such as Celera\footnote{\url{https://www.cbcb.umd.edu/software/celera-assembler}},  Genovo\footnote{\url{https://cs.stanford.edu/genovo }}, xGenovo\footnote{\url{http://xgenovo.dna.bio.keio.ac.jp/}} and BBAP\footnote{\url{http://homepage.ntu.edu.tw/~youylin/BBAP.html}} having been widely used \citep{myers_whole-genome_2000, hutchison_genovo_2010, afiahayati_extended_2013, lin_novo_2017}.
 With the emergence of third-generation sequencing (see \secref{ssec:_intro_3rd_gen_seq} The third-generation of DNA sequencing), \ac{OLC} assemblers have been increasingly developed and adopted by the community to assembly long-read data. 
 In the latest years, ra\footnote{\url{https://github.com/lbcb-sci/ra}}, raven\footnote{\url{https://github.com/lbcb-sci/raven}} and canu\footnote{\url{https://github.com/marbl/canu}}, the latter being a a fork of the Celera Assembler, have become staples in the community, showing good reliability and amassing over 3000 citations \citep{vaser_yet_2019, koren_canu_2017, wick_benchmarking_2021}.
 
@@ -468,7 +470,7 @@ In the De Bruijn assembly graph, reads are split into overlapping k-mers where n
 \begin{itemize}
     \item A directed edge from node N\textsubscript{a} to node N\textsubscript{b} indicates that N\textsubscript{b} is next to N\textsubscript{a} in a read;
     \item The number of nodes in the De Bruijn graph is theoretically the total number of identical k-mers in the genome;
-    \item The weight on the edge indicates the number of times  N\textsubscript{b} is observed next to  N\textsubscript{a} in all reads.
+    \item The weight on the edge indicates the number of times N\textsubscript{b} is observed next to N\textsubscript{a} in all reads.
 \end{itemize}
 
 Thus, the weight of an edge indicates the possibility that two k-mers appear after each other in the DNA sequence. A path in the graph where all edges have the highest weight is the most likely to be a part of the genome \citep{bayat_methods_2020}.
@@ -477,16 +479,16 @@ Most second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The seco
 
 \subsubsection{Assembly quality assessment and quality control} \label{ssec:_intro_assembly_quality}
 
-The success of an assembly is evaluated in two steps: (1) globally, through intrinsic characteristics of the assembly itself, and (2) relative to a reference genome. The computation of the global metrics is performed through statistics inherent to the complete set of contigs assembled per sample, independent of the species/sample of origin. Commonly, these statistics include information on contig number, its median size and number ambiguous bases. The comparison with a reference sequence allows for statistics such as number of misassemblies, meaning contigs that do not reflect the structural organisation in the reference sequence, to be computed. 
+The success of an assembly is evaluated in two steps: (1) globally, through intrinsic characteristics of the assembly itself, and (2) relative to a reference genome. The computation of the global metrics is performed through statistics inherent to the complete set of contigs assembled per sample, independent of the species/sample of origin. Commonly, these statistics include information on contig number, its median size and number ambiguous bases. The comparison with a reference sequence allows statistics such as the number of misassemblies, meaning contigs that do not reflect the structural organisation in the reference sequence, to be computed. 
 
-The assessment and evaluation of genome assemblies has been a relevant field ever since the emergence of the assembly process itself. 
+Assessment and evaluation of genome assemblies has been a relevant field ever since the emergence of the assembly process itself. 
 The most widely adopted is QUAST\footnote{\url{http://quast.sourceforge.net/quast}}, can evaluate assemblies both with a reference genome, as well as without a reference, producing many reports, summary tables and plots to help compare and assess assembly success \citep{gurevich_quast_2013}. 
 
 \subsection{Reproducibility and transparency} \label{ssec:_intro_reproducibility}
 
 Several steps that can be implemented to ensure the transparency and reproducibility of the chosen bioinformatic workflow. 
-Favouring open-source tools, with clear documentation describing the methodology implemented, and stating the version of the software used and which parameters were used enables the comparison of results. 
-This can be simplified by containerising all the software tools with one of the many solutions available, like Docker\footnote{\url{https://www.docker.com/}} or Singularity\footnote{\url{https://sylabs.io/}} \citep{kurtzer_singularity_2017}. 
+Favouring open-source tools, with clear documentation describing the methodology implemented and stating the version of the software used and which parameters were used, enables the comparison of results. 
+This can be simplified by containerising all software tools with one of the many available solutions, such as Docker\footnote{\url{https://www.docker.com/}} or Singularity\footnote{\url{https://sylabs.io/}} \citep{kurtzer_singularity_2017}. 
 
 The use of workflow managers, like nextflow\footnote{\url{https://www.nextflow.io/}}, snakemake\footnote{\url{https://snakemake.github.io/}} or the Galaxy Project\footnote{\url{https://galaxyproject.org/}}, will push reproducibility to the next level by taking advantage of the containerisation and scalability, enabling the workflow to be executed with the same parameters in the same conditions in a multitude of different environments \citep{di_tommaso_nextflow_2017, molder_sustainable_2021, afgan_galaxy_2018}. 
 
