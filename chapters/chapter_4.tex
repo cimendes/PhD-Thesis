@@ -42,7 +42,7 @@ Here we present DEN-IM, a one-stop, user-friendly, containerised and reproducibl
 Using DEN-IM, we successfully analysed two DENV datasets. The first comprised 25 shotgun metagenomic sequencing samples of variable serotype and genotype, including an in vitro spiked sample containing the four known serotypes. The second dataset consisted of 106 targeted metagenomic sequences of DENV 3 genotype III where DEN-IM allowed detection of the intra-genotype diversity.
 The DEN-IM workflow, parameters and execution configuration files, and documentation are freely available at \url{https://github.com/B-UMMI/DEN-IM}.
 
-\section{Keywords}
+\subsection{Keywords}
 dengue virus, surveillance, metagenomics, reproducibility, workflow, containerization, scalability
  
 \section{Author Notes}
@@ -52,7 +52,7 @@ Metagenomic sequencing data available under BioProject PRJNA474413. DEN-IM repor
 
 \section{Abbreviations}
  
-CDS, coding sequence; DENV, dengue virus; HPC, high-performance computing; HTS, high-throughput sequencing; NCR, non-coding region; QC, quality control; RT-PCT, reverse transcription polymerase chain reaction.
+\ac{CDS}; \ac{DENV}; \ac{HPC}; \ac{HTS}; NCR, non-coding region; QC, quality control; RT-PCT, reverse transcription polymerase chain reaction.
 
 \section{Data Summary}
 
@@ -74,3 +74,15 @@ DEN-IM enables reproducible and collaborative research, being accessible to a wi
 \section{Introduction}
 
 The Dengue virus (DENV), a single-stranded positive-sense RNA virus belonging to the Flavivirus genus, is one of the most prevalent arboviruses and is mainly concentrated in tropical and subtropical regions. Infection with DENV results in symptoms ranging from mild fever to haemorrhagic fever and shock syndrome \citep{organization_dengue_2009}. Transmission to humans occurs through the bite of Aedes mosquitoes, namely Aedes aegypti and Aedes albopictus \citep{diamond_molecular_2015}. In 2010, it was predicted that the burden of dengue disease reached 390 million cases/year worldwide \citep{bhatt_global_2013}. The high morbidity and mortality of dengue makes it the arbovirus with the highest clinical significance \citep{lourenco_challenges_2018}. DENV is a significant public health challenge in countries where the infection is endemic due to the high health and economic burden. Despite the emergence of novel therapies and ecological strategies to control the mosquito vector, there are still important knowledge gaps in the virus biology and its epidemiology \citep{diamond_molecular_2015}.
+
+The viral genome of ~11,000 nucleotides, consists of a CDS of approximately 10.2 Kb that is translated into a single polyprotein encoding three structural proteins (capsid - C, premembrane - prM, envelope - E) and seven non-structural proteins (NS1, NS2A, NS2B, NS3, NS4A, NS4B and NS5). Additionally, the genome contains two Non-Coding Regions (NCRs) at their 5’ and 3’ ends \citep{leitmeyer_dengue_1999}.
+
+DENV can be classified into four serotypes (1, 2, 3 and 4), differing from each other from 25\% to 40\% at the amino acid level. They are further classified into genotypes that vary by up to 3\% at the amino acid level \citep{diamond_molecular_2015}. The DENV-1 serotype comprises five genotypes (I-V), DENV-2 groups six (I-VI, also named American, Cosmopolitan, Asian-American, Asian II, Asian I and Sylvatic), DENV-3 four (I-III and V), and DENV-4 also four (I-IV).
+
+The implementation of a surveillance system relying on HTS technologies allows the simultaneous identification and surveillance of DENV cases. Due to the high sensitivity of these technologies, previous studies showed that viral sequences can be directly obtained from patient sera using a shotgun metagenomics approach \citep{yozwiak_virus_2012}. Alternatively, HTS can be used in a targeted metagenomics approach in which a PCR step is used to pre-amplify viral sequences before sequencing. In recent years, HTS has been successfully used as a tool for identification of DENV directly from clinical samples \citep{yozwiak_virus_2012, lee_clinical_2017}. This also allows the rapid identification of the serotype and genotype important for disease management as the genotype may be associated with disease outcome \citep{fatima_serotype_2011}.
+
+Several initiatives aim to facilitate the identification of the DENV serotype and genotype from HTS data. The Genome Detective project (https://www.genomedetective.com/) offers an online Dengue Typing Tool (https://www.genomedetective.com/app/typingtool/dengue/) \citep{fonseca_computational_2019} relying on BLAST and phylogenetic methods in order to identify the closest serotype and genotype, but it requires as input assembled genomes in FASTA format. The same project also offers the Genome Detective Typing Tool (https://www.genomedetective.com/app/typingtool/virus/) \citep{vilsker_genome_2019} identifying viruses present in a sample. Additionally, there are several tools available for viral read identification and assembly, such as VIP \citep{li_vip_2016}, virusTAP \citep{yamashita_virustap_2016} and drVM \citep{lin_drvm_2017}, but none performs genotyping of the identified reads.
+
+We developed DEN-IM as a ready-to-use, one-stop, reproducible bioinformatic analysis workflow for the processing and phylogenetic analysis of DENV using paired-end raw HTS data. DEN-IM is implemented in Nextflow \citep{di_tommaso_nextflow_2017}, a workflow manager software that uses Docker (https://www.docker.com) containers with pre-installed software for all the workflow tools. The DEN-IM workflow, as well as parameters and documentation, are available at \url{https://github.com/B-UMMI/DEN-IM}.
+
+\section{The DEN-IM Workflow}
