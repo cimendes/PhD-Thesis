@@ -57,8 +57,11 @@ Metagenomic sequencing data available under BioProject PRJNA474413. DEN-IM repor
 \section{Data Summary}
 
 \begin{enumerate}
+    \item The supplemental material and tables are available at Figshare under https://doi.org/10.6084/m9.figshare.9963812
     \item The 106 DENV-3 targeted metagenomics paired-end short-read datasets are available under BioProject PRJNA394021. The 25 shotgun metagenomics dataset is available under BioProject PRJNA474413. The accession number for all the samples in the shotgun metagenomics dataset are available in the Supplementary material
     \item The accession numbers for the 41 samples, belonging to zika virus, chikungunya virus and yellow fever virus shotgun and targeted metagenomic datasets are available in the Supplementary material. 
+    \item DEN-IM reports for the analysed datasets are available at Figshare  (https://doi.org/10.6084/m9.figshare.9318851).
+    \item Phylogeny inference trees for the dengue virus typing database available at Figshare (https://doi.org/10.6084/m9.figshare.9331826).
     \item Code for the DEN-IM workflow is available at \url{https://github.com/B-UMMI/DEN-IM} and documentation, including step-by-step tutorials, is available at \url{https://github.com/B-UMMI/DEN-IM/wiki}.
 \end{enumerate}
 
@@ -144,7 +147,7 @@ DEN-IM offers a core assembly functionality, leveraging a de novo and consensus 
 There are several alternative tools, both command line and online based, capable of identifying DENV reads and performing assembly (Table \ref{tab:ch4_table1}). VIP and drVM are both stand-alone pipelines, like DEN-IM, and several components overlap with DEN-IM’s but the retrieval of viral sequences is not targeted for DENV, and no serotyping and genotyping is performed. VIP performs a phylogenetic analysis against the reference database. VirusTAP is a web server for the identification of viral reads using the ViPR and IRD databases, or alternatively with the RefSeq Virus database. GenomeDetective is also a web service that provides two tools, one for the assembly of viral sequences from raw data (Virus tool) and another for serotyping and genotyping of DENV fasta sequences (Dengue Typing tool). Both tools need to be run consecutively, with the Virus Tool providing a link to redirect to the Dengue Typing tool when a DENV sequence is identified.
 
 
-\begin{table}[]
+\begin{table}[h!]
 \caption{DEN-IM’s workflow comparison with different tools for the identification and genotyping of DENV from sequencing data.}
 \label{tab:ch4_table1}
 \resizebox{\textwidth}{!}{%
@@ -205,4 +208,26 @@ drVM &
 \item $^2$ Sequence file can be received from GenomeDetective Virus Tool, as well as independently uploaded
 \end{table}
 
-Of all the tools listed in Table \ref{}, only Genome Detective offers a tool to determine the DENV sero- and genotype from a fasta sequence, but the need to run their virus identification tool prior to obtain a sequence from the raw sequencing data increases the time to obtain a typing result, especially when a large number of sequences needs to be analysed. Moreover, these tools are not open source, so we are unable to compare the methodology used with our own. Additionally, there might be privacy issues in submitting data to external services, like VirusTAP and GenomeDetective, especially when handling metagenomics data that contain human sequences subjected to strict privacy laws in most countries. Therefore, a stand-alone tool is preferable for these analyses since these can be run in secure local environments. DEN-IM’s main advantage when compared to web-based platforms is the ability to analyse batches of samples in a scalable manner, obtaining a report summarizing all the samples analysed and a phylogeny analysis of all DENV CDSs recovered.
+Of all the tools listed in Table \ref{tab:ch4_table1}, only Genome Detective offers a tool to determine the DENV sero- and genotype from a fasta sequence, but the need to run their virus identification tool prior to obtain a sequence from the raw sequencing data increases the time to obtain a typing result, especially when a large number of sequences needs to be analysed. Moreover, these tools are not open source, so we are unable to compare the methodology used with our own. Additionally, there might be privacy issues in submitting data to external services, like VirusTAP and GenomeDetective, especially when handling metagenomics data that contain human sequences subjected to strict privacy laws in most countries. Therefore, a stand-alone tool is preferable for these analyses since these can be run in secure local environments. DEN-IM’s main advantage when compared to web-based platforms is the ability to analyse batches of samples in a scalable manner, obtaining a report summarizing all the samples analysed and a phylogeny analysis of all DENV CDSs recovered.
+
+
+\section{Results}
+
+To evaluate the DEN-IM workflow performance, we analysed three datasets, one containing shotgun metagenomics sequencing data of patient samples (see Table \ref{}), a second with amplicon sequencing data, a set with 106 paired-end samples obtained from Parameswaran et al \citep{parameswaran_intrahost_2017} and another set with 78 single-end samples available under BioProject PRJNA321963, and a third dataset of publicly available sequences, both from amplicon and shotgun metagenomics, containing 45 chikungunya virus (CHIKV) samples, 66 zika virus (ZKV), and 21 yellow fever virus (YFV) samples (see Table \ref{}). All analyses were executed with the default resources and parameters (available at \url{https://github.com/B-UMMI/DEN-IM}). In the shotgun metagenomics and the single-end amplicon sequencing datasets the closest typing reference in the final tree and the NCBI DENV references for each serotype were included in the phylogenetic analysis. The resulting reports for each dataset are available on Figshare at \url{https://doi.org/10.6084/m9.figshare.9318851}.
+
+\subsubsection{Shotgun metagenomics dataset}
+
+We analysed a dataset containing 22 shotgun metagenomics paired-end short-read Illumina sequencing samples from positive dengue cases, one positive control (purified from a DENV culture), one negative control (blank), and an in vitro spiked sample containing the 4 DENV serotypes (see \ref{}). On average, each sample took 7 minutes to analyse. A total of 75 CPU hours were used to analyse the 25 samples, with a total of 17 Gb in size. This analysis resulted in 69 Gb of data. 
+The negative control and the 92-1001 sample had no reads after trimming and filtering of low complexity reads, therefore they were removed from further analysis (see \ref{}). When mapping to the DENV mapping database, the percentage of DENV reads in the 21 clinical samples, positive control and spiked sample passing QC ranged from 0.01\% (sample UCUG0186) to 85.38\% (sample Positive Control - PC). After coverage depth estimation, the analysis of the samples 91-0115 and UCUG0186 was terminated due to a low proportion of DENV reads (0.05\% and 0.01\% respectively). Therefore, they failed to meet the threshold criterion of having an estimated depth of coverage of $\geq$10x (estimated coverages of 3.17x and 5.65x, respectively). Sequence data of sample 91-0106 contained only 960 DENV reads (0.03\%) but these were successfully assembled into a CDS with an estimated depth of coverage of 14.71x.
+
+In the assembly module, the remaining 19 samples, the spiked sample and the PC were assembled with DEN-IM’s two assembler approach. Twenty-four full CDS were assembled (see \ref{}), even in samples originally having DENV read content as low as 0.03\% of the total reads. Sixteen samples, including the spiked sample and the positive control, were assembled in the first step with the SPAdes assembler, and five in the second with the MEGAHIT assembler. In the spiked sample, all four CDSs were successfully assembled and recovered.
+
+Serotype and genotype were successfully determined for the 24 DENV CDSs by BLAST (see \ref{}). The most common were serotype 2 genotype III (Asian American) and serotype 4 genotype II, with 8 samples each (33\%), followed by serotype 3 genotype III (n=5, 21\%), serotype 1 genotype V (n=2, 8\%) and serotype 2 genotype V (Asian I) (n=1, 4\%). All CDSs recovered and the respective closest reference genome in the typing database were aligned and a maximum likelihood phylogenetic tree was obtained to visualise the relationship between the samples (Figure \ref{fig:chap4_figure2}). There was a perfect concordance between the results of serotyping and genotyping and the major groups in the tree.
+Four distinct CDSs were assembled for the spiked sample that resulted in different coverages of each serotype CDS (2032x times coverage for DENV-2, 229x coverage for DENV-1, 76x coverage for DENV-3 and 30x times coverage for DENV-4), in accordance with the ranking order of the real-time RT-PCR results (see \ref{}).
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure2_nobranchlabels.png}
+\caption{Phylogenetic reconstruction of the shotgun metagenomic dataset. Maximum Likelihood tree in the DEN-IM report for the 24 complete CDSs (n=21 samples) obtained with the metagenomics dataset, the respective closest references in the typing database (identified by their GenBank ID), and the NCBI DENV references for each serotype (NCBI-DENV-1: NC\_001477.1, NCBI-DENV-2: NC\_001474.2, NCBI-DENV-3: NC\_001475.2, NCBI-DENV-4: NC\_002640.1). The tree is midpoint rooted for visualisation purposes and the scale represents average substitutions per site. The colours depict the DENV genotyping results.}
+\label{fig:chap4_figure2}
+\end{figure*}
