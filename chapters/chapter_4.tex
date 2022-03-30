@@ -141,6 +141,68 @@ Lastly, a phylogenetic tree is included, rooted at midpoint for visualisation pu
 
 DEN-IM offers a core assembly functionality, leveraging a de novo and consensus assembly approach, to obtain a full CDS sequence to perform geno- and serotyping, followed by phylogenetic positioning of the samples analysed. This results in a phylogenetic tree showing the genotyping results, presented in an HTML file.
 
-There are several alternative tools, both command line and online based, capable of identifying DENV reads and performing assembly (Table \ref{}). VIP and drVM are both stand-alone pipelines, like DEN-IM, and several components overlap with DEN-IM’s but the retrieval of viral sequences is not targeted for DENV, and no serotyping and genotyping is performed. VIP performs a phylogenetic analysis against the reference database. VirusTAP is a web server for the identification of viral reads using the ViPR and IRD databases, or alternatively with the RefSeq Virus database. GenomeDetective is also a web service that provides two tools, one for the assembly of viral sequences from raw data (Virus tool) and another for serotyping and genotyping of DENV fasta sequences (Dengue Typing tool). Both tools need to be run consecutively, with the Virus Tool providing a link to redirect to the Dengue Typing tool when a DENV sequence is identified.
+There are several alternative tools, both command line and online based, capable of identifying DENV reads and performing assembly (Table \ref{tab:ch4_table1}). VIP and drVM are both stand-alone pipelines, like DEN-IM, and several components overlap with DEN-IM’s but the retrieval of viral sequences is not targeted for DENV, and no serotyping and genotyping is performed. VIP performs a phylogenetic analysis against the reference database. VirusTAP is a web server for the identification of viral reads using the ViPR and IRD databases, or alternatively with the RefSeq Virus database. GenomeDetective is also a web service that provides two tools, one for the assembly of viral sequences from raw data (Virus tool) and another for serotyping and genotyping of DENV fasta sequences (Dengue Typing tool). Both tools need to be run consecutively, with the Virus Tool providing a link to redirect to the Dengue Typing tool when a DENV sequence is identified.
+
+
+\begin{table}[]
+\caption{DEN-IM’s workflow comparison with different tools for the identification and genotyping of DENV from sequencing data.}
+\label{tab:ch4_table1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Tool} &
+  \textbf{Quality Control} &
+  \textbf{DENV Sequence Retrieval} &
+  \textbf{Assembly} &
+  \textbf{Typing} &
+  \textbf{Phylogeny} &
+  \textbf{Report} \\ \midrule
+DEN-IM &
+  \checkmark &
+  \checkmark &
+  \checkmark &
+  \checkmark &
+  \checkmark &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (one report \\ with all samples \\ analysed)\end{tabular} \\
+VIP &
+  \checkmark &
+  \checkmark$^1$ &
+  \checkmark &
+  X &
+  \checkmark &
+  \checkmark \\
+VirusTAP &
+  \checkmark &
+  \checkmark$^1$ &
+  \checkmark &
+  X &
+  X &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (web-based, \\ one per sample, \\ downloadable)\end{tabular} \\
+drVM &
+  \checkmark &
+  \checkmark$^1$ &
+  \checkmark &
+  X &
+  X &
+  X \\
+\begin{tabular}[c]{@{}l@{}}GenomeDetective \\ Virus Tool\end{tabular} &
+  \checkmark &
+  X &
+  \checkmark &
+  X &
+  X &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (web-based, \\ one per sample)\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}GenomeDetective \\ Dengue Typing Tool\end{tabular} &
+  X &
+  X &
+  X &
+  \checkmark$^2$ &
+  X &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (web-based, \\ one per sample)\end{tabular} \\ \bottomrule
+\end{tabular}%
+}
+\item $^1$ Targeted for viral sequences, but not specific for DENV
+\item $^2$ Sequence file can be received from GenomeDetective Virus Tool, as well as independently uploaded
+\end{table}
 
 Of all the tools listed in Table \ref{}, only Genome Detective offers a tool to determine the DENV sero- and genotype from a fasta sequence, but the need to run their virus identification tool prior to obtain a sequence from the raw sequencing data increases the time to obtain a typing result, especially when a large number of sequences needs to be analysed. Moreover, these tools are not open source, so we are unable to compare the methodology used with our own. Additionally, there might be privacy issues in submitting data to external services, like VirusTAP and GenomeDetective, especially when handling metagenomics data that contain human sequences subjected to strict privacy laws in most countries. Therefore, a stand-alone tool is preferable for these analyses since these can be run in secure local environments. DEN-IM’s main advantage when compared to web-based platforms is the ability to analyse batches of samples in a scalable manner, obtaining a report summarizing all the samples analysed and a phylogeny analysis of all DENV CDSs recovered.
