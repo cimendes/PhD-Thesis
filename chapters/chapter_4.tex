@@ -231,3 +231,92 @@ Four distinct CDSs were assembled for the spiked sample that resulted in differe
 \caption{Phylogenetic reconstruction of the shotgun metagenomic dataset. Maximum Likelihood tree in the DEN-IM report for the 24 complete CDSs (n=21 samples) obtained with the metagenomics dataset, the respective closest references in the typing database (identified by their GenBank ID), and the NCBI DENV references for each serotype (NCBI-DENV-1: NC\_001477.1, NCBI-DENV-2: NC\_001474.2, NCBI-DENV-3: NC\_001475.2, NCBI-DENV-4: NC\_002640.1). The tree is midpoint rooted for visualisation purposes and the scale represents average substitutions per site. The colours depict the DENV genotyping results.}
 \label{fig:chap4_figure2}
 \end{figure*}
+
+\subsubsection{The Amplicon Sequencing Dataset}
+
+To validate DEN-IM’s performance in a amplicon sequencing approach, a dataset of 106 paired-end HTS samples of PCR products using primers targeting DENV-3 (27) were analysed (see \ref{}). On average, each sample took 5 minutes to analyse. The 106 samples, with 51 Gb in size, took 3622 CPU hours to be analysed, resulting in 424 Gb of data. 
+
+No samples failed the quality control block (see Table \ref{}). The proportion of DENV reads ranged from 24.72\% (SRR5821236) to 99.81\% (SRR5821254) of the total processed reads. The samples with less than 70\% DENV DNA were taxonomically profiled with Kraken2 (28) and the minikraken2\_v2 database (\url{ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz}) and the source of contamination was determined to have come largely from Human DNA (see Table \ref{}).
+
+Of the 106 samples, 43 (41\%) managed to assemble a complete CDS sequence (see Table \ref{}) whereas a mapping approach was used for the remaining 63 samples (60\%) and a consensus CDS was generated. For the assembled CDSs, all but one were assembled with MEGAHIT after not producing a full CDS with SPAdes. Moreover, pronounced variation on the size of the assembled contigs is evident in the contig size distribution plot (see \ref{}).
+
+All 106 CDSs recovered belonged to serotype 3 genotype III. Despite the same classification, the maximum likelihood tree indicates that there is detectable genetic diversity within the dataset (486 SNPs in 10237 nucleotides) (Figure \ref{fig:chap4_figure3}).
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure3_phylo_tree_amplicon.pdf}
+\caption{Phylogenetic reconstruction of the paired-end targeted metagenomic dataset. Maximum likelihood circular tree in the DEN-IM report for the 106 complete CDSs obtained with the targeted metagenomics dataset (n=106). All samples belong to serotype 3 genotype III. The scale represents average substitutions per site.}
+\label{fig:chap4_figure3}
+\end{figure*}
+
+A second amplicon dataset, containing 78 DENV-1 single-end samples recovered from different Aedes aegypti isofemale hosts were analysed (see \ref{}). On average, each sample took 3 minutes to analyse. The 78 samples, with 19 Gb in size, took 278 CPU hours to be analysed, resulting in 203 Gb of data.
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure4.pdf}
+\caption{Phylogenetic reconstruction of the single-end targeted metagenomic dataset. Maximum likelihood circular tree in the DEN-IM report for the 78 complete CDSs obtained with the targeted metagenomics dataset (n=78) and the NCBI DENV references for each serotype (NCBI-DENV-1: NC\_001477.1, NCBI-DENV-2: NC\_001474.2, NCBI-DENV-3: NC\_001475.2, NCBI-DENV-4: NC\_002640.1). All samples belong to serotype 1 genotype I. The scale represents average substitutions per site.}
+\label{fig:chap4_figure4}
+\end{figure*}
+
+No samples failed the quality control block and the proportion of DENV reads ranged from 59\% (SRR3539343) to 96\% (SRR3539408) of the total processed reads (see Table \ref{}). Of the 78 samples, 53 (68\%) assembled a complete CDS sequence and in the remaining 25 (32\%) the complete CDS was obtained through mapping. All CDSs recovered, the respective closest reference genome in the typing database and NCBI’s references for each DENV serotype were aligned and a maximum likelihood phylogenetic tree was obtained (Figure \ref{fig:chap4_figure4}). All 78 samples belong to serotype 1 genotype I and, similarly to the previous dataset of 106 samples, there was detectable genetic diversity within the dataset (651 SNPs in 10808 nucleotides excluding reference sequences).
+
+
+\subsubsection{The Non-DENV Arbovirus Dataset}
+
+In order to evaluate DEN-IM’s specificity to DENV sequences, a third dataset of publicly available sequences of arbovirus other than DENV, both from amplicon and shotgun metagenomics, was analysed containing 45 CHIKV samples, 66 ZKV, and 21 YFV samples (see Table \ref{}). All 132 samples failed DEN-IM’s workflow, 16 due to not enough sequencing data remaining after quality trimming, and the remaining 116 due to very low estimated coverage of the DENV genome (less than 0.01x), as expected. 
+
+\section{Conclusion}
+
+We have successfully analysed two DENV datasets, one comprising 25 shotgun metagenomics sequencing samples and a second of 106 paired-end and 78 single-end targeted metagenomics samples. 
+
+In the first dataset, we recovered 24 CDSs from 19 clinical samples, including a spiked sample and a positive control that were correctly serotyped and genotyped. Besides the negative control, 3 samples did not return typing information due to failing quality checks.
+
+The proportion of DENV reads in the metagenomics samples was highly variable. This may reflect the viral load in patients in which DENV was detected by real-time RT-PCR. In the spiked sample, containing 4 distinct DENV serotypes, all four were correctly detected despite not being present in equal concentrations, highlighting the potential of the DEN-IM workflow to accurately detect and recover multiple DENV genomes from samples with DENV co-infection, even if the serotypes are present in low abundance. Indeed, recent studies from areas of high endemicity suggest that co-infection with multiple DENV serotypes may frequently occur \citep{marinho_meningitis_nodate, reddy_occurrence_2017} and the co-circulation of different DENV strains of the same serotype, but distinct genotypes, in these areas \citep{marinho_meningitis_nodate} raises the possibility of simultaneous infection with more than one genotype.
+
+When analysing the 106 paired-end targeted metagenomics dataset, only 43 CDS samples were de novo assembled. For the remaining 63 samples, consensus sequences were obtained through mapping. In all samples DENV 3-III was correctly identified. Similar results were obtained for the 78 single-end samples where 53 CDS were de novo assembled, and 25 consensus sequences were obtained through mapping. All samples were identified as DENV-1 I. These two datasets demonstrate the success of DEN-IM’s two-pronged approach of combining assembler and mapping. DEN-IM’s specificity was shown when it found no false positive results when analysing a dataset containing arboviruses other than DENV. 
+
+DEN-IM is built with modularity and containerisation as keystones, leveraging the parallelization of processes and guaranteeing reproducible analyses across platforms. The modular design allows for new modules to be easily added and tools that become outdated to be easily updated, ensuring DEN-IM’s sustainability. The software versions are also described in the Nextflow script and configuration files, and in the dockerfiles for each container, allowing the traceability of each step of data processing.
+
+Being developed in Nextflow, DEN-IM runs on any UNIX-like system and provides out-of-the-box support for several job schedulers (e.g., PBS, SGE, SLURM) and integration with containerised software like Docker or Singularity. While it has been developed to be ready to use by non-experts, not requiring any software installation or parameter tuning, it can still be easily customised through the configuration files.
+
+The interactive HTML reports (see \ref{}) provide an intuitive platform for data exploration, allowing the user to highlight specific samples, filter and re-order the data tables, and export the plots as needed.
+
+Together with the workflow and software containers, a database containing 3858 complete DENV genomes for DENV sequence retrieval and a subset database with 161 curated DENV genomes for serotyping and genotyping are provided. While constructing these databases, the obstacles reported by Cuypers et al \citep{cuypers_time_2018} were apparent, namely the lack of formal definition of a DENV genotype and the lack of a standardised classification procedure that could assign sequences to a previously defined genotypic/sub-genotypic clade \citep{cuypers_time_2018}. Discrepancies between the phylogenetic relationship and the genotype assignment were frequent and, throughout this study, the classification of some strains within the ViPR database \citep{pickett_virus_2012} was updated. As suggested previously \citep{cuypers_time_2018}, further evaluation of the DENV classification will benefit future research and investigation into the population dynamics of this virus. Our typing approach was designed to use the currently accepted DENV classification. However, DEN-IM can be easily modified if a new DENV classification system is to be established in the future.
+
+DEN-IM provides a user-friendly workflow that makes it possible to analyse short-read raw sequencing data from shotgun or targeted metagenomics for the presence, typing and phylogenetic analysis of DENV. The use of containerised workflows, together with shareable reports, will allow an easier comparison of results globally, promoting collaborations that can benefit the populations where DENV is endemic. The DEN-IM source code is freely available in the DEN-IM GitHub repository (\url{https://github.com/B-UMMI/DEN-IM}), which includes a wiki with full documentation and easy to follow instructions.
+
+\section{Author Statements}
+
+\subsection{Authors and contributions}
+
+C.I.M., E.L., N.C., M.R., J.A.C. and J.W.A.R. designed the workflow. C.I.M implemented and optimised the workflow, created the Docker containers, and wrote the manuscript. M.P.M. implemented the DENV genotyping module in the workflow and D.N.S. contributed to the development of DEN-IM’s HTML report. E.L., A. T., and N.C. provided the shotgun metagenomics data used to test and validate the workflow and wrote the manuscript. A.T., N.C., M.R., J.A.C. and J.W.A.R. critically revised the article. All authors read, commented on, and approved the final manuscript.
+
+\subsection{Conflict of interest}
+
+The authors declare that they have no competing interests.
+
+\subsection{Funding information}
+
+C.I.M. was supported by the Fundação para a Ciência e Tecnologia (grant SFRH/BD/129483/2017). Erley Lizarazo received the Abel Tasman Talent Program grant from the UMCG, University of Groningen, Groningen, The Netherlands. This work was partly supported by the ONEIDA project (LISBOA-01-0145-FEDER-016417) co-funded by FEEI–Fundos Europeus Estruturais e de Investimento from Programa Operacional Regional Lisboa 2020 and by national funds from FCT–Fundação para a Ciência e a Tecnologia and by UID/BIM/50005/2019, project funded by Fundação para a Ciência e a Tecnologia (FCT)/ Ministério da Ciência, Tecnologia e Ensino Superior (MCTES) through Fundos do Orçamento de Estado.
+
+\subsection{Ethical approval}
+
+This study followed international standards for the ethical conduct of research involving human subjects. Data and sample collection was carried out within the DENVEN and IDAMS (International Research Consortium on Dengue Risk Assessment, Management and Surveillance) projects. The study was approved by the Ethics Review Committee of the Biomedical Research Institute, Carabobo University (Aval Bioetico #CBIIB(UC)-014 and CBIIB-(UC)-2013-1), Maracay, Venezuela; the Ethics, Bioethics and Biodiversity Committee (CEBioBio) of the National Foundation for Science, Technology and Innovation (FONACIT) of the Ministry of Science, Technology and Innovation, Caracas, Venezuela; the regional Health authorities of Aragua state (CORPOSALUD Aragua) and Carabobo State (INSALUD); and by the Ethics Committee of the Medical Faculty of Heidelberg University and the Oxford University Tropical Research Ethics Committee.
+
+\subsection{Consent for publication}
+
+All individuals, or a parent or legal guardian if under 16 years of age, whose sample and data were collected have given consent to participate in the study.
+
+\subsection{Acknowledgements}
+
+The authors would like to thank Tiago F. Jesus and Bruno Ribeiro-Gonçalves for their invaluable help with the Nextflow implementation. We would also like to thank Erwin C. Raangs from the UMCG for his assistance in the sequencing of the shotgun metagenomics dataset. Additionally, the authors thank Lize Cuypers, Krystof Theys, Pieter Libin and Gilberto Santiago for their discussions on DENV nomenclature and classification. This work was done in collaboration with the ESCMID Study Group on Molecular and Genomic Diagnostics (ESGMD), Basel, Switzerland.
+
+\section{Data Bibliography}
+\begin{itemize}
+    \item Catarina Inês Mendes. DEN-IM supplemental material and tables are deposited at Figshare with DOI 10.6084/m9.figshare.9963812 (https://doi.org/10.6084/m9.figshare.9963812.v3).
+    \item Catarina Inês Mendes. DEN-IM reports for the analysed datasets tables are deposited at Figshare with DOI 0.6084/m9.figshare.9318851 (https://doi.org/10.6084/m9.figshare.9318851).
+    \item Catarina Inês Mendes. Phylogeny inference trees for the dengue virus typing database are deposited at Figshare with DOI 10.6084/m9.figshare.9331826 (https://doi.org/10.6084/m9.figshare.9331826).
+    \item Catarina Inês Mendes. Code for the DEN-IM workflow (https://github.com/B-UMMI/DEN-IM).
+\end{itemize}
+
+
