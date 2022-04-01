@@ -369,7 +369,7 @@ Multiple computational tools have been developed in recent years for the simulat
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/introduction/Figure 7.png}
+\includegraphics[width=\textwidth]{figures/introduction/Figure 7.pdf}
 \caption{\textbf{Sequence simulators for genomic and metagenomic data.} For first generation sequencing, Metasim (\url{https://github.com/gwcbi/metagenomics_simulation}) and Grider (\url{https://sourceforge.net/projects/biogrinder/}) can generate mock genomic and metagenomic data, with and without error models, respectively. For Illumina data, ART (\url{https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm}), InSilicoSeq (\url{https://github.com/HadrienG/InSilicoSeq}) and CAMISIM (\url{https://github.com/CAMI-challenge/CAMISIM}) represent options for in silico data generation. Due to their differences, the third-generation Pacific BioSciences (PacBio) and Oxford Nanopore (ONT) have distict software for in silico data generation. The first can be accomplished by LongISLND (\url{https://bioinform.github.io/longislnd/}) and PBSIM2 (\url{https://github.com/yukiteruono/pbsim2}) got genomic data, and SimLORD (\url{https://bitbucket.org/genomeinformatics/simlord/src}) fot metagenomic data, with and without error model. The latter BadRead (\url{https://github.com/rrwick/Badread}) and NanoSim (\url{https://github.com/bcgsc/NanoSim}) can genenrate genomic and metagenomic \textit{in silico} data, with and withouth error model. Additionally, for genomic data, LongISLND and SiLiCO (\url{https://github.com/ethanagb/SiLiCO}) generate data with and without error, respectively. Adapted from \cite{escalona_comparison_2016}.}
 \label{fig:figure7}
 \end{figure*}
@@ -475,19 +475,56 @@ In the De Bruijn assembly graph, reads are split into overlapping k-mers where n
 
 Thus, the weight of an edge indicates the possibility that two k-mers appear after each other in the DNA sequence. A path in the graph where all edges have the highest weight is the most likely to be a part of the genome \citep{bayat_methods_2020}.
 
-Most second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) assemblers, such as SPAdes\footnote{\url{https://github.com/ablab/spades/}}, SKESA\footnote{\url{https://github.com/ncbi/SKESA/}} and MEGAHIT\footnote{\url{https://github.com/voutcn/megahit/}}, use a multiple k-mer De Bruijn graph, starting with the lowest size and iteratively adding k-mers of increasing length to connect the graph \citep{bankevich_spades_2012, souvorov_skesa_2018, li_megahit_2015}. Older assemblers, such as Velvet\footnote{\url{https://www.ebi.ac.uk/~zerbino/velvet/}}, Ray\footnote{\url{https://sourceforge.net/projects/denovoassembler/f}} and SoapDeNovo2\footnote{\url{https://sourceforge.net/projects/soapdenovo2/}} use a single k-mer strategy for the De Bruijn graph construction \citep{zerbino_velvet_2008, boisvert_ray_2010, luo_soapdenovo2_2012}. 
+Most second-generation sequencing (see \secref{ssec:_intro_2nd_gen_seq} The second-generation of DNA sequencing) assemblers, such as SPAdes\footnote{\url{https://github.com/ablab/spades/}} and  SKESA\footnote{\url{https://github.com/ncbi/SKESA/}}, use a multiple k-mer De Bruijn graph, starting with the lowest size and iteratively adding k-mers of increasing length to connect the graph \citep{bankevich_spades_2012, souvorov_skesa_2018, li_megahit_2015}. Older assemblers, such as Velvet\footnote{\url{https://www.ebi.ac.uk/~zerbino/velvet/}}, Ray\footnote{\url{https://sourceforge.net/projects/denovoassembler/f}} and SoapDeNovo2\footnote{\url{https://sourceforge.net/projects/soapdenovo2/}} use a single k-mer strategy for the De Bruijn graph construction \citep{zerbino_velvet_2008, boisvert_ray_2010, luo_soapdenovo2_2012}. 
 
 \subsubsection{Assembly quality assessment and quality control} \label{ssec:_intro_assembly_quality}
 
 The success of an assembly is evaluated in two steps: (1) globally, through intrinsic characteristics of the assembly itself, and (2) relative to a reference genome. The computation of the global metrics is performed through statistics inherent to the complete set of contigs assembled per sample, independent of the species/sample of origin. Commonly, these statistics include information on contig number, its median size and number ambiguous bases. The comparison with a reference sequence allows statistics such as the number of misassemblies, meaning contigs that do not reflect the structural organisation in the reference sequence, to be computed. 
 
 Assessment and evaluation of genome assemblies has been a relevant field ever since the emergence of the assembly process itself. 
-The most widely adopted is QUAST\footnote{\url{http://quast.sourceforge.net/quast}}, can evaluate assemblies both with a reference genome, as well as without a reference, producing many reports, summary tables and plots to help compare and assess assembly success \citep{gurevich_quast_2013}. 
+The most widely adopted is QUAST\footnote{\url{http://quast.sourceforge.net/quast}}, can evaluate assemblies both with a reference genome, as well as without a reference, producing many reports, summary tables and plots to help compare and assess assembly success \citep{gurevich_quast_2013}, but alternatives, such as GenomeQC\footnote{\url{https://github.com/HuffordLab/GenomeQC}} exist \citep{manchanda_genomeqc_2020}. 
 
-\subsection{Reproducibility and transparency} \label{ssec:_intro_reproducibility}
+\subsection{Reproducibility, replicability and transparency} \label{ssec:_intro_reproducibility}
 
-Several steps that can be implemented to ensure the transparency and reproducibility of the chosen bioinformatic workflow. 
-Favouring open-source tools, with clear documentation describing the methodology implemented and stating the version of the software used and which parameters were used, enables the comparison of results. 
+Computational algorithms have become an essential component of microbiome research, with great efforts by the scientific community to raise standards on the development and distribution of code. A lack of reproducibility in computational biology research can be attributed to many factors such as an incomplete or erroneous descriptions of the software used, incomplete documentation on how to run an analysis, or failing to make available the relevant computer code needed \citep{papin_improving_2020}.  As early as 1990, movements for reproducible research, with special focus on computation-intensive scientific work, have arisen, brought on by the growing use of computational workflows for analysing data across a range of disciplines \citep{claerbout_electronic_1992}
+
+Despite the presented efforts, the effectiveness in computational reproducibility is still questionable. Stodden et al \citep{stodden_empirical_2018} reported that, in 22 randomly selected publications who's results relied on the use of computational and data-enabled methods and deemed to be reproducible (i.e. provided data and/or code), only 14\% were straightforward to reproduce with minimal effort. Similar results have been observed in comparable studies \citep{baggerly_deriving_2009, kim_experimenting_2018, huang_comparability_2013}
+
+Several steps can be implemented to ensure the transparency and reproducibility of the chosen bioinformatic workflow. Despite these efforts, sustainability and reproducibility are still major issues. In the field of microbial bioinformatics are not yet widely adopted. The FAIR Principles, standing for Findability, Accessibility, Interoperability, and Reusability, put specific emphasis on enhancing the ability to find and reuse not only data but also the algorithms, tools, and workflows that led to that data \citep{wilkinson_fair_2016}. The FAIR guiding principles can be summarised as follows:
+
+\begin{itemize}
+    \item \textbf{To be Findable:}
+    \begin{itemize}
+        \item F1. (meta)data are assigned a globally unique and persistent identifier
+        \item F2. data are described with rich metadata (defined by R1 below)
+        \item F3. metadata clearly and explicitly include the identifier of the data it describes
+        \item F4. (meta)data are registered or indexed in a searchable resource
+    \end{itemize}
+    \item \textbf{To be Accessible:}
+    \begin{itemize}
+        \item A1. (meta)data are retrievable by their identifier using a standardised communications protocol
+        \begin{itemize}
+            \item A1.1 the protocol is open, free, and universally implementable
+            \item A1.2 the protocol allows for an authentication and authorisation procedure, where necessary
+        \end{itemize}
+        \item A2. metadata are accessible, even when the data are no longer available
+    \end{itemize}
+    \item \textbf{To be Interoperable:}
+    \begin{itemize}
+        \item I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+        \item I2. (meta)data use vocabularies that follow FAIR principles
+        \item I3. (meta)data include qualified references to other (meta)data
+    \end{itemize}
+    \item \textbf{To be Reusable:}
+    \begin{itemize}
+        \item R1. meta(data) are richly described with a plurality of accurate and relevant attributes
+        \item R1.1. (meta)data are released with a clear and accessible data usage license
+        \item R1.2. (meta)data are associated with detailed provenance
+        \item R1.3. (meta)data meet domain-relevant community standards
+    \end{itemize}
+\end{itemize}
+
+Several steps have been recommended by experts to ensure the FAIR'ness of both software and data \citep{ram_git_2013, piccolo_tools_2016, boettiger_introduction_2015, sandve_ten_2013}. Favouring open-source tools, with clear documentation describing the methodology implemented and stating the version of the software used and which parameters were used, enables the comparison of results. 
 This can be simplified by containerising all software tools with one of the many available solutions, such as Docker\footnote{\url{https://www.docker.com/}} or Singularity\footnote{\url{https://sylabs.io/}} \citep{kurtzer_singularity_2017}. 
 
 The use of workflow managers, like nextflow\footnote{\url{https://www.nextflow.io/}}, snakemake\footnote{\url{https://snakemake.github.io/}} or the Galaxy Project\footnote{\url{https://galaxyproject.org/}}, will push reproducibility to the next level by taking advantage of the containerisation and scalability, enabling the workflow to be executed with the same parameters in the same conditions in a multitude of different environments \citep{di_tommaso_nextflow_2017, molder_sustainable_2021, afgan_galaxy_2018}. 
