@@ -103,7 +103,7 @@ We developed DEN-IM as a ready-to-use, one-stop, reproducible bioinformatic anal
 
 \section{The DEN-IM Workflow}
 
-DEN-IM is a user-friendly automated workflow enabling the analysis of shotgun or targeted metagenomics data for the identification, serotyping, genotyping, and phylogenetic analysis of DENV, as represented in Figure \ref{fig:chap4_figure1}, accepting as input raw paired-end sequencing data (FASTQ files) and informing the user with an interactive and comprehensive HTML report (Supplementary Figure ), as well as providing output files of the whole pipeline. 
+DEN-IM is a user-friendly automated workflow enabling the analysis of shotgun or targeted metagenomics data for the identification, serotyping, genotyping, and phylogenetic analysis of DENV, as represented in Figure \ref{fig:chap4_figure1}, accepting as input raw paired-end sequencing data (FASTQ files) and informing the user with an interactive and comprehensive HTML report (Supplementary Figure \ref{fig:chap4_figure_sup1}), as well as providing output files of the whole pipeline. 
 
 \begin{figure*}[h!]
 \centering
@@ -114,7 +114,7 @@ DEN-IM is a user-friendly automated workflow enabling the analysis of shotgun or
 
 It is implemented in Nextflow, a workflow management system that allows the effortless deployment and execution of complex distributed computational workflows in any UNIX-based system, from local machines to \ac{HPC} with a container engine installation, such as Docker (https://www.docker.com/), Shifter \citep{gerhardt_shifter_2017} or Singularity \citep{kurtzer_singularity_2017}. DEN-IM integrates Docker containerised images, compatible with other container engines, for all the tools necessary for its execution, ensuring reproducibility and the tracking of both software code and version, regardless of the operating system used. 
 
-Users can customise the workflow execution either by using command line options or by modifying the simple plain-text configuration files. To make the execution of the workflow as simple as possible, a set of default parameters and directives is provided. An exhaustive description of each parameter is available as Supplementary material (see \ref{}).
+Users can customise the workflow execution either by using command line options or by modifying the simple plain-text configuration files. To make the execution of the workflow as simple as possible, a set of default parameters and directives is provided. An exhaustive description of each parameter is available as Supplementary material (see \ref{chap4_sup_workflow_params}).
 
 The local installation of the DEN-IM workflow, including the docker containers with all the tools needed and the curated DENV database, requires 15 Gigabytes (Gb) of free disk space. The minimum requirements to execute the workflow are at least 5 Gb of memory and 4 CPUs. The disk space required for execution depends greatly on the size of the input data, but for the datasets used in this article, DEN-IM generates approximately 5 Gb of data per Gb input data.
 DEN-IM workflow can be divided into the following components:
@@ -125,7 +125,7 @@ The Quality Control (QC) and Trimming block starts with a process to verify the 
 
 \subsubsection{Retrieval of DENV sequences}
 
-In the second step, DENV sequences are selected from the sample using Bowtie2 \citep{langmead_fast_2012} (version 2.2.9) and Samtools \citep{langmead_fast_2012} (version 1.4.1). As a reference we provide the DENV mapping database, a curated DENV database composed of 3830 complete DENV genomes. An in-depth description of this database is available as Supplementary material (see \ref{}). A permissive approach is followed by allowing for mates to be kept in the sample even when only one read maps to the database in order to keep as many DENV derived reads as possible. The output of this block is a set of processed reads of putative DENV origin.
+In the second step, DENV sequences are selected from the sample using Bowtie2 \citep{langmead_fast_2012} (version 2.2.9) and Samtools \citep{langmead_fast_2012} (version 1.4.1). As a reference we provide the DENV mapping database, a curated DENV database composed of 3830 complete DENV genomes. An in-depth description of this database is available as Supplementary material (see \ref{chap4_sup_database}). A permissive approach is followed by allowing for mates to be kept in the sample even when only one read maps to the database in order to keep as many DENV derived reads as possible. The output of this block is a set of processed reads of putative DENV origin.
 
 \subsubsection{Assembly}
 
@@ -135,7 +135,7 @@ If more than one complete CDS is present in a sample, each of the sequences will
 
 \subsubsection{Typing}
 
-For each DENV complete CDS, the serotype and genotype is determined with the Seq\_Typing tool (\url{https://github.com/B-UMMI/seq\_typing}, version 2.0) \citep{machado_epidemiological_2017} using BLAST \citep{altschul_gapped_1997} and the custom Typing database of DENV containing 161 complete sequences (see \ref{}). The tool determines which reference sequence is more closely related to the query based on the identity and length of the sequence covered, returning the serotype and genotype of the reference sequence
+For each DENV complete CDS, the serotype and genotype is determined with the Seq\_Typing tool (\url{https://github.com/B-UMMI/seq\_typing}, version 2.0) \citep{machado_epidemiological_2017} using BLAST \citep{altschul_gapped_1997} and the custom Typing database of DENV containing 161 complete sequences (see \ref{chap4_sup_database}). The tool determines which reference sequence is more closely related to the query based on the identity and length of the sequence covered, returning the serotype and genotype of the reference sequence
 
 If a complete CDS fails to be obtained through the assembly process, the processed reads are mapped against the same DENV typing database, with Bowtie2, using the Seq\_Typing tool, with similar criteria for coverage and identity to those used with the BLAST approach. If a type is determined, the consensus sequence obtained follows through to the next step in the workflow. Otherwise, the sample is classified as Non-Typable and its process terminated.
 
@@ -147,7 +147,7 @@ All DENV complete CDSs and consensus sequences analysed in a workflow execution 
 
 The output files of all tools in DEN-IM’s workflow are stored in the ’results’ folder in the directory of DEN-IM’s execution, as well as the execution log file DEN-IM and for each component. 
 
-The HTML report (Supplementary Figure \ref{}), stored in the ’pipeline\_results’ directory contains all results divided into four sections: report overview, tables, charts and phylogenetic tree. The report overview and all tables allow for selection, filtering and highlighting of particular samples in the analysis. All tables have information on if a sample failed or passed the quality control metrics highlighted by green, yellow or red signs for pass, warning and fail messages, respectively. 
+The HTML report (Supplementary Figure \ref{fig:chap4_figure_sup1}), stored in the ’pipeline\_results’ directory contains all results divided into four sections: report overview, tables, charts and phylogenetic tree. The report overview and all tables allow for selection, filtering and highlighting of particular samples in the analysis. All tables have information on if a sample failed or passed the quality control metrics highlighted by green, yellow or red signs for pass, warning and fail messages, respectively. 
 
 The \textit{in silico} typing table contains the results of the serotype and genotype of each CDS analysed, as well as identity, coverage and GenBank ID of the closest reference in the DENV typing database. The quality control table shows information regarding the number of raw base pairs and number of reads in the raw input files and the percentage of trimmed reads. The mapping table includes the results for the mapping of the trimmed reads to the DENV mapping database, including the overall alignment rate, and an estimation of the sequence depth including only the DENV reads. For the assembly statistics table, the number of CDSs in each sample, the number of contigs and the number of assembled base pairs generated by either SPAdes or MEGAHIT assemblers is included. The number of contigs and assembled base pairs after correction with Pilon is also presented in the table. The assembled contig size distribution scatter plot is available in the chart section, showing the contig size distribution for the Pilon corrected assembled CDSs.
 
@@ -230,13 +230,13 @@ To evaluate the DEN-IM workflow performance, we analysed three datasets, one con
 
 \subsubsection{Shotgun metagenomics dataset}
 
-We analysed a dataset containing 22 shotgun metagenomics paired-end short-read Illumina sequencing samples from positive dengue cases, one positive control (purified from a DENV culture), one negative control (blank), and an in vitro spiked sample containing the 4 DENV serotypes (see \ref{}). On average, each sample took 7 minutes to analyse. A total of 75 CPU hours were used to analyse the 25 samples, with a total of 17 Gb in size. This analysis resulted in 69 Gb of data. 
+We analysed a dataset containing 22 shotgun metagenomics paired-end short-read Illumina sequencing samples from positive dengue cases, one positive control (purified from a DENV culture), one negative control (blank), and an in vitro spiked sample containing the 4 DENV serotypes (see \ref{chap4_sup_data}). On average, each sample took 7 minutes to analyse. A total of 75 CPU hours were used to analyse the 25 samples, with a total of 17 Gb in size. This analysis resulted in 69 Gb of data. 
 The negative control and the 92-1001 sample had no reads after trimming and filtering of low complexity reads, therefore they were removed from further analysis (see \ref{}). When mapping to the DENV mapping database, the percentage of DENV reads in the 21 clinical samples, positive control and spiked sample passing QC ranged from 0.01\% (sample UCUG0186) to 85.38\% (sample Positive Control - PC). After coverage depth estimation, the analysis of the samples 91-0115 and UCUG0186 was terminated due to a low proportion of DENV reads (0.05\% and 0.01\% respectively). Therefore, they failed to meet the threshold criterion of having an estimated depth of coverage of $\geq$10x (estimated coverages of 3.17x and 5.65x, respectively). Sequence data of sample 91-0106 contained only 960 DENV reads (0.03\%) but these were successfully assembled into a CDS with an estimated depth of coverage of 14.71x.
 
-In the assembly module, the remaining 19 samples, the spiked sample and the PC were assembled with DEN-IM’s two assembler approach. Twenty-four full CDS were assembled (see \ref{}), even in samples originally having DENV read content as low as 0.03\% of the total reads. Sixteen samples, including the spiked sample and the positive control, were assembled in the first step with the SPAdes assembler, and five in the second with the MEGAHIT assembler. In the spiked sample, all four CDSs were successfully assembled and recovered.
+In the assembly module, the remaining 19 samples, the spiked sample and the PC were assembled with DEN-IM’s two assembler approach. Twenty-four full CDS were assembled (see \ref{fig:chap4_figure_sup2}), even in samples originally having DENV read content as low as 0.03\% of the total reads. Sixteen samples, including the spiked sample and the positive control, were assembled in the first step with the SPAdes assembler, and five in the second with the MEGAHIT assembler. In the spiked sample, all four CDSs were successfully assembled and recovered.
 
-Serotype and genotype were successfully determined for the 24 DENV CDSs by BLAST (see \ref{}). The most common were serotype 2 genotype III (Asian American) and serotype 4 genotype II, with 8 samples each (33\%), followed by serotype 3 genotype III (n=5, 21\%), serotype 1 genotype V (n=2, 8\%) and serotype 2 genotype V (Asian I) (n=1, 4\%). All CDSs recovered and the respective closest reference genome in the typing database were aligned and a maximum likelihood phylogenetic tree was obtained to visualise the relationship between the samples (Figure \ref{fig:chap4_figure2}). There was a perfect concordance between the results of serotyping and genotyping and the major groups in the tree.
-Four distinct CDSs were assembled for the spiked sample that resulted in different coverages of each serotype CDS (2032x times coverage for DENV-2, 229x coverage for DENV-1, 76x coverage for DENV-3 and 30x times coverage for DENV-4), in accordance with the ranking order of the real-time RT-PCR results (see \ref{}).
+Serotype and genotype were successfully determined for the 24 DENV CDSs by BLAST (see \ref{fig:chap4_figure_sup2}). The most common were serotype 2 genotype III (Asian American) and serotype 4 genotype II, with 8 samples each (33\%), followed by serotype 3 genotype III (n=5, 21\%), serotype 1 genotype V (n=2, 8\%) and serotype 2 genotype V (Asian I) (n=1, 4\%). All CDSs recovered and the respective closest reference genome in the typing database were aligned and a maximum likelihood phylogenetic tree was obtained to visualise the relationship between the samples (Figure \ref{fig:chap4_figure2}). There was a perfect concordance between the results of serotyping and genotyping and the major groups in the tree.
+Four distinct CDSs were assembled for the spiked sample that resulted in different coverages of each serotype CDS (2032x times coverage for DENV-2, 229x coverage for DENV-1, 76x coverage for DENV-3 and 30x times coverage for DENV-4), in accordance with the ranking order of the real-time RT-PCR results (see \ref{chap4_sup_data}).
 
 \begin{figure*}[h!]
 \centering
@@ -247,11 +247,11 @@ Four distinct CDSs were assembled for the spiked sample that resulted in differe
 
 \subsubsection{The Amplicon Sequencing Dataset}
 
-To validate DEN-IM’s performance in a amplicon sequencing approach, a dataset of 106 paired-end HTS samples of PCR products using primers targeting DENV-3 (27) were analysed (see \ref{}). On average, each sample took 5 minutes to analyse. The 106 samples, with 51 Gb in size, took 3622 CPU hours to be analysed, resulting in 424 Gb of data. 
+To validate DEN-IM’s performance in a amplicon sequencing approach, a dataset of 106 paired-end HTS samples of PCR products using primers targeting DENV-3 (27) were analysed (see \ref{chap4_sup_amplicon}). On average, each sample took 5 minutes to analyse. The 106 samples, with 51 Gb in size, took 3622 CPU hours to be analysed, resulting in 424 Gb of data. 
 
 No samples failed the quality control block (see Table \ref{}). The proportion of DENV reads ranged from 24.72\% (SRR5821236) to 99.81\% (SRR5821254) of the total processed reads. The samples with less than 70\% DENV DNA were taxonomically profiled with Kraken2 (28) and the minikraken2\_v2 database (\url{ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz}) and the source of contamination was determined to have come largely from Human DNA (see Table \ref{}).
 
-Of the 106 samples, 43 (41\%) managed to assemble a complete CDS sequence (see Table \ref{}) whereas a mapping approach was used for the remaining 63 samples (60\%) and a consensus CDS was generated. For the assembled CDSs, all but one were assembled with MEGAHIT after not producing a full CDS with SPAdes. Moreover, pronounced variation on the size of the assembled contigs is evident in the contig size distribution plot (see \ref{}).
+Of the 106 samples, 43 (41\%) managed to assemble a complete CDS sequence (see Table \ref{}) whereas a mapping approach was used for the remaining 63 samples (60\%) and a consensus CDS was generated. For the assembled CDSs, all but one were assembled with MEGAHIT after not producing a full CDS with SPAdes. Moreover, pronounced variation on the size of the assembled contigs is evident in the contig size distribution plot (see \ref{fig:chap4_figure_sup3}).
 
 All 106 CDSs recovered belonged to serotype 3 genotype III. Despite the same classification, the maximum likelihood tree indicates that there is detectable genetic diversity within the dataset (486 SNPs in 10237 nucleotides) (Figure \ref{fig:chap4_figure3}).
 
@@ -262,7 +262,7 @@ All 106 CDSs recovered belonged to serotype 3 genotype III. Despite the same cla
 \label{fig:chap4_figure3}
 \end{figure*}
 
-A second amplicon dataset, containing 78 DENV-1 single-end samples recovered from different Aedes aegypti isofemale hosts were analysed (see \ref{}). On average, each sample took 3 minutes to analyse. The 78 samples, with 19 Gb in size, took 278 CPU hours to be analysed, resulting in 203 Gb of data.
+A second amplicon dataset, containing 78 DENV-1 single-end samples recovered from different Aedes aegypti isofemale hosts were analysed (see \ref{chap4_sup_amplicon}). On average, each sample took 3 minutes to analyse. The 78 samples, with 19 Gb in size, took 278 CPU hours to be analysed, resulting in 203 Gb of data.
 
 \begin{figure*}[h!]
 \centering
@@ -292,7 +292,7 @@ DEN-IM is built with modularity and containerisation as keystones, leveraging th
 
 Being developed in Nextflow, DEN-IM runs on any UNIX-like system and provides out-of-the-box support for several job schedulers (e.g., PBS, SGE, SLURM) and integration with containerised software like Docker or Singularity. While it has been developed to be ready to use by non-experts, not requiring any software installation or parameter tuning, it can still be easily customised through the configuration files.
 
-The interactive HTML reports (see \ref{}) provide an intuitive platform for data exploration, allowing the user to highlight specific samples, filter and re-order the data tables, and export the plots as needed.
+The interactive HTML reports (see \ref{fig:chap4_figure_sup1}) provide an intuitive platform for data exploration, allowing the user to highlight specific samples, filter and re-order the data tables, and export the plots as needed.
 
 Together with the workflow and software containers, a database containing 3858 complete DENV genomes for DENV sequence retrieval and a subset database with 161 curated DENV genomes for serotyping and genotyping are provided. While constructing these databases, the obstacles reported by Cuypers et al \citep{cuypers_time_2018} were apparent, namely the lack of formal definition of a DENV genotype and the lack of a standardised classification procedure that could assign sequences to a previously defined genotypic/sub-genotypic clade \citep{cuypers_time_2018}. Discrepancies between the phylogenetic relationship and the genotype assignment were frequent and, throughout this study, the classification of some strains within the ViPR database \citep{pickett_virus_2012} was updated. As suggested previously \citep{cuypers_time_2018}, further evaluation of the DENV classification will benefit future research and investigation into the population dynamics of this virus. Our typing approach was designed to use the currently accepted DENV classification. However, DEN-IM can be easily modified if a new DENV classification system is to be established in the future.
 
@@ -314,7 +314,7 @@ C.I.M. was supported by the Fundação para a Ciência e Tecnologia (grant SFRH/
 
 \subsection{Ethical approval}
 
-This study followed international standards for the ethical conduct of research involving human subjects. Data and sample collection was carried out within the DENVEN and IDAMS (International Research Consortium on Dengue Risk Assessment, Management and Surveillance) projects. The study was approved by the Ethics Review Committee of the Biomedical Research Institute, Carabobo University (Aval Bioetico #CBIIB(UC)-014 and CBIIB-(UC)-2013-1), Maracay, Venezuela; the Ethics, Bioethics and Biodiversity Committee (CEBioBio) of the National Foundation for Science, Technology and Innovation (FONACIT) of the Ministry of Science, Technology and Innovation, Caracas, Venezuela; the regional Health authorities of Aragua state (CORPOSALUD Aragua) and Carabobo State (INSALUD); and by the Ethics Committee of the Medical Faculty of Heidelberg University and the Oxford University Tropical Research Ethics Committee.
+This study followed international standards for the ethical conduct of research involving human subjects. Data and sample collection was carried out within the DENVEN and IDAMS (International Research Consortium on Dengue Risk Assessment, Management and Surveillance) projects. The study was approved by the Ethics Review Committee of the Biomedical Research Institute, Carabobo University (Aval Bioetico \#CBIIB(UC)-014 and CBIIB-(UC)-2013-1), Maracay, Venezuela; the Ethics, Bioethics and Biodiversity Committee (CEBioBio) of the National Foundation for Science, Technology and Innovation (FONACIT) of the Ministry of Science, Technology and Innovation, Caracas, Venezuela; the regional Health authorities of Aragua state (CORPOSALUD Aragua) and Carabobo State (INSALUD); and by the Ethics Committee of the Medical Faculty of Heidelberg University and the Oxford University Tropical Research Ethics Committee.
 
 \subsection{Consent for publication}
 
@@ -342,9 +342,9 @@ In order to recover the maximum number of DENV reads from the input HTS data in 
 
 For typing purposes, overly similar sequences in the collection were removed from the database by clustering the sequences in each serotype at 98\% nucleotide similarity with CD-HIT \citep{li_cd-hit_2006}, leaving 161 representative sequences of all described DENV serotypes and genotypes, with 46 DENV-1 sequences (Table), 63 DENV-2 (Table), 25 DENV-3 (Tables) and 27 DENV-4 (Table). This database is referred as DENV typing database and is available on GitHub at \url{https://github.com/B-UMMI/DEN-IM/blob/master/ref/DENV_TYPING_V3.fasta}. This step is necessary to speed up the classification step for genotyping.
 
-Phylogenetic analysis of typing collection was performed by aligning the full reference genomes with MAFFT \citep{nakamura_parallelization_2018}, in auto mode and with automatic sequence orientation adjustment. A phylogenetic tree was inferred with RAxML (version 8.12.11) \citep{stamatakis_raxml_2014} using the GTR-$\Gamma$ substitution model and 500 times bootstrap. Additionally, the same analysis was performed with the envelope protein (E) only, as this region has been used traditionally for sero- and genotyping \citep{rico-hesse_molecular_1990, rico-hesse_microevolution_2003, lanciotti_rapid_1992, lanciotti_molecular_1997, klungthong_molecular_2004, zhang_clade_2005, zhang_structure_2006}, and continues to be the standard in many laboratories for genotyping. The resulting trees are available as supplemental material (Figures to ) and on Figshare (\url{https://10.6084/m9.figshare.9331826}).
+Phylogenetic analysis of typing collection was performed by aligning the full reference genomes with MAFFT \citep{nakamura_parallelization_2018}, in auto mode and with automatic sequence orientation adjustment. A phylogenetic tree was inferred with RAxML (version 8.12.11) \citep{stamatakis_raxml_2014} using the GTR-$\Gamma$ substitution model and 500 times bootstrap. Additionally, the same analysis was performed with the envelope protein (E) only, as this region has been used traditionally for sero- and genotyping \citep{rico-hesse_molecular_1990, rico-hesse_microevolution_2003, lanciotti_rapid_1992, lanciotti_molecular_1997, klungthong_molecular_2004, zhang_clade_2005, zhang_structure_2006}, and continues to be the standard in many laboratories for genotyping. The resulting trees are available as supplemental material (Figures \ref{fig:chap4_figure_sup4} to \ref{fig:chap4_figure_sup7}) and on Figshare (\url{https://10.6084/m9.figshare.9331826}).
 
-The sequence JF459993 from the DENV-1 collection, as of April 2019, was annotated in ViPR as belonging to genotype IV, but in our analysis, it clustered within genotype I clade (Figure ). The classification of DENV-1 I was also obtained from GenomeDetective Dengue Subtyping Tool (\url{https://www.genomedetective.com/app/typingtool/dengue/}), so we proceeded to alter the annotation of this particular sample (Table). 
+The sequence JF459993 from the DENV-1 collection, as of April 2019, was annotated in ViPR as belonging to genotype IV, but in our analysis, it clustered within genotype I clade (Figure \ref{fig:chap4_figure_sup4}). The classification of DENV-1 I was also obtained from GenomeDetective Dengue Subtyping Tool (\url{https://www.genomedetective.com/app/typingtool/dengue/}), so we proceeded to alter the annotation of this particular sample (Table). 
 In order to harmonise dengue nomenclature, the system uses Roman-numeric labels to identify the genotype, with the exception of Serotype 2 (Table), which used both Roman-numeric and geographic origin due to the widespread adoption of the latter.
 
 \subsection{Workflow parameters} \label{chap4_sup_workflow_params}
@@ -400,7 +400,56 @@ The DEN-IM workflow was executed with default parameters and resources in the sa
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/chapter 4/}
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S1.pdf}
 \caption{DEN-IM report tables. a) DEN-IM's quality control report containing information of the number of base-pairs and the number of reads for the analysed samples, the estimated coverage depth before and after mapping, and the percentage of reads in the input data that were trimmed. b) DEN-IM's typing report for 24 CDSs recovered from the metagenomic dataset. The ID contains the CDS contig name, the typing result for serotype-genotype, the values for identity and coverage, and the GenBank ID of the closest reference in the Typing Database containing 161 complete DENV genomes.}
 \label{fig:chap4_figure_sup1}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S2.pdf}
+\caption{Contig size distribution for the shotgun metagenomics sequencing dataset. Each dot depicts an assembled DENV contig.  Above the 10Kb are full CDS of DENV.}
+\label{fig:chap4_figure_sup2}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S3.pdf}
+\caption{Contig size distribution of the amplicon sequencing dataset with 106 paired-end samples. Each dot depicts an assembled DENV contig. Above the 10Kb are full CDS of DENV. Contigs belonging from samples that assembled a complete DENV CDS are highlighted in green, whereas the remaining are coloured in grey.}
+\label{fig:chap4_figure_sup3}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S4.pdf}
+\caption{Contig size distribution of the amplicon sequencing dataset with 78 single-end samples. Each dot depicts an assembled DENV contig. Above the 10Kb are full CDS of DENV.}
+\label{fig:chap4_figure_sup4}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S5.pdf}
+\caption{Maximum Likelihood inference of the multiple sequence alignment of the 46 DENV-1 complete genomes in the typing dataset, with a) envelope region and b) whole genome sequence. 1635 complete DENV-1 genomes were clustered at 98\% nucleotide identity and the representative genomes were aligned with MAFFT. A maximum likelihood tree was inferred with RAxML. The tree is coloured according to genotype (red: genotype I; green: genotype II; blue: genotype III; purple: genotype IV). The sample JF459993, marked with a star, is currently annotated in ViPR as belonging to genotype IV but, given to the good phylogenetic support, it was re-classified as belonging to the genotype I.}
+\label{fig:chap4_figure_sup5}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S6.pdf}
+\caption{Maximum Likelihood inference of the multiple sequence alignment of the 63 DENV-2 complete genomes in the typing dataset, with a) envelope region and b) whole genome sequence. 1067 complete DENV-1 genomes were clustered at 98\% nucleotide identity and the representative genomes were aligned with MAFFT. A maximum likelihood tree was inferred with RAxML. The tree is coloured according to genotype (red: genotype I; green: genotype II; blue: genotype III; purple: genotype IV).}
+\label{fig:chap4_figure_sup6}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S7.pdf}
+\caption{Maximum Likelihood inference of the multiple sequence alignment of the 25 DENV-3 complete genomes in the typing dataset, with a) envelope region and b) whole genome sequence. 807 complete DENV-3 genomes were clustered at 98\% nucleotide identity and the representative genomes were aligned with MAFFT. A maximum likelihood tree was inferred with RAxML. The tree is coloured according to genotype (red: genotype I; green: genotype II; blue: genotype III; purple: genotype IV).}
+\label{fig:chap4_figure_sup7}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 4/Figure S8.pdf}
+\caption{Maximum Likelihood inference of the multiple sequence alignment of the 27 DENV-4 complete genomes in the typing dataset, with a) envelope region and b) whole genome sequence. 320 complete DENV-4 genomes were clustered at 98\% nucleotide identity and the representative genomes were aligned with MAFFT. A maximum likelihood tree was inferred with RAxML. The tree is coloured according to genotype (red: genotype I; green: genotype II; blue: genotype III; purple: genotype IV).}
+\label{fig:chap4_figure_sup8}
 \end{figure*}
