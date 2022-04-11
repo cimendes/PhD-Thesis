@@ -226,12 +226,12 @@ Of all the tools listed in Table \ref{tab:ch4_table1}, only Genome Detective off
 
 \section{Results}
 
-To evaluate the DEN-IM workflow performance, we analysed three datasets, one containing shotgun metagenomics sequencing data of patient samples (see Table \ref{}), a second with amplicon sequencing data, a set with 106 paired-end samples obtained from Parameswaran et al \citep{parameswaran_intrahost_2017} and another set with 78 single-end samples available under BioProject PRJNA321963, and a third dataset of publicly available sequences, both from amplicon and shotgun metagenomics, containing 45 chikungunya virus (CHIKV) samples, 66 zika virus (ZKV), and 21 yellow fever virus (YFV) samples (see Table \ref{}). All analyses were executed with the default resources and parameters (available at \url{https://github.com/B-UMMI/DEN-IM}). In the shotgun metagenomics and the single-end amplicon sequencing datasets the closest typing reference in the final tree and the NCBI DENV references for each serotype were included in the phylogenetic analysis. The resulting reports for each dataset are available on Figshare at \url{https://doi.org/10.6084/m9.figshare.9318851}.
+To evaluate the DEN-IM workflow performance, we analysed three datasets, one containing shotgun metagenomics sequencing data of patient samples (see Table \ref{tab:chap4_s1}), a second with amplicon sequencing data, a set with 106 paired-end samples obtained from Parameswaran et al \citep{parameswaran_intrahost_2017} and another set with 78 single-end samples available under BioProject PRJNA321963, and a third dataset of publicly available sequences, both from amplicon and shotgun metagenomics, containing 45 chikungunya virus (CHIKV) samples, 66 zika virus (ZKV), and 21 yellow fever virus (YFV) samples (see Table \ref{tab:chap4_s2}). All analyses were executed with the default resources and parameters (available at \url{https://github.com/B-UMMI/DEN-IM}). In the shotgun metagenomics and the single-end amplicon sequencing datasets the closest typing reference in the final tree and the NCBI DENV references for each serotype were included in the phylogenetic analysis. The resulting reports for each dataset are available on Figshare at \url{https://doi.org/10.6084/m9.figshare.9318851}.
 
 \subsubsection{Shotgun metagenomics dataset}
 
 We analysed a dataset containing 22 shotgun metagenomics paired-end short-read Illumina sequencing samples from positive dengue cases, one positive control (purified from a DENV culture), one negative control (blank), and an in vitro spiked sample containing the 4 DENV serotypes (see \ref{chap4_sup_data}). On average, each sample took 7 minutes to analyse. A total of 75 CPU hours were used to analyse the 25 samples, with a total of 17 Gb in size. This analysis resulted in 69 Gb of data. 
-The negative control and the 92-1001 sample had no reads after trimming and filtering of low complexity reads, therefore they were removed from further analysis (see \ref{}). When mapping to the DENV mapping database, the percentage of DENV reads in the 21 clinical samples, positive control and spiked sample passing QC ranged from 0.01\% (sample UCUG0186) to 85.38\% (sample Positive Control - PC). After coverage depth estimation, the analysis of the samples 91-0115 and UCUG0186 was terminated due to a low proportion of DENV reads (0.05\% and 0.01\% respectively). Therefore, they failed to meet the threshold criterion of having an estimated depth of coverage of $\geq$10x (estimated coverages of 3.17x and 5.65x, respectively). Sequence data of sample 91-0106 contained only 960 DENV reads (0.03\%) but these were successfully assembled into a CDS with an estimated depth of coverage of 14.71x.
+The negative control and the 92-1001 sample had no reads after trimming and filtering of low complexity reads, therefore they were removed from further analysis (see \ref{tab:chap4_s3}). When mapping to the DENV mapping database, the percentage of DENV reads in the 21 clinical samples, positive control and spiked sample passing QC ranged from 0.01\% (sample UCUG0186) to 85.38\% (sample Positive Control - PC). After coverage depth estimation, the analysis of the samples 91-0115 and UCUG0186 was terminated due to a low proportion of DENV reads (0.05\% and 0.01\% respectively). Therefore, they failed to meet the threshold criterion of having an estimated depth of coverage of $\geq$10x (estimated coverages of 3.17x and 5.65x, respectively). Sequence data of sample 91-0106 contained only 960 DENV reads (0.03\%) but these were successfully assembled into a CDS with an estimated depth of coverage of 14.71x.
 
 In the assembly module, the remaining 19 samples, the spiked sample and the PC were assembled with DEN-IM’s two assembler approach. Twenty-four full CDS were assembled (see \ref{fig:chap4_figure_sup2}), even in samples originally having DENV read content as low as 0.03\% of the total reads. Sixteen samples, including the spiked sample and the positive control, were assembled in the first step with the SPAdes assembler, and five in the second with the MEGAHIT assembler. In the spiked sample, all four CDSs were successfully assembled and recovered.
 
@@ -249,9 +249,9 @@ Four distinct CDSs were assembled for the spiked sample that resulted in differe
 
 To validate DEN-IM’s performance in a amplicon sequencing approach, a dataset of 106 paired-end HTS samples of PCR products using primers targeting DENV-3 (27) were analysed (see \ref{chap4_sup_amplicon}). On average, each sample took 5 minutes to analyse. The 106 samples, with 51 Gb in size, took 3622 CPU hours to be analysed, resulting in 424 Gb of data. 
 
-No samples failed the quality control block (see Table \ref{}). The proportion of DENV reads ranged from 24.72\% (SRR5821236) to 99.81\% (SRR5821254) of the total processed reads. The samples with less than 70\% DENV DNA were taxonomically profiled with Kraken2 (28) and the minikraken2\_v2 database (\url{ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz}) and the source of contamination was determined to have come largely from Human DNA (see Table \ref{}).
+No samples failed the quality control block (see Table \ref{tab:chap4_s4}). The proportion of DENV reads ranged from 24.72\% (SRR5821236) to 99.81\% (SRR5821254) of the total processed reads. The samples with less than 70\% DENV DNA were taxonomically profiled with Kraken2 (28) and the minikraken2\_v2 database (\url{ftp://ftp.ccb.jhu.edu/pub/data/kraken2_dbs/minikraken2_v2_8GB_201904_UPDATE.tgz}) and the source of contamination was determined to have come largely from Human DNA (see Table \ref{tab:chap4_s5}).
 
-Of the 106 samples, 43 (41\%) managed to assemble a complete CDS sequence (see Table \ref{}) whereas a mapping approach was used for the remaining 63 samples (60\%) and a consensus CDS was generated. For the assembled CDSs, all but one were assembled with MEGAHIT after not producing a full CDS with SPAdes. Moreover, pronounced variation on the size of the assembled contigs is evident in the contig size distribution plot (see \ref{fig:chap4_figure_sup3}).
+Of the 106 samples, 43 (41\%) managed to assemble a complete CDS sequence (see Table \ref{tab:chap4_s4}) whereas a mapping approach was used for the remaining 63 samples (60\%) and a consensus CDS was generated. For the assembled CDSs, all but one were assembled with MEGAHIT after not producing a full CDS with SPAdes. Moreover, pronounced variation on the size of the assembled contigs is evident in the contig size distribution plot (see \ref{fig:chap4_figure_sup3}).
 
 All 106 CDSs recovered belonged to serotype 3 genotype III. Despite the same classification, the maximum likelihood tree indicates that there is detectable genetic diversity within the dataset (486 SNPs in 10237 nucleotides) (Figure \ref{fig:chap4_figure3}).
 
@@ -271,12 +271,12 @@ A second amplicon dataset, containing 78 DENV-1 single-end samples recovered fro
 \label{fig:chap4_figure4}
 \end{figure*}
 
-No samples failed the quality control block and the proportion of DENV reads ranged from 59\% (SRR3539343) to 96\% (SRR3539408) of the total processed reads (see Table \ref{}). Of the 78 samples, 53 (68\%) assembled a complete CDS sequence and in the remaining 25 (32\%) the complete CDS was obtained through mapping. All CDSs recovered, the respective closest reference genome in the typing database and NCBI’s references for each DENV serotype were aligned and a maximum likelihood phylogenetic tree was obtained (Figure \ref{fig:chap4_figure4}). All 78 samples belong to serotype 1 genotype I and, similarly to the previous dataset of 106 samples, there was detectable genetic diversity within the dataset (651 SNPs in 10808 nucleotides excluding reference sequences).
+No samples failed the quality control block and the proportion of DENV reads ranged from 59\% (SRR3539343) to 96\% (SRR3539408) of the total processed reads (see Table \ref{tab:chap4_s6}). Of the 78 samples, 53 (68\%) assembled a complete CDS sequence and in the remaining 25 (32\%) the complete CDS was obtained through mapping. All CDSs recovered, the respective closest reference genome in the typing database and NCBI’s references for each DENV serotype were aligned and a maximum likelihood phylogenetic tree was obtained (Figure \ref{fig:chap4_figure4}). All 78 samples belong to serotype 1 genotype I and, similarly to the previous dataset of 106 samples, there was detectable genetic diversity within the dataset (651 SNPs in 10808 nucleotides excluding reference sequences).
 
 
 \subsubsection{The Non-DENV Arbovirus Dataset}
 
-In order to evaluate DEN-IM’s specificity to DENV sequences, a third dataset of publicly available sequences of arbovirus other than DENV, both from amplicon and shotgun metagenomics, was analysed containing 45 CHIKV samples, 66 ZKV, and 21 YFV samples (see Table \ref{}). All 132 samples failed DEN-IM’s workflow, 16 due to not enough sequencing data remaining after quality trimming, and the remaining 116 due to very low estimated coverage of the DENV genome (less than 0.01x), as expected. 
+In order to evaluate DEN-IM’s specificity to DENV sequences, a third dataset of publicly available sequences of arbovirus other than DENV, both from amplicon and shotgun metagenomics, was analysed containing 45 CHIKV samples, 66 ZKV, and 21 YFV samples (see Table \ref{tab:chap4_s2}). All 132 samples failed DEN-IM’s workflow, 16 due to not enough sequencing data remaining after quality trimming, and the remaining 116 due to very low estimated coverage of the DENV genome (less than 0.01x), as expected. 
 
 \section{Conclusion}
 
@@ -340,12 +340,12 @@ We have compiled a database of 3858 complete DENV genomes obtained from the NIAI
 
 In order to recover the maximum number of DENV reads from the input HTS data in the first mapping step (Figure \ref{fig:chap2_figure1}), we maintained the database with the 3858 complete DENV genomes to retain as much diversity as possible. This database is referred as DENV mapping database and is available on GitHub at \url{https://github.com/B-UMMI/DEN-IM/blob/master/ref/DENV_MAPPING_V3.fasta}. 
 
-For typing purposes, overly similar sequences in the collection were removed from the database by clustering the sequences in each serotype at 98\% nucleotide similarity with CD-HIT \citep{li_cd-hit_2006}, leaving 161 representative sequences of all described DENV serotypes and genotypes, with 46 DENV-1 sequences (Table), 63 DENV-2 (Table), 25 DENV-3 (Tables) and 27 DENV-4 (Table). This database is referred as DENV typing database and is available on GitHub at \url{https://github.com/B-UMMI/DEN-IM/blob/master/ref/DENV_TYPING_V3.fasta}. This step is necessary to speed up the classification step for genotyping.
+For typing purposes, overly similar sequences in the collection were removed from the database by clustering the sequences in each serotype at 98\% nucleotide similarity with CD-HIT \citep{li_cd-hit_2006}, leaving 161 representative sequences of all described DENV serotypes and genotypes, with 46 DENV-1 sequences (Table \ref{tab:chap4_s7}), 63 DENV-2 (Table \ref{tab:chap4_s8}), 25 DENV-3 (Tables \ref{tab:chap4_s9}) and 27 DENV-4 (Table \ref{tab:chap4_s10}). This database is referred as DENV typing database and is available on GitHub at \url{https://github.com/B-UMMI/DEN-IM/blob/master/ref/DENV_TYPING_V3.fasta}. This step is necessary to speed up the classification step for genotyping.
 
 Phylogenetic analysis of typing collection was performed by aligning the full reference genomes with MAFFT \citep{nakamura_parallelization_2018}, in auto mode and with automatic sequence orientation adjustment. A phylogenetic tree was inferred with RAxML (version 8.12.11) \citep{stamatakis_raxml_2014} using the GTR-$\Gamma$ substitution model and 500 times bootstrap. Additionally, the same analysis was performed with the envelope protein (E) only, as this region has been used traditionally for sero- and genotyping \citep{rico-hesse_molecular_1990, rico-hesse_microevolution_2003, lanciotti_rapid_1992, lanciotti_molecular_1997, klungthong_molecular_2004, zhang_clade_2005, zhang_structure_2006}, and continues to be the standard in many laboratories for genotyping. The resulting trees are available as supplemental material (Figures \ref{fig:chap4_figure_sup4} to \ref{fig:chap4_figure_sup7}) and on Figshare (\url{https://10.6084/m9.figshare.9331826}).
 
-The sequence JF459993 from the DENV-1 collection, as of April 2019, was annotated in ViPR as belonging to genotype IV, but in our analysis, it clustered within genotype I clade (Figure \ref{fig:chap4_figure_sup4}). The classification of DENV-1 I was also obtained from GenomeDetective Dengue Subtyping Tool (\url{https://www.genomedetective.com/app/typingtool/dengue/}), so we proceeded to alter the annotation of this particular sample (Table). 
-In order to harmonise dengue nomenclature, the system uses Roman-numeric labels to identify the genotype, with the exception of Serotype 2 (Table), which used both Roman-numeric and geographic origin due to the widespread adoption of the latter.
+The sequence JF459993 from the DENV-1 collection, as of April 2019, was annotated in ViPR as belonging to genotype IV, but in our analysis, it clustered within genotype I clade (Figure \ref{fig:chap4_figure_sup4}). The classification of DENV-1 I was also obtained from GenomeDetective Dengue Subtyping Tool (\url{https://www.genomedetective.com/app/typingtool/dengue/}), so we proceeded to alter the annotation of this particular sample (Table \ref{tab:chap4_s6}). 
+In order to harmonise dengue nomenclature, the system uses Roman-numeric labels to identify the genotype, with the exception of Serotype 2 (Table \ref{tab:chap4_s4}), which used both Roman-numeric and geographic origin due to the widespread adoption of the latter.
 
 \subsection{Workflow parameters} \label{chap4_sup_workflow_params}
 
@@ -395,6 +395,608 @@ The accession numbers for the 132 samples, belonging to zika virus (ZKV), chikun
 The DEN-IM workflow was executed with default parameters and resources in the same HPC cluster as the amplicon and shotgun metagenomics datasets.
 
 \subsection{Supplemental Tables} \label{chap4_sup_tables}
+
+\begin{table}[h!]
+\caption{Collection date, serotype confirmation and run accession identifier for the metagenomic sequencing dataset.}
+\label{tab:chap4_s1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+\textbf{Sample} & \textbf{Collection   Date} & \textbf{Source} & \textbf{Serotype   (qPCR)} & \textbf{Serotype} & \textbf{Genotype}            & \textbf{Run Accession} \\ \midrule
+91-0104          & 21/9/2015  & plasma & 2 & 2 & III(AsianAmerican) & SRR8842525 \\
+91-0105          & 22/9/2015  & plasma & 2 & 2 & III(AsianAmerican) & SRR7252349 \\
+91-0115          & 30/9/2015  & plasma & 3 & - & -                  & SRR7252368 \\
+91-0118          & 5/10/2015  & plasma & 3 & 3 & III                & SRR7252362 \\
+91-0132          & 19/10/2015 & plasma & 1 & 1 & V                  & SRR8883926 \\
+91-0135          & 27/10/2015 & plasma & 2 & 2 & III(AsianAmerican) & SRR9004764 \\
+92-1001          & 2/10/2015  & plasma & 1 & - & -                  & SRR7252337 \\
+92-1094          & 16/10/2015 & plasma & 2 & 2 & III(AsianAmerican) & SRR8842524 \\
+CC0007           & 31/8/2010  & serum  & 2 & 2 & III(AsianAmerican) & SRR7252354 \\
+CC0009           & 31/8/2010  & serum  & 3 & 3 & III                & SRR8842527 \\
+CC0010           & 27/8/2010  & serum  & 3 & 3 & III                & SRR7252358 \\
+CC0011           & 27/8/2010  & serum  & 3 & 3 & III                & SRR8842526 \\
+CC0030a          & 1/9/2010   & serum  & 4 & 4 & II                 & SRR7252356 \\
+CC0030b          & 1/9/2010   & serum  & 4 & 4 & II                 & SRR7252355 \\
+CC0031           & 2/9/2010   & serum  & 2 & 2 & III(AsianAmerican) & SRR8842521 \\
+CC0061           & 20/1/2011  & serum  & 4 & 4 & II                 & SRR8842520 \\
+CC0066           & 11/10/2011 & serum  & 4 & 4 & II                 & SRR8842523 \\
+CC0067           & 18/10/2011 & serum  & 4 & 4 & II                 & SRR8842522 \\
+CC0116           & 29/3/2012  & serum  & 4 & 4 & II                 & SRR8842519 \\
+CC0150           & 9/5/2012   & serum  & 2 & 2 & III(AsianAmerican) & SRR8842518 \\
+CC0186           & 17/7/2012  & serum  & 4 & 4 & II                 & SRR9004763 \\
+UCUG0186         & 30/8/2010  & serum  & 4 & 4 & II                 & SRR8842528 \\
+Negative Control & -          & -      & - & - & -                  & SRR8842530 \\
+Positive Control & -          & -      & 2 & 2 & V(AsianI)          & SRR8886136 \\
+Spiked   sample & -                          & -               & 1,2,3,4                    & 1,2,3,4           & V,III(Asian American),III,II & SRR8842529             \\ \bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\newpage
+
+\begin{longtable}{@{}lllll@{}}
+\caption{Run accession ID, BioProject SRA Study ID, source and organism present for each sample of the negative control dataset (ZKV – zika virus, CHIKV – chikungunya virus, YFV – yellow fever virus).}
+\label{tab:chap4_s2}\\
+\toprule
+Run ID     & Bioproject  & SRA Study & Source                & Organism \\ \midrule
+SRR8031152 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8062732 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8031153 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8063606 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8063603 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8063605 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8031155 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8031154 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8063604 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR8062733 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR7985391 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR7985394 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR7985620 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & CHIKV    \\
+SRR7985390 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR7985392 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR7985621 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & CHIKV    \\
+SRR5179639 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179637 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179646 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR7985389 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR7985622 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & CHIKV    \\
+SRR7985619 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & CHIKV    \\
+SRR5179667 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179653 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR7985393 & PRJNA494391 & SRP163225 & Shotgun Metagenomic   & ZKV      \\
+SRR5179638 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179636 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179666 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179650 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179649 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179643 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179635 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179645 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179642 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179644 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179647 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179641 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179640 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179652 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179648 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR5179651 & PRJNA361543 & SRP096859 & Amplicon Metagenomics & YFV      \\
+SRR9020503 & PRJNA541092 & SRP195668 & Amplicon Metagenomics & CHIKV    \\
+SRR9020505 & PRJNA541093 & SRP195669 & Amplicon Metagenomics & CHIKV    \\
+SRR9020506 & PRJNA541094 & SRP195670 & Amplicon Metagenomics & CHIKV    \\
+SRR9020509 & PRJNA541095 & SRP195671 & Amplicon Metagenomics & CHIKV    \\
+SRR9020511 & PRJNA541096 & SRP195672 & Amplicon Metagenomics & CHIKV    \\
+SRR9020513 & PRJNA541097 & SRP195673 & Amplicon Metagenomics & CHIKV    \\
+SRR9020514 & PRJNA541098 & SRP195674 & Amplicon Metagenomics & CHIKV    \\
+SRR9020516 & PRJNA541099 & SRP195675 & Amplicon Metagenomics & CHIKV    \\
+SRR9020518 & PRJNA541100 & SRP195676 & Amplicon Metagenomics & CHIKV    \\
+SRR9020520 & PRJNA541101 & SRP195677 & Amplicon Metagenomics & CHIKV    \\
+SRR9020521 & PRJNA541102 & SRP195678 & Amplicon Metagenomics & CHIKV    \\
+SRR9020523 & PRJNA541103 & SRP195679 & Amplicon Metagenomics & CHIKV    \\
+SRR9020525 & PRJNA541104 & SRP195680 & Amplicon Metagenomics & CHIKV    \\
+SRR9020527 & PRJNA541105 & SRP195681 & Amplicon Metagenomics & CHIKV    \\
+SRR9020529 & PRJNA541106 & SRP195682 & Amplicon Metagenomics & CHIKV    \\
+SRR9020530 & PRJNA541107 & SRP195683 & Amplicon Metagenomics & CHIKV    \\
+SRR9020532 & PRJNA541108 & SRP195684 & Amplicon Metagenomics & CHIKV    \\
+SRR9020534 & PRJNA541109 & SRP195685 & Amplicon Metagenomics & CHIKV    \\
+SRR9020537 & PRJNA541110 & SRP195686 & Amplicon Metagenomics & CHIKV    \\
+SRR9020539 & PRJNA541111 & SRP195687 & Amplicon Metagenomics & CHIKV    \\
+SRR9020541 & PRJNA541112 & SRP195688 & Amplicon Metagenomics & CHIKV    \\
+SRR9020542 & PRJNA541113 & SRP195689 & Amplicon Metagenomics & CHIKV    \\
+SRR9020504 & PRJNA541114 & SRP195690 & Amplicon Metagenomics & CHIKV    \\
+SRR9020507 & PRJNA541115 & SRP195691 & Amplicon Metagenomics & CHIKV    \\
+SRR9020508 & PRJNA541116 & SRP195692 & Amplicon Metagenomics & CHIKV    \\
+SRR9020510 & PRJNA541117 & SRP195693 & Amplicon Metagenomics & CHIKV    \\
+SRR9020512 & PRJNA541118 & SRP195694 & Amplicon Metagenomics & CHIKV    \\
+SRR9020515 & PRJNA541119 & SRP195695 & Amplicon Metagenomics & CHIKV    \\
+SRR9020517 & PRJNA541120 & SRP195696 & Amplicon Metagenomics & CHIKV    \\
+SRR9020519 & PRJNA541121 & SRP195697 & Amplicon Metagenomics & CHIKV    \\
+SRR9020522 & PRJNA541122 & SRP195698 & Amplicon Metagenomics & CHIKV    \\
+SRR9020524 & PRJNA541123 & SRP195699 & Amplicon Metagenomics & CHIKV    \\
+SRR9020526 & PRJNA541124 & SRP195700 & Amplicon Metagenomics & CHIKV    \\
+SRR9020528 & PRJNA541125 & SRP195701 & Amplicon Metagenomics & CHIKV    \\
+SRR9020531 & PRJNA541126 & SRP195702 & Amplicon Metagenomics & CHIKV    \\
+SRR9020533 & PRJNA541127 & SRP195703 & Amplicon Metagenomics & CHIKV    \\
+SRR9020535 & PRJNA541128 & SRP195704 & Amplicon Metagenomics & CHIKV    \\
+SRR9020536 & PRJNA541129 & SRP195705 & Amplicon Metagenomics & CHIKV    \\
+SRR9020538 & PRJNA541130 & SRP195706 & Amplicon Metagenomics & CHIKV    \\
+SRR9020540 & PRJNA541131 & SRP195707 & Amplicon Metagenomics & CHIKV    \\
+SRR7369225 & PRJNA47661  & SRP150883 & Shotgun Metagenomic   & ZKV      \\
+SRR7369226 & PRJNA47661  & SRP150883 & Shotgun Metagenomic   & ZKV      \\
+SRR6505781 & PRJNA431343 & SRP131290 & Shotgun Metagenomic   & ZKV      \\
+SRR8260975 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8260976 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8260977 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8260978 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8260979 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8260980 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261322 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261325 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261326 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261329 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261330 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261331 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261332 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261333 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261335 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261336 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261338 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261341 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261342 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261343 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261345 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261346 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261347 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261348 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261352 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261353 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261354 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261355 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261356 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261359 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261360 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261361 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261362 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261364 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261365 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261366 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261367 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261369 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261402 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261404 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261407 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261411 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261412 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261413 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261415 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261416 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV      \\
+SRR8261417 & PRJNA314889 & SRP162155 & Shotgun Metagenomic   & ZKV  \bottomrule   
+\end{longtable}
+
+\begin{table}[h!]
+\caption{Number of raw base pairs, overall alignment rate against the DENV mapping database, estimated coverage depths and serotype and genotype for 25 shotgun metagenomics sequencing samples.}
+\label{tab:chap4_s3}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llllll@{}}
+\toprule
+Sample                 & Raw Megabases            & \% DENV Reads          & Estimated   coverage depth (times) & Serotype & Genotype    \\ \midrule
+91-0104               & 2193.71 & 12.46 & 5944.67  & 2 & III (AsianAmerican) \\
+91-0105               & 191.37  & 4.01  & 495.97   & 2 & III (AsianAmerican) \\
+91-0115               & 179.24  & 0.05  & 3.74     & - & -                   \\
+91-0118               & 195.27  & 1.69  & 86.53    & 3 & III                 \\
+91-0132               & 378.21  & 20.02 & 4698.12  & 1 & V                   \\
+91-0135               & 91.71   & 21.45 & 1287.52  & 2 & III (AsianAmerican) \\
+92-1001   a)          & 163.44  & -     & -        & - & -                   \\
+92-1094               & 1197.92 & 8.48  & 4032.21  & 2 & III (AsianAmerican) \\
+CC0007                & 252.97  & 3.79  & 383.77   & 2 & III (AsianAmerican) \\
+CC0009                & 2055.13 & 9.48  & 8226.27  & 3 & III                 \\
+CC0010                & 368.64  & 5.68  & 1197.58  & 3 & III                 \\
+CC0011                & 924.69  & 8.38  & 3016.17  & 3 & III                 \\
+CC0030a               & 261.12  & 52.52 & 2914.87  & 4 & II                  \\
+CC0030b               & 399.04  & 10.51 & 677.96   & 4 & II                  \\
+CC0031                & 1572.1  & 68.91 & 52318.33 & 2 & III (AsianAmerican) \\
+CC0061                & 1262.83 & 8.97  & 5120.4   & 4 & II                  \\
+CC0066                & 1087.45 & 2.8   & 569.7    & 4 & II                  \\
+CC0067                & 1022.06 & 5.55  & 2548.84  & 4 & II                  \\
+CC0116                & 773.31  & 6.72  & 2313.99  & 4 & II                  \\
+CC0150                & 1403.69 & 17.41 & 12065.81 & 2 & III (AsianAmerican) \\
+CC0186                & 671.78  & 0.03  & 14.71    & 4 & II                  \\
+UCUG0186   b)         & 1116.67 & 0.01  & 5.65     & - & -                   \\
+Negative   Control a) & 163.67  & -     & -        & - & -                   \\
+Positive   Control     & 443.93                   & 85.38                 & 19362.07                           & 2        & V (Asian I) \\
+\multirow{4}{*}{Spike} & \multirow{4}{*}{1518.93} & \multirow{4}{*}{41.7} & \multirow{4}{*}{22289.98}          & 3        & III         \\
+                      &         &       &          & 1 & V                   \\
+                      &         &       &          & 2 & III (AsianAmerican) \\
+                      &         &       &          & 4 & II                 
+\end{tabular}%
+}
+\item a) Failed quality control - No sequence data after quality trimming.
+\item b) Failed quality control - Low sequence depth (<10x).
+\end{table}
+
+\newpage
+
+\begin{longtable}{@{}llllll@{}}
+\caption{Number of raw base pairs, overall alignment rate, in percentage, for the mapping against the DENV database, number of ORFs recovered, and respective serotype and genotype for 106 paired-end amplicon sequencing samples.}
+\label{tab:chap4_s4}\\
+\toprule
+Sample     & Raw Megabases & \% DENV DNA & CDS Assembly & Serotype & Genotype \\ \midrule
+SRR5821157 & 439.35        & 82.56       & consensus    & 3        & III      \\
+SRR5821158 & 77.34         & 85.19       & consensus    & 3        & III      \\
+SRR5821159 & 68.00         & 91.11       & consensus    & 3        & III      \\
+SRR5821160 & 119.54        & 97.77       & consensus    & 3        & III      \\
+SRR5821161 & 53.40         & 92.76       & consensus    & 3        & III      \\
+SRR5821162 & 49.59         & 99.39       & consensus    & 3        & III      \\
+SRR5821163 & 66.43         & 97.78       & consensus    & 3        & III      \\
+SRR5821164 & 69.96         & 99.18       & consensus    & 3        & III      \\
+SRR5821165 & 75.48         & 98.38       & consensus    & 3        & III      \\
+SRR5821166 & 38.99         & 62.03       & de novo      & 3        & III      \\
+SRR5821167 & 73.15         & 49.19       & de novo      & 3        & III      \\
+SRR5821168 & 49.59         & 99.63       & consensus    & 3        & III      \\
+SRR5821169 & 119.39        & 99.74       & de novo      & 3        & III      \\
+SRR5821170 & 61.45         & 99.09       & consensus    & 3        & III      \\
+SRR5821171 & 61.63         & 98.92       & consensus    & 3        & III      \\
+SRR5821172 & 69.86         & 98.96       & de novo      & 3        & III      \\
+SRR5821173 & 80.37         & 97.59       & de novo      & 3        & III      \\
+SRR5821174 & 37.58         & 76.69       & de novo      & 3        & III      \\
+SRR5821175 & 112.70        & 75.55       & de novo      & 3        & III      \\
+SRR5821176 & 139.34        & 99.03       & de novo      & 3        & III      \\
+SRR5821177 & 41.19         & 44.56       & de novo      & 3        & III      \\
+SRR5821178 & 59.03         & 81.06       & de novo      & 3        & III      \\
+SRR5821179 & 95.59         & 84.7        & de novo      & 3        & III      \\
+SRR5821180 & 48.75         & 98.15       & consensus    & 3        & III      \\
+SRR5821181 & 64.45         & 99.3        & consensus    & 3        & III      \\
+SRR5821182 & 64.40         & 98.88       & consensus    & 3        & III      \\
+SRR5821183 & 115.14        & 95.61       & consensus    & 3        & III      \\
+SRR5821184 & 170.72        & 94.11       & de novo      & 3        & III      \\
+SRR5821185 & 181.75        & 98.19       & de novo      & 3        & III      \\
+SRR5821186 & 246.98        & 96.4        & de novo      & 3        & III      \\
+SRR5821187 & 55.62         & 99.74       & consensus    & 3        & III      \\
+SRR5821188 & 70.95         & 99.39       & consensus    & 3        & III      \\
+SRR5821189 & 82.61         & 99.27       & de novo      & 3        & III      \\
+SRR5821190 & 138.58        & 98.81       & consensus    & 3        & III      \\
+SRR5821191 & 59.92         & 99.72       & de novo      & 3        & III      \\
+SRR5821192 & 40.53         & 36.88       & consensus    & 3        & III      \\
+SRR5821193 & 92.08         & 98.9        & de novo      & 3        & III      \\
+SRR5821194 & 58.69         & 98.53       & consensus    & 3        & III      \\
+SRR5821195 & 127.80        & 99.64       & consensus    & 3        & III      \\
+SRR5821196 & 59.30         & 86.62       & de novo      & 3        & III      \\
+SRR5821197 & 87.78         & 99.47       & de novo      & 3        & III      \\
+SRR5821198 & 185.55        & 99.72       & de novo      & 3        & III      \\
+SRR5821199 & 83.55         & 99.62       & consensus    & 3        & III      \\
+SRR5821200 & 85.52         & 99.5        & consensus    & 3        & III      \\
+SRR5821201 & 129.77        & 94.6        & consensus    & 3        & III      \\
+SRR5821202 & 56.60         & 99.81       & consensus    & 3        & III      \\
+SRR5821203 & 80.28         & 99.22       & consensus    & 3        & III      \\
+SRR5821204 & 68.46         & 95.52       & de novo      & 3        & III      \\
+SRR5821205 & 44.45         & 98.53       & consensus    & 3        & III      \\
+SRR5821206 & 43.67         & 97.88       & consensus    & 3        & III      \\
+SRR5821207 & 78.93         & 99.22       & de novo      & 3        & III      \\
+SRR5821208 & 87.45         & 97.72       & consensus    & 3        & III      \\
+SRR5821209 & 73.40         & 94.16       & de novo      & 3        & III      \\
+SRR5821210 & 55.86         & 91.35       & de novo      & 3        & III      \\
+SRR5821211 & 75.53         & 85.6        & consensus    & 3        & III      \\
+SRR5821212 & 98.89         & 99.09       & de novo      & 3        & III      \\
+SRR5821213 & 84.85         & 95.03       & de novo      & 3        & III      \\
+SRR5821214 & 15.33         & 96.28       & de novo      & 3        & III      \\
+SRR5821215 & 13.08         & 96.74       & consensus    & 3        & III      \\
+SRR5821216 & 45.07         & 98.85       & de novo      & 3        & III      \\
+SRR5821217 & 161.65        & 88.94       & consensus    & 3        & III      \\
+SRR5821218 & 51.09         & 95.29       & consensus    & 3        & III      \\
+SRR5821219 & 84.68         & 99.1        & de novo      & 3        & III      \\
+SRR5821220 & 88.26         & 82.64       & de novo      & 3        & III      \\
+SRR5821221 & 64.76         & 86.62       & de novo      & 3        & III      \\
+SRR5821222 & 93.47         & 97.48       & consensus    & 3        & III      \\
+SRR5821223 & 86.50         & 98.99       & de novo      & 3        & III      \\
+SRR5821224 & 73.31         & 26.43       & consensus    & 3        & III      \\
+SRR5821225 & 68.85         & 98.43       & consensus    & 3        & III      \\
+SRR5821226 & 67.75         & 96.67       & consensus    & 3        & III      \\
+SRR5821227 & 32.56         & 99.54       & de novo      & 3        & III      \\
+SRR5821228 & 38.73         & 86.68       & consensus    & 3        & III      \\
+SRR5821229 & 77.18         & 99.69       & consensus    & 3        & III      \\
+SRR5821230 & 175.73        & 99.58       & de novo      & 3        & III      \\
+SRR5821231 & 100.82        & 99.58       & de novo      & 3        & III      \\
+SRR5821232 & 86.89         & 99.47       & consensus    & 3        & III      \\
+SRR5821233 & 270.15        & 99.56       & consensus    & 3        & III      \\
+SRR5821234 & 76.07         & 99.75       & consensus    & 3        & III      \\
+SRR5821235 & 32.78         & 79.78       & consensus    & 3        & III      \\
+SRR5821236 & 80.19         & 24.72       & de novo      & 3        & III      \\
+SRR5821237 & 50.59         & 97.38       & consensus    & 3        & III      \\
+SRR5821238 & 63.56         & 97.63       & de novo      & 3        & III      \\
+SRR5821239 & 29.66         & 41.15       & consensus    & 3        & III      \\
+SRR5821240 & 62.61         & 94.64       & de novo      & 3        & III      \\
+SRR5821241 & 17.52         & 98.03       & consensus    & 3        & III      \\
+SRR5821242 & 58.86         & 99.25       & consensus    & 3        & III      \\
+SRR5821243 & 50.08         & 93.56       & consensus    & 3        & III      \\
+SRR5821244 & 32.67         & 99.09       & consensus    & 3        & III      \\
+SRR5821245 & 64.96         & 99.77       & consensus    & 3        & III      \\
+SRR5821246 & 104.11        & 90.14       & consensus    & 3        & III      \\
+SRR5821247 & 98.64         & 99.73       & consensus    & 3        & III      \\
+SRR5821248 & 129.28        & 90.73       & consensus    & 3        & III      \\
+SRR5821249 & 45.76         & 93.13       & de novo      & 3        & III      \\
+SRR5821250 & 72.54         & 98.88       & de novo      & 3        & III      \\
+SRR5821251 & 115.85        & 97.7        & consensus    & 3        & III      \\
+SRR5821252 & 60.76         & 94          & consensus    & 3        & III      \\
+SRR5821253 & 64.45         & 99.66       & consensus    & 3        & III      \\
+SRR5821254 & 0.27          & 98.12       & consensus    & 3        & III      \\
+SRR5821255 & 62.53         & 99.55       & de novo      & 3        & III      \\
+SRR5821256 & 54.57         & 99.58       & consensus    & 3        & III      \\
+SRR5821257 & 34.90         & 99.53       & de novo      & 3        & III      \\
+SRR5821258 & 68.64         & 99.6        & consensus    & 3        & III      \\
+SRR5821259 & 73.04         & 98.8        & consensus    & 3        & III      \\
+SRR5821260 & 54.60         & 99.14       & consensus    & 3        & III      \\
+SRR5821261 & 55.54         & 95.5        & de novo      & 3        & III      \\
+SRR5821262 & 106.05        & 91.78       & consensus    & 3        & III     
+\end{longtable}
+
+\begin{longtable}{@{}lllll@{}}
+\caption{Taxonomic profiling results for the amplicon sequencing samples with less than 70\% DENV DNA.}
+\label{tab:chap4_s5}\\
+\toprule
+\multirow{2}{*}{\textbf{Sample}} & \textbf{Bowtie2}   & \multicolumn{3}{c}{\textbf{Kraken2 (minikraken2\_v2 DB)}}        \\* \cmidrule(l){2-5} 
+                                 & \textbf{DENV (\%)} & \textbf{Unclassified} & \textbf{Homo sapie} & \textbf{DENV (\%)} \\* \midrule
+SRR5821236 & 24.72 & 5.47  & 71.61 & 19.63 \\*
+SRR5821224 & 26.43 & 7.01  & 71.06 & 19.58 \\* 
+SRR5821192 & 36.88 & 8.12  & 61.78 & 28.73 \\* 
+SRR5821239 & 41.15 & 8.29  & 56.43 & 33.84 \\* 
+SRR5821167 & 49.19 & 14.79 & 50.16 & 34.38 \\* 
+SRR5821166 & 62.03 & 13.72 & 37.77 & 47.97 \\* 
+\end{longtable}
+
+\newpage
+
+\begin{longtable}{@{}llllll@{}}
+\caption{Number of raw base pairs, overall alignment rate, in percentage, for the mapping against the DENV database, number of ORFs recovered, and respective serotype and genotype for 78 single-end amplicon sequencing samples.}
+\label{tab:chap4_s6}\\
+Sample     & Raw Megabases & \% DENV DNA & CDS Assembly & Serotype & Genotype \\
+SRR3539340 & 330365175     & 83.7        & consensus    & I        & 1        \\
+SRR3539341 & 317977866     & 66.56       & consensus    & I        & 1        \\
+SRR3539342 & 406075245     & 74.2        & consensus    & I        & 1        \\
+SRR3539343 & 302220886     & 59.24       & de novo      & I        & 1        \\
+SRR3539344 & 424801129     & 83.21       & de novo      & I        & 1        \\
+SRR3539345 & 345821429     & 92.58       & de novo      & I        & 1        \\
+SRR3539346 & 411918039     & 90.92       & de novo      & I        & 1        \\
+SRR3539347 & 411031278     & 90.92       & de novo      & I        & 1        \\
+SRR3539348 & 469139944     & 92.45       & de novo      & I        & 1        \\
+SRR3539349 & 537372466     & 90.77       & de novo      & I        & 1        \\
+SRR3539350 & 401844325     & 90.32       & de novo      & I        & 1        \\
+SRR3539351 & 401993816     & 89.76       & de novo      & I        & 1        \\
+SRR3539352 & 357846693     & 88.48       & consensus    & I        & 1        \\
+SRR3539353 & 412322289     & 82.94       & de novo      & I        & 1        \\
+SRR3539354 & 398022772     & 86.07       & consensus    & I        & 1        \\
+SRR3539355 & 388552807     & 92.43       & consensus    & I        & 1        \\
+SRR3539357 & 351745878     & 88.51       & consensus    & I        & 1        \\
+SRR3539358 & 398098393     & 70.74       & de novo      & I        & 1        \\
+SRR3539359 & 479640173     & 91.59       & consensus    & I        & 1        \\
+SRR3539360 & 374570187     & 75.78       & de novo      & I        & 1        \\
+SRR3539361 & 370202077     & 72.56       & de novo      & I        & 1        \\
+SRR3539362 & 402201658     & 83.22       & consensus    & I        & 1        \\
+SRR3539363 & 467055595     & 75.85       & consensus    & I        & 1        \\
+SRR3539364 & 312321789     & 65.93       & de novo      & I        & 1        \\
+SRR3539365 & 253871159     & 88.37       & de novo      & I        & 1        \\
+SRR3539366 & 246292055     & 82.12       & consensus    & I        & 1        \\
+SRR3539367 & 228721211     & 86.98       & de novo      & I        & 1        \\
+SRR3539368 & 253255975     & 89.84       & de novo      & I        & 1        \\
+SRR3539369 & 254904463     & 91.39       & de novo      & I        & 1        \\
+SRR3539370 & 256094646     & 89.77       & de novo      & I        & 1        \\
+SRR3539371 & 266981417     & 93.77       & de novo      & I        & 1        \\
+SRR3539372 & 195098066     & 82.5        & consensus    & I        & 1        \\
+SRR3539373 & 237636237     & 84.54       & consensus    & I        & 1        \\
+SRR3539374 & 202624880     & 91.98       & de novo      & I        & 1        \\
+SRR3539375 & 399641302     & 87.95       & consensus    & I        & 1        \\
+SRR3539376 & 209424800     & 92.58       & de novo      & I        & 1        \\
+SRR3539377 & 278160288     & 89.75       & de novo      & I        & 1        \\
+SRR3539378 & 328706147     & 87.33       & de novo      & I        & 1        \\
+SRR3539379 & 370640534     & 88.93       & de novo      & I        & 1        \\
+SRR3539380 & 313475971     & 66.56       & de novo      & I        & 1        \\
+SRR3539381 & 327213068     & 89.39       & de novo      & I        & 1        \\
+SRR3539382 & 295317021     & 78.49       & de novo      & I        & 1        \\
+SRR3539383 & 335941236     & 81.98       & consensus    & I        & 1        \\
+SRR3539384 & 383785104     & 90.79       & de novo      & I        & 1        \\
+SRR3539385 & 330006204     & 88.86       & de novo      & I        & 1        \\
+SRR3539386 & 454412182     & 87.3        & de novo      & I        & 1        \\
+SRR3539387 & 321847824     & 92.31       & de novo      & I        & 1        \\
+SRR3539388 & 354652844     & 92.31       & de novo      & I        & 1        \\
+SRR3539389 & 345354321     & 88.38       & consensus    & I        & 1        \\
+SRR3539390 & 412365081     & 84.83       & de novo      & I        & 1        \\
+SRR3539391 & 374367976     & 84.5        & de novo      & I        & 1        \\
+SRR3539393 & 428999734     & 82.5        & de novo      & I        & 1        \\
+SRR3539394 & 323218873     & 91.91       & de novo      & I        & 1        \\
+SRR3539395 & 375283202     & 91.7        & de novo      & I        & 1        \\
+SRR3539396 & 434756338     & 84.96       & de novo      & I        & 1        \\
+SRR3539397 & 361928373     & 93.07       & de novo      & I        & 1        \\
+SRR3539398 & 462599218     & 80.7        & consensus    & I        & 1        \\
+SRR3539399 & 379115053     & 86.74       & de novo      & I        & 1        \\
+SRR3539400 & 404747525     & 93.34       & consensus    & I        & 1        \\
+SRR3539401 & 327849624     & 94.64       & consensus    & I        & 1        \\
+SRR3539406 & 209992112     & 78.25       & de novo      & I        & 1        \\
+SRR3539407 & 370290249     & 91.86       & consensus    & I        & 1        \\
+SRR3539408 & 191269315     & 95.58       & de novo      & I        & 1        \\
+SRR3539409 & 398058055     & 91.69       & de novo      & I        & 1        \\
+SRR3539410 & 393229460     & 94.48       & de novo      & I        & 1        \\
+SRR3539411 & 387469496     & 93.21       & consensus    & I        & 1        \\
+SRR3539412 & 53752250      & 82.32       & de novo      & I        & 1        \\
+SRR3539413 & 347547808     & 85.47       & de novo      & I        & 1        \\
+SRR3539414 & 355980530     & 84.16       & consensus    & I        & 1        \\
+SRR3539415 & 364109410     & 92.25       & consensus    & I        & 1        \\
+SRR3539416 & 341121914     & 86.11       & consensus    & I        & 1        \\
+SRR3539417 & 339098553     & 84.5        & de novo      & I        & 1        \\
+SRR3539418 & 332640627     & 85.66       & de novo      & I        & 1        \\
+SRR3539419 & 360466242     & 85.65       & de novo      & I        & 1        \\
+SRR3539420 & 415554748     & 84.23       & de novo      & I        & 1        \\
+SRR3539421 & 322411348     & 93.42       & de novo      & I        & 1        \\
+SRR3539422 & 387614239     & 82.17       & consensus    & I        & 1        \\
+SRR3539424 & 446656613     & 84.25       & de novo      & I        & 1       
+\end{longtable}
+
+\begin{longtable}{@{}llll@{}}
+\caption{Representative sequences of serotype 1 diversity in the Dengue Virus Typing Database.}
+\label{tab:chap4_s7}\\
+Sample   & ViPR Classification & Origin      & Collection Year \\
+EU482591 & DENV-1 V            & USA         & 2006            \\
+KU509254 & DENV-1 V            & Venezuela   & 2011            \\
+MF004384 & DENV-1 V            & France      & 2014            \\
+GU131956 & DENV-1 V            & Mexico      & 2006            \\
+AF311956 & DENV-1 V            & Brazil      & 1997            \\
+FJ205874 & DENV-1 V            & USA         & 1995            \\
+FJ478457 & DENV-1 V            & USA         & 1996            \\
+EU482567 & DENV-1 V            & USA         & 1998            \\
+DQ285559 & DENV-1 V            & Reunion     & 2004            \\
+JN903578 & DENV-1 V            & India       & 2007            \\
+KP188548 & DENV-1 V            & Brazil      & 2013            \\
+JQ922544 & DENV-1 V            & India       & 1963            \\
+KX380796 & DENV-1 V            & Singapore   & 2012            \\
+JQ922548 & DENV-1 V            & India       & 2005            \\
+KP406801 & DENV-1 V            & South Korea & 2004            \\
+DQ285562 & DENV-1 V            & Comoros     & 1993            \\
+JQ922546 & DENV-1 V            & India       & 1971            \\
+EF457905 & DENV-1 III          & Malaysia    & 1972            \\
+AF180818 & DENV-1 II           & Unknown     & Unknown         \\
+JQ922547 & DENV-1 II           & Thailand    & 1960            \\
+KY496855 & DENV-1 IV           & Taiwan      & 2016            \\
+LC128301 & DENV-1 IV           & Philippines & 2016            \\
+KX951689 & DENV-1 IV           & Taiwan      & 2004            \\
+KC762653 & DENV-1 IV           & Indonesia   & 2008            \\
+KU509261 & DENV-1 IV           & Indonesia   & 2010            \\
+AB189121 & DENV-1 IV           & Indonesia   & 1998            \\
+KC762620 & DENV-1 IV           & Indonesia   & 2007            \\
+EU863650 & DENV-1 IV           & Chile       & 2002            \\
+AB195673 & DENV-1 IV           & Japan       & 2003            \\
+AB204803 & DENV-1 IV           & Japan       & 2004            \\
+JF459993 & DENV-1 I            & Myanmar     & 2002            \\
+KT827371 & DENV-1 I            & China       & 2014            \\
+KX620454 & DENV-1 I            & China       & 2014            \\
+FJ639670 & DENV-1 I            & Cambodia    & 2001            \\
+KU509250 & DENV-1 I            & Thailand    & 2012            \\
+KJ755855 & DENV-1 I            & India       & 2013            \\
+GU131678 & DENV-1 I            & Viet Nam    & 2008            \\
+KU509265 & DENV-1 I            & Unknown     & 2012            \\
+KF955446 & DENV-1 I            & Viet Nam    & 2008            \\
+JF937615 & DENV-1 I            & Viet Nam    & 2008            \\
+FJ639678 & DENV-1 I            & Cambodia    & 2003            \\
+EU660395 & DENV-1 I            & Viet Nam    & 2007            \\
+AB608789 & DENV-1 I            & Taiwan      & 1994            \\
+GQ868636 & DENV-1 I            & Cambodia    & 2008            \\
+KY586539 & DENV-1 I            & Thailand    & 1995            \\
+KU509258 & DENV-1 I            & Eritrea     & 2010           
+\end{longtable}
+
+\begin{longtable}{@{}llll@{}}
+\caption{Representative sequences of serotype 2 diversity in the Dengue Virus Typing Database.}
+\label{tab:chap4_s8}\\
+Sample   & ViPR Classification        & Origin       & Collection Year \\
+HQ705624 & DENV-2 III (AsianAmerican) & Nicaragua    & 2009            \\
+KY977454 & DENV-2 III (AsianAmerican) & Panama       & 2011            \\
+KY474330 & DENV-2 III (AsianAmerican) & Ecuador      & 2014            \\
+FJ024473 & DENV-2 III (AsianAmerican) & Colombia     & 2005            \\
+JX669476 & DENV-2 III (AsianAmerican) & Brazil       & 2010            \\
+JN819419 & DENV-2 III (AsianAmerican) & Brazil       & 2000            \\
+KF955364 & DENV-2 III (AsianAmerican) & Puerto Rico  & 2006            \\
+JX669480 & DENV-2 III (AsianAmerican) & Brazil       & 1995            \\
+FJ639699 & DENV-2 III (AsianAmerican) & Cambodia     & 2002            \\
+EU482449 & DENV-2 III (AsianAmerican) & Viet Nam     & 2006            \\
+EU482778 & DENV-2 III (AsianAmerican) & Viet Nam     & 2003            \\
+KY586692 & DENV-2 V (AsianI)          & Thailand     & 2001            \\
+KY586679 & DENV-2 V (AsianI)          & Thailand     & 2001            \\
+KY586571 & DENV-2 V (AsianI)          & Thailand     & 2006            \\
+KY586572 & DENV-2 V (AsianI)          & Thailand     & 2006            \\
+EU726767 & DENV-2 V (AsianI)          & Thailand     & 1994            \\
+GQ868591 & DENV-2 V (AsianI)          & Thailand     & 1964            \\
+KF704356 & DENV-2 IV (AsianII)        & Cuba         & 1981            \\
+JQ922552 & DENV-2 I (American)        & India        & 1960            \\
+KJ918750 & DENV-2 I (American)        & India        & 2007            \\
+JQ922553 & DENV-2 I (American)        & India        & 1980            \\
+GQ868592 & DENV-2 I (American)        & Colombia     & 1986            \\
+JX966379 & DENV-2 I (American)        & Mexico       & 1994            \\
+GQ398257 & DENV-2 I (American)        & Indonesia    & 1977            \\
+KY923048 & DENV-2 VI (Sylvatic)       & Malaysia     & 2015            \\
+JF260983 & DENV-2 VI (Sylvatic)       & Spain        & 2009            \\
+KY937189 & DENV-2 II (Cosmopolitan)   & China        & 2015            \\
+KY937188 & DENV-2 II (Cosmopolitan)   & China        & 2015            \\
+KY937187 & DENV-2 II (Cosmopolitan)   & China        & 2015            \\
+JQ955624 & DENV-2 II (Cosmopolitan)   & India        & 2011            \\
+KU509271 & DENV-2 II (Cosmopolitan)   & India        & 2006            \\
+KF041232 & DENV-2 II (Cosmopolitan)   & Pakistan     & 2011            \\
+JQ922551 & DENV-2 II (Cosmopolitan)   & India        & 2005            \\
+JX475906 & DENV-2 II (Cosmopolitan)   & India        & 2009            \\
+MG779194 & DENV-2 II (Cosmopolitan)   & Kenya        & 2017            \\
+FJ882602 & DENV-2 II (Cosmopolitan)   & Sri Lanka    & 1996            \\
+EU056810 & DENV-2 II (Cosmopolitan)   & Burkina Faso & 1983            \\
+KY627763 & DENV-2 II (Cosmopolitan)   & Burkina Faso & 2016            \\
+KM279515 & DENV-2 II (Cosmopolitan)   & Singapore    & 2011            \\
+KX452015 & DENV-2 II (Cosmopolitan)   & Malaysia     & 2014            \\
+KC762662 & DENV-2 II (Cosmopolitan)   & Indonesia    & 2007            \\
+KU509270 & DENV-2 II (Cosmopolitan)   & Unknown      & 2012            \\
+KP012546 & DENV-2 II (Cosmopolitan)   & China        & 2014            \\
+KX452034 & DENV-2 II (Cosmopolitan)   & Malaysia     & 2014            \\
+KX452048 & DENV-2 II (Cosmopolitan)   & Malaysia     & 2014            \\
+KX452044 & DENV-2 II (Cosmopolitan)   & Malaysia     & 2014            \\
+HM488257 & DENV-2 II (Cosmopolitan)   & Guam         & 2001            \\
+KU509277 & DENV-2 II (Cosmopolitan)   & Philippines  & 2010            \\
+KU509269 & DENV-2 II (Cosmopolitan)   & Philippines  & 2009            \\
+KU509274 & DENV-2 II (Cosmopolitan)   & Philippines  & 2010            \\
+GQ398263 & DENV-2 II (Cosmopolitan)   & Indonesia    & 1975           
+\end{longtable}
+
+\begin{longtable}{@{}llll@{}}
+\caption{Representative sequences of serotype 3 diversity in the Dengue Virus Typing Database.}
+\label{tab:chap4_s9}\\
+Sample   & ViPR Classification & Origin           & Collection Year \\
+KF954946 & DENV-3-III          & China            & 2013            \\
+JQ922557 & DENV-3 III          & India            & 2005            \\
+KU509286 & DENV-3 III          & India            & 2011            \\
+EU687233 & DENV-3 III          & USA              & 2002            \\
+GQ252674 & DENV-3 III          & Sri Lanka        & 1997            \\
+FJ882573 & DENV-3 III          & Sri Lanka        & 1993            \\
+GQ199887 & DENV-3 III          & Sri Lanka        & 1983            \\
+JQ922555 & DENV-3 III          & India            & 1966            \\
+HM631854 & DENV-3 II           & Cambodia         & 2008            \\
+KY586703 & DENV-3 II           & Thailand         & 2006            \\
+KU509280 & DENV-3 II           & Thailand         & 2011            \\
+FJ744730 & DENV-3 II           & Thailand         & 2001            \\
+KY586814 & DENV-3 II           & Thailand         & 2006            \\
+DQ863638 & DENV-3 II           & Thailand         & 1973            \\
+KC762684 & DENV-3 I            & Indonesia        & 2007            \\
+KY863456 & DENV-3 I            & Indonesia        & 2016            \\
+KC762691 & DENV-3 I            & Indonesia        & 2008            \\
+KC762692 & DENV-3 I            & Indonesia        & 2010            \\
+KY794787 & DENV-3 I            & Papua New Guinea & 2007            \\
+MF004386 & DENV-3 I            & Malaysia         & 2012            \\
+AB189128 & DENV-3 I            & Indonesia        & 1998            \\
+KU509279 & DENV-3 I            & Philippines      & 2008            \\
+FJ898455 & DENV-3 I            & Cook Islands     & 1991            \\
+KU725666 & DENV-3 V            & Unkown           & Unknown        
+\end{longtable}
+
+\begin{longtable}{@{}llll@{}}
+\caption{Representative sequences of serotype 4 diversity in the Dengue Virus Typing Database.}
+\label{tab:chap4_s10}\\
+Sample   & ViPR Classification & Origin        & Collection Year \\
+MG601754 & DENV-4 I            & China         & 2013            \\
+KY586839 & DENV-4 I            & Thailand      & 1995            \\
+KT026308 & DENV-4 I            & Thailand      & 2011            \\
+JN638572 & DENV-4 I            & Cambodia      & 2008            \\
+KY586942 & DENV-4 I            & Thailand      & 2006            \\
+KP792537 & DENV-4 I            & Singapore     & 2011            \\
+MG272273 & DENV-4 I            & India         & 2016            \\
+MG272272 & DENV-4 I            & India         & 2016            \\
+KU509287 & DENV-4 I            & India         & 2009            \\
+JQ922559 & DENV-4 I            & India         & 1979            \\
+GQ868594 & DENV-4 I            & Philippines   & 1956            \\
+JQ922558 & DENV-4 I            & India         & 1962            \\
+KU523872 & DENV-4 II           & Indonesia     & 2015            \\
+KP723482 & DENV-4 II           & China         & 2010            \\
+JX024757 & DENV-4 II           & Singapore     & 2010            \\
+KC762695 & DENV-4 II           & Indonesia     & 2007            \\
+JQ915088 & DENV-4 II           & New Caledonia & 2009            \\
+GQ398256 & DENV-4 II           & Singapore     & 2005            \\
+KP188557 & DENV-4 II           & Brazil        & 2012            \\
+KY474335 & DENV-4 II           & Ecuador       & 2014            \\
+KT276273 & DENV-4 II           & Haiti         & 2014            \\
+KF907503 & DENV-4 II           & Senegal       & 1953            \\
+KY586945 & DENV-4 III          & Thailand      & 1998            \\
+JF262779 & DENV-4 IV           & Malaysia      & 1975           
+\end{longtable}
+
 
 \subsection{Supplemental Figures} \label{chap4_sup_figures}
 
