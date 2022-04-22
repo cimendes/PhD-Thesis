@@ -1,0 +1,122 @@
+\mbox{}\\
+\vspace{8cm}
+
+This chapter is a reproduction of the following publication:
+
+E. J. Griffiths, R. E. Timme, C. I. Mendes, A. J. Page, N. Alikhan, D. Fornika, F. Maguire, J. Campos, D. Park, I. B. Olawoye, P. E. Oluniyi, D. Anderson, A. Christoffels, A. G. da Silva, R. Cameron, D. Dooley, L. S. Katz, A. Black, I. Karsch-Mizrachi, T. Barrett, A. Johnston, T. R. Connor, S. M. Nicholls, A. A. Witney, G. H. Tyson, S. H. Tausch, A. R. Raphenya, B. Alcock, D. M. Aanensen, E. Hodcroft, W. W. L. Hsiao, A. T. R. Vasconcelos, D. R. MacCannell on behalf of the Public Health Alliance for Genomic Epidemiology (PHA4GE) consortium.
+Future-proofing and maximizing the utility of metadata: The PHA4GE SARS-CoV-2 contextual data specification package. GigaScience, Volume 11, giac003 (2022). DOI: \url{https://doi.org/10.1093/gigascience/giac003}
+
+The supplementary information referred throughout the text can be consulted in this chapter before the section of references. 
+
+TO CONTINUEEEEE
+
+\cleardoublepage 
+
+\begin{center}
+\large
+\textbf{Future-proofing and maximizing the utility of metadata: The PHA4GE SARS-CoV-2 contextual data specification package}
+\end{center}
+
+Emma J. Griffiths$^1$, 
+Ruth E. Timme$^2$,
+Catarina I. Mende$^3$,
+Andrew J Page$^4$,
+Nabil-Fareed Alikha$^4$,
+Dan Fornika$^5$,
+Finlay Maguire$^6$,
+Josefina Campos$^7$,
+Daniel Park$^8$,
+Idowu B. Olawoy$^{9,10}$,
+Paul E. Oluniy$^{9,10}$,
+Dominique Anderson$^{11}$,
+Alan Christoffel$^{11}$,
+Anders Gonçalves da Silva$^{12}$,
+Rhiannon Cameron$^1$,
+Damion Dooley$^1$,
+Lee S. Katz$^{13}$,
+Allison Black$^{14}$,
+Ilene Karsch-Mizrach$^{15}$,
+Tanya Barret$^{15}$,
+Anjanette Johnston$^{15}$,
+Thomas R. Connor$^{16,17}$,
+Samuel M. Nicholls$^{18}$,
+Adam A. Witney$^{19}$,
+Gregory H. Tyson$^{20}$,
+Simon H. Tausch$^{21}$,
+Amogelang R. Raphenya$^{22}$,
+Brian Alcock$^{22}$,
+David M. Aanensen$^{23,24}$,
+Emma Hodcrof$^{25}$,
+William W. L. Hsiao$^{1,5,26}$,
+Ana Tereza R Vasconcelos$^{27}$,
+Duncan R MacCannel$^{28}$,
+on behalf of the Public Health Alliance for Genomic Epidemiology (PHA4GE) consortium
+
+$^1$  Faculty of Health Sciences, Simon Fraser University, Burnaby, British Columbia,Canada;
+
+$^2$ Center for Food Safety and Applied Nutrition, U.S. Food and Drug Administration, College Park, MD,USA; 
+
+$^3$ Instituto de Microbiologia, Instituto de Medicina Molecular, Faculdade de Medicina, Universidade de Lisboa, Portugal;
+
+$^4$ Quadram Institute Bioscience, Norwich, Norfolk, UK;
+
+$^5$ BC Centre for Disease Control Public Health Laboratory, Vancouver, Canada;
+
+$^6$ Faculty of Computer Science, Dalhousie University, Halifax, Canada;
+
+$^7$ INEI-ANLIS "Dr Carlos G. Malbrán", Buenos Aires, Argentina;
+
+$^8$ The Broad Institute of MIT and Harvard, Cambridge, MA, USA;
+
+$^9$ African Center of Excellence for Genomics of Infectious Diseases (ACEGID), Redeemer's University, Ede, Osun State, Nigeria;
+
+$^{10}$ Department of Biological Sciences, College of Natural Sciences, Redeemer's University, Ede, Osun State, Nigeria;
+
+$^{11}$ South African Medical Research Council Bioinformatics Unit, South African National Bioinformatics Institute, University of the Western Cape, Bellville, South Africa;
+
+$^{12}$  Microbiological Diagnostic Unit Public Health Laboratory, The Peter Doherty Institute for Infection and Immunity, The University of Melbourne, Melbourne, Victoria, Australia;
+
+$^{13}$ Center for Food Safety, University of Georgia, Georgia, USA;
+
+$^{14}$ Department of Epidemiology, University of Washington, Washington, USA;
+
+$^{15}$ National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health, Bethesda, MD, USA;
+
+$^{16}$ Organisms and Environment Division, School of Biosciences, Cardiff University, Cardiff, Wales, UK;
+
+$^{17}$ Public Health Wales, University Hospital of Wales, Cardiff, UK;
+
+$^{18}$ University of Birmingham, Birmingham, UK;
+
+$^{19}$ Institute for Infection and Immunity, St George’s, University of London, London, UK;
+
+$^{20}$ Center for Veterinary Medicine, U.S. Food and Drug Administration, Laurel, Maryland, USA;
+
+$^{21}$ Department of Biological Safety, German Federal Institute for Risk Assessment, Berlin, Germany;
+
+$^{22}$ Department of Biochemistry and Biomedical Sciences and the Michael G. DeGroote Institute forInfectious Disease Research, McMaster University, Hamilton, Ontario, Canada;
+
+$^{23}$ Centre for Genomic Pathogen Surveillance, Wellcome Genome Campus, Cambridge, UK;
+
+$^{24}$ The Big Data Institute, Li Ka Shing Centre for Health Information and Discovery, Nuffield Department of Medicine, University of Oxford, Oxford, UK;
+
+$^{25}$ Biozentrum, University of Basel, Basel, Switzerland \& Swiss Institute of Bioinformatics, Lausanne,Switzerland;
+
+$^{26}$Department of Pathology and Laboratory Medicine, University of British Columbia, Vancouver, Canada;
+
+$^{27}$ Bioinformatics Laboratory National Laboratory of Scientific Computation LNCC/MCTI, Rio de Janeiro, Brazil;
+
+$^{28}$ National Center for Emerging and Zoonotic Infectious Diseases, Centers for Disease Control and Prevention, Georgia, USA
+
+\section{Abstract} \label{sec:ch7_abstract}
+
+The Public Health Alliance for Genomic Epidemiology (PHA4GE) (https://pha4ge.org) is a global coalition that is actively working to establish consensus standards, document and share best practices, improve the availability of critical bioinformatics tools and resources, and advocate for greater openness, interoperability, accessibility and reproducibility in public health microbial bioinformatics. In the face of the current pandemic, PHA4GE has identified a need for a fit-for-purpose, open-source SARS-CoV-2 contextual data standard. As such, we have developed a SARS-CoV-2 contextual data specification package based on harmonisable, publicly available community standards. The specification can be implemented via a collection template, as well as an array of protocols and tools to support both the harmonisation and submission of sequence data and contextual information to public biorepositories. Well-structured, rich contextual data adds value, promotes reuse, and enables aggregation and integration of disparate data sets. Adoption of the proposed standard and practices will better enable interoperability between datasets and systems, improve the consistency and utility of generated data, and ultimately facilitate novel insights and discoveries in SARS-CoV-2 and COVID-19. The package is now supported by the National Center for Biotechnology (NCBI)'s BioSample database.
+
+\section{Findings} \label{sec:ch7_findings}
+
+\subsection{The importance of contextual data for interpreting SARS-CoV-2 sequences}
+
+First identified in late 2019 in Wuhan, China, the SARS-CoV-2 virus has now spread to virtually every country and territory in the world, resulting in millions of confirmed cases, and deaths, globally \cite{world_health_organization_coronavirus_nodate, dong_interactive_2020}. Understanding, monitoring and preventing transmission, as well as the development of vaccines and effective therapeutic options, have been primary goals of the public health response to SARS-CoV-2. 
+
+Tracking the spread and evolution of the virus at global, national and local scales has been aided by the analysis of viral genome sequence data alongside SARS-CoV-2 epidemiology. Large scale sequencing efforts are often formalised as consortia across the world, including the COG-UK in the UK \cite{covid-19_genomics_uk_cog-uk_consortiumcontactcogconsortiumuk_integrated_2020}, SPHERES in the USA \cite{cdc_cases_2020}, CanCOGeN in Canada \cite{cancogen_genome_canada_cancogen_nodate}, Latin American Genomics SARS-CoV-2 Network \cite{pan_american_health_organization_laboratory_nodate, candido_evolution_2020}, 2019nCoVR in China \cite{zhao_2019_2020}, the South Africa NGS Genomic Surveillance Network \cite{network_for_genomic_surveillance_south_africa_ngs-sa_nodate}, AusTrakka in Australia and New Zealand \cite{communicable_diseases_genomics_network_austrakka_nodate}, and INSACOG in India \cite{government_of_india_indian_nodate}. In addition to these initiatives, many agencies, universities and hospital laboratories around the world are also sequencing and sharing sequence data at an unprecedented pace. Deposition of these sequences into public repositories such as the Global Initiative on Sharing All Influenza Data (GISAID) and the International Nucleotide Sequence Database Collaboration (INSDC) has enabled rapid global sharing of data \cite{shu_gisaid_2017,karsch-mizrachi_international_2018}. At the time of writing, 174 countries had undertaken open sequencing initiatives (GISAID accessed 2021-06-23) depositing 2,057,675 sequences which are being reused and analysed on a massive scale. The open data sharing paradigm has had tremendous success in the genomic epidemiology of foodborne pathogens \cite{allard_practical_2016,kubota_pulsenet_2019}, and has the potential to reveal a deeper understanding of SARS-CoV-2 origin, pathogenicity, and basic biology when submissions from environmental samples and wild hosts are included alongside human clinical samples \cite{cook_integrating_2020}.
+
