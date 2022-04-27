@@ -191,52 +191,118 @@ A mapping file indicating which PHA4GE fields correspond to contextual data elem
 
 A table outlining the different specification package materials can be found in Table \ref{tab:ch7_table2}.
 
-
-\begin{longtable}{@{}lll@{}}
+\begin{table}[]
+\centering
 \caption{Resources that form the PHA4GE SARS-CoV-2 contextual data specification package}
-\label{tab:ch7_table2}\\
-Resource1 &
-  Description &
-  Link \\
+\label{tab:ch7_table2}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}ll@{}}
+\toprule
+Resource$^1$ &
+  Description \\
+ \midrule
+\begin{tabular}[c]{@{}l@{}}Collection template and \\ controlled vocabulary pick lists\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Spreadsheet-based collection form containing different fields \\ (identifiers and accessions, sample collection and processing,\\ host information, host exposure, vaccination and reinfection \\ information, lineage and variant information, sequencing, \\ bioinformatics and QC metrics, diagnostic testing information, \\ author acknowledgements). Fields are colour-coded to indicate \\ required, recommended or optional status. Many fields offer \\ pick lists of controlled vocabulary. Vocabulary lists are also \\ available in a separate tab.\end{tabular} \\  \midrule
+Reference guides &
+  \begin{tabular}[c]{@{}l@{}}Field and term definitions, guidance, and examples are \\ provided as separate tabs in the collection template .xlsx file \\ (see Term Reference Guide and Field Reference Guide).\end{tabular} \\  \midrule
+Curation protocol on protocols.io &
+  \begin{tabular}[c]{@{}l@{}}Step-by-step instructions for using the collection template are \\ provided in a standard operating procedure (SOP). Ethical, \\ practical, and privacy considerations are also discussed. \\ Examples and instructions for structuring sample descriptions \\ as well as sourcing additional standardized terms (outside \\ those provided in pick lists) are also discussed.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}Mapping file of PHA4GE \\ fields to metadata standards\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}PHA4GE fields are mapped to existing metadata standards \\ such as the Sample Application Standard, MIxS 5.0, and the \\ MIGS Virus Host-associated attribute package. Mappings are \\ available in the Reference guide tab. Mappings highlight which \\ fields of these standards are considered useful for SARS-CoV-2  \\ public health surveillance and investigations, and which fields \\ are considered out of scope.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}Mapping of PHA4GE fields \\ to WHO metadata recommendations\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}PHA4GE  fields are mapped to corresponding contextual data \\ elements recommended by the World Health Organization.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}Mapping file of PHA4GE fields \\ to EMBL-EBI, NCBI and GISAID \\ submission requirements\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Many PHA4GE fields have been sourced from public repository \\ submission requirements. The different repositories have different \\ requirements and field names. Repository submission fields have \\ been mapped to PHA4GE fields to demonstrate equivalencies and \\ divergences.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}Data submission protocol \\ (NCBI) on protocols.io\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The SARS-CoV-2 submission protocol for NCBI provides step-by-step \\ instructions and recommendations aimed at improving interoperability \\ and consistency of submitted data.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}Data submission protocol \\ (EMBL-EBI) on protocols.io\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The SARS-CoV-2 submission protocol for ENA provides step-by-step \\ instructions and recommendations aimed at improving interoperability \\ and consistency of submitted data.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}Data submission protocol \\ (GISAID) on protocols.io\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The SARS-CoV-2 submission protocol for GISAID provides step-by-step \\ instructions and recommendations aimed at improving interoperability \\ and consistency of submitted data.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}JSON structure of \\ PHA4GE specification\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}A JSON structure of the PHA4GE specification has been provided for easier \\ integration into software applications.\end{tabular} \\  \midrule
+\begin{tabular}[c]{@{}l@{}}PHA4GE template in \\ the DataHarmonizer\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Javascript application enabling standardized data entry, validation and \\ export of contextual data as submission-ready forms for GISAID and \\ NCBI. The SOP for using the software can be found at \\ https://github.com/Public-Health-Bioinformatics/\\ DataHarmonizer/wiki/PHA4GE-SARS-CoV-2-Template\end{tabular}  
+\end{tabular}%
+}
+\item $^1$ There are a number of resources that form the PHA4GE SARS-CoV-2 contextual data specification package which are described in the table. The package has been compiled to support user implementation and data sharing, with integration into workflows and new software applications in mind.
+\end{table}
+
+\subsection{Getting Started - How To Use The Standard}
+
+In designing the specification we first considered the goals of data collection and harmonization. Consulted stakeholders felt that the primary priority of standardizing data should be improved support for SARS-CoV-2 genomic surveillance activities and the submission of sequence data and minimal metadata to public repositories. The two most important attributes for tracking transmission from pathogen genomic data are temporal information describing when a sample was collected and spatial information describing where a virus was sampled.
+
+Comparisons of minimal contextual data requirements across different national sequencing efforts, as well as submission requirements for INSDC and GISAID databases, yielded a minimal set of 14 fields which have been annotated as “required” in the specification (colour-coded yellow in the collection template). The required fields, corresponding definitions, and guidance notes are described in Table \ref{tab:ch7_table3}. A number of other fields have been annotated as “strongly recommended” (colour-coded purple in the collection template) for capturing sample collection and processing methods, critical epidemiological information about the host, and acknowledging scientific contributions. Fields colour-coded white are considered optional. 
+
+\small
+\begin{longtable}[c]{@{}lll@{}}
+\caption{Minimal (required) contextual data fields. Through consultation and consensus, fourteen fields were prioritized for SARS-CoV-2 surveillance, which are considered required in the specification. Field names, definitions, and guidance are presented.}
+\label{tab:ch7_table3}\\
+Field   Name &
+  Definition &
+  Guidance \\
 \endfirsthead
 %
 \endhead
 %
-Collection   template and controlled vocabulary pick lists &
-  Spreadsheet-based   collection form containing different fields (identifiers and accessions,   sample collection and processing, host information, host exposure,   vaccination and reinfection information, lineage and variant information,   sequencing, bioinformatics and QC metrics, diagnostic testing information,   author acknowledgements). Fields are colour-coded to indicate required,   recommended or optional status. Many fields offer pick lists of controlled   vocabulary. Vocabulary lists are also available in a separate tab. &
-  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20SARS-CoV-2\%20Contextual\%20Data\%20Template.xlsx \\
-Reference   guides &
-  Field and   term definitions, guidance, and examples are provided as separate tabs in the   collection template .xlsx file (see Term Reference Guide and Field Reference   Guide). &
-  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20SARS-CoV-2\%20Contextual\%20Data\%20Template.xlsx \\
-Curation   protocol on protocols.io &
-  Step-by-step   instructions for using the collection template are provided in a standard   operating procedure (SOP). Ethical, practical, and privacy considerations are   also discussed. Examples and instructions for structuring sample descriptions   as well as sourcing additional standardized terms (outside those provided in   pick lists) are also discussed. &
-  dx.doi.org/10.17504/protocols.io.btpznmp6 \\
-Mapping   file of PHA4GE fields to metadata standards &
-  PHA4GE   fields are mapped to existing metadata standards such as the Sample   Application Standard, MIxS 5.0, and the MIGS Virus Host-associated attribute   package. Mappings are available in the Reference guide tab. Mappings   highlight which fields of these standards are considered useful for SARS-CoV-2   public health surveillance and investigations, and which fields are   considered out of scope. &
-  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20SARS-CoV-2\%20Contextual\%20Data\%20Template.xlsx \\
-Mapping   of PHA4GE fields to WHO metadata recommendations &
-  PHA4GE   fields are mapped to corresponding contextual data elements recommended by   the World Health Organization. &
-  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20to\%20Sequence\%20Repository\%20Field\%20Mappings.xlsx \\
-Mapping   file of PHA4GE fields to EMBL-EBI, NCBI and GISAID submission requirements &
-  Many   PHA4GE fields have been sourced from public repository submission   requirements. The different repositories have different requirements and   field names. Repository submission fields have been mapped to PHA4GE fields   to demonstrate equivalencies and divergences. &
-  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20to\%20Sequence\%20Repository\%20Field\%20Mappings.xlsx \\
-Data submission protocol (NCBI) on protocols.io &
-  The   SARS-CoV-2 submission protocol for NCBI provides step-by-step instructions   and recommendations aimed at improving interoperability and consistency of   submitted data. &
-  dx.doi.org/10.17504/protocols.io.bui7nuhn \\
-Data submission protocol (EMBL-EBI) on protocols.io &
-  The   SARS-CoV-2 submission protocol for ENA provides step-by-step instructions and   recommendations aimed at improving interoperability and consistency of   submitted data. &
-  dx.doi.org/10.17504/protocols.io.buqnnvve \\
-Data   submission protocol (GISAID) on protocols.io &
-  The   SARS-CoV-2 submission protocol for GISAID provides step-by-step instructions   and recommendations aimed at improving interoperability and consistency of submitted   data. &
-  dx.doi.org/10.17504/protocols.io.bumknu4w \\
-JSON   structure of PHA4GE specification &
-  A JSON   structure of the PHA4GE specification has been provided for easier   integration into software applications. &
-  https://raw.githubusercontent.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/master/PHA4GE\_SARS-CoV-2\_Contextual\_Data\_Schema.json \\
-PHA4GE   template in the DataHarmonizer &
-  Javascript   application enabling standardized data entry, validation and export of   contextual data as submission-ready forms for GISAID and NCBI. The SOP for   using the software can be found at   https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki/PHA4GE-SARS-CoV-2-Template &
-  https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
-  
-\item $^1$ There are a number of resources that form the PHA4GE SARS-CoV-2 contextual data specification package which are described in the table. The package has been compiled to support user implementation and data sharing, with integration into workflows and new software applications in mind.
+\begin{tabular}[c]{@{}l@{}}specimen collector \\ sample ID\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The user-defined name \\ for the sample.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Every Sample ID from a single submitter must\\ be unique. It can have any format, but we \\ suggest that you make it concise, \\ unique and consistent within your lab, \\ and as informative as possible.\end{tabular} \\
+sample collected by &
+  \begin{tabular}[c]{@{}l@{}}The name of the agency that \\ collected the original sample.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The name of the agency should be written out\\ in full, (with minor exceptions) and consistent \\ across multiple submissions.\end{tabular} \\
+sequence submitted by &
+  \begin{tabular}[c]{@{}l@{}}The name of the agency that \\ generated the sequence.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The name of the agency should be written out\\ in full, (with minor exceptions) and be \\ consistent across multiple submissions.\end{tabular} \\
+sample collection date &
+  \begin{tabular}[c]{@{}l@{}}The date on which the sample \\ was collected.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Record the collection date accurately in the \\ template. Required granularity includes year, \\ month and day. Before sharing this data, \\ ensure this date is not considered identifiable \\ information. If this date is considered identifiable, \\ it is acceptable to add "jitter" to the collection date \\ by adding or subtracting calendar days. Do not \\ change the collection date in your original records. \\ Alternatively,” received date” may be used as a \\ substitute in the data you share. The date should be \\ provided in ISO 8601 standard format \\ "YYYY-MM-DD".\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}geo\_loc name \\ (country)\end{tabular} &
+  Country of origin of the sample. &
+  \begin{tabular}[c]{@{}l@{}}Provide the country name from the pick list\\ in the template.\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}geo\_loc name \\ (state/province/region)\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}State/province/region of origin \\ of the sample.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Provide the state/province/region name from\\ the GAZ geography ontology. Search for geography \\ terms here: https://www.ebi.ac.uk/ols/ontologies/gaz\end{tabular} \\
+organism &
+  Taxonomic name of the organism. &
+  \begin{tabular}[c]{@{}l@{}}Use “Severe acute respiratory \\ syndrome coronavirus 2”\end{tabular} \\
+isolate &
+  Identifier of the specific isolate. &
+  \begin{tabular}[c]{@{}l@{}}This identifier should be an unique, indexed, \\ alpha-numeric ID within your laboratory. If \\ submitted to the INSDC,  the "isolate" name \\ is propagated throughout different databases. \\ As such, structure the "isolate" name to be \\ ICTV/INSDC compliant in the following format: \\ "SARS-CoV-2/host/country/sampleID/date"\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}host \\ (scientific name)\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The taxonomic, or scientific \\ name of the host.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Common name or scientific name are required \\ if there was a host. Scientific name examples \\ e.g., Homo sapiens. Select a value from the \\ pick list. If the sample was environmental, \\ put "not applicable".\end{tabular} \\
+host disease &
+  \begin{tabular}[c]{@{}l@{}}The name of the disease \\ experienced by the host.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}This field is only required if there was a\\ host. If the host was a human select COVID-19\\ from the pick list. If the host was asymptomatic, \\ this can be recorded under “host health state details”. \\ "COVID-19" should still be provided if the patient \\ is asymptomatic. If the host is not human, and the\\ disease state is not known or the host appears \\ healthy, put “not applicable”.\end{tabular} \\
+purpose of sequencing &
+  \begin{tabular}[c]{@{}l@{}}The reason that the sample\\ was sequenced.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The reason why a sample was originally\\ collected may differ from the reason\\ why it was selected for sequencing. The\\ reason a sample was sequenced may \\ provide information about potential biases \\ in sequencing strategy. Provide the \\ purpose of sequencing from the picklist \\ in the template. The reason for sample \\ collection should be indicated in the  \\ "purpose of sampling" field.\end{tabular} \\
+sequencing instrument &
+  \begin{tabular}[c]{@{}l@{}}The model of the sequencing \\ instrument used.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Select a sequencing instrument from the \\ picklist provided in the template.\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}consensus sequence \\ software name\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The name of software used to \\ generate the consensus sequence.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Provide the name of the software used to\\ generate the consensus sequence.\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}consensus sequence \\ software version\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}The version of the software used to \\ generate the consensus sequence.\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Provide the version of the software used to\\ generate the consensus sequence.\end{tabular}
 \end{longtable}
 
+As many contextual data fields are stored in different locations and databases (e.g., LIMS, epidemiology case report forms and databases), a benefit of implementing the PHA4GE collection template is that it enables the capture of these different pieces of information in one place. The collection template also offers picklists for a variety of fields e.g., a curated INSDC country list for “geo\_loc name (country)”, the standardised name of the virus under the “organism” field (i.e., Severe acute respiratory coronavirus 2), and a multitude of standardised terms for sample types (anatomical materials and sites, environmental materials and sites, collection devices and methods). The “purpose of sequencing” field provides standardized tags which can be used to highlight sampling strategy criteria (e.g., baseline surveillance (random sampling), targeted sequencing (non-random sampling), which are very important for understanding bias when interpreting patterns in sequence data. The picklists provided are neither exhaustive, nor comprehensive, but have been curated from current literature representing active sampling and surveillance activities.
 
+If a pick list is missing standardised terms of interest, the reference guide also provides links to different ontology look-up services enabling users to identify additional standardized terms. The reference guide provides definitions for the fields, additional guidance regarding the structure of the values in the field, and any suggestions for addressing issues pertaining to privacy and identifiability. The curation SOP provides users with step-by-step instructions for populating the template, looking up standardized terms, and how best to structure sample descriptions. The SOP also highlights a number of ethical, practical, and privacy considerations for data sharing.
+
+
+\subsection{Implementation of the PHA4GE specification around the world}
+
+The amount of, and manner in which the specification is implemented is ultimately at the discretion of the user. To date, versions of the specification are being implemented in the CanCOGeN (Canada) and SPHERES (USA) SARS-CoV-2 sequencing initiatives, the AusTrakka (Australia and New Zealand) data sharing platform \cite{world_health_organization_coronavirus_nodate, dong_interactive_2020, covid-19_genomics_uk_cog-uk_consortiumcontactcogconsortiumuk_integrated_2020}, by the Global Emerging Pathogens Treatment Consortium (Africa) \cite{noauthor_get_nodate}, the African Centre of Excellence for Genomics of Infectious Diseases (ACEGID) in Nigeria \cite{noauthor_acegid_nodate}, the Baobab LIMS \cite{noauthor_welcome_nodate} at the South African National Bioinformatics Institute (SANBI) \cite{noauthor_sanbi_nodate}, and the Latin American Genomics Network \cite{noauthor_covid-19_nodate}. 
+
+Canada is implementing a version of the PHA4GE specification to harmonise contextual data across all data providers for national SARS-CoV-2 surveillance [5]. Harmonised contextual information is provided by different jurisdictions, and stored in the national genomics surveillance database at the Public Health Agency of Canada’s National Microbiology Laboratory. A worked example is provided to demonstrate how free text information can be structured according to the specification, and how subsets of the contextual data can be shared according to jurisdictional policies (Figure \ref{fig:chap7_figure_2}). 
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 7/giac003fig1.jpeg}
+\caption{The PHA4GE specification is being implemented in CanCOGeN to harmonize contextual data across jurisdictions. (A) CanCOGeN is Canada's SARS-CoV-2 national genomic surveillance initiative. Canada has a decentralized health system, with one federal and 13 provincial/territorial public health jurisdictions. Provinces/Territories have authority over how data are collected, stored, and shared. Every Canadian public health jurisdiction uses different collection instruments (e.g., case report forms), different data management systems, and different pipelines and software to perform bioinformatic analyses. Provinces/Territories share sequencing data and accompanying contextual data with the National Microbiology Lab's national SARS-CoV-2 genomics database (starred) according to a version of the PHA4GE specification for national surveillance activities. (B) Excerpts from two different province-specific case collection forms. Sample type information is collected in data collection instruments using different fields, different terms, at different levels of granularity, using abbreviations and formats. BAL: bronchoalveolar lavage; NPS: nasopharyngeal swab; UTM: universal transport medium. (C) An anonymized example of how the standard consistently structures contextual information and how it is being used for data sharing. The contextual data specification provides a wide variety of fields and pick lists of terms. In the example, the full set of standardized information shown would be shared by the province with the national database. Standardized information in boldface would be shared with public repositories; however select data elements (underscored) would be withheld according to jurisdictional data sharing policies. The specification enables users to harmonize and integrate data provenance, sampling strategy criteria, epidemiological information, and methods.}
+\label{fig:chap7_figure_2}
+\end{figure*}
