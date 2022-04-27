@@ -132,11 +132,111 @@ In light of these challenges, PHA4GE has identified a need for a fit-for-purpose
 
 \subsection{SARS-CoV-2 Contextual Data Specification: The Framework}
 
-The purpose of the PHA4GE SARS-CoV-2 specification is to provide a mechanism for consistent structure, collection and formatting of fields and values containing SARS-CoV-2 contextual data pertaining to clinical, animal, and environmental samples. We emphasize that the purpose of this specification is not to force data sharing, but rather to provide a framework to structure data consistently across disparate laboratory and epidemiological databases so that they can be harmonized for different uses (Figure \ref{}). Data sharing is just one use case and can involve sharing between divisions within a single agency, sharing between partners based on memorandums of understanding, or submission to public repositories. 
+The purpose of the PHA4GE SARS-CoV-2 specification is to provide a mechanism for consistent structure, collection and formatting of fields and values containing SARS-CoV-2 contextual data pertaining to clinical, animal, and environmental samples. We emphasize that the purpose of this specification is not to force data sharing, but rather to provide a framework to structure data consistently across disparate laboratory and epidemiological databases so that they can be harmonized for different uses (Figure \ref{fig:chap7_figure_1}). Data sharing is just one use case and can involve sharing between divisions within a single agency, sharing between partners based on memorandums of understanding, or submission to public repositories. 
+
+The PHA4GE SARS-CoV-2 contextual data specification was created through broad consultation with representatives from public health laboratories, research institutes and universities in 11 countries (Argentina, Australia, Brazil, Canada, Germany, Nigeria, Portugal, South Africa, Switzerland, the United Kingdom, the United States of America) who are involved with the SARS-CoV-2 genome sequencing and analysis efforts at various scales. Based on this consultation and consensus, the specification contains different fields covering a wide array of data types described in Box 1 (Figure \ref{fig:chap7_figure_1}). The specification attempts to harmonize different data standards (INSDC, GISAID, MIxS, MIGS, Sample Application Standard) by reusing fields or mapping to fields, as much as possible. As PHA4GE embraces FAIR data stewardship principles (Findability, Accessibility, Interoperability and Reuse of digital assets), we strived to implement FAIR principles in the design and implementation of the specification for data management and data sharing. At their core, these principles emphasize machine-actionability and consistency of data, and are critical for dealing with the volume and complexity of genomic sequence and contextual data. Principles of FAIR data stewardship that have been implemented include improving machine-actionability of data by using a formal, accessible, shared, and broadly applicable language for knowledge representation, reusing existing standards and ontology-based vocabulary to increase interoperability, providing a data usage license, capturing data provenance, and making all resources open, free and widely accessible.
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/chapter 4/Figure S1.pdf}
-\caption{DEN-IM report tables. a) DEN-IM's quality control report containing information of the number of base-pairs and the number of reads for the analysed samples, the estimated coverage depth before and after mapping, and the percentage of reads in the input data that were trimmed. b) DEN-IM's typing report for 24 CDSs recovered from the metagenomic dataset. The ID contains the CDS contig name, the typing result for serotype-genotype, the values for identity and coverage, and the GenBank ID of the closest reference in the Typing Database containing 161 complete DENV genomes.}
-\label{fig:chap4_figure_sup1}
+\includegraphics[width=\textwidth]{figures/chapter 7/giac003fig1.jpeg}
+\caption{Contextual data flow. Contextual data can be captured and structured using the PHA4GE specification so that they can be more easily harmonized across different data sources and providers. Different subsets of the harmonized data can be (i) shared with public repositories, e.g., GISAID and INSDC; (ii) shared with trusted partners, e.g., national sequencing consortia, public health partners; and (iii) kept private and retained locally with the potential for sharing in the future for particular surveillance or research activities. While fields have been colour-coded in the template to indicate whether they are considered “required,” “strongly recommended,” or “optional,” how the specification is implemented and whether any of the data are shared is ultimately at the discretion of the user. Box 1 describes the information types covered in the full specification.}
+\label{fig:chap7_figure_1}
 \end{figure*}
+
+The versioned specification is available as a contextual data collection template (.xlsx) and in machine-amenable JSON format from GitHub (v 3.0.0 - https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification) \cite{public_health_alliance_for_genomic_epidemiology_sars-cov-2-contextual-data-specification_nodate}. The collection template also offers standardized terms for a number of fields in the form of pick lists. The fields are colour-coded to indicate required (yellow), strongly recommended (purple) or optional status (white). Fields useful for surveillance were prioritized as required. Formats for data elements like dates are also prescribed according to international standards (e.g., dates should be formatted according to ISO8601).
+
+The template is also supported by several materials such as term and field-level Reference Guides (available as tabs in the collection template Excel workbook), which provides definitions, data entry guidance and examples of usage \cite{public_health_alliance_for_genomic_epidemiology_sars-cov-2-contextual-data-specification_nodate}. The field-level Reference Guide also provides mapping of PHA4GE fields to existing contextual data standards, highlighting public health and SARS-CoV-2-specific fields that were missing as well as fields in those other standards that were considered out of scope. 
+
+The Open Biological and Biomedical Ontology (OBO) Foundry is a community of researchers that use a prescribed set of principles and practices to develop a wide range of interoperable ontologies focused on the life sciences \cite{the_obo_foundry_obo_nodate}. Fields and terms in the specification have been mapped to existing OBO Foundry ontology terms, and where required, new ontology terms have been developed and are being made available in different application and domain-specific ontologies within The Foundry (see Table \ref{tab:ch7_table1} for a list of source ontologies). As of version 3.0.0 and beyond, terms in pick lists provided in the collection template are presented with corresponding ontology identifiers in the format “Label [ontology ID]” e.g., Blood [UBERON:0000178]. Axioms and additional cross references to ontologies and existing standards are actively being developed in collaboration with community developers. We anticipate that our contributions to these freely available, open-source resources will be of use to the COVID-19 research community.
+
+\begin{table}[h!]
+\caption{Ontologies implemented in the PHA4GE SARS-CoV-2 specification.}
+\label{tab:ch7_table1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}ll@{}}
+\toprule
+Ontology$^1$                                    & Link                                           \\ \midrule
+BRENDA Tissue Ontology (BTO)                 & https://obofoundry.org/ontology/bto.html       \\
+Cell Line Ontology (CLO)                     & https://obofoundry.org/ontology/clo.html       \\
+Environmental conditions,   treatments and exposures ontology (ECTO) & https://obofoundry.org/ontology/ecto.html   \\
+Environment Ontology (ENVO)                  & https://obofoundry.org/ontology/envo.html      \\
+Food Ontology (FoodOn)                       & https://obofoundry.org/ontology/foodon.html    \\
+Gazetteer Ontology (GAZ)                     & https://obofoundry.org/ontology/gaz.html       \\
+Gender, Sex, and Sexual Orientation Ontology (GSSO)                  & https://obofoundry.org/ontology/gsso.html   \\
+Genomic Epidemiology Ontology (GenEpiO)      & https://obofoundry.org/ontology/genepio.html   \\
+Genomics Cohorts Knowledge Ontology (GECKO)  & https://obofoundry.org/ontology/gecko.html     \\
+Human Disease Ontology (DOID)                & https://obofoundry.org/ontology/doid.html      \\
+Human Phenotype Ontology (HP)                & https://obofoundry.org/ontology/hp.html        \\
+Mammalian Phenotype Ontology (MP)            & https://obofoundry.org/ontology/mp.html        \\
+Measurement Method Ontology (MMO)            & https://obofoundry.org/ontology/mmo.html       \\
+Mondo Disease Ontology (MONDO)               & https://obofoundry.org/ontology/mondo.html     \\
+Mouse Pathology Ontology (MPATH)             & https://obofoundry.org/ontology/mpath.html     \\
+National Cancer Institute Thesaurus (NCIT)   & https://obofoundry.org/ontology/ncit.html      \\
+NCBI Taxonomy Ontology (NCBITaxon)           & https://obofoundry.org/ontology/ncbitaxon.html \\
+Neuro Behaviour Ontology (NBO)               & https://obofoundry.org/ontology/nbo.html       \\
+Ontology for Biomedical Investigations (OBI) & https://obofoundry.org/ontology/obi.html       \\
+Ontology of Medically Related Social Entities (OMRSE)                & https://obofoundry.org/ontology/omrse.html  \\
+Population and Community Ontology (PCO)      & https://obofoundry.org/ontology/pco.html       \\
+UBERON Multi-species Anatomy Ontology (UBERON)                       & https://obofoundry.org/ontology/uberon.html \\
+Unit Ontology (UO)                           & https://obofoundry.org/ontology/uo.html        \\
+Vaccine Ontology (VO)                        & https://obofoundry.org/ontology/vo.html        \\ \bottomrule
+\end{tabular}%
+}
+\item $^1$ Vocabulary for fields and terms in the specification have been sourced or mapped to OBO Foundry domain and application ontologies, which are highlighted in this list. New fields and terms for which there were no existing equivalents have been developed and submitted to these ontologies, expanding these community resources
+\end{table}
+
+Protocols have also been created and are openly available on protocols.io \cite{public_health_alliance_for_genomic_epidemiology_pha4ge_nodate}, including a curation Standard Operating Procedure (SOP) containing instructions for using the collection template as well as guidance for a number of privacy and practical concerns. A series of versioned SARS-CoV-2 sequence and contextual data submission protocols and accompanying instructional videos for how to prepare submissions and navigate through the various submission portals for GISAID, NCBI and EMBL-EBI are also provided.
+
+A mapping file indicating which PHA4GE fields correspond to contextual data elements recommended by the World Health Organization has been provided to help data providers comply with international guidance \cite{world_health_organization_guidance_nodate}. This mapping file also includes tabs indicating which PHA4GE fields correspond to those found in different repository submission forms to facilitate data transformations for submissions. Such transformations can be automated using a contextual data harmonization application called the DataHarmonizer \cite{hsiao_public_health_bioinformatics_lab_dataharmonizer_2022}. PHA4GE has worked with the developers of the DataHarmonizer to offer the PHA4GE standard as a template in the tool (Gill et al, in preparation). Users can standardize and validate entered data and export it as GISAID and NCBI-ready submission forms (BioSample, SRA, GenBank and GenBank source modifier forms). It should be noted that other excellent contextual data transformation tools have been developed by the community, such as METAGENOTE, multiSub, and a GISAID-to-ENA conversion script \cite{noauthor_metagenote_nodate, haeussler_multisub_2022, noauthor_ena-content-dataflowscriptsgisaid_to_ena_nodate}.
+
+A table outlining the different specification package materials can be found in Table \ref{tab:ch7_table2}.
+
+
+\begin{longtable}{@{}lll@{}}
+\caption{Resources that form the PHA4GE SARS-CoV-2 contextual data specification package}
+\label{tab:ch7_table2}\\
+Resource1 &
+  Description &
+  Link \\
+\endfirsthead
+%
+\endhead
+%
+Collection   template and controlled vocabulary pick lists &
+  Spreadsheet-based   collection form containing different fields (identifiers and accessions,   sample collection and processing, host information, host exposure,   vaccination and reinfection information, lineage and variant information,   sequencing, bioinformatics and QC metrics, diagnostic testing information,   author acknowledgements). Fields are colour-coded to indicate required,   recommended or optional status. Many fields offer pick lists of controlled   vocabulary. Vocabulary lists are also available in a separate tab. &
+  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20SARS-CoV-2\%20Contextual\%20Data\%20Template.xlsx \\
+Reference   guides &
+  Field and   term definitions, guidance, and examples are provided as separate tabs in the   collection template .xlsx file (see Term Reference Guide and Field Reference   Guide). &
+  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20SARS-CoV-2\%20Contextual\%20Data\%20Template.xlsx \\
+Curation   protocol on protocols.io &
+  Step-by-step   instructions for using the collection template are provided in a standard   operating procedure (SOP). Ethical, practical, and privacy considerations are   also discussed. Examples and instructions for structuring sample descriptions   as well as sourcing additional standardized terms (outside those provided in   pick lists) are also discussed. &
+  dx.doi.org/10.17504/protocols.io.btpznmp6 \\
+Mapping   file of PHA4GE fields to metadata standards &
+  PHA4GE   fields are mapped to existing metadata standards such as the Sample   Application Standard, MIxS 5.0, and the MIGS Virus Host-associated attribute   package. Mappings are available in the Reference guide tab. Mappings   highlight which fields of these standards are considered useful for SARS-CoV-2   public health surveillance and investigations, and which fields are   considered out of scope. &
+  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20SARS-CoV-2\%20Contextual\%20Data\%20Template.xlsx \\
+Mapping   of PHA4GE fields to WHO metadata recommendations &
+  PHA4GE   fields are mapped to corresponding contextual data elements recommended by   the World Health Organization. &
+  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20to\%20Sequence\%20Repository\%20Field\%20Mappings.xlsx \\
+Mapping   file of PHA4GE fields to EMBL-EBI, NCBI and GISAID submission requirements &
+  Many   PHA4GE fields have been sourced from public repository submission   requirements. The different repositories have different requirements and   field names. Repository submission fields have been mapped to PHA4GE fields   to demonstrate equivalencies and divergences. &
+  https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/raw/master/PHA4GE\%20to\%20Sequence\%20Repository\%20Field\%20Mappings.xlsx \\
+Data submission protocol (NCBI) on protocols.io &
+  The   SARS-CoV-2 submission protocol for NCBI provides step-by-step instructions   and recommendations aimed at improving interoperability and consistency of   submitted data. &
+  dx.doi.org/10.17504/protocols.io.bui7nuhn \\
+Data submission protocol (EMBL-EBI) on protocols.io &
+  The   SARS-CoV-2 submission protocol for ENA provides step-by-step instructions and   recommendations aimed at improving interoperability and consistency of   submitted data. &
+  dx.doi.org/10.17504/protocols.io.buqnnvve \\
+Data   submission protocol (GISAID) on protocols.io &
+  The   SARS-CoV-2 submission protocol for GISAID provides step-by-step instructions   and recommendations aimed at improving interoperability and consistency of submitted   data. &
+  dx.doi.org/10.17504/protocols.io.bumknu4w \\
+JSON   structure of PHA4GE specification &
+  A JSON   structure of the PHA4GE specification has been provided for easier   integration into software applications. &
+  https://raw.githubusercontent.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/master/PHA4GE\_SARS-CoV-2\_Contextual\_Data\_Schema.json \\
+PHA4GE   template in the DataHarmonizer &
+  Javascript   application enabling standardized data entry, validation and export of   contextual data as submission-ready forms for GISAID and NCBI. The SOP for   using the software can be found at   https://github.com/Public-Health-Bioinformatics/DataHarmonizer/wiki/PHA4GE-SARS-CoV-2-Template &
+  https://github.com/Public-Health-Bioinformatics/DataHarmonizer/releases
+  
+\item $^1$ There are a number of resources that form the PHA4GE SARS-CoV-2 contextual data specification package which are described in the table. The package has been compiled to support user implementation and data sharing, with integration into workflows and new software applications in mind.
+\end{longtable}
+
+
