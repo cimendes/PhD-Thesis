@@ -289,6 +289,8 @@ sequencing instrument &
   \begin{tabular}[c]{@{}l@{}}Provide the version of the software used to\\ generate the consensus sequence.\end{tabular}
 \end{longtable}
 
+\normalsize	
+
 As many contextual data fields are stored in different locations and databases (e.g., LIMS, epidemiology case report forms and databases), a benefit of implementing the PHA4GE collection template is that it enables the capture of these different pieces of information in one place. The collection template also offers picklists for a variety of fields e.g., a curated INSDC country list for “geo\_loc name (country)”, the standardised name of the virus under the “organism” field (i.e., Severe acute respiratory coronavirus 2), and a multitude of standardised terms for sample types (anatomical materials and sites, environmental materials and sites, collection devices and methods). The “purpose of sequencing” field provides standardized tags which can be used to highlight sampling strategy criteria (e.g., baseline surveillance (random sampling), targeted sequencing (non-random sampling), which are very important for understanding bias when interpreting patterns in sequence data. The picklists provided are neither exhaustive, nor comprehensive, but have been curated from current literature representing active sampling and surveillance activities.
 
 If a pick list is missing standardised terms of interest, the reference guide also provides links to different ontology look-up services enabling users to identify additional standardized terms. The reference guide provides definitions for the fields, additional guidance regarding the structure of the values in the field, and any suggestions for addressing issues pertaining to privacy and identifiability. The curation SOP provides users with step-by-step instructions for populating the template, looking up standardized terms, and how best to structure sample descriptions. The SOP also highlights a number of ethical, practical, and privacy considerations for data sharing.
@@ -302,7 +304,70 @@ Canada is implementing a version of the PHA4GE specification to harmonise contex
 
 \begin{figure*}[h!]
 \centering
-\includegraphics[width=\textwidth]{figures/chapter 7/giac003fig1.jpeg}
+\includegraphics[width=\textwidth]{figures/chapter 7/giac003fig2.jpeg}
 \caption{The PHA4GE specification is being implemented in CanCOGeN to harmonize contextual data across jurisdictions. (A) CanCOGeN is Canada's SARS-CoV-2 national genomic surveillance initiative. Canada has a decentralized health system, with one federal and 13 provincial/territorial public health jurisdictions. Provinces/Territories have authority over how data are collected, stored, and shared. Every Canadian public health jurisdiction uses different collection instruments (e.g., case report forms), different data management systems, and different pipelines and software to perform bioinformatic analyses. Provinces/Territories share sequencing data and accompanying contextual data with the National Microbiology Lab's national SARS-CoV-2 genomics database (starred) according to a version of the PHA4GE specification for national surveillance activities. (B) Excerpts from two different province-specific case collection forms. Sample type information is collected in data collection instruments using different fields, different terms, at different levels of granularity, using abbreviations and formats. BAL: bronchoalveolar lavage; NPS: nasopharyngeal swab; UTM: universal transport medium. (C) An anonymized example of how the standard consistently structures contextual information and how it is being used for data sharing. The contextual data specification provides a wide variety of fields and pick lists of terms. In the example, the full set of standardized information shown would be shared by the province with the national database. Standardized information in boldface would be shared with public repositories; however select data elements (underscored) would be withheld according to jurisdictional data sharing policies. The specification enables users to harmonize and integrate data provenance, sampling strategy criteria, epidemiological information, and methods.}
 \label{fig:chap7_figure_2}
 \end{figure*}
+
+While the primary use case of the specification is for clinical sequencing, the sample collection fields have been developed to enable capture of information for a wide range of sample types, including environmental samples (e.g., swabs of hospital equipment and patient rooms, wastewater samples) and non-human hosts (e.g., wildlife, agricultural animal samples).
+
+\subsection{Submitting Data to Public Sequence Repositories }
+
+Most existing SARS-CoV-2 sequences have only been deposited in GISAID, with a proportion of submitters also depositing matching raw read data in the INSDC (i.e., National Center for Biotechnology Information (NCBI), European Molecular Biology Laboratory-European Bioinformatics Institute (EMBL-EBI) and DNA Data Bank of Japan (DDBJ)). While consensus genomes are widely deposited and used for public surveillance purposes, raw read data is critical for comparing methods, assessing reproducibility, as well as identifying minor variants. Linkage of contextual data to consensus sequences as well as raw data in public repositories is vital. 
+
+Within the INSDC, the contextual data is stored as accessioned BioSamples \cite{barrett_bioproject_2012} with a consistent set of attribute names and standardized values. BioSamples add value, promote reuse, and enable interoperability of data submitted from laboratories that may only be connected by following the same metadata standard. The INSDC databases have until recently provided a generic pathogen metadata template for the BioSample that is heavily utilized for bacterial genomic surveillance \cite{noauthor_home_nodate}. GISAID uses a different format and data structure for associating metadata primarily for influenza surveillance and now extended to include SARS-CoV-2. The ENA provides a virus metadata checklist (ENA virus pathogen reporting standard checklist) developed as part of the COMPARE project \cite{compare_home_nodate}, which is very similar to the GISAID submission requirements.
+
+Building off of these existing standards, a metadata specification for SARS-CoV-2 genomic surveillance was developed that is broad enough for internal laboratory use while providing mechanisms for mapping/transforming standardized contextual data for public release to INSDC and GISAID. Recently, PHA4GE worked with NCBI to develop a dedicated SARS-CoV-2 BioSample submission package in the NCBI Submission Portal, which incorporates many fields from the PHA4GE standard \cite{staff_dedicated_2021}. The Genomics Standards Consortium will also align its forthcoming “MIxS for SARS-CoV-2” package with this specification. EMBL-EBI will also offer the PHA4GE standard to submitters as one of its validated checklists. Taken together, the PHA4GE specification has already had widespread impact on contextual information data structures around the world.
+
+The detailed mapping of PHA4GE fields to public repository submission requirements, as well as guidance and advice, are available as supporting documents (see Table \ref{tab:ch7_table1}). We have also provided detailed protocols for data submission to the three participating repositories, GenBank/SRA (NCBI), ENA (EMBL-EBI), and GISAID. An overview of how the PHA4GE specification is integrated into public repository submissions is presented in Figure \ref{fig:chap7_figure_3}. PHA4GE recommendations for FAIR SARS-CoV-2 data submissions are as follows:
+
+\begin{enumerate}
+    \item submit raw sequencing data and assembled/consensus genomes to INSDC and GISAID when permitted by jurisdictional data sharing policies
+    \item create a BioSample record when submitting to the INSDC using the PHA4GE guidance, populating the mandatory and recommended fields where possible
+    \item curate public records (sequence data and contextual data), updating them when subsequent information becomes available or retracting if/when records become untrustworthy. 
+\end{enumerate}
+
+
+
+The specification has been used to submit standardized contextual data to different repositories by labs and sequencing initiatives globally. A selection of accession numbers for submissions to different repositories is provided below (Table \ref{tab:ch7_table4}).
+
+\begin{table}[]
+\centering
+\caption{A selection of accession numbers of harmonized contextual data records submitted to different public repositories.}
+\label{tab:ch7_table4}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+\toprule
+Data   Contributor &
+  Repository   Name &
+  Accession   Number \\ \midrule
+\begin{tabular}[c]{@{}l@{}}African Centre of Excellence for Genomics \\ of Infectious Diseases (Nigeria)\end{tabular} &
+  GISAID &
+  \begin{tabular}[c]{@{}l@{}}EPI\_ISL\_1035827\\ EPI\_ISL\_1035826\\ EPI\_ISL\_1035825\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}COVID-19 Genomic Surveillance \\ Regional Network (Latin America)\end{tabular} &
+  GISAID &
+  \begin{tabular}[c]{@{}l@{}}EPI\_ISL\_2158821\\ EPI\_ISL\_2158802\\ EPI\_ISL\_2158810\end{tabular} \\ \midrule
+\begin{tabular}[c]{@{}l@{}}COVID-19 Genomic Surveillance \\ Regional Network (Latin America)\end{tabular} &
+  EMBL-EBI &
+  SAMEA8968916 \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Rhode Island Department of \\ Health/Broad Institute (SPHERES)\end{tabular} &
+  NCBI &
+  SAMN18306978 \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Massachusetts General Hospital/Broad\\ Institute (SPHERES)\end{tabular} &
+  NCBI &
+  SAMN18309294 \\ \midrule
+Flow Health/Broad Institute (SPHERES) &
+  NCBI &
+  SAMN18308763 \\ \midrule
+\begin{tabular}[c]{@{}l@{}}New Brunswick Diagnostic Virology Reference\\ Center/Public Health Agency of Canada (CanCOGeN)\end{tabular} &
+  NCBI &
+  SAMN16784832 \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Toronto Invasive Bacterial Diseases \\ Network/McMaster University (CanCOGeN)\end{tabular} &
+  NCBI &
+  SAMN17505317 \\ \midrule
+\begin{tabular}[c]{@{}l@{}}Bat coronavirus phylogeography- Université de La Réunion, \\ UMR Processus Infectieux en Milieu Insulaire Tropical (PIMIT) \\ and Field Museum of Natural History\end{tabular} &
+  NCBI &
+  \begin{tabular}[c]{@{}l@{}}SAMN20400589\\ SAMN20400588\end{tabular}
+\end{tabular}%
+}
+\end{table}
