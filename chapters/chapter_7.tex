@@ -6,9 +6,13 @@ This chapter is a reproduction of the following publication:
 E. J. Griffiths, R. E. Timme, C. I. Mendes, A. J. Page, N. Alikhan, D. Fornika, F. Maguire, J. Campos, D. Park, I. B. Olawoye, P. E. Oluniyi, D. Anderson, A. Christoffels, A. G. da Silva, R. Cameron, D. Dooley, L. S. Katz, A. Black, I. Karsch-Mizrachi, T. Barrett, A. Johnston, T. R. Connor, S. M. Nicholls, A. A. Witney, G. H. Tyson, S. H. Tausch, A. R. Raphenya, B. Alcock, D. M. Aanensen, E. Hodcroft, W. W. L. Hsiao, A. T. R. Vasconcelos, D. R. MacCannell on behalf of the Public Health Alliance for Genomic Epidemiology (PHA4GE) consortium.
 Future-proofing and maximizing the utility of metadata: The PHA4GE SARS-CoV-2 contextual data specification package. GigaScience, Volume 11, giac003 (2022). DOI: \url{https://doi.org/10.1093/gigascience/giac003}
 
-The supplementary information referred throughout the text can be consulted in this chapter before the section of references. 
+As mentioned in Chapter \ref{ch:introduction}, the \ac{SARS-CoV-2} has brought a new meaning to genomic surveillance, with currently, over 8 million complete viral sequences are available at GISAID\footnote{\url{https://www.gisaid.org/}}, being one of the most highly sequenced genomes of any organism on the planet. 
+This richness in genomic information has been basal to identifying new variants of risk and new variants of concern with a myriad of different origins, identifying routes of transmission across borders, including the identification of "super-spreaders" events, and informing infection control measures. 
 
-TO CONTINUEEEEE
+Despite this richness in genomic information, the same is not observed for the metadata that accompanies it. As described in Chapter \ref{ch:paper6}, a standardised output specification was conceived, this time applied to SARS-CoV-2 contextual data based on harmonisable, publicly available community standards. This is implemented through a collection template, as well as a variety of protocols and tools to support both the harmonisation and submission of sequence data and contextual information to public biorepositories.
+
+My contribution to this publication included the development of the SARS-CoV-2 contextual data specification package, including it's conversion and availability in a machine-applicable JSON format. I've also maintain the public repository where the data specification package is hosted\footnote{\url{https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification/}} Additionally, I've also contributed to the manuscript production and editing.
+
 
 \cleardoublepage 
 
@@ -302,7 +306,7 @@ The amount of, and manner in which the specification is implemented is ultimatel
 
 Canada is implementing a version of the PHA4GE specification to harmonise contextual data across all data providers for national SARS-CoV-2 surveillance [5]. Harmonised contextual information is provided by different jurisdictions, and stored in the national genomics surveillance database at the Public Health Agency of Canada’s National Microbiology Laboratory. A worked example is provided to demonstrate how free text information can be structured according to the specification, and how subsets of the contextual data can be shared according to jurisdictional policies (Figure \ref{fig:chap7_figure_2}). 
 
-\begin{figure*}[h!]
+\begin{figure*}[]
 \centering
 \includegraphics[width=\textwidth]{figures/chapter 7/giac003fig2.jpeg}
 \caption{The PHA4GE specification is being implemented in CanCOGeN to harmonize contextual data across jurisdictions. (A) CanCOGeN is Canada's SARS-CoV-2 national genomic surveillance initiative. Canada has a decentralized health system, with one federal and 13 provincial/territorial public health jurisdictions. Provinces/Territories have authority over how data are collected, stored, and shared. Every Canadian public health jurisdiction uses different collection instruments (e.g., case report forms), different data management systems, and different pipelines and software to perform bioinformatic analyses. Provinces/Territories share sequencing data and accompanying contextual data with the National Microbiology Lab's national SARS-CoV-2 genomics database (starred) according to a version of the PHA4GE specification for national surveillance activities. (B) Excerpts from two different province-specific case collection forms. Sample type information is collected in data collection instruments using different fields, different terms, at different levels of granularity, using abbreviations and formats. BAL: bronchoalveolar lavage; NPS: nasopharyngeal swab; UTM: universal transport medium. (C) An anonymized example of how the standard consistently structures contextual information and how it is being used for data sharing. The contextual data specification provides a wide variety of fields and pick lists of terms. In the example, the full set of standardized information shown would be shared by the province with the national database. Standardized information in boldface would be shared with public repositories; however select data elements (underscored) would be withheld according to jurisdictional data sharing policies. The specification enables users to harmonize and integrate data provenance, sampling strategy criteria, epidemiological information, and methods.}
@@ -327,7 +331,12 @@ The detailed mapping of PHA4GE fields to public repository submission requiremen
     \item curate public records (sequence data and contextual data), updating them when subsequent information becomes available or retracting if/when records become untrustworthy. 
 \end{enumerate}
 
-
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 7/giac003fig3.jpeg}
+\caption{Overview of how the PHA4GE SARS-CoV-2 contextual data specification can be integrated into public repository submission. The PHA4GE collection template provides a one-stop shop for different data types that are important for global surveillance. The protocols provided as part of the specification package describe how PHA4GE fields can be mapped to different repository submission forms. Consensus sequences (FASTA), accompanied by a subset of PHA4GE fields, can be submitted to the GISAID EpiCoV database (A). Consensus sequences (FASTA) (B) as well as raw/processed data (FASTQ, BAM) (C, D) can be submitted to INSDC databases (e.g., GenBank, SRA) with different subsets of PHA4GE fields as part of a BioSample record. BioSamples are propagated throughout INSDC databases.}
+\label{fig:chap7_figure_3}
+\end{figure*}
 
 The specification has been used to submit standardized contextual data to different repositories by labs and sequencing initiatives globally. A selection of accession numbers for submissions to different repositories is provided below (Table \ref{tab:ch7_table4}).
 
@@ -371,3 +380,64 @@ Flow Health/Broad Institute (SPHERES) &
 \end{tabular}%
 }
 \end{table}
+
+\section{Conclusion}
+
+The collective response to the SARS-CoV-2 pandemic has resulted in an unprecedented deployment of genomic surveillance worldwide, bringing together public health agencies, academic research institutions, and industry partners. This unified action provides opportunities to more effectively understand and respond to the pandemic. Yet it also provides an enormous challenge, as realizing the full potential of this opportunity will require standardisation and harmonization of data collection across these partners. With our SARS-CoV-2 metadata specification we have endeavored to create a mechanism for promoting consistent, standardised contextual data collection that can be applied broadly. We envision that given the increased uptake, this specification will improve the consistency of collected data, making information reusable by agencies as they continue working towards an increased understanding of SARS-CoV-2 epidemiology and biology, and harmonising them such that community-based data sharing efforts are not excessively burdened. We anticipate that the experience and lessons learned creating the specification package for SARS-CoV-2 will better enable the rapid development and deployment of pathogen-specific standards for public health pathogen genomic surveillance in the future.
+
+\section{Methods}
+
+The PHA4GE SARS-CoV-2 data specification was developed by first comparing existing metadata standards (e.g., MIxS/MIGS, the NIAID/BRC Sample Application Standard), various sequence repository submission requirements (e.g., GISAID, INSDC), as well as national and international case report forms. 
+
+A gap analysis was performed to identify SARS-CoV-2 public health surveillance data elements that were missing in available standards. Fields in existing standards that were deemed to be out of scope were excluded from the specification. Terms for pick lists were sourced from public health documents, the literature, and when available, various interoperable ontologies (OBO Foundry). The fields and terms from the gap analysis were structured in the collection template (.xlsx). Field definitions, guidance for use, examples and mappings to various standards were developed as part of the Reference Guides provided in separate tabs in the template workbook. Vocabulary lists were also provided in a separate tab in the template workbook to enable validation, and to enable users to add terms to pick lists as needed, according to instructions provided in the curation SOP. The specification was also encoded as a JavaScript Object Notation (JSON) file. 
+
+The specification was reviewed by public health, bioinformaticians and data standards experts from different public health agencies, research institutes and sequencing consortia and adapted according to feedback. Upon request by community members, versioned protocols for public repository submission were created and deposited in protocols.io.
+
+The first version of the specification was made publicly available in August 2020 with a CC-BY 4.0 International attribution license. Iterative improvements were made to a development branch of the specification over the next 10 months as the pandemic evolved, and in response to user feedback and requests. The second major release (2.0) was made publicly available in May 2021. A third major release (3.0) including ontology mappings and the term-level reference guide was made publicly available in December 2021. The PHA4GE template was incorporated into the contextual data harmonization, validation and transformation tool called The DataHarmonizer through a collaborative effort with the Hsiao Public Health Bioinformatics Laboratory (Simon Fraser University). Details regarding DataHarmonizer development can be found elsewhere (manuscript in preparation).
+
+\section{Availability and Requirements}
+
+The software used in this study is available on GitHub. 
+
+\textbf{Project name:} SARS-CoV-2-Contextual-Data-Specification
+
+\textbf{Project home page:} https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+
+\textbf{Operating system:} Platform independent
+
+\textbf{Programming language:} Not applicable
+
+\textbf{Other requirements:} xlsx-compatible spreadsheet software
+
+\textbf{License: }CC-BY 4.0 International
+
+\textbf{RRID:} SCR\_021378
+
+\textbf{biotools:} pha4ge\_sars-cov-2\_contextual\_data\_specification
+
+\section{Declarations}
+
+\subsection{Ethics approval and consent to participate}
+
+Not applicable.
+
+\subsection{Consent for publication}
+
+Not applicable.
+
+
+\subsection{Competing interests}
+
+The authors declare that they have no competing interests.
+
+\section{Funding}
+
+We wish to thank the Bill & Melinda Gates Foundation for supporting the establishment and work of the PHA4GE consortium. AJP and NFA gratefully acknowledge the support of the Biotechnology and Biological Sciences Research Council (BBSRC); and were supported by the Quadram Institute Bioscience BBSRC funded Core Capability Grant (project number BB/CCG1860/1) and the BBSRC Institute Strategic Programme Microbes in the Food Chain BB/R012504/1 and its constituent project BBS/E/F/000PR10352. FM was supported by a Donald Hill Family Fellowship in Computer Science. CIM was supported by the Fundação para a Ciência e Tecnologia (grant SFRH/BD/129483/2017). Work by EJG, RC, DD, and WWLH was funded by a Genome Canada Bioinformatics and Computational Biology 2017 Grant #286GET and a Genome Canada CanCOGeN grant E09CMA. The work of IKM, TB, and AJ was supported by the Intramural Research Program of the National Library of Medicine, National Institutes of Health. 
+
+\section{Authors' contributions}
+
+EJG: Conceptualization, Methodology, Investigation, Software, Visualization, Writing - Original Draft Preparation, Validation, Supervision; RET: Methodology, Investigation, Software, Validation, Writing - Original Draft Preparation; CIM: Methodology, Software, Writing - Review & Editing; AJP: Methodology, Writing - Original Draft Preparation; NFA: Methodology, Software, Validation, Writing - Original Draft Preparation; DF: Methodology, Software; JC: Validation, Writing - Review & Editing; DP: Validation, Writing - Review & Editing; IDB: Validation, Writing - Review & Editing; DA: Software, Validation, Writing - Review & Editing; AC: Writing - Review & Editing; AGS: Software, Validation, Writing - Review & Editing; RC: Software, Validation; DD: Software, Validation; LSK: Validation, Writing - Review & Editing; AB: Methodology, Writing - Original Draft Preparation; IKM: Software, Validation, Writing - Review & Editing; TB: Software, Validation, Writing - Review & Editing; AJ: Software, Validation, Writing - Review & Editing; TRC: Validation, Writing - Review & Editing; SMN: Validation, Writing - Review & Editing; AAW: Writing - Review & Editing; PEO: Writing - Review & Editing; GHT: Writing - Review & Editing; SHT: Writing - Review & Editing; ARR: Writing - Review & Editing; BA: Writing - Review & Editing; DAM: Writing - Review & Editing; EH: Writing - Review & Editing; WWLH: Writing - Review & Editing; ATRV: Writing - Review & Editing; DRM: Conceptualization, Methodology, Visualization, Writing - Review & Editing, Funding Acquisition.
+
+\section{Acknowledgements}
+
+The authors would like to thank the US Center for Disease Control and Prevention’s Technical Outreach and Assistance for States Team (TOAST) for their feedback, support, and assistance in disseminating the PHA4GE specification package among US public health networks.
