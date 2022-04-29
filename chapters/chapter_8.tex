@@ -5,3 +5,58 @@ This chapter is a reproduction of the following publication:
 
 B. C. L. van der Putten, C. I. Mendes, B. M. Talbot, J. de Korne-Elenbaas, R. Mamede, P. Vila-Cerqueira, L. P. Coelho, C. A. Gulvik, L. S. Katz and The ASM NGS 2020 Hackathon participants. Software testing in microbial bioinformatics: a call to action. Microbial Genomics, Volume 8, Issue 3, March 2020. DOI: \url{https://doi.org/ 10.1099/mgen.0.000790}
 
+TO DO 
+
+\cleardoublepage 
+
+\begin{center}
+\large
+\textbf{Software testing in microbial bioinformatics: a call to action}
+\end{center}
+
+Boas C. L. van der Putten$^{1,2,*}$, 
+Catarina I. Mendes$^{3,*}$,
+Brooke M. Talbot$^{4}$, 
+Jolinda de Korne-Elenbaas$^{1,5}$, 
+R. Mamede$^{3}$, 
+P. Vila-Cerqueira$^{3}$, 
+L. P. Coelho$^{6,7}$, 
+C. A. Gulvik$^{8}$, 
+L. S. Katz$^{9,10}$ and The ASM NGS 2020 Hackathon participants
+
+$^1$Department of Medical Microbiology, Amsterdam UMC, University of Amsterdam, the Netherlands
+
+$^2$Department of Global Health, Amsterdam Institute for Global Health and Development, Amsterdam UMC, University of Amsterdam, the Netherlandss
+
+$^3$Instituto de Microbiologia, Instituto de Medicina Molecular, Faculdade de Medicina, Universidade de Lisboa, Lisboa, Portugal 
+
+$^4$Department of Biological and Biomedical Sciences, Emory University, Atlanta, GA, USA
+
+$^5$Department of Infectious Diseases, Public Health Laboratory, Public Health Service of Amsterdam, the Netherlands
+
+$^6$Institute of Science and Technology for Brain-Inspired Intelligence, Fudan University, PR China
+
+$^7$Key Laboratory of Computational Neuroscience and Brain-Inspired Intelligence, PR China
+
+$^8$Bacterial Special Pathogens Branch, Division of High-Consequence Pathogens and Pathology, Centers for Disease Control and Prevention, Atlanta, GA, USA
+
+$^9$Center for Food Safety, University of Georgia, Griffin, GA, USA
+
+$^{10}$Enteric Diseases Laboratory Branch, Division of Foodborne, Waterborne, and Environmental Diseases, Centers for Disease Control and Prevention, Atlanta, GA, USA
+
+$^*$Contributed equally
+
+\section{Abstract} \label{sec:ch8_abstract}
+
+Computational algorithms have become an essential component of research, with great efforts by the scientific community to raise standards on development and distribution of code. Despite these efforts, sustainability and reproducibility are major issues since continued validation through software testing is still not a widely adopted practice. Here, we report seven recommendations that help researchers implement software testing in microbial bioinformatics. We have developed these recommendations based on our experience from a collaborative hackathon organised prior to the American Society for Microbiology Next Generation Sequencing (ASM NGS) 2020 conference. We also present a repository hosting examples and guidelines for testing, available from \url{https://github.com/microbinfie-hackathon2020/CSIS}.
+
+
+\section{Impact Statement}
+
+In the field of microbial bioinformatics, good software engineering practises are not yet widely adopted. Many microbial bioinformaticians start out as (micro)biologists and subsequently learn how to code. Without abundant formal training, a lot of education about good software engineering practices comes down to an exchange of information within the microbial bioinformatics community. This paper serves as a resource that could help microbial bioinformaticians get started with software testing if they have not had formal training.
+
+\section{Background}
+
+Computational algorithms, software, and workflows have enhanced the breadth and depth of microbiological research and expanded the capacity of infectious disease surveillance in public health practice. Scientists now have a wealth of bioinformatic tools for addressing pertinent questions quickly and keeping pace with the availability of larger and more complex biological datasets. Despite these advances, we are finding ourselves in a crisis of computational reproducibility \cite{stodden_empirical_2018}.
+
+Modern software engineering advocates reliable software testing standards and best practices. Different approaches are employed: from unit testing to system testing \cite{krafczyk_scientific_2019}[2], going from testing every individual component to testing a tool as a whole (Fig. \ref{}). The extent of testing is a balance between the resources available and increasing sustainability and reproducibility. Continuous Integration (CI), where code changes are frequently integrated and assertion of the new code’s correctness before integration is often automatedly performed through tests, provides a robust approach for ensuring the reproducibility of scientific results without requiring human interaction. Comprehensive testing of scientific software might prevent computational errors which subsequently lead to erroneous results and retractions \cite{}[3, 4]. However, the role of testing extends beyond that, as it also provides a way to measure software coverage, and therefore its robustness, allowing for reported issues to be converted into testable actions (regression tests), and the expansion and refactoring of existing code without compromising its function.
