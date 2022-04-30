@@ -132,3 +132,57 @@ Fault injection &
 
 When testing, it is important to include test files with known expected outcomes for a successful run. However, it is equally important to include files or other inputs on which the tool is expected to fail. For example, some tools should recognize and report an empty input file or a wrong input format. Therefore, the test dataset should be small enough to be easily deployed (see recommendation #4) but as large as necessary to cover all intended test cases. Data provenance should be disclosed, either if it’s from real data or originated in silico. Typically, a small test data is packaged with the software. Examples of valid and invalid file formats are available through the BioJulia project (\url{https://github.com/BioJulia/BioFmtSpecimens}). The nf-core project (\url{https://nf-co.re/}) provides a repository with test data for a myriad of cases (\url{https://github.com/nf-core/test-datasets}).
 
+\subsection{Use an established framework to implement testing}
+
+Understanding the test workflow can not only ensure continued software development but also the integrity of the project for developers and users. Testing frameworks improve test development and efficiency. Examples include unittest (\url{https://docs.python.org/3/library/unittest.html}) or pytest (\url{https://docs.pytest.org/en/stable/}) for Python, and testthat (\url{https://testthat.r-lib.org/}) for R, testing interfaces such as TAP (\url{http://testanything.org/}), or built-in test attributes such as in Rust. Although many tests can be implemented using a combination of frameworks, personal preferences (e.g. amount of boilerplate code required) might drive your choice. Additionally, in Github Actions the formulas of each test block can be explicitly stated using the standardised and easy-to-follow YAML (\url{https://yaml.org/}, Fig. \ref{}, available in the online version of this article), already adopted by most continuous integration platforms (recommendation \#4). For containerised software, testing considerations differ slightly and have been covered previously by Gruening et al. (2019) \cite{gruening_recommendations_2019}.
+
+\subsection{Testing is good, automated testing is better}
+
+When designing tests, planning for automation saves development time. Whether your tests are small or comprehensive, automatic triggering of tests will help reduce your workload. Many platforms trigger tests automatically based on a set of user-defined conditions. Platforms such as GitHub Actions (\url{https://github.com/features/actions}) and GitLab CI (\url{https://about.gitlab.com/stages-devops-lifecycle/continuous-integration}) offer straightforward automated testing of code seamlessly upon deployment. A typical workflow, consisting of a minimal testing framework (see recommendation \#1 and \#3) and a small test dataset (see recommendation \#2), can then be directly integrated within your project hosted on a version control system, such as GitHub (\url{https://github.com/}), and directly integrated with a continuous integration provider, such as GitHub Actions in GitHub. Testing considerations for containerised software has been covered previously by Gruening et al. (2019) \cite{gruening_recommendations_2019}.
+
+\subsection{Ensure portability by testing on several platforms}
+
+The result of an automated test in the context of one computational workspace does not ensure the same result will be obtained in a different setup. It is important to ensure your software can be installed and used across supported platforms. One way to ensure this is to test on different environments, with varying dependency versions (e.g. multiple Python versions, instead of only the most recent one). Developers can gain increased benefits of testing if tests are run on different setups automatically (see recommendation #4 and Fig. \ref{}).
+
+\subsection{Showcase the tests}
+
+For prospective users, it is good to know whether you have tested your software and, if so, which tests you have included. This can be done by displaying a badge \cite{trockman_adding_2018} (see \url{https://github.com/microbinfie-hackathon2020/CSIS/blob/main/README.md#example-software-testing}), or linking to your defined testing strategy e.g. a GitHub Actions YAML, (see recommendation \#2, Fig. \ref{}). Documenting the testing goal and process enables end-users to easily check tool functionality and the level of testing \cite{karimzadeh_top_2018}.
+
+It may be helpful to contact the authors, directly or through issues in the code repository, whose software you have tested to share successful outcomes or if you encountered abnormal behaviour or component failures. An external perspective can be useful to find bugs that the authors are unaware of. A set of issue templates for various situations is available in the CSIS repository on GitHub (\url{https://github.com/microbinfie-hackathon2020/CSIS/tree/main/templates}).
+
+\subsection{Encourage others to test your software}
+
+Software testing can be crowdsourced, as showcased by the ASM NGS 2020 hackathon. Software suites such as Pangolin (\url{https://github.com/cov-lineages/pangolin}) \cite{otoole_assignment_2021} and chewBBACA (\url{https://github.com/B-UMMI/chewBBACA}) \cite{silva_chewbbaca_nodate} have implemented automated testing developed during the hackathon. For developers, crowdsourcing offers the benefits of fresh eyes on your software. Feedback and contributions from users can expedite the implementation of software testing practices. It also contributes to software sustainability by creating community buy-in, which ultimately helps the software maintainers keep pace with dependency changes and identify current user needs.
+
+\section{Conclusions}
+ 
+Testing is a critical aspect of scientific software development, but automated software testing remains underused in scientific software. In this hackathon, we demonstrated the usefulness of testing and developed a set of recommendations that should improve the development of tests. We also demonstrated the feasibility of producing test suites for already-established microbial bioinformatics software (Table S1).
+
+ 
+\section{Funding information}
+ 
+C.I.M. was supported by the Fundação para a Ciência e Tecnologia (grant SFRH/BD/129483/2017). L.P.C. was partially supported by Shanghai Municipal Science and Technology Major Project (2018SHZDZX01) and ZJLab. R. M. was supported by the Fundação para a Ciência e Tecnologia (grant 2020.08493.BD).
+
+ 
+\section{Acknowledgements}
+ 
+The findings and conclusions in this report are those of the authors and do not necessarily represent the official position of the Centers for Disease Control and Prevention (CDC). The mention of company names or products does not constitute an endorsement by the CDC.
+
+ 
+\section{Author contributions}
+ 
+In addition to the authors, the following participants were responsible for automating tests for bioinformatic tools and contributing a community resource for identifying software that can pass unit tests, available at \url{https://github.com/microbinfie-hackathon2020/CSIS}. Participants are listed alphabetically: Áine O’Toole, Amit Yadav, Justin Payne, Mario Ramirez, Peter van Heusden, Robert A. Petit III, Verity Hill, Yvette Unoarumhi.
+
+ 
+\section{Conflicts of interest}
+ 
+The authors declare that there are no conflicts of interest.
+
+\section{Supplemental Material}
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 8/mgen000790-f1.png}
+\caption{Testing strategies. (a) White-box vs. black-box testing. In white-box testing, the tester knows the underlying code and structure of the software, where the tester does not know this in black-box testing. Note that this distinction is not strictly dichotomous and is considered less useful nowadays (b) Unit vs. integration vs. system testing. When software comprises several modules, it is possible to test each single module (unit testing), groups of related modules (integration testing) or all modules (system testing). Note that the terms white-box testing and unit testing are sometimes used interchangeably but relate to different concepts}
+\label{fig:chap8_figure1}
+\end{figure*}
