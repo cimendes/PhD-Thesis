@@ -5,21 +5,7 @@ This chapter is a reproduction of the following publication:
 
 B. C. L. van der Putten, C. I. Mendes, B. M. Talbot, J. de Korne-Elenbaas, R. Mamede, P. Vila-Cerqueira, L. P. Coelho, C. A. Gulvik, L. S. Katz and The ASM NGS 2020 Hackathon participants. Software testing in microbial bioinformatics: a call to action. Microbial Genomics, Volume 8, Issue 3, March 2020. DOI: \url{https://doi.org/ 10.1099/mgen.0.000790}
 
-Computational algorithms have become an essential component of microbiome research, with great efforts by the scientific community to raise standards on the development and distribution of code. Despite these efforts, sustainability and reproducibility are major issues since continued validation through software testing is still not a widely adopted practice.  
-
-In the field of microbial bioinformatics, good software engineering practices are not yet widely adopted. Many microbial bioinformaticians start out as (micro)biologists and subsequently learn how to code. Without abundant formal training, a lot of education about good software engineering practices comes down to an exchange of information within the microbial bioinformatics community. 
-
-Here, we report seven recommendations that help researchers implement software testing in microbial bioinformatics. These recommendations are: Establish software needs and testing goals; Use appropriate input test files; Use an easy-to-follow language format to implement testing; Try to automate testing; Test across multiple computational setups; and Encourage others to test your software.
-
-We propose collaborative software testing as an opportunity to continuously engage software users, developers, and students to unify scientific work across domains. As automated software testing remains underused in scientific software, our set of recommendations not only ensures appropriate effort can be invested into producing high quality and robust software but also increases engagement in its sustainability.
-
-We have developed these recommendations based on our experience from a collaborative hackathon organised prior to the American Society for Microbiology Next Generation Sequencing (ASM NGS) 2020 conference. We also present a repository hosting examples and guidelines for testing, available from \url{https://github.com/microbinfie-hackathon2020/CSIS}.
-
-My contribution to this publication included the development of the seven recommendations here presented, including examples of software testing. Additionally, I have also contributed to the manuscript production and
-editing.
-
-
-
+TO DO 
 
 \cleardoublepage 
 
@@ -156,11 +142,11 @@ When designing tests, planning for automation saves development time. Whether yo
 
 \subsection{Ensure portability by testing on several platforms}
 
-The result of an automated test in the context of one computational workspace does not ensure the same result will be obtained in a different setup. It is important to ensure your software can be installed and used across supported platforms. One way to ensure this is to test on different environments, with varying dependency versions (e.g. multiple Python versions, instead of only the most recent one). Developers can gain increased benefits of testing if tests are run on different setups automatically (see recommendation \#4 and Fig. \ref{tab:ch8_table_sup1}).
+The result of an automated test in the context of one computational workspace does not ensure the same result will be obtained in a different setup. It is important to ensure your software can be installed and used across supported platforms. One way to ensure this is to test on different environments, with varying dependency versions (e.g. multiple Python versions, instead of only the most recent one). Developers can gain increased benefits of testing if tests are run on different setups automatically (see recommendation #4 and Fig. \ref{}).
 
 \subsection{Showcase the tests}
 
-For prospective users, it is good to know whether you have tested your software and, if so, which tests you have included. This can be done by displaying a badge \cite{trockman_adding_2018} (see \url{https://github.com/microbinfie-hackathon2020/CSIS/blob/main/README.md#example-software-testing}), or linking to your defined testing strategy e.g. a GitHub Actions YAML, (see recommendation \#2, Fig. \ref{tab:ch8_table_sup1}). Documenting the testing goal and process enables end-users to easily check tool functionality and the level of testing \cite{karimzadeh_top_2018}.
+For prospective users, it is good to know whether you have tested your software and, if so, which tests you have included. This can be done by displaying a badge \cite{trockman_adding_2018} (see \url{https://github.com/microbinfie-hackathon2020/CSIS/blob/main/README.md#example-software-testing}), or linking to your defined testing strategy e.g. a GitHub Actions YAML, (see recommendation \#2, Fig. \ref{}). Documenting the testing goal and process enables end-users to easily check tool functionality and the level of testing \cite{karimzadeh_top_2018}.
 
 It may be helpful to contact the authors, directly or through issues in the code repository, whose software you have tested to share successful outcomes or if you encountered abnormal behaviour or component failures. An external perspective can be useful to find bugs that the authors are unaware of. A set of issue templates for various situations is available in the CSIS repository on GitHub (\url{https://github.com/microbinfie-hackathon2020/CSIS/tree/main/templates}).
 
@@ -196,87 +182,7 @@ The authors declare that there are no conflicts of interest.
 
 \begin{figure*}[]
 \centering
-\includegraphics[width=\textwidth]{figures/chapter 8/sup_fig_1.png}
-\caption{Example YAML file for a GitHub Actions workflow.}
-\label{fig:chap8_sup_figure1}
+\includegraphics[width=\textwidth]{figures/chapter 8/mgen000790-f1.png}
+\caption{Testing strategies. (a) White-box vs. black-box testing. In white-box testing, the tester knows the underlying code and structure of the software, where the tester does not know this in black-box testing. Note that this distinction is not strictly dichotomous and is considered less useful nowadays (b) Unit vs. integration vs. system testing. When software comprises several modules, it is possible to test each single module (unit testing), groups of related modules (integration testing) or all modules (system testing). Note that the terms white-box testing and unit testing are sometimes used interchangeably but relate to different concepts}
+\label{fig:chap8_figure1}
 \end{figure*}
-
-
-\begin{table}[]
-\centering
-\caption{Software tested during the ASM NGS 2020 hackathon}
-\label{tab:ch8_table_sup1}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llll@{}}
-\toprule
-Software Name &
-  Software (URL) &
-  Test File (URL) &
-  Literature Citation (DOI) \\ \midrule
-BUSCO &
-  \begin{tabular}[c]{@{}l@{}}https://gitlab.com/\\ ezlab/busco\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/busco.yml\end{tabular} &
-  10.1093/bioinformatics/btv351 \\
-Centrifuge &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ DaehwanKimLab/centrifuge\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/centrifuge.yml\end{tabular} &
-  10.1101/gr.210641.116 \\
-CheckM &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ Ecogenomics/CheckM\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/checkm.yml\end{tabular} &
-  10.1101/gr.186072.114 \\
-chewBBACA &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ B-UMMI/chewBBACA\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/B-UMMI/\\ chewBBACA/blob/master/\\ .github/workflows/chewbbaca.yml\end{tabular} &
-  10.1099/mgen.0.000166 \\
-CSIS &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ microbinfie-hackathon2020/CSIS\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/CSIS.yml\end{tabular} &
-  this manuscript \\
-Genotyphi &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ katholt/genotyphi\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/genotyphi.yml\end{tabular} &
-  10.1038/ncomms12827 \\
-Kraken &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ DerrickWood/kraken\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/kraken.yml\end{tabular} &
-  10.1186/gb-2014-15-3-r46 \\
-Kraken2 &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ DerrickWood/kraken2\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/kraken2.yml\end{tabular} &
-  10.1186/s13059-019-1891-0 \\
-KrakenUniq &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ fbreitwieser/krakenuniq\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/krakenuniq.yml\end{tabular} &
-  10.1186/s13059-018-1568-0 \\
-Pangolin &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ cov-lineages/pangolin\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/pangolin.yml\end{tabular} &
-  absent \\
-Prokka &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ tseeman/prokka\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/prokka.yml\end{tabular} &
-  10.1093/bioinformatics/btu153 \\
-Quast &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ ablab/quast\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/quast.yml\end{tabular} &
-  10.1093/bioinformatics/btt086 \\
-Shovill &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ tseemann/shovill\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/shovill.yml\end{tabular} &
-  absent \\
-SKESA &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ ncbi/SKESA\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/skesa.yml\end{tabular} &
-  10.1186/s13059-018-1540-z \\
-Trycycler &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ rrwick/Trycycler\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/trycycler.yml\end{tabular} &
-  10.5281/zenodo.4430941 \\
-Unicycler &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/\\ rrwick/Unicycler\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}https://github.com/microbinfie-\\ hackathon2020/CSIS/blob/main/\\ .github/workflows/unicycler.yml\end{tabular} &
-  10.1371/journal.pcbi.1005595 \\ \bottomrule
-\end{tabular}%
-}
-\end{table}
