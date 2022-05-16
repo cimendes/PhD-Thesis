@@ -60,17 +60,7 @@
 \usepackage{eurosym}
 \usepackage{booktabs}
 \usepackage[T1]{fontenc}
-\usepackage[acronym]
-\makeatletter
-
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-    \hbox{}
-    \thispagestyle{plain}
-    \newpage
-    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
-    
-\makeatother \clearpage{\pagestyle{plain}\cleardoublepage}
-
+\usepackage{acronym}
 \providecommand{\keywords}[1]{\textbf{Keywords:} #1}
 \providecommand{\keywordsP}[1]{\textbf{Palavras chave:} #1}
 \newcommand{\secref}[1]{\autoref{#1}. \nameref{#1}}
@@ -85,6 +75,13 @@
 \usepackage{pifont}
 \usepackage[symbol]{footmisc}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\makeatother
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother \clearpage{\pagestyle{plain}\cleardoublepage}
 
 
 %-----------------------------------------------------------------
