@@ -1,0 +1,31 @@
+\mbox{}\\
+\vspace{8cm}
+
+The rise of life lost due to the rise of microbial pathogens, particularly when associated with the rise of \ac{AMR}, poses a major threat to human health around the world. Optimising the diagnostic process is crucial in managing infectious diseases \citep{vos_global_2020}. Metagenomics, and in particular \ac{SMg}, has emerged as a promising approach for diagnosis from clinical samples and surveillance of organisms of interest \citep{loman_culture-independent_2013, rossen__2018, schuele_future_2021, chiu_clinical_2019}. A single metagenomics analysis has the potential to detect common, rare and novel pathogens, and provides a broad overall picture of the microorganisms present in a sample, even if the sample contains a complex (polymicrobial) community. Despite this, is often unclear whether a detected microorganism is a contaminant, coloniser or \textit{bona fide} pathogen, and the lack of golden standards remains one of the biggest challenges when applying these methods in clinical microbiology for diagnosis.
+
+In this thesis, we have evaluated the use of bioinformatics methods for the analysis of metagenomic data to allow the rapid identification, virulence analysis and antimicrobial susceptibility prediction of pathogens with clinical relevance, from both diagnostic and a surveillance settings. With the widespread use and continuous development of sequencing technologies, bioinformatics has become a cornerstone in modern clinical microbiology. As mentioned previously, the lack of golden standards severely hinders the applicability of bioinformatic methods, particularly in \ac{SMg} \citep{carrico_primer_2018, couto_critical_2018, angers-loustau_challenges_2018, gruening_recommendations_2019, sczyrba_critical_2017}. 
+
+Several limitations have been identified that, in its current form, curb the applicability of these methods in both clinical and public health microbiology. 
+
+\subsection{Limitations of sequencing technologies}
+
+While the application of genomics in clinical microbiology has been increasing, the translation of genetic information remains challenging. Recent advances in DNA sequencing technologies have expanded their application as a diagnostic tool, but limitations still prevail. After over a quarter of a century of development and maturation, several technologies are available to be used both in research and in the clinic, from the first generation DNA chain termination sequencing to third generation long-read sequencing. 
+
+First generation sequencing technologies requires the input \ac{DNA} to consist of a pure population of sequences, as each molecule will contribute to the final eletropherogram, as it is a superposition of all of the input molecules \citep{hagemann_overview_2015}. As such, it cannot be applied to metagenomic methodologies. 
+
+Second generation sequencing so far represent the most popular technology applied in metagenomics \citep{rossen_practical_2018, loman_twenty_2015, loman_high-throughput_2012}. Second-generation methods require library preparation and an enrichment or amplification step \citep{hagemann_overview_2015}, a time-consuming, bias inducing procedure that is propagated to the resulting sequencing data. Another limitation is the size of the outputted sequences that, despite the massive throughput of some of the machines available, requiring a very small \ac{DNA} input load to produce up to billions of sequences \citep{loman_twenty_2015}, ranges from from 45 to 300 bases in length \citep{loman_performance_2012}. This is simply not enough to not only transverse the most repetitive genomic regions, and severely limits the sensitivity of the methodology. Additionally, turnaround times range from several hours to a full days, not ideal for a timely diagnosis.
+
+The presence of an overwhelming amount of host \ac{DNA} or \ac{RNA} is one of the most important problems to be addressed in \ac{SMg}.
+
+The unbiased nature of \ac{SMg} allows the sequencing of the nucleic acid of all pathogens (including commensal microbes) and the host. However, this unbiased nature of SMg might lower the sensitivity of pathogen detection. As the sequencing library comprises both nucleic acids from the patient and pathogens, the sequence coverage of the pathogen depends on the ratio of host/pathogen nucleic acid present in the sample. 
+
+Long-reads also have the advantage of resolving structural variations and variants in repetitive regions, which are poorly resolved by short-reads and are often excluded in bioinformatics analysis. 
+
+\subsection{Limitations of the bioinformatic analysis}
+
+In routine settings, automation and standardisation of the analysis are significant for the reliability of the diagnostic test results. 
+
+Chapters \ref{ch:paper1} and \ref{ch:paper4} highlight how different bioinformatics approaches, and different tools for the same approach, can affect the overall interpretation of the results. 
+
+The constant changes in versions and/or the discontinuation of a bioinformatics tool complicates the standardization of data analysis. In routine settings, automation and standardization of the analysis are significant for the reliability of the diagnostic test results.
+
