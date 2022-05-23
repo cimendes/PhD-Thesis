@@ -1,0 +1,61 @@
+\begin{table}[h!]
+\caption{DEN-IM’s workflow comparison with different tools for the identification and genotyping of DENV from sequencing data.}
+\label{tab:ch4_table1}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Tool} &
+  \textbf{Quality Control} &
+  \textbf{DENV Sequence Retrieval} &
+  \textbf{Assembly} &
+  \textbf{Typing} &
+  \textbf{Phylogeny} &
+  \textbf{Report} \\ \midrule
+DEN-IM &
+  \checkmark &
+  \checkmark &
+  \checkmark &
+  \checkmark &
+  \checkmark &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (one report \\ with all samples \\ analysed)\end{tabular} \\
+VIP &
+  \checkmark &
+  \checkmark$^1$ &
+  \checkmark &
+  X &
+  \checkmark &
+  \checkmark \\
+VirusTAP &
+  \checkmark &
+  \checkmark$^1$ &
+  \checkmark &
+  X &
+  X &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (web-based, \\ one per sample, \\ downloadable)\end{tabular} \\
+drVM &
+  \checkmark &
+  \checkmark$^1$ &
+  \checkmark &
+  X &
+  X &
+  X \\
+\begin{tabular}[c]{@{}l@{}}GenomeDetective \\ Virus Tool\end{tabular} &
+  \checkmark &
+  X &
+  \checkmark &
+  X &
+  X &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (web-based, \\ one per sample)\end{tabular} \\
+\begin{tabular}[c]{@{}l@{}}GenomeDetective \\ Dengue Typing Tool\end{tabular} &
+  X &
+  X &
+  X &
+  \checkmark$^2$ &
+  X &
+  \begin{tabular}[c]{@{}c@{}}\checkmark (web-based, \\ one per sample)\end{tabular} \\ \bottomrule
+\end{tabular}%
+}
+\small
+\item $^1$ Targeted for viral sequences, but not specific for DENV
+\item $^2$ Sequence file can be received from GenomeDetective Virus Tool, as well as independently uploaded
+\end{table}
