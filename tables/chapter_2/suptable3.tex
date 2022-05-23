@@ -1,0 +1,125 @@
+
+\begin{longtable}{ll}
+\caption{Supplementary table 3.}
+\label{tab:ch2_suptable3}\\
+\multicolumn{2}{l}{Illumina}                                                                  \\
+\endfirsthead
+%
+\endhead
+%
+\small
+Discard sequence names                       & FALSE                                          \\
+Discard quality scores                       & FALSE                                          \\
+Selected files                               &                                                \\
+Paired-end reads                             & TRUE                                           \\
+Read Orientation                             & Forward Reverse                                \\
+minimum distance                             & 1                                              \\
+maximum distance                             & 1000                                           \\
+Remove failed reads                          & TRUE                                           \\
+Quality score                                & NCBI/Sanger or Illumina Pipeline 1.8 and later \\
+MiSeq de-multiplexing                        & FALSE                                          \\
+Illumina trim                                & FALSE                                          \\
+                                             &                                                \\
+Trim Reads                                   &                                                \\
+Quality trim                                 & TRUE                                           \\
+Quality limit                                & 0.05                                           \\
+Ambiguous trim                               & TRUE                                           \\
+Ambiguous limit                              & 2                                              \\
+Trim adapter list                            & Illumina adapters                              \\
+Use colorspace                               & FALSE                                          \\
+Remove 5' terminal nucleotides               & FALSE                                          \\
+Number of 5' terminal nucleotides            & 1                                              \\
+Remove 3' terminal nucleotides               & FALSE                                          \\
+Number of 3' terminal nucleotides            & 1                                              \\
+Discard short reads                          & TRUE                                           \\
+Minimum number of nucleotides in reads       & 30                                             \\
+Discard long reads                           & FALSE                                          \\
+Maximum number of nucleotides in reads       & 1000                                           \\
+                                             &                                                \\
+Map Reads to Reference                       &                                                \\
+References                                   & Homo sapiens (hg19) sequence                   \\
+Masking mode                                 & No masking                                     \\
+Masking track                                &                                                \\
+Match score                                  & 1                                              \\
+Mismatch cost                                & 2                                              \\
+Cost of insertions and deletions             & Linear gap cost                                \\
+Insertion cost                               & 3                                              \\
+Deletion cost                                & 3                                              \\
+Insertion open cost                          & 6                                              \\
+Insertion extend cost                        & 1                                              \\
+Deletion open cost                           & 6                                              \\
+Deletion extend cost                         & 1                                              \\
+Length fraction                              & 0.5                                            \\
+Similarity fraction                          & 0.8                                            \\
+Global alignment                             & FALSE                                          \\
+Color space alignment                        & TRUE                                           \\
+Color error cost                             & 3                                              \\
+Auto-detect paired distances                 & TRUE                                           \\
+Non-specific match handling                  & Map randomly                                   \\
+                                             &                                                \\
+\multicolumn{2}{l}{Find Best Matches using K-mer Spectra}                                     \\
+References                                   & NCBI references (2017-07-08)                   \\
+K-mer length                                 & 16                                             \\
+Only index k-mers with prefix                & ATGAC                                          \\
+Check for low quality and contamination      & TRUE                                           \\
+Fraction of unmapped reads for quality check & 0.1                                            \\
+                                             &                                                \\
+De Novo Assembly                             &                                                \\
+Mapping mode                                 & Create simple contig sequences (fast)          \\
+Update contigs                               & TRUE                                           \\
+Mismatch cost                                & 2                                              \\
+Insertion cost                               & 3                                              \\
+Deletion cost                                & 3                                              \\
+Colorspace error cost                        & 3                                              \\
+Length fraction                              & 0.5                                            \\
+Similarity fraction                          & 0.8                                            \\
+Colorspace alignment                         & TRUE                                           \\
+Alignment mode                               & local                                          \\
+Match mode                                   & random                                         \\
+Create list of un-mapped reads               & FALSE                                          \\
+Automatic bubble size                        & TRUE                                           \\
+Bubble size                                  & 50                                             \\
+Automatic word size                          & TRUE                                           \\
+Word size                                    & 20                                             \\
+Minimum contig length                        & 200                                            \\
+Guidance only reads                          &                                                \\
+Perform scaffolding                          & TRUE                                           \\
+Auto-detect paired distances                 & TRUE                                           \\
+Create report                                & TRUE                                           \\
+                                             &                                                \\
+\multicolumn{2}{l}{Find Resistance}                                                           \\
+DB                                           & Database for Find Resistance (2018-02-02)      \\
+Minimum identity \%                          & 70                                             \\
+Minimum length \%                            & 20                                             \\
+Filter overlaps                              & TRUE                                           \\
+Local Realignment                            &                                                \\
+Realign unaligned ends                       & TRUE                                           \\
+Multi-pass realignment                       & 2                                              \\
+Guidance-variant track                       &                                                \\
+Maximum guidance-variant length              & 100                                            \\
+Force realignment to guidance-variants       & FALSE                                          \\
+                                             &                                                \\
+InDels and Structural Variants (2)           &                                                \\
+P-Value threshold                            & 1.00E-04                                       \\
+Maximum number of mismatches                 & 3                                              \\
+Ignore broken pairs                          & TRUE                                           \\
+Filter variants                              & FALSE                                          \\
+Minimum number of reads                      & 2                                              \\
+Minimum relative consensus coverage          & 0                                              \\
+Minimum quality score                        & 0                                              \\
+Restrict calling to target regions           &                                                \\
+                                             &                                                \\
+Local Realignment (2)                        &                                                \\
+Realign unaligned ends                       & TRUE                                           \\
+Multi-pass realignment                       & 2                                              \\
+Guidance-variant track                       & Defined by: InDels and Structural Variants (2) \\
+Maximum guidance-variant length              & 100                                            \\
+Force realignment to guidance-variants       & FALSE                                          \\
+                                             &                                                \\
+\multicolumn{2}{l}{Identify MLST Scheme from Genomes}                                         \\
+Schemes                                      & PubMLST (04-03-2017)                           \\
+                                             &                                                \\
+Identify MLST                                &                                                \\
+Scheme                                       & Defined by: Identify MLST Scheme from Genomes  \\
+Low coverage reported when below             &                                               
+\end{longtable}

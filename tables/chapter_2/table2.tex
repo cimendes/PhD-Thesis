@@ -1,0 +1,98 @@
+\begin{table}[]
+\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in Unix.}
+\label{tab:ch2_table2}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}|l|l|l|l|lll|@{}}
+\toprule
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\ac{WGS}-based identification}}} &
+  \multicolumn{3}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-7} 
+\multicolumn{1}{|c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{\textbf{Kraken$^b$}} &
+  \multicolumn{1}{c|}{\textbf{MIDAS$^c$}} &
+  \multicolumn{1}{c|}{\textbf{MetaPhlAn$^c$}} \\ \midrule
+\textbf{1} &
+  \begin{tabular}[c]{@{}l@{}}10$^3$\\  10$^3$\\  10\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  \textit{C. glabrata}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  -\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (34.6\%)\\  \textit{S. haemolyticus} (10.1\%)\\  -\end{tabular}} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (62.0\%)\\  \textit{S. haemolyticus} (28.0\%)\\  -\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (66.6\%)\\  \textit{S. haemolyticys} (27.7\%)\\  -\end{tabular} \\ \midrule
+\textbf{2} &
+  \begin{tabular}[c]{@{}l@{}}10$^3$\\  1\\  Not determined\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-\#\\  -\#\\  -\#\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (29.5\%)\end{tabular}} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100.0\%)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100.0\%)\end{tabular} \\ \midrule
+\textbf{3} &
+  1 &
+  \textit{S. epidermidis} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{S. aureus (0.2\%)} &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  Not identified$^*$ \\ \midrule
+\textbf{4} &
+  10$^3$ &
+  \textit{S. aureus} &
+  \textit{S. aureus} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (0.73\%)} &
+  \multicolumn{1}{l|}{\textit{S. aureus }(100\%)} &
+  \textit{S. aureus} (100\%) \\ \midrule
+\textbf{5} &
+  \begin{tabular}[c]{@{}l@{}}$\geq$ 10$^5$\\  $\geq$ 10$^5$\\  10$^3$\\  10$^3$\\  Not determined\\  10\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\\  \textit{C. albicans}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  -$^\#$\\  \textit{E. faecalis}\\  -$^\#$\\  -$^\#$\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (9.7\%)\\  \textit{K. oxytoca} (0.5\%)\\  \textit{S. anginosus} (0.07\%)\\  \textit{E. faecalis} (0.3\%)\\  Several species (12.7\%)\\  -\end{tabular}} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (6.5\%)\\  \textit{K. oxytoca} (0.3\%)\\  \textit{S. anginosus} (0.01\%)\\  \textit{E. faecalis} (0.9\%)\\  Several species (96.7\%)\\  -\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}\textit{E. coli} (8.5\%)\\  \textit{K. oxytoca} (0.3\%)\\  \textit{Streptococcus spp.} (0.09\%)\\  \textit{E. faecalis} (0.7\%)\\  Several species (90.4\%)\\  -\end{tabular} \\ \midrule
+\textbf{6} &
+  10$^3$ &
+  \textit{E. faecium} &
+  \textit{E. faecium} &
+  \multicolumn{1}{l|}{\textit{E. faecium} (0.77\%)} &
+  \multicolumn{1}{l|}{Not identified$^*$} &
+  Not identified$^*$ \\ \midrule
+\textbf{7} &
+  10$^2$ &
+  \textit{S. aureus} &
+  -$^\#$ &
+  \multicolumn{1}{l|}{\textit{S. aureus} (82.9\%)} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
+  \textit{S. aureus} (100\%) \\ \midrule
+\textbf{8} &
+  10$^3$ &
+  \textit{O. intermedium} &
+  \textit{O. intermedium} &
+  \multicolumn{1}{l|}{\textit{O. anthropi} (21.3\%)} &
+  \multicolumn{1}{l|}{\textit{O. intermedium} (99.4\%)} &
+  \textit{O. intermedium} (99.1\%) \\ \midrule
+\textbf{9} &
+  10$^3$ &
+  \textit{S. aureus} &
+  \textit{S. aureus} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (22.9\%)} &
+  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
+  \textit{S. aureus} (100\%) \\ \midrule
+\textbf{10} &
+  10$^3$ &
+  \textit{S. marcescens} &
+  -\# &
+  \multicolumn{1}{l|}{\textit{S. marcescens} (64.7\%)} &
+  \multicolumn{1}{l|}{\textit{S. marcescens} (99.1\%)} &
+  \textit{S. marcescens} (100\%) \\ \bottomrule
+\end{tabular}%
+}
+\small
+\item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
+\item $^b$The relative abundance is calculated using total number of reads as denominator
+\item $^c$The relative abundance is calculated with the total number of classified reads as denominator
+\item $^d$miniKraken database was used
+\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
+\item $^*$No reads matched that specific pathogen, not even at the genus level
+\end{table}

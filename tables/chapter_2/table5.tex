@@ -1,0 +1,30 @@
+\begin{table}[]
+\caption{Performance of the different taxonomic classification methods for each sample. Sensitivity and positive predictive value were calculated using culture/MALDI-TOF as standards}
+\label{tab:ch2_table5}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}lllllll@{}}
+\toprule
+\textbf{Method} &
+  \textbf{Total number of bacteria identified$^a$} &
+  \textbf{True positives$^a$} &
+  \textbf{False positives} &
+  \textbf{False negatives} &
+  \textbf{Sensitivity (\%)} &
+  \textbf{PPV (\%)} \\ \midrule
+Culture/MALDI-TOF                                         & 9    & 9 & 0    & 0 & 1    & 1    \\
+MetaPhlAn (BaseSpace)                                     & 16   & 7 & 9    & 2 & 0.78 & 0.44 \\
+Genius (BaseSpace)                                        & 35   & 8 & 27   & 1 & 0.89 & 0.23 \\
+Kraken (BaseSpace)                                        & 959  & 7 & 952  & 2 & 0.78 & 0.01 \\
+Taxonomer (Full Analysis)                                 & 4649 & 8 & 4641 & 1 & 0.89 & 0    \\
+CosmosID                                                  & 35   & 8 & 27   & 1 & 0.89 & 0.23 \\
+Taxonomic Profiling (CLC Genomics Workbench v10.0.1)      & 17   & 6 & 11   & 3 & 0.67 & 0.35 \\
+Best match K-mer spectra (CLC Genomics Workbench v10.0.1) & 12   & 8 & 4    & 1 & 0.89 & 0.67 \\
+Kraken (Unix)                                             & 198  & 7 & 191  & 2 & 0.78 & 0.04 \\
+MetaPhlAn2 (Unix)                                         & 15   & 7 & 6    & 4 & 0.75 & 0.75 \\
+MIDAS (Unix)                                              & 34   & 7 & 26   & 2 & 0.88 & 0.5 \\ \bottomrule
+\end{tabular}%
+}
+\small
+\item $^a$Excluding the samples with non-identified anaerobic bacteria (Samples 2 and 5)
+\item Abbreviations: PPV – positive predictive value
+\end{table}

@@ -1,0 +1,83 @@
+\begin{table}[]
+\caption{Antimicrobial resistance phenotypes and antimicrobial resistance genes detected using different approaches.}
+\label{tab:ch2_table6}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|l|l|l|ll|}
+\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
+  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional susceptibility testing\\  (VITEK 2)$^b$\end{tabular}}}} &
+  \multicolumn{1}{c|}{\textbf{\ac{WGS}}} &
+  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cline{4-6} 
+\multicolumn{1}{|c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench}} &
+  \multicolumn{1}{c|}{\textbf{ReMatCh (Unix)}} &
+  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbencha}} \\ \hline
+1 &
+  \begin{tabular}[c]{@{}l@{}}E. faecium\\  S. haemolyticus\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}LEV, ERY, CLI\\  OXA, GEN, CIP, FOS, ERY, CLI\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, dfrG\\  blaZ, mecA, ant(6’)-Ia, aph(3’)-III, \\ aac(6’)-aph(2’’), erm(C), mph(C), msr(A), dfrG\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, \\ aac(6’)-aph(2’’), blaZ, mecA, erm(C), \\ mph(C), msr(A), dfrG\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, \\ aac(6’)-aph(2’’), blaZ, mecA, erm(C), \\ mph(C), msr(A), dfrG\end{tabular} \\ \hline
+2 &
+  \begin{tabular}[c]{@{}l@{}}E. avium\\  E. coli\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}DOX, CLI\\  susceptible\\  -\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-\#\\  -\#\\  -\#\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not detected\\  Not detected\\  catS, lnu(D), lsa(C), cepA-44, tet(Q)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}Not detected\\  Not detected\\  catS, lnu(D), lsa(C), cepA-44, tet(Q), fusA\end{tabular} \\ \hline
+3 &
+  S. epidermidis &
+  OXA, GEN, TEC, FUS, CIP, ERY, CLI &
+  -\# &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \hline
+4 &
+  S. aureus &
+  PEN, ERY &
+  blaZ, spc, erm(A) &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \hline
+5 &
+  \begin{tabular}[c]{@{}l@{}}E. coli\\  K. oxytoca\\  S. anginosus\\  E. faecalis\\  Anaerobes\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}susceptible\\  AMX\\  susceptible\\  DOX, CLI\\  -\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}-\#\\  blaOXY-1-3\\  -\#\\  tet(M), lsa(A)\\  -\#\end{tabular} &
+  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\\  tet(M)\\  cfxA4, tet(Q)\end{tabular}} &
+  \begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\\  tet(O)\\  cfxA4, tet(Q)\end{tabular} \\ \hline
+6 &
+  E. faecium &
+  \begin{tabular}[c]{@{}l@{}}PEN, AMX, CFX, IMP, GENhl, \\ STRhl, LEV, ERY, CLI, AMP/SUL\end{tabular} &
+  erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, aac(6’)-aph(2’’), dfrG &
+  \multicolumn{1}{l|}{Not detected} &
+  Not detected \\ \hline
+7 &
+  S. aureus &
+  PEN &
+  blaZ &
+  \multicolumn{1}{l|}{blaZ, norA} &
+  blaZ \\ \hline
+8 &
+  O. intermedium &
+  \begin{tabular}[c]{@{}l@{}}AMX, PIP/TAZ, CFX, CFT, CTZ, \\ IMP, FOX, TOB, FOS, NIT, TMP\end{tabular} &
+  blaOCH-2 &
+  \multicolumn{1}{l|}{blaOCH-5} &
+  blaOCH-2 \\ \hline
+9 &
+  S. aureus &
+  PEN &
+  -\# &
+  \multicolumn{1}{l|}{blaZ} &
+  blaZ \\ \hline
+10 &
+  S. marcescens &
+  AMX, AMC, CFX, FOX, NIT, POL &
+  -\# &
+  \multicolumn{1}{l|}{blaSST-1, tet(41), oqxB, aac(6’)-Ic} &
+  tet(41), oqxB, aac(6’)-Ic \\ \hline
+\end{tabular}%
+}
+\small
+\item $^a$The analysis aborted when the script tried to connect to NCBI
+\item $^b$Only non-susceptibility is indicated. \item Abbreviations: AMP/SUL, ampicillin/sulbactam; AMX, amoxicillin; AMC, amoxicillin/clavulanate; CFX, cefuroxime; FOS, fosfomycin; FOX, cefoxitin; CIP, ciprofloxacin; CLI, clindamycin; DOX, doxycycline; ERY, erythromycin; FUS, fusidic acid; GEN, gentamicin; GENhl, gentamicin high-level; LEV, levofloxacin; NIT, nitrofurantoin; PEN, penicillin; POL, polymyxin B; STRhl, streptomycin high-level; TEC, teicoplanin.
+\end{table}

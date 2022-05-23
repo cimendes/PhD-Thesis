@@ -100,7 +100,7 @@ For this purpose, we used three human-DNA depletion kits and evaluated a diverse
 \subsection{Sample collection} \label{ssec:sample_collection}
 
 Nine body fluid samples and one tissue sample entering the Medical Microbiology laboratory were selected for metagenomics sequencing. 
-These included one sample from peritoneal fluid, five from pus (3 abscesses and 2 empyema), two from synovial fluid of knees with prosthesis, one from sputum and one from a bone biopsy (Table \ref{tab:table_1}). 
+These included one sample from peritoneal fluid, five from pus (3 abscesses and 2 empyema), two from synovial fluid of knees with prosthesis, one from sputum and one from a bone biopsy (Table \ref{tab:ch2_table_1}). 
 All samples were stored at 4ºC for a variable period (2-10 days). 
 The samples used for the present analyses were collected during routine diagnostics and infection prevention and control investigations. 
 All procedures were carried out according to guidelines and regulations of University Medical Centre Groningen (UMCG) concerning the use of patient materials for the validation of clinical methods, which are in compliance with the guidelines of the Federation of Dutch Medical Scientific Societies (FDMSS).
@@ -110,34 +110,16 @@ Informed consent was obtained from all individuals or their guardians prior to s
 All samples were used after performing and completing a conventional microbiological diagnosis and were coded to protect patients’ confidentiality. 
 All experiments were performed in accordance with the guidelines of the Declaration of Helsinki and the institutional regulations. 
 
-\begin{table}[]
-\caption{Characteristics of the samples and mapping of trimmed reads against a human genome hg19 (\%) using CLC Genomics Workbench v10.0.1.}
-\label{tab:ch2_table_1}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llllll@{}}
-\toprule
-\textbf{Sample} & \textbf{Sample type} & \textbf{DNA extraction method} & \textbf{Total number of reads} & \textbf{Mapped reads against hg19} & \textbf{Unmapped reads} \\ \midrule
-Sample 1         & Peritoneal fluid & Ultra-Deep Microbiome Prep (Molzym) & 5892978 & 5,249,063 (89.2\%) & 632,951 (10.8\%)   \\
-Sample 2         & Pus (abscess)    & Ultra-Deep Microbiome Prep (Molzym) & 9603346 & 7,828.746 (81.6\%) & 1,770,558 (18.4\%) \\
-Sample 3         & Synovial fluid   & Ultra-Deep Microbiome Prep (Molzym) & 8615810 & 8,254,594 (95.9\%) & 355,200 (4.1\%)    \\
-Sample 4         & Synovial fluid   & Ultra-Deep Microbiome Prep (Molzym) & 6078166 & 6,015,945 (99.0\%) & 61,099 (1.0\%)     \\
-Sample 5         & Pus (abscess)    & Ultra-Deep Microbiome Prep (Molzym) & 8368930 & 309,588 (3.7\%)    & 8,052,272 (96.3\%) \\
-Sample 6         & Pus (empyema)    & QIAamp DNA Microbiome Kit (Qiagen)  & 2912802 & 2,877,066 (98.8\%) & 34,506 (1.1\%)     \\
-Sample 7         & Pus (empyema)    & QIAamp DNA Microbiome Kit (Qiagen)  & 1486700 & 922,932 (62.2\%)   & 561,772 (37.8\%)   \\
-Sample 8         & Bone biopsy      & Micro-DXTM (Molzym)                 & 6534866 & 229,149 (3.5\%)    & 6,303,803 (96.5\%) \\
-Sample 9         & Pus (abscess)    & Micro-DXTM (Molzym)                 & 6173132 & 6,081,612 (98.5\%) & 89,922 (1.5\%)     \\
-Sample 10        & Sputum           & Micro-DXTM (Molzym)                 & 7596836 & 7,337,832 (96.7\%) & 235,520 (3.3\%)    \\
-Negative control & Water            & QIAamp DNA Microbiome Kit (Qiagen)  & 1730738 & 1,706,861 (98.9\%) & 19,805 (1.2\%)     \\ \bottomrule
-\end{tabular}%
-}
-\end{table}
-
 \subsection{Classic culturing and susceptibility testing} \label{ssec:sample_culturing}
 
 The samples were cultured following methods routinely used in our institution. 
 Briefly, samples were streaked onto five plates (Mediaproducts BV, Groningen, The Netherlands) - blood agar (aerobic), chocolate agar (aerobic), McConkey agar (aerobic), Brucella agar (anaerobic) and Sabouraud Dextrose +AV (aerobic) - and incubated overnight under aerobic and anaerobic atmosphere at 37ºC. 
 The two pus samples were also plated onto Phenylethyl alcohol sheep blood agar (PEA), Kanamycin vancomycin laked blood (KVLB) agar and Bacteroides bile esculin (BBE) agar and incubated under anaerobic conditions overnight. 
 The isolates recovered were subjected to susceptibility testing by Vitek 2 using either the AST-P559 (Gram-positive bacteria) or the AST-N344 (Gram-negative bacteria) card (bioMérieux, Marcy-l'Étoile, France) and identified by MALDI-TOF MS (Bruker Daltonik, Gmbh, Germany) using standard protocols. 
+
+\begin{landscape}
+\input{tables/chapter_2/table1}
+\end{landscape}
 
 \subsection{DNA extraction, library preparation and sequencing} \label{ssec:sample_sequencing}
 
@@ -245,314 +227,17 @@ Two isolates, one \textit{Staphylococcus haemolyticus} and one \textit{S. epider
 There was fungal growth in 2 samples (1 and 5) that included two Candida species (one \textit{Candida glabrata} and one \textit{Candida albicans}). 
 The different bacterial and fungal species identified in each sample are shown in Tables \ref{tab:ch2_table2}, \ref{tab:ch2_table3} and \ref{tab:ch2_table4}.
 
+\begin{landscape}
+\input{tables/chapter_2/table2}
+\end{landscape}
 
-\begin{table}[]
-\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in Unix.}
-\label{tab:ch2_table2}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}|l|l|l|l|lll|@{}}
-\toprule
-\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\ac{WGS}-based identification}}} &
-  \multicolumn{3}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-7} 
-\multicolumn{1}{|c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{\textbf{Kraken$^b$}} &
-  \multicolumn{1}{c|}{\textbf{MIDAS$^c$}} &
-  \multicolumn{1}{c|}{\textbf{MetaPhlAn$^c$}} \\ \midrule
-\textbf{1} &
-  \begin{tabular}[c]{@{}l@{}}10$^3$\\  10$^3$\\  10\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  \textit{C. glabrata}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  -\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (34.6\%)\\  \textit{S. haemolyticus} (10.1\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (62.0\%)\\  \textit{S. haemolyticus} (28.0\%)\\  -\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (66.6\%)\\  \textit{S. haemolyticys} (27.7\%)\\  -\end{tabular} \\ \midrule
-\textbf{2} &
-  \begin{tabular}[c]{@{}l@{}}10$^3$\\  1\\  Not determined\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}-\#\\  -\#\\  -\#\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (29.5\%)\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100.0\%)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100.0\%)\end{tabular} \\ \midrule
-\textbf{3} &
-  1 &
-  \textit{S. epidermidis} &
-  -$^\#$ &
-  \multicolumn{1}{l|}{S. aureus (0.2\%)} &
-  \multicolumn{1}{l|}{Not identified$^*$} &
-  Not identified$^*$ \\ \midrule
-\textbf{4} &
-  10$^3$ &
-  \textit{S. aureus} &
-  \textit{S. aureus} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (0.73\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus }(100\%)} &
-  \textit{S. aureus} (100\%) \\ \midrule
-\textbf{5} &
-  \begin{tabular}[c]{@{}l@{}}$\geq$ 10$^5$\\  $\geq$ 10$^5$\\  10$^3$\\  10$^3$\\  Not determined\\  10\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\\  \textit{C. albicans}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  -$^\#$\\  \textit{E. faecalis}\\  -$^\#$\\  -$^\#$\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (9.7\%)\\  \textit{K. oxytoca} (0.5\%)\\  \textit{S. anginosus} (0.07\%)\\  \textit{E. faecalis} (0.3\%)\\  Several species (12.7\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (6.5\%)\\  \textit{K. oxytoca} (0.3\%)\\  \textit{S. anginosus} (0.01\%)\\  \textit{E. faecalis} (0.9\%)\\  Several species (96.7\%)\\  -\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli} (8.5\%)\\  \textit{K. oxytoca} (0.3\%)\\  \textit{Streptococcus spp.} (0.09\%)\\  \textit{E. faecalis} (0.7\%)\\  Several species (90.4\%)\\  -\end{tabular} \\ \midrule
-\textbf{6} &
-  10$^3$ &
-  \textit{E. faecium} &
-  \textit{E. faecium} &
-  \multicolumn{1}{l|}{\textit{E. faecium} (0.77\%)} &
-  \multicolumn{1}{l|}{Not identified$^*$} &
-  Not identified$^*$ \\ \midrule
-\textbf{7} &
-  10$^2$ &
-  \textit{S. aureus} &
-  -$^\#$ &
-  \multicolumn{1}{l|}{\textit{S. aureus} (82.9\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \textit{S. aureus} (100\%) \\ \midrule
-\textbf{8} &
-  10$^3$ &
-  \textit{O. intermedium} &
-  \textit{O. intermedium} &
-  \multicolumn{1}{l|}{\textit{O. anthropi} (21.3\%)} &
-  \multicolumn{1}{l|}{\textit{O. intermedium} (99.4\%)} &
-  \textit{O. intermedium} (99.1\%) \\ \midrule
-\textbf{9} &
-  10$^3$ &
-  \textit{S. aureus} &
-  \textit{S. aureus} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (22.9\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \textit{S. aureus} (100\%) \\ \midrule
-\textbf{10} &
-  10$^3$ &
-  \textit{S. marcescens} &
-  -\# &
-  \multicolumn{1}{l|}{\textit{S. marcescens} (64.7\%)} &
-  \multicolumn{1}{l|}{\textit{S. marcescens} (99.1\%)} &
-  \textit{S. marcescens} (100\%) \\ \bottomrule
-\end{tabular}%
-}
-\tiny
-\item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
-\item $^b$The relative abundance is calculated using total number of reads as denominator
-\item $^c$The relative abundance is calculated with the total number of classified reads as denominator
-\item $^d$miniKraken database was used
-\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
-\item $^*$No reads matched that specific pathogen, not even at the genus level
-\end{table}
+\begin{landscape}
+\input{tables/chapter_2/table3}
+\end{landscape}
 
-\begin{table}[]
-\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in CLC Genomics Workbench.}
-\label{tab:ch2_table3}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}|l|l|l|l|ll|@{}}
-\toprule
-\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Culture result (CFU)$^a$}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\ac{WGS}-based identification}}} &
-  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-6} 
-\multicolumn{1}{|c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{l|}{\textbf{Taxonomic Profiling (CLC)$^b$}} &
-  \textbf{Best match with K-mer spectra (CLC)$^c$} \\ \midrule
-\textbf{1} &
-  \begin{tabular}[c]{@{}l@{}}103\\  10$^3$\\  10\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  \textit{C. glabrata}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  -\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (71\%)\\  \textit{S. haemolyticus} (24\%)\\  \textit{C. glabrata} (100\%)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (41.4\%)\\  \textit{S. haemolyticus} (13.8\%)\\  \textit{C. glabrata} (0.5\%)\end{tabular} \\ \midrule
-\textbf{2} &
-  \begin{tabular}[c]{@{}l@{}}10$^3$\\  1\\  Not determined\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}-$^\#$\\  -$^\#$\\  -$^\#$\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (97\%)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (13.2\%)\end{tabular} \\ \midrule
-\textbf{3} &
-  1 &
-  \textit{S. epidermidis} &
-  -\# &
-  \multicolumn{1}{l|}{Not identified$^*$} &
-  \textit{S. aureus} (4\%) \\ \midrule
-\textbf{4} &
-  10$^3$ &
-  \textit{S. aureus} &
-  \textit{S. aureus} &
-  \multicolumn{1}{l|}{Not identified$^*$} &
-  \textit{S. aureus} (9.7\%) \\ \midrule
-\textbf{5} &
-  \begin{tabular}[c]{@{}l@{}}$\geq$ 10$^5$\\  $\geq$ 10$^5$\\  10$^3$\\  10$^3$\\  Not determined\\  10\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\\  \textit{C. albicans}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  -$^\#$\\  E. faecalis\\  -$^\#$\\  -$^\#$\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (25\%)\\  \textit{K. michiganensis} (0.3\%)\\  Not identified$^*$\\  \textit{E. faecalis} (2\%)\\  Several species (70.0\%)\\  Not identified$^*$\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli} (11.5\%)\\  Not identified$^*$\\  Not identified$^*$\\  \textit{E. faecalis} (0.6\%)\\  Not identified$^*$\\  \textit{C. albicans} (\textless{}0.05\%)\end{tabular} \\ \midrule
-\textbf{6} &
-  10$^3$ &
-  \textit{E. faecium} &
-  \textit{E. faecium} &
-  \multicolumn{1}{l|}{Not identified$^*$} &
-  \textit{E. faecium} (4.0\%) \\ \midrule
-\textbf{7} &
-  10$^2$ &
-  \textit{S. aureus} &
-  -$^\#$&
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \textit{S. aureus} (95.5\%) \\ \midrule
-\textbf{8} &
-  10$^3$ &
-  \textit{O. intermedium} &
-  \textit{O. intermedium} &
-  \multicolumn{1}{l|}{\textit{O. intermedium }(86.0\%)} &
-  \textit{O. intermedium} (91.2\%) \\ \midrule
-\textbf{9} &
-  10$^3$ &
-  \textit{S. aureus} &
-  \textit{S. aureus} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \textit{S. aureus} (81.2\%) \\ \midrule
-\textbf{10} &
-  10$^3$ &
-  \textit{S. marcescens} &
-  -$^\#$ &
-  \multicolumn{1}{l|}{\textit{S. marscescens} (100\%)} &
-  \textit{S. marcescens} (79.7\%) \\ \bottomrule
-\end{tabular}%
-}
-\tiny
-\item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
-\item $^b$The relative abundance is calculated using total number of reads as denominator
-\item $^c$The relative abundance is calculated with the total number of classified reads as denominator
-\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
-\item $^*$No reads matched that specific pathogen, not even at the genus level
-\end{table}
-
-\begin{table}[]
-\caption{Microorganisms identified by conventional methods, \ac{WGS} and using shotgun metagenomics and the taxonomic classification methods in webpages (BaseSpace, Taxonomer and CosmosID).}
-\label{tab:ch2_table4}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}|l|l|l|l|lllll|@{}}
-\toprule
-\multirow{2}{*}{\textbf{Sample number}} &
-  \multirow{2}{*}{\textbf{Culture result (CFU)$^a$}} &
-  \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}l@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}} &
-  \multirow{2}{*}{\textbf{\ac{WGS}-based identification}} &
-  \multicolumn{5}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){5-9} 
- &
-   &
-   &
-   &
-  \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Genius\\  (Basespace)$^c$\end{tabular}}} &
-  \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}Kraken\\  (Basespace)$^c,d$\end{tabular}}} &
-  \multicolumn{1}{l|}{\textbf{\begin{tabular}[c]{@{}l@{}}MetaPhlAn\\  (Basespace)$^c$\end{tabular}}} &
-  \multicolumn{1}{l|}{\textbf{Taxonomer (Utah)$^b,e$}} &
-  \textbf{Cosmos ID$^a$} \\ \midrule
-\textbf{1} &
-  \begin{tabular}[c]{@{}l@{}}10$^3$\\  10$^3$\\  10\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  \textit{C. glabrata}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\\  -\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (14.4\%)\\  \textit{S. haemolyticus} (55.8\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (25.0\%)\\  \textit{S. haemolyticus} (20.1\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (65.1\%)\\  \textit{S. haemolyticys} (30.4\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (22.9\%)\\  \textit{S. haemolyticus} (20.1\%)\\  Not identified$^*$\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium} (50.3\%)\\  \textit{S. haemolyticus} (22.1\%)\\  \textit{C. glabrata} (88.6\%)\end{tabular} \\ \midrule
-\textbf{2} &
-  \begin{tabular}[c]{@{}l@{}}103\\  1\\  Not determined\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}-$^\#$\\  -$^\#$\\  -$^\#$\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (94.0\%)\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (27.0\%)\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (54.2\%)\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (14.2\%)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}Not identified$^*$\\  Not identified$^*$\\  Several species (100\%)\end{tabular} \\ \midrule
-\textbf{3} &
-  1 &
-  \textit{S. epidermidis} &
-  -\# &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (0.1\%)} &
-  \multicolumn{1}{l|}{Not identified$^*$} &
-  \multicolumn{1}{l|}{\textit{S. pseudintermedius} (3.4\%)} &
-  Not identified$^*$ \\ \midrule
-\textbf{4} &
-  10$^3$ &
-  \textit{S. aureus} &
-  \textit{S. aureus} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (0.3\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (8.3\%)} &
-  \textit{S. aureus} (100\%) \\ \midrule
-\textbf{5} &
-  \begin{tabular}[c]{@{}l@{}}$\geq$ 10$^5$\\  $\geq$ 10$^5$\\  10$^3$\\  10$^3$\\  Not determined\\  10\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\\  \textit{C. albicans}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  -$^\#$\\  \textit{E. faecalis}\\  -$^\#$\\  -$^\#$\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (0.4\%)\\  Not identified$^*$\\  \textit{S. anginosus} (0.03\%)\\  \textit{E. faecalis} (0.8\%)\\  Several species (45.0\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (10.2\%)\\  \textit{K. oxytoca} (0.5\%)\\  \textit{S. anginosus} (0.4\%)\\  \textit{E. faecalis} (0.3\%)\\  Several species (8.0\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (7.0\%)\\  \textit{K. pneumoniae} (0.01\%)\\  \textit{S. anginosus} (0.3\%)\\  \textit{E. faecalis} (0.7\%)\\  Several species (89.1\%)\\  -\end{tabular}} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\textit{E. coli} (3.6\%)\\  \textit{K. michiganensis} (0.1\%)\\  \textit{S. anginosus} (0.1\%)\\  \textit{E. faecalis} (0.1\%)\\  Several species (60.3\%)\\  -\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli} (7.6\%)\\  \textit{K. oxytoca} (1.7\%)\\  \textit{S. anginosus} (0.09\%)\\  \textit{E. faecalis} (3.7\%)\\  Several species (86.2\%)\\  Not identified$^*$\end{tabular} \\ \midrule
-\textbf{6} &
-  10$^3$ &
-  \textit{E. faecium} &
-  \textit{E. faecium} &
-  \multicolumn{1}{l|}{\textit{E. faecium} (4.2\%)} &
-  \multicolumn{1}{l|}{\textit{E. faecium} (14.8\%)} &
-  \multicolumn{1}{l|}{\textit{E. faecium} (5.5\%)} &
-  \multicolumn{1}{l|}{\textit{E. faecium} (1.4\%)} &
-  \textit{E. faecium} (4.1\%) \\ \midrule
-\textbf{7} &
-  10$^2$ &
-  \textit{S. aureus} &
-  -\# &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (93.8\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (14.2\%)} &
-  \textit{S. aureus} (100\%) \\ \midrule
-\textbf{8} &
-  10$^3$ &
-  \textit{O. intermedium} &
-  \textit{O. intermedium} &
-  \multicolumn{1}{l|}{\textit{O. intermedium} (100\%)} &
-  \multicolumn{1}{l|}{\textit{O. nthropic} (88.9\%)} &
-  \multicolumn{1}{l|}{\textit{O. intermedium} (99.8\%)} &
-  \multicolumn{1}{l|}{\textit{O. intermedium} (13.1\%)} &
-  \textit{O. intermedium} (49.5\%) \\ \midrule
-\textbf{9} &
-  10$^3$ &
-  \textit{S. aureus} &
-  \textit{S. aureus} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (99.5\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. aureus} (12.7\%)} &
-  \textit{S. aureus} (100\%) \\ \midrule
-\textbf{10} &
-  10$^3$ &
-  \textit{S. marcescens} &
-  -$^\#$ &
-  \multicolumn{1}{l|}{\textit{S. marcescens} (32.5\%)} &
-  \multicolumn{1}{l|}{\textit{S. marcescens} (94.8\%)} &
-  \multicolumn{1}{l|}{\textit{Serratia} spp. (100\%)} &
-  \multicolumn{1}{l|}{\textit{S. marcescens} (1.4\%)} &
-  S\textit{. marscescens} (38.4\%) \\ \bottomrule
-\end{tabular}%
-}
-\tiny
-\item $^a$The number of colonies of a given species was estimated from the number of colonies with the same morphology on the same plate 
-\item $^b$The relative abundance is calculated using total number of reads as denominator
-\item $^c$The relative abundance is calculated with the total number of classified reads as denominator
-\item $^d$miniKraken database was used
-\itel $^e$Full Analysis mode was used 
-\item $^\#$Although there was a laboratory identification, no isolates were available for \ac{WGS}
-\item $^*$No reads matched that specific pathogen, not even at the genus level
-\end{table}
+\begin{landscape}
+\input{tables/chapter_2/table4}
+\end{landscape}
 
 \subsection{Comparison of standard procedures and shotgun metagenomics for the identification of clinically relevant pathogens}
 
@@ -566,36 +251,9 @@ In sample 2, two of the bacterial species identified by classical culture, i.e.,
 We identified \textit{Ochrobactrum intermedium} in the negative control, but in low amounts (1.0\% of the reads mapped to the reference genome with the accession number NZ\_ACQA01000002 and only 1.4\% of the reference genome was covered). 
 The sensitivity and positive predictive value of each classification method is shown in Table \ref{tab:ch2_table5}.
 
-\begin{table}[]
-\caption{Performance of the different taxonomic classification methods for each sample. Sensitivity and positive predictive value were calculated using culture/MALDI-TOF as standards}
-\label{tab:ch2_table5}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lllllll@{}}
-\toprule
-\textbf{Method} &
-  \textbf{Total number of bacteria identified$^a$} &
-  \textbf{True positives$^a$} &
-  \textbf{False positives} &
-  \textbf{False negatives} &
-  \textbf{Sensitivity (\%)} &
-  \textbf{PPV (\%)} \\ \midrule
-Culture/MALDI-TOF                                         & 9    & 9 & 0    & 0 & 1    & 1    \\
-MetaPhlAn (BaseSpace)                                     & 16   & 7 & 9    & 2 & 0.78 & 0.44 \\
-Genius (BaseSpace)                                        & 35   & 8 & 27   & 1 & 0.89 & 0.23 \\
-Kraken (BaseSpace)                                        & 959  & 7 & 952  & 2 & 0.78 & 0.01 \\
-Taxonomer (Full Analysis)                                 & 4649 & 8 & 4641 & 1 & 0.89 & 0    \\
-CosmosID                                                  & 35   & 8 & 27   & 1 & 0.89 & 0.23 \\
-Taxonomic Profiling (CLC Genomics Workbench v10.0.1)      & 17   & 6 & 11   & 3 & 0.67 & 0.35 \\
-Best match K-mer spectra (CLC Genomics Workbench v10.0.1) & 12   & 8 & 4    & 1 & 0.89 & 0.67 \\
-Kraken (Unix)                                             & 198  & 7 & 191  & 2 & 0.78 & 0.04 \\
-MetaPhlAn2 (Unix)                                         & 15   & 7 & 6    & 4 & 0.75 & 0.75 \\
-MIDAS (Unix)                                              & 34   & 7 & 26   & 2 & 0.88 & 0.5 \\ \bottomrule
-\end{tabular}%
-}
-\tiny
-\item $^a$Excluding the samples with non-identified anaerobic bacteria (Samples 2 and 5)
-\item Abbreviations: PPV – positive predictive value
-\end{table}
+\begin{landscape}
+\input{tables/chapter_2/table5}
+\end{landscape}
 
 \begin{figure*}[h!]
 \centering
@@ -616,92 +274,17 @@ Some of these differences (genes \textit{norA}, \textit{blaSST}-1, \textit{fusA}
 Interestingly, in two samples (samples 2 and 5), we were able to identify several antimicrobial resistance genes usually found in anaerobic bacteria. 
 These were not reported by classical microbiology methods, probably because they were not considered relevant pathogens worthy of subsequent susceptibility study (mixed anaerobic culture).
 
+\begin{landscape}
+\input{tables/chapter_2/table6}
+\end{landscape}
+
+\begin{landscape}
+\input{tables/chapter_2/table7}
+\end{landscape}
+
 The SEAR app in BaseSpace (the only one available for antimicrobial resistance gene detection) crashed several times, although we performed the analysis repeatedly, using different parameters.
 We were only able to get results in 3 samples, with no resistance genes detected.
 
-\begin{table}[]
-\caption{Antimicrobial resistance phenotypes and antimicrobial resistance genes detected using different approaches.}
-\label{tab:ch2_table6}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|ll|}
-\hline
-\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional susceptibility testing\\  (VITEK 2)$^b$\end{tabular}}}} &
-  \multicolumn{1}{c|}{\textbf{\ac{WGS}}} &
-  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cline{4-6} 
-\multicolumn{1}{|c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench}} &
-  \multicolumn{1}{c|}{\textbf{ReMatCh (Unix)}} &
-  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbencha}} \\ \hline
-1 &
-  \begin{tabular}[c]{@{}l@{}}E. faecium\\  S. haemolyticus\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}LEV, ERY, CLI\\  OXA, GEN, CIP, FOS, ERY, CLI\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, dfrG\\  blaZ, mecA, ant(6’)-Ia, aph(3’)-III, \\ aac(6’)-aph(2’’), erm(C), mph(C), msr(A), dfrG\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, \\ aac(6’)-aph(2’’), blaZ, mecA, erm(C), \\ mph(C), msr(A), dfrG\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, \\ aac(6’)-aph(2’’), blaZ, mecA, erm(C), \\ mph(C), msr(A), dfrG\end{tabular} \\ \hline
-2 &
-  \begin{tabular}[c]{@{}l@{}}E. avium\\  E. coli\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}DOX, CLI\\  susceptible\\  -\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}-\#\\  -\#\\  -\#\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not detected\\  Not detected\\  catS, lnu(D), lsa(C), cepA-44, tet(Q)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}Not detected\\  Not detected\\  catS, lnu(D), lsa(C), cepA-44, tet(Q), fusA\end{tabular} \\ \hline
-3 &
-  S. epidermidis &
-  OXA, GEN, TEC, FUS, CIP, ERY, CLI &
-  -\# &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \hline
-4 &
-  S. aureus &
-  PEN, ERY &
-  blaZ, spc, erm(A) &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \hline
-5 &
-  \begin{tabular}[c]{@{}l@{}}E. coli\\  K. oxytoca\\  S. anginosus\\  E. faecalis\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}susceptible\\  AMX\\  susceptible\\  DOX, CLI\\  -\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}-\#\\  blaOXY-1-3\\  -\#\\  tet(M), lsa(A)\\  -\#\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\\  tet(M)\\  cfxA4, tet(Q)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\\  tet(O)\\  cfxA4, tet(Q)\end{tabular} \\ \hline
-6 &
-  E. faecium &
-  \begin{tabular}[c]{@{}l@{}}PEN, AMX, CFX, IMP, GENhl, \\ STRhl, LEV, ERY, CLI, AMP/SUL\end{tabular} &
-  erm(B), msr(C), ant(6’)-Ia, aph(3’)-III, aac(6’)-aph(2’’), dfrG &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \hline
-7 &
-  S. aureus &
-  PEN &
-  blaZ &
-  \multicolumn{1}{l|}{blaZ, norA} &
-  blaZ \\ \hline
-8 &
-  O. intermedium &
-  \begin{tabular}[c]{@{}l@{}}AMX, PIP/TAZ, CFX, CFT, CTZ, \\ IMP, FOX, TOB, FOS, NIT, TMP\end{tabular} &
-  blaOCH-2 &
-  \multicolumn{1}{l|}{blaOCH-5} &
-  blaOCH-2 \\ \hline
-9 &
-  S. aureus &
-  PEN &
-  -\# &
-  \multicolumn{1}{l|}{blaZ} &
-  blaZ \\ \hline
-10 &
-  S. marcescens &
-  AMX, AMC, CFX, FOX, NIT, POL &
-  -\# &
-  \multicolumn{1}{l|}{blaSST-1, tet(41), oqxB, aac(6’)-Ic} &
-  tet(41), oqxB, aac(6’)-Ic \\ \hline
-\end{tabular}%
-}
-
-\item $^a$The analysis aborted when the script tried to connect to NCBI
-\item $^b$Only non-susceptibility is indicated. \item Abbreviations: AMP/SUL, ampicillin/sulbactam; AMX, amoxicillin; AMC, amoxicillin/clavulanate; CFX, cefuroxime; FOS, fosfomycin; FOX, cefoxitin; CIP, ciprofloxacin; CLI, clindamycin; DOX, doxycycline; ERY, erythromycin; FUS, fusidic acid; GEN, gentamicin; GENhl, gentamicin high-level; LEV, levofloxacin; NIT, nitrofurantoin; PEN, penicillin; POL, polymyxin B; STRhl, streptomycin high-level; TEC, teicoplanin.
-\end{table}
 
 \subsection{MLST and wgMLST analysis}
  
@@ -709,76 +292,6 @@ In three cases when \ac{SMg} data covered $\geq$ 93\% of the genome we were able
 These results are summarized in Table \ref{tab:ch2_table7}.
 Assembled genomes and metagenomes, were compared by wgMLST analysis using Ridom SeqSphere+. 
 Figure \ref{fig:chap2_figure2} shows examples of the allele difference between the genomes obtained through \ac{WGS} versus the genomes obtained through shotgun metagenomics.
-
-\begin{table}[]
-\caption{Results of MLST using by whole genome sequencing and shotgun metagenomics}
-\label{tab:ch2_table7}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}|l|l|l|ll|@{}}
-\toprule
-\multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Sample number}}} &
-  \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Conventional identification\\  (MALDI-TOF)\end{tabular}}}} &
-  \multicolumn{1}{c|}{\textbf{\ac{WGS}}} &
-  \multicolumn{2}{c|}{\textbf{Shotgun metagenomics}} \\ \cmidrule(l){3-5} 
-\multicolumn{1}{|c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench v10.1.1}} &
-  \multicolumn{1}{c|}{\textbf{CLC Genomics Workbench v10.1.1}} &
-  \multicolumn{1}{c|}{\textbf{metaMLST (Unix-based)}} \\ \midrule
-\textbf{1} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. faecium}\\  \textit{S. haemolyticus}\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}ST117\\  ST25\end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Not detected (6 alleles identified correctly)\\  Not detected (3 alleles identified correctly)\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}ST117\\  Not detected\end{tabular} \\ \midrule
-\textbf{2} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. avium}\\  \textit{E. coli}\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}-$^\#$ \\  -$^\#$ \\  -$^\#$ \end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}-\\  Not detected\\  -\end{tabular} \\ \midrule
-\textbf{3} &
-  \textit{S. epidermidis} &
-  -$^\#$ &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \midrule
-\textbf{4} &
-  \textit{S. aureus} &
-  ST30 &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \midrule
-\textbf{5} &
-  \begin{tabular}[c]{@{}l@{}}\textit{E. coli}\\  \textit{K. oxytoca}\\  \textit{S. anginosus}\\  \textit{E. faecalis}\\  Anaerobes\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}ST141\\  ST40\\  -$^\#$ \\  ST179\\  -$^\#$ \end{tabular} &
-  \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}ST141\\  Not detected\\  -\\  Not detected\\  -\end{tabular}} &
-  \begin{tabular}[c]{@{}l@{}}ST4508\\  Not detected\\  -\\  Not detected\\  -$^\#$ \end{tabular} \\ \midrule
-\textbf{6} &
- \textit{ E. faecium} &
-  ST117 &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \midrule
-\textbf{7} &
-  \textit{S. aureus} &
-  ST30 &
-  \multicolumn{1}{l|}{ST30} &
-  ST667 \\ \midrule
-\textbf{8} &
-  \textit{O. intermedium} &
-  - &
-  \multicolumn{1}{l|}{-} &
-  - \\ \midrule
-\textbf{9} &
-  \textit{S. aureus} &
-  -$^\#$  &
-  \multicolumn{1}{l|}{Not detected} &
-  Not detected \\ \midrule
-\textbf{10} &
-  \textit{S. marcescens} &
-  -$^\#$ &
-  \multicolumn{1}{l|}{-} &
-  - \\ \bottomrule
-\end{tabular}%
-}
-\item Abbreviations: ST, sequence type
-\end{table}
 
 \begin{figure*}[h!]
 \centering
@@ -855,242 +368,11 @@ The authors declare that they have no conflict of interest.
 
 \section{Supplemental Material}
 
-\begin{table}[]
-\caption{Supplementary table 1.}
-\label{tab:ch2_suptable1}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ll}
-\multicolumn{2}{c}{\textbf{FastQ Toolkit v2.2.0}}                                       \\
-Minimum read length                             & 32                           \\
-Sub-sampling                                    & FALSE                        \\
-Adapter trim stringency                         & 0.9                          \\
-Select respective adapters                      & TRUE                         \\
-Quality trimming                                & FALSE                        \\
-Poly-A/T Trimming                               & FALSE                        \\
-Read Filtering                                  & FALSE                        \\
-Modify Reads                                    & FALSE                        \\
-Fix Format                                      & FALSE                        \\
-\multicolumn{2}{c}{\textbf{FastQC v1.0.0}}                                              \\
-Kmer Size                                       & 5                            \\
-Use Conatminant Filter                          & TRUE                         \\
-\multicolumn{2}{c}{\textbf{Kraken Metagenomics v1.0.0}}                                 \\
-Host Filter                                     & TRUE RefSeqhg19              \\
-Classification Database                         & MiniKraken 20141208 (latest) \\
-Filter Threshold                                & 0                            \\
-\multicolumn{2}{c}{\textbf{Metaphlan v1.0.0}}                                           \\
-Sensitivity options for read-marker similarity (as descibed by BowTie2)                  & Very Sensitive \\
-\multicolumn{2}{c}{\textbf{SPAdes Genome Assembler v3.9.0}}                             \\
-Running Mode                                    & Error Correction \& Assembly \\
-Dataset type                                    & Multi Cell                   \\
-Careful Mode                                    & Disable                      \\
-k-mer lengths                                   & Auto                         \\
-\multicolumn{2}{c}{\textbf{SEAR: Antibiotic Resistance v1.0.0}}                                           \\
-Read length cutoff (bases)                      & 70                           \\
-Read quality score cutoff                       & 20                           \\
-Read subtraction against E.coli reference genome (K12)?                                  & No             \\
-Clustering stringency (express \% as a decimal) & 0.98                         \\
-Annotation stringency (\% length of reference ARG sequence mapped to by sequencing reads & 40             \\
-\multicolumn{2}{c}{\textbf{GENIUS Metagenomics: Know Now v1.1.0}}                                                  \\
-Can't set any settings in BaseSpace             &                             
-\end{tabular}%
-}
-\end{table}
+\input{tables/chapter_2/suptable1}
 
-\begin{table}[]
-\caption{Supplementary table 2.}
-\label{tab:ch2_suptable2}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{ll}
-\multicolumn{2}{l}{Trim Reads}                                                          \\
-Trimmomatic v0.36 (INNUca v2.6 initial module)     &                                    \\
-Quality trim                                       & TRUE                               \\
-Phred Quality limit                                & 05:20                              \\
-Trim adapter list                                  & Illumina adapters                  \\
-Remove 5' terminal nucleotides                     & TRUE                               \\
-Number of 5' terminal nucleotides                  & 3                                  \\
-Remove 3' terminal nucleotides                     & TRUE                               \\
-Number of 3' terminal nucleotides                  & 3                                  \\
-Discard short reads                                & TRUE                               \\
-Minimum number of nucleotides in reads             & 55                                 \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Map Reads to Reference}                                              \\
-Bowtie2 v2.3.2                                     &                                    \\
-References                                         & Homo sapiens (hg19) index          \\
-Mode                                               & end-to-end                         \\
-Mode option                                        & sensitive                          \\
-Collect unmapped reads                             & FALSE                              \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Taxonomic classification}                                            \\
-Kraken v0.10.5-beta                                &                                    \\
-References                                         & miniKraken database (Dec. 8, 2014) \\
-K-mer length                                       & 35                                 \\
-MIDAS                                              &                                    \\
-References                                         & midas\_db\_v1.2 (May 9, 2018)      \\
-Word size for blast                                & 28                                 \\
-Alignment coverage                                 & 0.75                               \\
-MetaPhlAn2 v2.0                                    &                                    \\
-References                                         & default database (May 9, 2018)     \\
-Minimum total nucleotide length for the markers    & 2000                               \\
-Quantile value for robust average                  & 0.1                                \\
-Statistical approach for converting marker abundances into clade abundances & clade global                                          \\
-Analysis type                                                               & profiling a metagenome in terms of relative abundance \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Identify MLST}                                                       \\
-metaMLST v1.1                                      &                                    \\
-References                                         & metamlstDB\_2017                   \\
-Bowtie2 mode                                       & local                              \\
-Bowtie2 mode option                                & very sensitive local               \\
-Collect unmapped reads                             & FALSE                              \\
-Search for and report all alignment                & TRUE                               \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Find Resistance Genes}                                               \\
-ReMatCh v3.2                                       &                                    \\
-References                                         & ResFinder database (29-06-2017)    \\
-Minimum coverage to consider a position as present & 1                                  \\
-Minimum coverage depth to perform a basecall       & 1                                  \\
-Minimum gene coverage (\%)                         & 80                                 \\
-Minimum gene identity (\%)                         & 70                                 \\
-                                                   &                                    \\
-\multicolumn{2}{l}{De novo assembly}                                                    \\
-SPAdes v3.10.1                                     &                                    \\
-Mode                                               & careful                            \\
-Error correction                                   & FALSE                              \\
-Read coverage cut-off value                        & 2                                  \\
-List of K-mers                                     & 21,33,55,67,77                     \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Plasmid Detection}                                                   \\
-Bowtie2 v2.3.2                                     &                                    \\
-References                                         & NCBI RefSeq (May 11, 2017)         \\
-Mode                                               & end-to-end                         \\
-Mode option                                        & sensitive                          \\
-Collect unmapped reads                             & FALSE                              \\
-Multiple alignment                                 & TRUE                              
-\end{tabular}%
-}
-\end{table}
+\input{tables/chapter_2/suptable2}
 
 \newpage
 
-\begin{longtable}{ll}
-\caption{Supplementary table 3.}
-\label{tab:ch2_suptable3}\\
-\multicolumn{2}{l}{Illumina}                                                                  \\
-\endfirsthead
-%
-\endhead
-%
-Discard sequence names                       & FALSE                                          \\
-Discard quality scores                       & FALSE                                          \\
-Selected files                               &                                                \\
-Paired-end reads                             & TRUE                                           \\
-Read Orientation                             & Forward Reverse                                \\
-minimum distance                             & 1                                              \\
-maximum distance                             & 1000                                           \\
-Remove failed reads                          & TRUE                                           \\
-Quality score                                & NCBI/Sanger or Illumina Pipeline 1.8 and later \\
-MiSeq de-multiplexing                        & FALSE                                          \\
-Illumina trim                                & FALSE                                          \\
-                                             &                                                \\
-Trim Reads                                   &                                                \\
-Quality trim                                 & TRUE                                           \\
-Quality limit                                & 0.05                                           \\
-Ambiguous trim                               & TRUE                                           \\
-Ambiguous limit                              & 2                                              \\
-Trim adapter list                            & Illumina adapters                              \\
-Use colorspace                               & FALSE                                          \\
-Remove 5' terminal nucleotides               & FALSE                                          \\
-Number of 5' terminal nucleotides            & 1                                              \\
-Remove 3' terminal nucleotides               & FALSE                                          \\
-Number of 3' terminal nucleotides            & 1                                              \\
-Discard short reads                          & TRUE                                           \\
-Minimum number of nucleotides in reads       & 30                                             \\
-Discard long reads                           & FALSE                                          \\
-Maximum number of nucleotides in reads       & 1000                                           \\
-                                             &                                                \\
-Map Reads to Reference                       &                                                \\
-References                                   & Homo sapiens (hg19) sequence                   \\
-Masking mode                                 & No masking                                     \\
-Masking track                                &                                                \\
-Match score                                  & 1                                              \\
-Mismatch cost                                & 2                                              \\
-Cost of insertions and deletions             & Linear gap cost                                \\
-Insertion cost                               & 3                                              \\
-Deletion cost                                & 3                                              \\
-Insertion open cost                          & 6                                              \\
-Insertion extend cost                        & 1                                              \\
-Deletion open cost                           & 6                                              \\
-Deletion extend cost                         & 1                                              \\
-Length fraction                              & 0.5                                            \\
-Similarity fraction                          & 0.8                                            \\
-Global alignment                             & FALSE                                          \\
-Color space alignment                        & TRUE                                           \\
-Color error cost                             & 3                                              \\
-Auto-detect paired distances                 & TRUE                                           \\
-Non-specific match handling                  & Map randomly                                   \\
-                                             &                                                \\
-\multicolumn{2}{l}{Find Best Matches using K-mer Spectra}                                     \\
-References                                   & NCBI references (2017-07-08)                   \\
-K-mer length                                 & 16                                             \\
-Only index k-mers with prefix                & ATGAC                                          \\
-Check for low quality and contamination      & TRUE                                           \\
-Fraction of unmapped reads for quality check & 0.1                                            \\
-                                             &                                                \\
-De Novo Assembly                             &                                                \\
-Mapping mode                                 & Create simple contig sequences (fast)          \\
-Update contigs                               & TRUE                                           \\
-Mismatch cost                                & 2                                              \\
-Insertion cost                               & 3                                              \\
-Deletion cost                                & 3                                              \\
-Colorspace error cost                        & 3                                              \\
-Length fraction                              & 0.5                                            \\
-Similarity fraction                          & 0.8                                            \\
-Colorspace alignment                         & TRUE                                           \\
-Alignment mode                               & local                                          \\
-Match mode                                   & random                                         \\
-Create list of un-mapped reads               & FALSE                                          \\
-Automatic bubble size                        & TRUE                                           \\
-Bubble size                                  & 50                                             \\
-Automatic word size                          & TRUE                                           \\
-Word size                                    & 20                                             \\
-Minimum contig length                        & 200                                            \\
-Guidance only reads                          &                                                \\
-Perform scaffolding                          & TRUE                                           \\
-Auto-detect paired distances                 & TRUE                                           \\
-Create report                                & TRUE                                           \\
-                                             &                                                \\
-\multicolumn{2}{l}{Find Resistance}                                                           \\
-DB                                           & Database for Find Resistance (2018-02-02)      \\
-Minimum identity \%                          & 70                                             \\
-Minimum length \%                            & 20                                             \\
-Filter overlaps                              & TRUE                                           \\
-Local Realignment                            &                                                \\
-Realign unaligned ends                       & TRUE                                           \\
-Multi-pass realignment                       & 2                                              \\
-Guidance-variant track                       &                                                \\
-Maximum guidance-variant length              & 100                                            \\
-Force realignment to guidance-variants       & FALSE                                          \\
-                                             &                                                \\
-InDels and Structural Variants (2)           &                                                \\
-P-Value threshold                            & 1.00E-04                                       \\
-Maximum number of mismatches                 & 3                                              \\
-Ignore broken pairs                          & TRUE                                           \\
-Filter variants                              & FALSE                                          \\
-Minimum number of reads                      & 2                                              \\
-Minimum relative consensus coverage          & 0                                              \\
-Minimum quality score                        & 0                                              \\
-Restrict calling to target regions           &                                                \\
-                                             &                                                \\
-Local Realignment (2)                        &                                                \\
-Realign unaligned ends                       & TRUE                                           \\
-Multi-pass realignment                       & 2                                              \\
-Guidance-variant track                       & Defined by: InDels and Structural Variants (2) \\
-Maximum guidance-variant length              & 100                                            \\
-Force realignment to guidance-variants       & FALSE                                          \\
-                                             &                                                \\
-\multicolumn{2}{l}{Identify MLST Scheme from Genomes}                                         \\
-Schemes                                      & PubMLST (04-03-2017)                           \\
-                                             &                                                \\
-Identify MLST                                &                                                \\
-Scheme                                       & Defined by: Identify MLST Scheme from Genomes  \\
-Low coverage reported when below             &                                               
-\end{longtable}
+\input{tables/chapter_2/suptable3}
+
