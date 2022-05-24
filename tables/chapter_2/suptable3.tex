@@ -1,13 +1,22 @@
+\begin{scriptsize}
+\begin{center}
 
 \begin{longtable}{ll}
 \caption{Supplementary table 3.}
 \label{tab:ch2_suptable3}\\
-\multicolumn{2}{l}{Illumina}                                                                  \\
+
+\toprule
 \endfirsthead
-%
+
+\multicolumn{2}{l}{\tablename \thetable - \textit{Continued from previous page} }\\
+\midrule
 \endhead
+
+\bottomrule
+\endlastfoot
+
+\multicolumn{2}{c}{\textbf{Illumina}}    \\\midrule
 %
-\small
 Discard sequence names                       & FALSE                                          \\
 Discard quality scores                       & FALSE                                          \\
 Selected files                               &                                                \\
@@ -19,8 +28,8 @@ Remove failed reads                          & TRUE                             
 Quality score                                & NCBI/Sanger or Illumina Pipeline 1.8 and later \\
 MiSeq de-multiplexing                        & FALSE                                          \\
 Illumina trim                                & FALSE                                          \\
-                                             &                                                \\
-Trim Reads                                   &                                                \\
+\midrule
+\multicolumn{2}{c}{\textbf{Trim Reads}}    \\\midrule
 Quality trim                                 & TRUE                                           \\
 Quality limit                                & 0.05                                           \\
 Ambiguous trim                               & TRUE                                           \\
@@ -35,8 +44,8 @@ Discard short reads                          & TRUE                             
 Minimum number of nucleotides in reads       & 30                                             \\
 Discard long reads                           & FALSE                                          \\
 Maximum number of nucleotides in reads       & 1000                                           \\
-                                             &                                                \\
-Map Reads to Reference                       &                                                \\
+\midrule
+\multicolumn{2}{c}{\textbf{Map Reads to Reference}}    \\\midrule
 References                                   & Homo sapiens (hg19) sequence                   \\
 Masking mode                                 & No masking                                     \\
 Masking track                                &                                                \\
@@ -56,15 +65,15 @@ Color space alignment                        & TRUE                             
 Color error cost                             & 3                                              \\
 Auto-detect paired distances                 & TRUE                                           \\
 Non-specific match handling                  & Map randomly                                   \\
-                                             &                                                \\
-\multicolumn{2}{l}{Find Best Matches using K-mer Spectra}                                     \\
+\midrule
+\multicolumn{2}{c}{\textbf{Find Best Matches using K-mer Spectra}}                                     \\\midrule
 References                                   & NCBI references (2017-07-08)                   \\
 K-mer length                                 & 16                                             \\
 Only index k-mers with prefix                & ATGAC                                          \\
 Check for low quality and contamination      & TRUE                                           \\
 Fraction of unmapped reads for quality check & 0.1                                            \\
-                                             &                                                \\
-De Novo Assembly                             &                                                \\
+\midrule
+\multicolumn{2}{c}{\textbf{\textit{De Novo} Assembly}}                                     \\\midrule
 Mapping mode                                 & Create simple contig sequences (fast)          \\
 Update contigs                               & TRUE                                           \\
 Mismatch cost                                & 2                                              \\
@@ -86,8 +95,8 @@ Guidance only reads                          &                                  
 Perform scaffolding                          & TRUE                                           \\
 Auto-detect paired distances                 & TRUE                                           \\
 Create report                                & TRUE                                           \\
-                                             &                                                \\
-\multicolumn{2}{l}{Find Resistance}                                                           \\
+\midrule
+\multicolumn{2}{c}{\textbf{Find Resistance}}                                                           \\\midrule
 DB                                           & Database for Find Resistance (2018-02-02)      \\
 Minimum identity \%                          & 70                                             \\
 Minimum length \%                            & 20                                             \\
@@ -98,8 +107,8 @@ Multi-pass realignment                       & 2                                
 Guidance-variant track                       &                                                \\
 Maximum guidance-variant length              & 100                                            \\
 Force realignment to guidance-variants       & FALSE                                          \\
-                                             &                                                \\
-InDels and Structural Variants (2)           &                                                \\
+\midrule
+\multicolumn{2}{c}{\textbf{InDels and Structural Variants}}                                                           \\\midrule
 P-Value threshold                            & 1.00E-04                                       \\
 Maximum number of mismatches                 & 3                                              \\
 Ignore broken pairs                          & TRUE                                           \\
@@ -108,18 +117,21 @@ Minimum number of reads                      & 2                                
 Minimum relative consensus coverage          & 0                                              \\
 Minimum quality score                        & 0                                              \\
 Restrict calling to target regions           &                                                \\
-                                             &                                                \\
-Local Realignment (2)                        &                                                \\
+\midrule
+\multicolumn{2}{c}{\textbf{Local Realignment}}                                                           \\\midrule
 Realign unaligned ends                       & TRUE                                           \\
 Multi-pass realignment                       & 2                                              \\
 Guidance-variant track                       & Defined by: InDels and Structural Variants (2) \\
 Maximum guidance-variant length              & 100                                            \\
 Force realignment to guidance-variants       & FALSE                                          \\
-                                             &                                                \\
-\multicolumn{2}{l}{Identify MLST Scheme from Genomes}                                         \\
+\midrule
+\multicolumn{2}{c}{\textbf{Identify MLST Scheme from Genomes}}                                         \\\midrule
 Schemes                                      & PubMLST (04-03-2017)                           \\
-                                             &                                                \\
-Identify MLST                                &                                                \\
+\midrule
+\multicolumn{2}{c}{\textbf{Identify MLST}}                                         \\\midrule
 Scheme                                       & Defined by: Identify MLST Scheme from Genomes  \\
 Low coverage reported when below             &                                               
 \end{longtable}
+
+\end{center}
+\end{scriptsize}

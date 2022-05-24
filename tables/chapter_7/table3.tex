@@ -5,16 +5,16 @@
 \caption{Minimal (required) contextual data fields. Through consultation and consensus, fourteen fields were prioritized for SARS-CoV-2 surveillance, which are considered required in the specification. Field names, definitions, and guidance are presented.}
 \label{tab:ch7_table3}\\ 
 \toprule
-Field   Name &
-  Definition &
-  Guidance \\ \midrule
+\textbf{Field   Name} &
+  \textbf{Definition} &
+  \textbf{Guidance} \\ \midrule
 \endfirsthead
 
 \multicolumn{3}{l}{\tablename \thetable - \textit{Continued from previous page} }\\
 \toprule
-Field   Name &
-  Definition &
-  Guidance \\ \midrule
+\textbf{Field   Name} &
+  \textbf{Definition} &
+  \textbf{Guidance} \\ \midrule
 \endhead
 
 \bottomrule
@@ -26,43 +26,43 @@ Field   Name &
 
 \begin{tabular}[c]{@{}l@{}}specimen collector \\ sample ID\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}The user-defined name \\ for the sample.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}Every Sample ID from a single submitter must\\ be unique. It can have any format, but we \\ suggest that you make it concise, \\ unique and consistent within your lab, \\ and as informative as possible.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Every Sample ID from a single submitter must\\ be unique. It can have any format, but we \\ suggest that you make it concise, \\ unique and consistent within your lab, \\ and as informative as possible.\end{tabular} \\ \midrule
 sample collected by &
   \begin{tabular}[c]{@{}l@{}}The name of the agency that \\ collected the original sample.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}The name of the agency should be written out\\ in full, (with minor exceptions) and consistent \\ across multiple submissions.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}The name of the agency should be written out\\ in full, (with minor exceptions) and consistent \\ across multiple submissions.\end{tabular} \\ \midrule
 sequence submitted by &
   \begin{tabular}[c]{@{}l@{}}The name of the agency that \\ generated the sequence.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}The name of the agency should be written out\\ in full, (with minor exceptions) and be \\ consistent across multiple submissions.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}The name of the agency should be written out\\ in full, (with minor exceptions) and be \\ consistent across multiple submissions.\end{tabular} \\ \midrule
 sample collection date &
   \begin{tabular}[c]{@{}l@{}}The date on which the sample \\ was collected.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}Record the collection date accurately in the \\ template. Required granularity includes year, \\ month and day. Before sharing this data, \\ ensure this date is not considered identifiable \\ information. If this date is considered identifiable, \\ it is acceptable to add "jitter" to the collection date \\ by adding or subtracting calendar days. Do not \\ change the collection date in your original records. \\ Alternatively,” received date” may be used as a \\ substitute in the data you share. The date should be \\ provided in ISO 8601 standard format \\ "YYYY-MM-DD".\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Record the collection date accurately in the \\ template. Required granularity includes year, \\ month and day. Before sharing this data, \\ ensure this date is not considered identifiable \\ information. If this date is considered identifiable, \\ it is acceptable to add "jitter" to the collection date \\ by adding or subtracting calendar days. Do not \\ change the collection date in your original records. \\ Alternatively,” received date” may be used as a \\ substitute in the data you share. The date should be \\ provided in ISO 8601 standard format \\ "YYYY-MM-DD".\end{tabular} \\ \midrule
 \begin{tabular}[c]{@{}l@{}}geo\_loc name \\ (country)\end{tabular} &
   Country of origin of the sample. &
-  \begin{tabular}[c]{@{}l@{}}Provide the country name from the pick list\\ in the template.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Provide the country name from the pick list\\ in the template.\end{tabular} \\ \midrule
 \begin{tabular}[c]{@{}l@{}}geo\_loc name \\ (state/province/region)\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}State/province/region of origin \\ of the sample.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}Provide the state/province/region name from\\ the GAZ geography ontology. Search for geography \\ terms here: https://www.ebi.ac.uk/ols/ontologies/gaz\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Provide the state/province/region name from\\ the GAZ geography ontology. Search for geography \\ terms here: https://www.ebi.ac.uk/ols/ontologies/gaz\end{tabular} \\ \midrule
 organism &
   Taxonomic name of the organism. &
-  \begin{tabular}[c]{@{}l@{}}Use “Severe acute respiratory \\ syndrome coronavirus 2”\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Use “Severe acute respiratory \\ syndrome coronavirus 2”\end{tabular} \\ \midrule
 isolate &
   Identifier of the specific isolate. &
-  \begin{tabular}[c]{@{}l@{}}This identifier should be an unique, indexed, \\ alpha-numeric ID within your laboratory. If \\ submitted to the INSDC,  the "isolate" name \\ is propagated throughout different databases. \\ As such, structure the "isolate" name to be \\ ICTV/INSDC compliant in the following format: \\ "SARS-CoV-2/host/country/sampleID/date"\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}This identifier should be an unique, indexed, \\ alpha-numeric ID within your laboratory. If \\ submitted to the INSDC,  the "isolate" name \\ is propagated throughout different databases. \\ As such, structure the "isolate" name to be \\ ICTV/INSDC compliant in the following format: \\ "SARS-CoV-2/host/country/sampleID/date"\end{tabular} \\ \midrule
 \begin{tabular}[c]{@{}l@{}}host \\ (scientific name)\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}The taxonomic, or scientific \\ name of the host.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}Common name or scientific name are required \\ if there was a host. Scientific name examples \\ e.g., Homo sapiens. Select a value from the \\ pick list. If the sample was environmental, \\ put "not applicable".\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Common name or scientific name are required \\ if there was a host. Scientific name examples \\ e.g., Homo sapiens. Select a value from the \\ pick list. If the sample was environmental, \\ put "not applicable".\end{tabular} \\ \midrule
 host disease &
   \begin{tabular}[c]{@{}l@{}}The name of the disease \\ experienced by the host.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}This field is only required if there was a\\ host. If the host was a human select COVID-19\\ from the pick list. If the host was asymptomatic, \\ this can be recorded under “host health state details”. \\ "COVID-19" should still be provided if the patient \\ is asymptomatic. If the host is not human, and the\\ disease state is not known or the host appears \\ healthy, put “not applicable”.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}This field is only required if there was a\\ host. If the host was a human select COVID-19\\ from the pick list. If the host was asymptomatic, \\ this can be recorded under “host health state details”. \\ "COVID-19" should still be provided if the patient \\ is asymptomatic. If the host is not human, and the\\ disease state is not known or the host appears \\ healthy, put “not applicable”.\end{tabular} \\ \midrule
 purpose of sequencing &
   \begin{tabular}[c]{@{}l@{}}The reason that the sample\\ was sequenced.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}The reason why a sample was originally\\ collected may differ from the reason\\ why it was selected for sequencing. The\\ reason a sample was sequenced may \\ provide information about potential biases \\ in sequencing strategy. Provide the \\ purpose of sequencing from the picklist \\ in the template. The reason for sample \\ collection should be indicated in the  \\ "purpose of sampling" field.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}The reason why a sample was originally\\ collected may differ from the reason\\ why it was selected for sequencing. The\\ reason a sample was sequenced may \\ provide information about potential biases \\ in sequencing strategy. Provide the \\ purpose of sequencing from the picklist \\ in the template. The reason for sample \\ collection should be indicated in the  \\ "purpose of sampling" field.\end{tabular} \\ \midrule
 sequencing instrument &
   \begin{tabular}[c]{@{}l@{}}The model of the sequencing \\ instrument used.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}Select a sequencing instrument from the \\ picklist provided in the template.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Select a sequencing instrument from the \\ picklist provided in the template.\end{tabular} \\ \midrule
 \begin{tabular}[c]{@{}l@{}}consensus sequence \\ software name\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}The name of software used to \\ generate the consensus sequence.\end{tabular} &
-  \begin{tabular}[c]{@{}l@{}}Provide the name of the software used to\\ generate the consensus sequence.\end{tabular} \\
+  \begin{tabular}[c]{@{}l@{}}Provide the name of the software used to\\ generate the consensus sequence.\end{tabular} \\ \midrule
 \begin{tabular}[c]{@{}l@{}}consensus sequence \\ software version\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}The version of the software used to \\ generate the consensus sequence.\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}Provide the version of the software used to\\ generate the consensus sequence.\end{tabular}

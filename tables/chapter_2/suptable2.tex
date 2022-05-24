@@ -3,7 +3,8 @@
 \label{tab:ch2_suptable2}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{ll}
-\multicolumn{2}{l}{Trim Reads}                                                          \\
+\midrule
+\multicolumn{2}{c}{\textbf{Trim Reads}}                                                          \\\midrule
 Trimmomatic v0.36 (INNUca v2.6 initial module)     &                                    \\
 Quality trim                                       & TRUE                               \\
 Phred Quality limit                                & 05:20                              \\
@@ -13,16 +14,16 @@ Number of 5' terminal nucleotides                  & 3                          
 Remove 3' terminal nucleotides                     & TRUE                               \\
 Number of 3' terminal nucleotides                  & 3                                  \\
 Discard short reads                                & TRUE                               \\
-Minimum number of nucleotides in reads             & 55                                 \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Map Reads to Reference}                                              \\
+Minimum number of nucleotides in reads             & 55 \\              
+\midrule
+\multicolumn{2}{c}{\textbf{Map Reads to Reference}}                                              \\\midrule
 Bowtie2 v2.3.2                                     &                                    \\
 References                                         & Homo sapiens (hg19) index          \\
 Mode                                               & end-to-end                         \\
 Mode option                                        & sensitive                          \\
 Collect unmapped reads                             & FALSE                              \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Taxonomic classification}                                            \\
+\midrule
+\multicolumn{2}{c}{\textbf{Taxonomic Classification}}                                            \\\midrule
 Kraken v0.10.5-beta                                &                                    \\
 References                                         & miniKraken database (Dec. 8, 2014) \\
 K-mer length                                       & 35                                 \\
@@ -36,37 +37,38 @@ Minimum total nucleotide length for the markers    & 2000                       
 Quantile value for robust average                  & 0.1                                \\
 Statistical approach for converting marker abundances into clade abundances & clade global                                          \\
 Analysis type                                                               & profiling a metagenome in terms of relative abundance \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Identify MLST}                                                       \\
+\midrule
+\multicolumn{2}{c}{\textbf{Identify MLST}}                                                       \\\midrule
 metaMLST v1.1                                      &                                    \\
 References                                         & metamlstDB\_2017                   \\
 Bowtie2 mode                                       & local                              \\
 Bowtie2 mode option                                & very sensitive local               \\
 Collect unmapped reads                             & FALSE                              \\
 Search for and report all alignment                & TRUE                               \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Find Resistance Genes}                                               \\
+\midrule
+\multicolumn{2}{c}{\textbf{Find Resistance Genes}}                                               \\\midrule
 ReMatCh v3.2                                       &                                    \\
 References                                         & ResFinder database (29-06-2017)    \\
 Minimum coverage to consider a position as present & 1                                  \\
 Minimum coverage depth to perform a basecall       & 1                                  \\
 Minimum gene coverage (\%)                         & 80                                 \\
 Minimum gene identity (\%)                         & 70                                 \\
-                                                   &                                    \\
-\multicolumn{2}{l}{De novo assembly}                                                    \\
+\midrule
+\multicolumn{2}{c}{\textbf{\textit{De Novo} Assembly}}                                                    \\\midrule
 SPAdes v3.10.1                                     &                                    \\
 Mode                                               & careful                            \\
 Error correction                                   & FALSE                              \\
 Read coverage cut-off value                        & 2                                  \\
 List of K-mers                                     & 21,33,55,67,77                     \\
-                                                   &                                    \\
-\multicolumn{2}{l}{Plasmid Detection}                                                   \\
+\midrule
+\multicolumn{2}{c}{\textbf{Plasmid Detection}}                                                   \\\midrule
 Bowtie2 v2.3.2                                     &                                    \\
 References                                         & NCBI RefSeq (May 11, 2017)         \\
 Mode                                               & end-to-end                         \\
 Mode option                                        & sensitive                          \\
 Collect unmapped reads                             & FALSE                              \\
-Multiple alignment                                 & TRUE                              
+Multiple alignment                                 & TRUE \\
+\midrule
 \end{tabular}%
 }
 \end{table}
