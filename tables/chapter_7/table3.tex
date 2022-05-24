@@ -1,4 +1,5 @@
-\small
+\begin{scriptsize}
+\begin{center}
 
 \begin{longtable}[c]{@{}lll@{}}
 \caption{Minimal (required) contextual data fields. Through consultation and consensus, fourteen fields were prioritized for SARS-CoV-2 surveillance, which are considered required in the specification. Field names, definitions, and guidance are presented.}
@@ -8,9 +9,21 @@ Field   Name &
   Definition &
   Guidance \\ \midrule
 \endfirsthead
-%
+
+\multicolumn{3}{l}{\tablename \thetable - \textit{Continued from previous page} }\\
+\toprule
+Field   Name &
+  Definition &
+  Guidance \\ \midrule
 \endhead
-%
+
+\bottomrule
+\multicolumn{3}{r}{\textit{Continue on next page}}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
 \begin{tabular}[c]{@{}l@{}}specimen collector \\ sample ID\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}The user-defined name \\ for the sample.\end{tabular} &
   \begin{tabular}[c]{@{}l@{}}Every Sample ID from a single submitter must\\ be unique. It can have any format, but we \\ suggest that you make it concise, \\ unique and consistent within your lab, \\ and as informative as possible.\end{tabular} \\
@@ -55,4 +68,5 @@ sequencing instrument &
   \begin{tabular}[c]{@{}l@{}}Provide the version of the software used to\\ generate the consensus sequence.\end{tabular}
 \end{longtable}
 
-\normalsize
+\end{center}
+\end{scriptsize}
