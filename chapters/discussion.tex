@@ -1,3 +1,5 @@
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+
 \mbox{}\\
 \vspace{8cm}
 
@@ -55,9 +57,20 @@ Despite these efforts, this is just a small subset of the commonly bioinformatic
 
 \subsubsection{The use of mock communities}
 
-In chapter \ref{ch:paper4}, its shown that suitable mock communities, reproducing the users’ samples of interest, can be used as a gold standard to evaluate tool performance. 
+In chapter \ref{ch:paper5}, its shown that suitable mock communities, reproducing the users’ samples of interest, can be used as a gold standard to evaluate tool performance. Several well characterised mock communities are currently available to be used by the community when assessing and benchmarking software suitable for \ac{SMg} analysis. Chapter \ref{ch:paper5} features the ZymoBIOMICS Microbial Community Standard, composed of eight bacterial species and two fungi, and is available commercially, with reference sequences made publicly available, with both even and logarithmically distribution of species\footnote{\url{https://www.zymoresearch.com/collections/zymobiomics-microbial-community-standards}}. Still, ZymoBIOMICS Microbial Community Standards might not be representative of the metagenomic complexity of the samples of interest of most researchers, its relative simplicity means that the results shown probably represent a best-case scenario. 
+
+Alternatively, more complex communities, with good metadata and reference genomes publicly available, are available for acquisition and sequencing. \ac{ATCC} 10 Strain Even Mix Genomic Material
+MSA-1000\footnote{\url{https://www.atcc.org/products/msa-1000}} and 20 Strain Even Mix Genomic Material MSA-1002\footnote{\url{https://www.atcc.org/products/msa-1002}} consists of 10 and 20, respectively, fully sequenced, characterised, and authenticated \ac{ATCC} Genuine Cultures mixed evenly, selected based on pathogen relevance. It also provides Gut Microbiome Genomic Mix MSA-1006\footnote{\url{https://www.atcc.org/products/msa-1006}} composed of an even mixture of genomic DNA prepared from 12 fully sequenced, characterised, and authenticated bacterial species observed in normal and atypical gut microbial communities. 
+
+For the replication of more complex communities, the MICROBIOME Community of Special Interest\footnote{\url{https://www.microbiome-cosi.org/}} makes available through their \ac{CAMI} initiative\footnote{\url{https://data.cami-challenge.org/}}, makes available several datasets, varying in complexity, replicating several communities such as human microbiome and the rhizosphere. Sources of truth are not made available, including the complete genomes of the community profile, so comparison are difficult. 
 
 \subsubsection{Ensuring reproducibility}
+
+One of the biggest challenges when dealing with metagenomic data is the lack of golden standards, although major efforts are being made on the standardisation and assessment of software, both commercial and open source \citep{angers-loustau_challenges_2018, gruening_recommendations_2019, sczyrba_critical_2017, couto_critical_2018}. A plethora of open source tools are available specifically for metagenomic data, both short and long read data, and several combinations of these tools can be used to characterise the causative agent in a patient's infection in a fraction of time required by the traditional methods. Alongside, there are several commercial alternatives, such as CLC Genomics Workbench (QIAGEN Bioinformatics), Taxonomer \citep{flygare_taxonomer_2016} and BaseSpace (Illumina), that offer ready to use complete workflows at the cost of lack of transparency, reproducibility and control in the analysis.
+
+There are several steps that can be implemented to ensure the transparency and reproducibility of the chosen workflow. Favouring open-source tools, with clear documentation describing the methodology implemented, and stating the version of the software used and which parameters were used enables the comparison of results. This can be simplified by containerising all the software tools with one of the many solutions available, like Docker\footnote{\url{https://www.docker.com/}} or Singularity \citep{kurtzer_singularity_2017}. The use of workflow managers, like nextflow \citep{di_tommaso_nextflow_2017} or the Galaxy Project \citep{afgan_galaxy_2018}, will push reproducibility to the next level by taking advantage of the containerisation and scalability, enabling the workflow to be executed with the exact same parameters in the same conditions in a multitude of different environments. 
+
+In chapters \ref{ch:paper4} and \ref{ch:paper5}, one of the main key objectives was to  
 
 \subsubsection{The need for intuitive and responsive reports}
 
