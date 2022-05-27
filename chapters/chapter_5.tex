@@ -39,7 +39,9 @@ $^2$Faculty of Health Sciences, Ben-Gurion University of the Negev, Beer-Sheva, 
 \section{Abstract}
 
 \textbf{Background }The de novo assembly of raw sequence data is key in metagenomic analysis. It allows recovering draft genomes from a pool of mixed raw reads, yielding longer sequences that offer contextual information and provide a more complete picture of the microbial community.
+
 \textbf{Results} To better compare de novo assemblers for metagenomic analysis, LMAS was developed as a flexible platform allowing users to evaluate assembler performance given known standard communities. Overall, in our test datasets, k-mer De Bruijn graph assemblers outperformed the alternative approaches but came with a greater computational cost. Furthermore, assemblers branded as metagenomic specific did not consistently outperform other genomic assemblers in metagenomic samples. Some assemblers still in use, such as ABySS, BCALM2, MetaHipmer2, minia and VelvetOptimiser, perform relatively poorly and should be used with caution when assembling complex samples. 
+
 \textbf{Conclusions} The choice of a de novo assembler depends on the computational resources available, the replicon of interest, and the major goals of the analysis. No single assembler appeared an ideal choice for short-read metagenomic prokaryote replicon assembly, each showing specific strengths. The choice of metagenomic assembler should be guided by user requirements and characteristics of the sample of interest, and LMAS provides an interactive evaluation platform for this purpose. 
 
 \subsubsection{Keywords}
@@ -64,18 +66,14 @@ To tackle these challenges, we developed LMAS (Last Metagenomic Assembler Standi
 
 \subsection{Workflow overview}
 
-LMAS is a user-friendly automated workflow enabling the benchmarking of traditional and metagenomic prokaryotic de novo assembly software using defined mock communities. LMAS was implemented in Nextflow [12]\cite{di_tommaso_nextflow_2017} to provide flexibility and ensure the transparency and reproducibility of the results. LMAS relies on the use of Docker \cite{merkel_docker_2014} containers for each assembler, allowing versions to be tracked and changed easily.
+LMAS is a user-friendly automated workflow enabling the benchmarking of traditional and metagenomic prokaryotic de novo assembly software using defined mock communities. LMAS was implemented in Nextflow \cite{di_tommaso_nextflow_2017} to provide flexibility and ensure the transparency and reproducibility of the results. LMAS relies on the use of Docker \cite{merkel_docker_2014} containers for each assembler, allowing versions to be tracked and changed easily.
 
-\newpage
-
-\begin{figure*}[h!]
+\begin{figure*}[]
 \centering
 \includegraphics[width=\textwidth]{figures/chapter 5/Figure 1.png}
 \caption{The LMAS workflow. The input sequencing data is assembled in parallel, resources permitting, by the set of assemblers included in LMAS. The resulting contigs are processed and the global quality assessment is performed. After filtering for the user-defined minimum contig size, the remaining sequences are mapped against the provided reference and the resulting information is processed to evaluate assembly quality by replicon in the reference file. All results, and optional text information describing the samples, are grouped in the LMAS report.}
 \label{fig:chap5_figure1}
 \end{figure*}
-
-\newpage
 
 \subsection{Installation and Usage}
 
@@ -85,7 +83,7 @@ A step-by-step execution tutorial is available at \cite{noauthor_basic_nodate}. 
 
 \subsection{Supported Assemblers and selection criteria}
 
-A collection of de novo assembly tools was compiled, including OLC and dBg assembly algorithms, the latter including both single k-mer and multiple k-mer value approaches, and hybrid assemblers implementing both algorithms, including both genomic and metagenomic assemblers (Supplemental Table S1). Of these, 12 assemblers were selected based on the date of last update and are implemented in LMAS: ABySS \cite{jackman_abyss_2017} (version 2.3.1), BCALM2 \cite{chikhi_compacting_2016} (version 2.2.3), GATB Minia Pipeline \cite{noauthor_gatbgatb-minia-pipeline_2022} (commit hash 9d56f42) , IDBA-UD \cite{peng_idba-ud_2012} (version 1.1.3), MEGAHIT \cite{li_megahit_2015} (version 1.2.9), MetaHipMer2 \cite{georganas_extreme_2018} (version 2.0.0.65-gaad446d-dirty-AddGtest), metaSPAdes \cite{nurk_metaspades_2017} (version 3.15.3), minia \cite{chikhi_space-efficient_2013} (version 3.2.6), SKESA \cite{souvorov_skesa_2018} (version 2.5.0), SPAdes \cite{bankevich_spades_2012} (version 3.15.3), Unicycler \cite{wick_unicycler_2017} (version 0.4.9) and VelvetOptimiser \cite{seemann_velvetoptimiser_2021} (commit hash 092bdee) (Table \ref{tab:ch5_table1}). The execution commands for each assembler are available as Supplemental Material (see Supplemental Material, Short-read de novo assemblers) and in the documentation \cite{noauthor_short-read_nodate}. 
+A collection of de novo assembly tools was compiled, including \ac{OLC} and \ac{dBg} assembly algorithms, the latter including both single k-mer and multiple k-mer value approaches, and hybrid assemblers implementing both algorithms, including both genomic and metagenomic assemblers (Supplemental Table S1). Of these, 12 assemblers were selected based on the date of last update and are implemented in LMAS: ABySS \cite{jackman_abyss_2017} (version 2.3.1), BCALM2 \cite{chikhi_compacting_2016} (version 2.2.3), GATB Minia Pipeline \cite{noauthor_gatbgatb-minia-pipeline_2022} (commit hash 9d56f42) , IDBA-UD \cite{peng_idba-ud_2012} (version 1.1.3), MEGAHIT \cite{li_megahit_2015} (version 1.2.9), MetaHipMer2 \cite{georganas_extreme_2018} (version 2.0.0.65-gaad446d-dirty-AddGtest), metaSPAdes \cite{nurk_metaspades_2017} (version 3.15.3), minia \cite{chikhi_space-efficient_2013} (version 3.2.6), SKESA \cite{souvorov_skesa_2018} (version 2.5.0), SPAdes \cite{bankevich_spades_2012} (version 3.15.3), Unicycler \cite{wick_unicycler_2017} (version 0.4.9) and VelvetOptimiser \cite{seemann_velvetoptimiser_2021} (commit hash 092bdee) (Table \ref{tab:ch5_table1}). The execution commands for each assembler are available as Supplemental Material (see Supplemental Material, Short-read de novo assemblers) and in the documentation \cite{noauthor_short-read_nodate}. 
 New assemblers can be added with minimal changes to the pipeline so that LMAS can be expanded as novel algorithms are developed. A template is available to facilitate their integration and a step-by-step guide is included in the documentation \cite{noauthor_add_nodate}. The only two requirements for the addition of a new assembler are the execution command for the assembler for paired-end short-read data and a Nextflow-compatible container with the assembler and any dependencies.
 
 \input{tables/chapter_5/table1}
@@ -100,11 +98,11 @@ The computation of the global metrics is performed through statistics inherent t
 
 \subsubsection{Per Reference Metrics} \label{sssec:_chap5_reference_metrics} 
 
-For the computation of the reference-based metrics, only the filtered set (FS) contigs are considered, for each reference replicon in the sample. These contigs are the ones exceeding the user-defined minimum sequence length, filtered using BBTools (version 38.44). After this initial step, the contigs are mapped to the reference replicons with minimap2 \cite{li_minimap2_2018} (version 2.22). The metrics are computed through custom python code (see Supplemental Material, Assembly filtering and mapping) for each replicon in the file provided as input. A detailed description of all reference-based metrics is available in Supplemental Material (see Supplemental Material, LMAS Metrics, Per Reference Metrics). 
+For the computation of the reference-based metrics, only the \ac{FS} contigs are considered, for each reference replicon in the sample. These contigs are the ones exceeding the user-defined minimum sequence length, filtered using BBTools (version 38.44). After this initial step, the contigs are mapped to the reference replicons with minimap2 \cite{li_minimap2_2018} (version 2.22). The metrics are computed through custom python code (see Supplemental Material, Assembly filtering and mapping) for each replicon in the file provided as input. A detailed description of all reference-based metrics is available in Supplemental Material (see Supplemental Material, LMAS Metrics, Per Reference Metrics). 
 
-In addition to the statistics shared with the global metrics, LMAS also calculates the number of mismatches relative to each reference, the COMPASS \cite{earl_assemblathon_2011} metrics and two new metrics we propose: LSA and Pls.
+In addition to the statistics shared with the global metrics, LMAS also calculates the number of mismatches relative to each reference, the COMPASS \cite{earl_assemblathon_2011} metrics and two new metrics we propose: \ac{LSA} and \ac{Pls}.
 
-LSA represents the fraction of the longest single alignment between a contig and the reference, relative to the reference length. The Pls, or Phred-like score, is a scoring function based on the identity of each aligned contig to the reference replicon. Similarly to the Phred quality score \cite{ewing_base-calling_1998}, a measure of the quality of the identification of the bases by sequencing, the Pls measures the quality of the assembly of a contig. The formula of Pls is similar to the Phred score formula but uses as the error function the identity of the base in the contig to that of the reference replicon. The formula to obtain the Pls metric per contig is Equation \ref{ch5_eq1}. 
+\ac{LSA} represents the fraction of the longest single alignment between a contig and the reference, relative to the reference length. The \ac{Pls}, or Phred-like score, is a scoring function based on the identity of each aligned contig to the reference replicon. Similarly to the Phred quality score \cite{ewing_base-calling_1998}, a measure of the quality of the identification of the bases by sequencing, the \ac{Pls} measures the quality of the assembly of a contig. The formula of \ac{Pls} is similar to the Phred score formula but uses as the error function the identity of the base in the contig to that of the reference replicon. The formula to obtain the \ac{Pls} metric per contig is Equation \ref{ch5_eq1}. 
 
 \begin{equation} \label{ch5_eq1}
     Phred(E) = \left\{\begin{matrix}
@@ -135,18 +133,18 @@ The top panel of the report contains information on the input samples and overal
     \item\textit{ About us}: This tab contains information on the LMAS GitHub repositories and the LMAS development team. 
 \end{itemize}
 
-\subsubsection{}{Metrics Panel} \label{sssec:_chap5_summary_panel} 
+\subsubsection{Metrics Panel} \label{sssec:_chap5_summary_panel} 
 
 The bottom portion of the report contains the explorable global and reference specific performance metrics per input raw sequencing data sample. Each sample has its own tab and the global or reference replicon specific metrics can be accessed in the dropdown menu. 
 
 
 \paragraph{Global Metrics} \label{sssec:_chap5_summary_panel_global} \mbox{}\\
 
-A table displays the global assembly metrics computed for the complete and FS contigs. If an assembler fails to produce an assembly, it is marked on the table with a red warning sign. The global metric plots are interactive, allow zooming in on particular areas and provide extra information as hover text boxes. The plots can be saved as PNG in whatever view the user selects. 
+A table displays the global assembly metrics computed for the complete and \ac{FS} contigs. If an assembler fails to produce an assembly, it is marked on the table with a red warning sign. The global metric plots are interactive, allow zooming in on particular areas and provide extra information as hover text boxes. The plots can be saved as PNG in whatever view the user selects. 
 
 \paragraph{Per Reference Metrics} \label{sssec:_chap5_summary_panel_reference} \mbox{}\\
 
-Similarly to the global assembly metrics, a table displays the computed set of reference restricted metrics for the FS contigs. If an assembler fails to produce sequences that align to the reference, these are marked in the table with a red warning sign. Information on the expected reference replicon length and the GC content is calculated from the input files and reported above the table. The per-reference metric plots are also interactive, allowing the same type of operations as the global metric plots. 
+Similarly to the global assembly metrics, a table displays the computed set of reference restricted metrics for the \ac{FS} contigs. If an assembler fails to produce sequences that align to the reference, these are marked in the table with a red warning sign. Information on the expected reference replicon length and the GC content is calculated from the input files and reported above the table. The per-reference metric plots are also interactive, allowing the same type of operations as the global metric plots. 
 
 \subsection{Comparison with other assembly evaluation software programs}
 
@@ -169,7 +167,7 @@ Of the 12 de novo prokaryotic assemblers included in LMAS, five stand out as hav
 \label{fig:chap5_figure3}
 \end{figure*}
 
-Regarding the quality assessment of the assemblies produced (Figure \ref{fig:chap5_figure4}, Supplementary Table S12), ABySS, BCALM2 and minia are the only single k-mer dBg assemblers in the collection and were found to mostly underperform relative to their multiple k-mer dBg counterparts, generally resulting in more fragmented assemblies, although there were significant differences in performance across samples. Among multiple k-mer assemblers, VelvetOptimiser frequently produced a very high number of contigs of very small size (over 99\% of the contigs not surpassing the minimum length of 1,000 bp) and therefore a low N50 (an average of 29,768 bp versus a global average of 84,114 bp) (Supplementary tables S5-S10). Additionally, ABySS and VelvetOptimizer produced contigs with a very large number of Ns, with an average of 1,019 and 3,035 uncalled bases per assembly, respectively. MetaHipMer2, although having overall average metrics in the two evenly distributed mock samples (ENN and EMS, Supplementary Tables S5-S6) where it was able to run successfully, it severely underperformed in the real samples (ERR2984773 and ERR2935805, Supplementary Tables S7 and S10). Generally, the performance scores of the assemblers decreased considerably for the real samples in comparison with the simulated ones, either with or without error. High utilisation of the reads in the dataset is observed for most assemblers, with on average at least 90\% of the reads mapping back to the assembly, except for ABySS, BCALM2, MetaHipMer2 and VelvetOptimiser whose values are in the range of 46-79\%. Despite an overall good performance, SPAdes produced the highest number of misassembled contigs, with an average of 98 and a maximum of 572 (sample ERR2935805, Supplementary Table S10), in comparison to the global average of 11 misassembled contigs for all assemblers across all samples.
+Regarding the quality assessment of the assemblies produced (Figure \ref{fig:chap5_figure4}, Supplementary Table S12), ABySS, BCALM2 and minia are the only single k-mer \ac{dBg} assemblers in the collection and were found to mostly underperform relative to their multiple k-mer \ac{dBg} counterparts, generally resulting in more fragmented assemblies, although there were significant differences in performance across samples. Among multiple k-mer assemblers, VelvetOptimiser frequently produced a very high number of contigs of very small size (over 99\% of the contigs not surpassing the minimum length of 1,000 \ac{bp}) and therefore a low N50 (an average of 29,768 \ac{bp} versus a global average of 84,114 \ac{bp}) (Supplementary tables S5-S10). Additionally, ABySS and VelvetOptimizer produced contigs with a very large number of Ns, with an average of 1,019 and 3,035 uncalled bases per assembly, respectively. MetaHipMer2, although having overall average metrics in the two evenly distributed mock samples (ENN and EMS, Supplementary Tables S5-S6) where it was able to run successfully, it severely underperformed in the real samples (ERR2984773 and ERR2935805, Supplementary Tables S7 and S10). Generally, the performance scores of the assemblers decreased considerably for the real samples in comparison with the simulated ones, either with or without error. High utilisation of the reads in the dataset is observed for most assemblers, with on average at least 90\% of the reads mapping back to the assembly, except for ABySS, BCALM2, MetaHipMer2 and VelvetOptimiser whose values are in the range of 46-79\%. Despite an overall good performance, SPAdes produced the highest number of misassembled contigs, with an average of 98 and a maximum of 572 (sample ERR2935805, Supplementary Table S10), in comparison to the global average of 11 misassembled contigs for all assemblers across all samples.
 
 Due to their poor performance discussed above, the following assemblers have not been included in subsequent analyses: ABySS, BCALM2, MetaHipmer2, minia and VelvetOptimiser. 
 
@@ -182,7 +180,7 @@ Due to their poor performance discussed above, the following assemblers have not
 
 \subsection{Metagenomic dedicated assemblers do not outperform genomic assemblers}
 
-After excluding the poorly performing assemblers, LMAS includes 3 genomic (SKESA, SPAdes and Unicycler) and 4 labelled as metagenomic specific (GATBMiniaPipeline, IDBA-UD, MEGAHIT and metaSPAdes) de novo prokaryotic assemblers, all implementing multiple k-mer dBg algorithms. As observed in Figure \ref{fig:chap5_figure5}, Supplementary Table S13 and Supplemental Figure S3,  there were very significant differences between the best and the worst performing assemblers of each type, with this difference being more pronounced for metagenomic assemblers. The best performing assemblers of each type behaved frequently quite similarly, and the differences between them tended to be attenuated after filtering for contigs <1 kbp. Still, for the linearly distributed samples (ENN, EMS and ERR2984773), the overall worst performers tended to be metagenomic assemblers. In contrast, for the logarithmically distributed samples (LNN, LHS and ERR2935805) the opposite was observed, with genomic assemblers tending to be the worst-performing (Figure \ref{fig:chap5_figure5}). For the logarithmically distributed samples, the number of basepairs recovered is significantly lower than expected from their composition for both genomic and metagenomic assemblers, particularly after filtering (Supplementary Table S13), as contigs representing the less abundant species are not recovered by either type of assemblers (see Assembler performance is influenced by replicon abundance in the sample). For this dataset, the fact that an assembler is branded as genomic or metagenomic does not translate into better or worse performance in dealing with these complex samples, but rather characteristics of the individual assemblers themselves determine their performance.
+After excluding the poorly performing assemblers, LMAS includes 3 genomic (SKESA, SPAdes and Unicycler) and 4 labelled as metagenomic specific (GATBMiniaPipeline, IDBA-UD, MEGAHIT and metaSPAdes) de novo prokaryotic assemblers, all implementing multiple k-mer \ac{dBg} algorithms. As observed in Figure \ref{fig:chap5_figure5}, Supplementary Table S13 and Supplemental Figure S3,  there were very significant differences between the best and the worst performing assemblers of each type, with this difference being more pronounced for metagenomic assemblers. The best performing assemblers of each type behaved frequently quite similarly, and the differences between them tended to be attenuated after filtering for contigs <1 k\ac{bp}. Still, for the linearly distributed samples (ENN, EMS and ERR2984773), the overall worst performers tended to be metagenomic assemblers. In contrast, for the logarithmically distributed samples (LNN, LHS and ERR2935805) the opposite was observed, with genomic assemblers tending to be the worst-performing (Figure \ref{fig:chap5_figure5}). For the logarithmically distributed samples, the number of basepairs recovered is significantly lower than expected from their composition for both genomic and metagenomic assemblers, particularly after filtering (Supplementary Table S13), as contigs representing the less abundant species are not recovered by either type of assemblers (see Assembler performance is influenced by replicon abundance in the sample). For this dataset, the fact that an assembler is branded as genomic or metagenomic does not translate into better or worse performance in dealing with these complex samples, but rather characteristics of the individual assemblers themselves determine their performance.
 
 \begin{figure*}[h!]
 \centering
@@ -196,3 +194,177 @@ After excluding the poorly performing assemblers, LMAS includes 3 genomic (SKESA
 Several factors contribute to suboptimal performance of the assembly process, from DNA isolation and library preparation protocol; sequencing technology, depth and read length; to possible contamination and inherent characteristics of the sample composition.
 
 \subsubsection{Assembler performance is influenced by species}
+
+For the eight bacterial genomes present in the samples, even in those with an even distribution of the genomes (ENN, EMS and ERR2984773), variations in the assembly metrics were observed (Figure \ref{fig:chap5_figure6}, Supplemental Figures S4-S6, Supplemental Tables S14-S16).  For all samples in the dataset, the genomes are recovered almost completely, with all replicons being >90\% represented in the resulting assemblies. \textit{Lactobacillus fermentum} is the least represented genome (92.2\%-94.9\%). Most replicon sequences are recovered in <100 contigs, except for \textit{Pseudomonas aeruginosa}, \textit{Escherichia coli} and \textit{Salmonella enterica}, and not considering IDBA-UB, which frequently produces a larger number of contigs when compared to other assemblers. The absolute values of other metrics of assembly quality, such as \ac{LSA}, misassembly events or uncalled bases, are also different between bacterial genomes (Supplemental Tables S14-S16). The fact that \textit{S. enterica} is a closely related species to \textit{E. coli}, with high level of genetic similarity (ANIb >0.8, Supplemental Table S23), could have created difficulties for resolving the assemblies in a mixed sample and lead to the lower coverage observed, the higher number of contigs and the increased number of misassembled contigs identified in these species in some samples. However, in the case of the larger number of contigs of \textit{P. aeruginosa}, no related species are present in the sample and these possibly reflect intrinsic properties of the replicon. Similarly, replicon characteristics could be behind the lower breadth of coverage consistently observed in \textit{L. fermentum} assemblies. 
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Figure 6.png}
+\caption{Genome fragmentation for each reference replicon of the ZimoBIOMICS community standards dataset for the evenly distributed samples. Genome fragmentation for the 3 LMAS runs is represented by the number of contigs and breadth of coverage of the reference per assembler for the evenly distributed samples: ENN (evenly distributed without error model, identified by a circle), EMS (evenly distributed with Illumina MiSeq error model, identified by a square) and ERR2984773 (real Illumina MiSeq sample, identified by a diamond). Each assembler is identified with the following colour scheme - dark blue: Unicycler, light blue: SPAdes, dark green: SKESA, light green: metaSPAdes, yellow: MEGAHIT, orange: IDBA-UD, red: GATBMiniaPipeline.}
+\label{fig:chap5_figure6}
+\end{figure*}
+
+\subsubsection{Longer contigs have higher confidence}
+
+The \ac{Pls} metric, which measures the error rate of a contig relative to the reference, shows that for every replicon, longer contigs have higher \ac{Pls} (Figure \ref{fig:chap5_figure7}). This could justify the option of filtering an assembly by length, even beyond the 1000 \ac{bp} minimum contig size implemented by default in LMAS. Not only are we eliminating shorter, less informative contigs in terms of genetic context, but these are also the ones most likely to contain errors relative to the reference sequence. 
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Figure 7.png}
+\caption{: Phred-like score (\ac{Pls}) per contig for each reference replicon of the ZimoBIOMICS community standards datasets. The \ac{Pls} score was calculated for each unique contig produced by each assembler in 3 LMAS runs and is represented in relation to its contig size. Each contig is coloured according to the assembler with the following colour scheme - dark blue: Unicycler,  light blue: SPAdes, dark green: SKESA, light green: metaSPAdes, yellow: MEGAHIT, orange: IDBA-UD, red: GATBMiniaPipeline.}
+\label{fig:chap5_figure7}
+\end{figure*}
+
+\subsubsection{Longer contigs have higher confidence}
+
+Some genomic regions in several replicons are consistently a challenge for all assemblers. As observed in Figure \ref{fig:chap5_figure8}, all genomes present certain regions that fail to assemble for all tools in all runs, even those generating high-quality draft assemblies. Of all seven assemblers considered, only GATBMiniaPipeline, MEGAHIT and IDBA-UD showed inconsistency in the gaps produced over the 3 LMAS runs (Supplemental Table S17), as expected from producing variable sets of contigs. The regions consistently missing for all assemblers in all runs are rich in repetitive elements, such as rRNA and tRNA coding sequences and mobile genetic elements (Supplemental Table S18), with larger gaps corresponding to tandem sets of these elements. This reflects an intrinsic limitation of short-read sequencing since the length of a read pair is not enough to bridge across the repetitive element, preventing the generation of contigs representing these regions. This is something that could be addressed by the use of long-read sequencing technologies. Despite this, some assemblers are able to produce contigs that represent some of these large tandem regions, such as MEGAHIT and SKESA for \textit{E. faecalis}, and IDBA-UD, MEGAHIT and metaSPADES for \textit{L. monocytogenes}, but such performance is not consistent for all reference replicons. For instance, SKESA fails to assemble two large regions of the \textit{S. enterica} genome that all other assemblers successfully cover.
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Figure 8.png}
+\caption{Location of gaps in comparison to the reference sequence, per assembler, for each reference replicon of the ZimoBIOMICS community standards datasets. The resulting plot contains the consistent gaps obtained from a three LMAS run for the evenly distributed dataset (ENN, EMS and ERR2984773) for GATBMiniaPipeline, IDBA-UD, MEGAHIT, metaSPAdes, SKESA, SPAdes and Unicycler assemblers.}
+\label{fig:chap5_figure8}
+\end{figure*}
+
+\subsubsection{Assembler performance is influenced by replicon abundance in the sample}
+
+The logarithmically distributed samples (LNN, LHS and ERR2935805) showed greater variation in the assembly success metrics than the evenly distributed samples (Supplementary Table S8-S10), reflecting the difficulty of recovering sequences of the lowest abundant replicons. For the three replicons with an estimated depth of coverage >15x, a similar pattern is observed in logarithmically distributed samples as in evenly distributed samples, albeit with greater dispersion in the number of contigs generated and with a markedly decreased breath of coverage for some assemblers and samples in the logarithmically distributed samples (Figure \ref{fig:chap5_figure6} and Supplementary Figure S7). Almost no contigs >1000 \ac{bp} were retrieved for replicons with an estimated depth of coverage of <2x resulting in a very low breadth of coverage (<1\%) (Supplementary Table S4, Supplementary Table S22). This leads to a severe underrepresentation of the diversity of the community in the generated contigs, particularly of plasmid sequences due to their smaller length and abundance. This happens despite the greater sequencing depth of these samples versus those with an even distribution (>5-fold difference in the number of reads).
+
+\section{Conclusions}
+
+The purpose of LMAS is to empower users to test assembler performance in meaningful conditions for their experimental setup and objectives. Suitable mock communities, reproducing the users’ samples of interest, can be used as a gold standard to evaluate assembler performance. To illustrate LMAS’ functionalities we analysed a well-known sample used in several studies. Although the eight species ZymoBIOMICS Microbial Community Standards might not be representative of the metagenomic complexity of the samples of interest of most researchers, its relative simplicity means that the results shown probably represent a best-case scenario, since as sample complexity increases so do the challenges to assembler performance. Our results showed significant differences in both global and reference-dependent assembly quality metrics generated by each de novo assembler. The performance of each assembler varied depending on the species of interest and its abundance in the sample, with less abundant species presenting a significant challenge for all assemblers. The fact that an assembler is branded as specific for metagenomics does not guarantee a better performance in metagenomic samples, with assemblers used for genomic assembly outperforming the worst metagenomic assembler tested. The following assemblers showed significant performance problems and their usability may be limited, at least with the default parameters we used: ABySS, BCALM2, MetaHipmer2, minia and VelvetOptimiser.
+
+The choice of de novo assembler depends greatly on the computational resources available, the species of interest, and, possibly, the composition of the community in the sample. In our testing with the ZymoBIOMICS community, no assembler stood out as an undisputed all-purpose choice for short-read metagenomic prokaryotic genome assembly, with different assemblers showing specific strengths. Users would thus benefit from analysing the results of sequencing mock communities or of artificially generated reads simulating their samples of interest to guide their choice of assembler. LMAS was developed to be an easy to use and flexible tool for this purpose. From the results that we obtained with the ZymoBIOMICS dataset, the following assemblers performed consistently well (presented in alphabetical order): MEGAHIT, metaSPAdes, SKESA, SPAdes and Unicycler. From our assessment, we conclude that these assemblers are the most likely candidates to perform well in other complex samples.
+
+LMAS was built with modularity and containerization as keystones, leveraging the parallelization of processes and guaranteeing reproducibility across platforms. The modular design allows for new assemblers to be easily added and existing assemblers to be easily updated, ensuring its future relevance as improvements in assembly software are proposed, and evaluating the gains of such cumulative improvements using the same benchmark set adapted to a specific project or goal. Such reproducibility, capacity to easily add assemblers of interest not included in the current version and flexibility for future extensions are important principles in computational method benchmarking. Moreover, users may compare software performance against mock communities of special interest, depending on their operational focus.
+
+The interactive report provides an intuitive platform for data exploration, allowing the user to easily sift through global and reference specific performance metrics for each sample, as well as providing information on the assemblers executed to allow traceability of the results. Producing an extensive, metric rich report allows users interested in different aspects of assembler performance to make informed decisions, particularly when choosing among the top-performing assemblers, which show only minor differences.
+
+LMAS applies several well-known assembly metrics and proposes two more: \ac{LSA}, which represents the fraction of the longest single alignment between a contig and the reference, and \ac{Pls}, a scoring function based on the identity of each aligned contig to the reference replicon. The entire set of assembly quality metrics used in LMAS allows not only the assessment of quality based on statistics inherent to a set of assembled contigs but also a comparison to a ground truth provided through the use of samples of known composition and reference sequences. The LMAS report provides an interactive and intuitive platform for the exploration of these results, allowing users to easily test assemblers in mock samples with species composition and distribution relevant for their own studies.
+
+Although computationally intensive due to the complex nature of the de novo assembly process, LMAS is the only software integrating assembly and its evaluation into a single pipeline, guaranteeing the same conditions are met for all tools. With LMAS, it is now possible to evaluate which de novo assembler produces the most relevant results for a given community of interest. The LMAS workflow is open-source and its code and documentation are available at https://github.com/B-UMMI/LMAS and https://lmas.readthedocs.io/ respectively.
+
+\section{Availability of supporting source code and requirements}
+
+\textbf{Project name:} LMAS
+
+\textbf{Project home page: }https://github.com/B-UMMI/LMAS 
+
+\textbf{Operating system(s):} UNIX-like systems.
+Programming languages: Nextflow, Python, Bash, Javascript
+
+\textbf{Other requirements: }Java version 8 or highest. Docker/Singularity/Shifter
+
+\textbf{License: } GNU GPL v3
+
+\textbf{RRID:} SCR\_022251
+
+
+\section{Declarations}
+
+\subsection{Ethics approval and consent to participate}
+
+Not applicable.
+
+\subsection{Consent for publication}
+
+Not applicable.
+
+\subsection{Availability of data and material}
+
+The datasets analysed during the current study are available in the Zenodo repository, under \url{https://doi.org/10.5281/zenodo.4588969}. Real sequencing data of the ZymoBIOMICS Microbial Community Standards is available under accessions ERR2984773 and ERR2935805 \cite{nicholls_ultra-deep_2019}. All data generated or analysed during this study are included in this published article, its supplementary information files and the data analysis repository located at \cite{noauthor_lmas_2022}.
+
+\subsection{Competing interests}
+
+MR received honoraria for serving on the speakers' bureau of Pﬁzer and for consulting for GlaxoSmithKline and Merck Sharp and Dohme. The other authors declare that they have no competing interests. 
+
+\subsection{Funding}
+
+C.I.M. was supported by the Fundação para a Ciência e Tecnologia (grant SFRH/BD/129483/2017).
+
+\subsection{Author’s contributions}
+
+C.I.M., M.R. designed the workflow. C.I.M implemented and optimised the workflow, created the Docker containers, generated mock shotgun metagenomics data used to test and validate the workflow, contributed to the development of the HTML report and analysed the data. C.I.M. and M.R. wrote the manuscript. P.V.C. contributed to the development of the HTML report. M.R., J.A.C. Y.M, and J.M.G critically revised the manuscript.  All authors read, commented on, and approved the final manuscript. 
+
+\subsection{Acknowledgements}
+
+The authors would like to thank Rafael Mamede for his contribution to the implementation and commentary on the several interactive plots implemented throughout the LMAS report. The authors would also like to thank Nabil Fareed-Alikan for his insightful commentary on the interpretation of the results reported in this manuscript, and Anthony Underwood and Robert A. Petit III for their assistance in building the LMAS Nextflow workflow. The author would also like to thank Samuel Nicholls, Joshua Quick, Shuiquan Tang and Nicholas Loman for publicly providing the sequencing data for the ZymoBIOMICS Microbial Community Standards.
+
+\section{Supplemental Materials}
+
+\subsection{Workflow parameters}
+
+In LMAS, a set of default parameters is provided but these can be altered, either by passing the new value when executing the workflow or by editing the “params.config” file in the “configs” folder. There are three main parameters in LMAS: “reference”, “fastq” and “md”. The short-read data is passed as input through the “--fastq” parameter, which by default is set to match all files in the “data/fastq” folder that match the pattern “*\_R{1,2}*”. The reference sequences in a single file can be passed with the “--reference” parameter, matching by default fasta files (with the pattern “*.fasta”) in the “data/reference” folder. Although not mandatory, text information, in a markdown file, on input samples can be passed to LMAS to be presented in the report with the “--md” parameter. By default, this is matched to the “*.md” pattern in the “data” folder.  
+
+Several options are available to alter the behaviour of the assemblers incorporated in LMAS, namely to alter the values of the k-mer for each assembly iteration, as detailed in the documentation \cite{}. By default, these values reflect the corresponding default settings of the assemblers. Additionally, each assembler can be skipped from the workflow, and the resources for the execution, such as CPUs, memory and time limit, can be altered for all assembly processes. For the assembly quality assessment performed by LMAS, the following parameters are provided and can be adjusted: 
+
+\begin{itemize}
+    \item “--minLength”: Value for minimum contig length, in basepairs. By default, this value is set to 1000 basepairs;
+    \item “--mapped\_reads\_threshold”: Value for the minimum percentage of a read aligning to the contig to be considered as mapped. By default, this value is set to 75\%;
+    \item “--n\_target”: Target value for the N, NA and NG metrics, ranging from 0 to 100\%. By default, this value is set to 50\%;
+    \item “--l\_target”: Target value for the L metric, ranging from 0 to 100\%. By default, this value is set to 90\%;
+\end{itemize}
+
+\subsection{Short-read de novo assemblers}
+
+We have compiled a collection of de novo assembly tools, including \ac{OLC} and \ac{dBg} assembly algorithms, with both single k-mer and multiple k-mer value approaches, and hybrid assemblers (Supplemental Table S1). The collection includes both genomic and metagenomic assemblers, developed explicitly to handle metagenomic datasets. The dates of the last release correspond to the ones available in the preparation of this manuscript.
+
+\subsubsection{Selection Criteria}
+
+Only open-source tools, with clear documentation describing the methodology implemented, were considered. The collection of tools was ordered by the date of the last update, and a Docker container \cite{noauthor_docker_nodate} for the top 12 assemblers was created with the latest released version, with the version used as the tag. In the case of tools where a versioned release is not available, the container was created with the latest version in the default branch of the source repository, using the date of the last update as the tag. The PANDAseq \cite{masella_pandaseq_2012} assembler was excluded due to execution errors. 
+
+\subsubsection{Assemblers in LMAS}
+
+Assemblers benchmarked in LMAS, in alphabetical order:
+
+\paragraph{ABySS} \mbox{}\\
+
+The ABySS assembler \cite{jackman_abyss_2017} is a de novo sequence assembler intended for short paired-end reads and genomes of all sizes. It follows the model of minia, wherein a probabilistic Bloom filter representation is used to encode the de single k-mer size Bruijn graph, reducing memory requirements for de novo assembly. The code is open-source and available at \cite{noauthor_abyss_2022}. The following command is used: “abyss-pe name='\$sample\_id'k=\$KmerSize B=\$BloomSize in='\$fastq”, where “\$sample\_id” contains the identifier of the sample,  contains a list of the input read files, “\$sample\_id” the identifier of the sample, “\$KmerSize” the length of the nodes of the graph (by default set to 96), “\$BloomSize” the size, in Gb, of the bloom filter (by default set to 2 GB), and “\$fastq” the forward and reverse fastq files. 
+
+\paragraph{BCALM2} \mbox{}\\
+
+The BCALM2 assembler \cite{chikhi_compacting_2016} implements a fast algorithm for graph compaction, with low memory requirement, consisting of three stages: careful distribution of input k-mers into buckets, parallel compaction of the buckets, and a parallel reunification step to glue together the compacted strings into unitigs. It’s a traditional single k-mer value dBg assembler. Paired-end information isn’t used, with all given reads contributing to k-mers in the graph. The code is open-source and available at \cite{noauthor_bcalm_2022}. The following command is used: “bcalm -in \$list\_reads -out \$sample\_id -kmer-size \$KmerSize”, where “\$list\_reads” contains a list of the input read files, “\$sample\_id” the identifier of the sample, and “\$KmerSize” the length of the nodes of the graph (by default set to 31). 
+
+\paragraph{GATB-Minia Pipeline} \mbox{}\\
+
+GATB-Minia is an assembly pipeline, still unpublished, that consists of Bloocoo [8] for error correction, minia 3 \cite{chikhi_space-efficient_2013} for contigs assembly, which is based on the BCALM2 assembler \cite{chikhi_compacting_2016}, and BESST \cite{sahlin_besst_2014} for scaffolding. It was developed to extend the minia assembler to use the dBg algorithm with multiple k-mer values and to explicitly handle metagenomic data. The code is open-source and available at \cite{noauthor_gatbgatb-minia-pipeline_2022}. The following command is used: “gatb -1 \$fastq\_pair[0] -2 \$fastq\_pair[1] --kmer-sizes \$kmer\_list -o \$sample\_id”, where \$fastq\_pair[0] contains the forward-facing reads, \$fastq\_pair[1] the reverse-facing reads, \$kmer\_list the list of values for length of the nodes of the dBg (by default set to 21,61,101,141,181), and “\$sample\_id” the identifier of the sample. 
+
+\paragraph{IDBA-UD} \mbox{}\\
+
+IDBA-UD \cite{peng_idba-ud_2012} is a dBg graph assembler for assembling reads from single-cell sequencing or metagenomic sequencing technologies with uneven sequencing depths. It employs multiple depth relative thresholds to remove erroneous k-mers in both low-depth and high-depth regions. The technique of local assembly with paired-end information is used to solve the branch problem of low-depth short repeat regions. To speed up the process, an error correction step is conducted to correct reads of high-depth regions that can be aligned to high confidence contigs. The code is open-source and available at \cite{peng_loneknightpyidba_2022}. The following command is used:  “idba\_ud -l \$fasta\_reads\_single”, where \$fasta\_reads\_single contains the combined sequence data converted to FASTA format reads with “reformat.sh” from BBtools \cite{bushnell_bbmerge_2017}. 
+
+\paragraph{MEGAHIT} \mbox{}\\
+
+MEGAHIT \cite{li_megahit_2015} is a de novo assembler for large and complex metagenomics datasets. It makes use of the succinct dBg, with a multiple k-mer size strategy. In each iteration, MEGAHIT cleans potentially erroneous edges by removing tips, merging bubbles and removing low local coverage edges, especially useful for metagenomics which suffers from non-uniform sequencing depths. The code is open-source and available at \cite{li_megahit_2022}. The following command is used: “megahit -o megahit --k-list \$kmers -1 \$fastq\_pair[0] -2 \$fastq\_pair[1]”, where \$kmers contains the list of values for length of the nodes of the dBg (by default set to 21,29,39,59,79,99,119,141), \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+\paragraph{MetaHipMer2} \mbox{}\\
+
+MetaHipMer2 \cite{georganas_extreme_2018} is a  multiple k-mer size dBg de novo metagenome short-read assembler built to run efficiently on both single servers and on multi-node supercomputers, where it can scale up to coassemble terabase-sized metagenomes. The code is open-source and available at \cite{noauthor_berkeleylab_nodate}. The following command is used: “mhm2.py -k \$kmers -r \$fasta\_reads\_single -s 0”, where \$kmers contains the list of values for length of the nodes of the dBg (by default set to “21,33,55,77,99”), where \$fasta\_reads\_single contains the combined sequence data converted to FASTA format reads with “reformat.sh” from BBtools \cite{bushnell_bbmerge_2017}. The “-s 0” option skips the scaffolding step. 
+
+\paragraph{metaSPAdes} \mbox{}\\
+
+SPAdes [19] started as a tool aiming to resolve uneven coverage in single-cell genome data, with metaSPAdes \cite{nurk_metaspades_2017} later released building a specific metagenomic pipeline on top of SPAdes. It uses multiple k-mer sizes of dBg, starting with the lowest kmer size and adding hypothetical k-mers to connect the assembly graph. The code is open-source and available at \cite{noauthor_spades_nodate}. The following command is used: “metaspades.py --only-assembler -k \$kmers -1 \$fastq\_pair[0] -2 \$fastq\_pair[1]”, where \$kmers contains the list of values for length of the nodes of the dBg (by default set to “auto”), \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+\paragraph{minia} \mbox{}\\
+
+Minia \cite{chikhi_space-efficient_2013} performs the assembly on a data structure based on unitigs produced by the BCALM \cite{chikhi_compacting_2016} software and using graph simplifications that are heavily inspired by the SPAdes assembler \cite{bankevich_spades_2012}. Minia is a short-read traditional assembler based on dBg graph using a single k-mer length. The code is open-source and available at  \cite{noauthor_minia_2022}. The following command is used: “minia -in \$list\_reads -out \$sample\_id”,  where “\$list\_reads” contains a list of the input read files and “\$sample\_id” the identifier of the sample.
+
+\paragraph{SKESA} \mbox{}\\
+
+SKESA \cite{souvorov_skesa_2018} is a de novo sequence read assembler that is based on dBg and uses conservative heuristics. It is designed to create breaks at repeat regions in the genome, creating shorter assemblies but with greater sequence quality. It tries to obtain good contiguity by using multiple k-mers longer than mate length and up to insert size. The code is open-source and available at \url{https://github.com/ncbi/SKESA}. The following command is used: “skesa --use\_paired\_ends --contigs\_out \$sample\_id --fastq \$fastq\_pair[0] \$fastq\_pair[1]”, where “\$sample\_id” refers to the identifier of the sample, \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+\paragraph{SPAdes} \mbox{}\\
+
+SPAdes \cite{bankevich_spades_2012} is an assembly tool aiming to resolve uneven coverage in single-cell genome data through multiple k-mer sizes of dBgs. It starts with the smallest k-mer size and adds hypothetical k-mers to connect the graph. The code is open-source and available at \cite{noauthor_spades_nodate}. The following command is used:  “spades.py --only-assembler -k \$kmers -1 \$fastq\_pair[0] -2 \$fastq\_pair[1] ”, where \$kmers contains the list of values for length of the nodes of the dBg (by default set to “auto”), \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+\paragraph{UNICYCLER} \mbox{}\\
+
+Unicycler \cite{wick_unicycler_2017} is an assembly pipeline for bacterial genomes that can do long-read assembly, hybrid assembly and short-read assembly. When assembling Illumina-only read sets, it functions as a SPAdes-optimiser, using a  dBg algorithm with multiple k-mer values. The code is open-source and available at \cite{wick_unicycler_2022}]. The following command is used: “unicycler -o . --no\_correct --no\_pilon -1 \$fastq\_pair[0] -2 \$fastq\_pair[1]”, where \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+\paragraph{VELVETOPTIMIZER} \mbox{}\\
+
+This optimising pipeline of the Velvet assembler \cite{zerbino_velvet_2008} is still unpublished but extends the original tool by performing several dBg assemblies with variable k-mer sizes. It searches a supplied hash value range for the optimum, estimates the expected coverage and then searches for the optimum coverage cutoff. It uses Velvet’s internal mechanism for estimating insert lengths for paired-end libraries.  The code is open-source and available at \cite{seemann_velvetoptimiser_2021}. The following command is used: “VelvetOptimiser.pl -v -s \$velvetoptimizer\_hashs -e \$velvetoptimizer\_hashe -f '-shortPaired -fastq.gz -separate \$fastq\_pair[0] \$fastq\_pair[1]'”, where \$velvetoptimizer\_hashs is the lower end of the hash value range that the optimiser will search for the optimum (default: 19), \$velvetoptimizer\_hashe is the upper end of the hash value range that the optimiser will search for the optimum (default: 31), \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+\subsection{Misassembly detection}
+
+For the detection of misassembly events in the assemblies, the assembled sequences are first filtered for a minimum sequence length with BBTools \cite{bushnell_bbmerge_2017} (version 38.44), as defined in the parameters, using the following command: “reformat.sh in=\$assembly out=filtered\_\$assembly minlength=\$minLen”, where \$assembly contains the file with the assembled sequences and \$minLen the value of the minimum sequence length allowed. 
