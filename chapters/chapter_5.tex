@@ -368,3 +368,6 @@ This optimising pipeline of the Velvet assembler \cite{zerbino_velvet_2008} is s
 \subsection{Misassembly detection}
 
 For the detection of misassembly events in the assemblies, the assembled sequences are first filtered for a minimum sequence length with BBTools \cite{bushnell_bbmerge_2017} (version 38.44), as defined in the parameters, using the following command: “reformat.sh in=\$assembly out=filtered\_\$assembly minlength=\$minLen”, where \$assembly contains the file with the assembled sequences and \$minLen the value of the minimum sequence length allowed. 
+
+The filtered assembled sequences are mapped against the tripled reference replicons, ensuring that the assembled contigs can fully align regardless of their starting position relative to that of the provided reference sequence. This is done with minimap2 \cite{li_minimap2_2018} (version 2.22) with the following parameters: “minimap2 --cs -N 0 -t -r 10000 -g 10000 -x asm20 --eqx”.
+
