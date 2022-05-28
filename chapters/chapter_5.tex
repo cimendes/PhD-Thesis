@@ -426,3 +426,25 @@ The following misassembly types are identified:
     \item \textbf{Duplication:} a sequence block of a contig maps at least twice to the reference replicon in different alignment blocks;
     \item \textbf{Inconsistency:} a contig has at least two sequence blocks abutting in the contig but fails to be classified in any of the previous categories.
 \end{itemize}
+
+Figure \ref{fig:chap5_sup_figure_1} provides a visual description of the detected misassemblies. The following metric is computed and presented in tabular form:
+
+\begin{itemize}
+    \item \textbf{Misassembled contigs:} Number of contigs with misassembly events
+    \item \textbf{Misassembly events:} Total number of misassemblies in the contigs
+\end{itemize}
+
+In the plot, the metrics are presented for the filtered set of contigs:
+
+\begin{itemize}
+    \item \textbf{Misassembled contigs:} Scatter plot for misassembled contigs per assembler, the size of the misassembled contigs, and the number of blocks created by the misassembly in the contig.  The distribution of contig size for all misassembled contigs is represented in a boxplot. Information on the misassembly is presented as a hover text for each misassembly event.
+\end{itemize} 
+
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 1.png}
+\caption{LMAS misassembly classification. Misassembled contigs are classified into 6 main categories: chimera, insertion, deletion, inversion, rearrangement, translocation and duplication, according to the mapping orientation, the distance between blocks in the contig and the mapping coordinates in the reference replicon. If a contig is classified as being chimeric, no further classification is performed. The other categories are classified independently of each other, with combinations being possible, to better reflect the differences in comparison to the reference. If a contig is broken into multiple sequence blocks but fails to be classified in any of the previous categories, it is reported as being inconsistent}
+\label{fig:chap5_sup_figure_1}
+\end{figure*}
+
