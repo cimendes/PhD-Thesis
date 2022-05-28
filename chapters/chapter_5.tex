@@ -407,11 +407,22 @@ For each plot, the following metrics are presented:
 The following metrics are computed and presented in tabular form:
 
 \begin{itemize}
-    \item \textbf{Nx (where 0  < x  ⩽ 100):} Length for which the collection of all contigs of that length or longer in an assembly covers at least a given percentage of the total length of the assembly
+    \item \textbf{Nx (where 0  < x  $\leq$ 100):} Length for which the collection of all contigs of that length or longer in an assembly covers at least a given percentage of the total length of the assembly
 \end{itemize}
 
 \subsubsection{Misassemblies}
 
 A misassembly event is defined as a continuously assembled contig being broken into multiple non-collinear blocks when mapping to the reference replicons, i.e. the contig produced by the assembler does not preserve the exact synteny observed in the reference replicon. This may reflect the addition or deletion of sequence stretches or the shuffling of sequence blocks relative to the reference replicons. For a large insertion or deletion to be considered it must be $\geq $50 basepairs in length \cite{kosugi_comprehensive_2019}. This metric is computed for the filtered set of contigs, i.e. those of length above a user-specified minimum size and mapping to the reference replicons (see \ref{chap5_sup_misassembly}). The misassemblies are processed with custom python code. 
 
+The following misassembly types are identified:
 
+\begin{itemize}
+    \item \textbf{Chimera:} a contig has two or more sequence blocks mapping to different reference replicons;
+    \item \textbf{Insertion:} a sequence block ($\geq $50 basepairs) which is not present in any of the reference replicons has been introduced into the contig by the assembly process;
+    \item \textbf{Deletion:} a sequence block ($\geq $50 basepairs) of the reference replicon is missing from the contig created by the assembly process;
+    \item \textbf{Inversion:} a contig has at least two sequence blocks mapping to the same replicon but reversed end to end, i.e. one of the blocks maps to the sense strand and the other to the antisense strand in the reference replicon while both are in the same strand in the contig, or vice-versa;
+    \item \textbf{Rearrangement:} a contig has at least two sequence blocks mapping to the same replicon, in the same orientation, in a different order than in the reference sequence;
+    \item \textbf{Translocation:} a contig has at least two sequence blocks abutting in the contig but mapping non-collinearly (over 1000 base pairs apart) in the reference replicon;
+    \item \textbf{Duplication:} a sequence block of a contig maps at least twice to the reference replicon in different alignment blocks;
+    \item \textbf{Inconsistency:} a contig has at least two sequence blocks abutting in the contig but fails to be classified in any of the previous categories.
+\end{itemize}
