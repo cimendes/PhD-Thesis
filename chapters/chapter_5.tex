@@ -365,9 +365,53 @@ Unicycler \cite{wick_unicycler_2017} is an assembly pipeline for bacterial genom
 
 This optimising pipeline of the Velvet assembler \cite{zerbino_velvet_2008} is still unpublished but extends the original tool by performing several dBg assemblies with variable k-mer sizes. It searches a supplied hash value range for the optimum, estimates the expected coverage and then searches for the optimum coverage cutoff. It uses Velvet’s internal mechanism for estimating insert lengths for paired-end libraries.  The code is open-source and available at \cite{seemann_velvetoptimiser_2021}. The following command is used: “VelvetOptimiser.pl -v -s \$velvetoptimizer\_hashs -e \$velvetoptimizer\_hashe -f '-shortPaired -fastq.gz -separate \$fastq\_pair[0] \$fastq\_pair[1]'”, where \$velvetoptimizer\_hashs is the lower end of the hash value range that the optimiser will search for the optimum (default: 19), \$velvetoptimizer\_hashe is the upper end of the hash value range that the optimiser will search for the optimum (default: 31), \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
 
-\subsection{Misassembly detection}
+\subsection{Misassembly detection} \label{chap5_sup_misassembly}
 
 For the detection of misassembly events in the assemblies, the assembled sequences are first filtered for a minimum sequence length with BBTools \cite{bushnell_bbmerge_2017} (version 38.44), as defined in the parameters, using the following command: “reformat.sh in=\$assembly out=filtered\_\$assembly minlength=\$minLen”, where \$assembly contains the file with the assembled sequences and \$minLen the value of the minimum sequence length allowed. 
 
 The filtered assembled sequences are mapped against the tripled reference replicons, ensuring that the assembled contigs can fully align regardless of their starting position relative to that of the provided reference sequence. This is done with minimap2 \cite{li_minimap2_2018} (version 2.22) with the following parameters: “minimap2 --cs -N 0 -t -r 10000 -g 10000 -x asm20 --eqx”.
+
+\subsection{Assembly filtering and mapping}
+
+The assembled sequences are first filtered for a minimum sequence length with BBTools [14] (version 38.44), as defined in the parameters, using the following command: “reformat.sh in=\$assembly out=filtered\_\$assembly minlength=\$minLen”, where \$assembly contains the file with the assembled sequences and \$minLen the value of the minimum sequence length allowed. 
+
+The filtered assembled sequences are mapped against the tripled reference replicons, as explained above, with minimap2 \cite{li_minimap2_2018} (version 2.22) with the following parameters: “minimap2 --cs -N 0 -t -r 10000 -g 10000 -x asm20 --eqx”.
+
+\section{LMAS Metrics}
+
+The following metrics are computed by the LMAS workflow, globally for characteristics intrinsic to the assembled contigs, and relative to the replicons present in the sample. 
+
+\subsection{Global Metrics}
+
+\subsubsection{General contig information}
+
+The following metrics are computed and presented in tabular form: 
+
+\begin{itemize}
+    \item \textbf{Contigs:} The total number of contigs in the assembly;
+    \item \textbf{Basepairs:} The total number of bases in the assembly;
+    \item \textbf{Maximum sequence length:} The length of the largest contig in the assembly;
+    \item \textbf{Number of ‘N’s:} Number of uncalled bases;
+    \item \textbf{Mapped reads:} Percentage of mapped reads to the assembly;
+\end{itemize}
+
+For each plot, the following metrics are presented:
+
+\begin{itemize}
+    \item \textbf{Contig size distribution per assembler:} For each assembler in LMAS, a boxplot is computed representing the size distribution of contigs that align to any of the reference replicons. The unmapped contigs, if present, are represented in a red scatterplot overlapping the boxplot. 
+    \item \textbf{Gap size distribution per assembler:} For each assembler in LMAS, a boxplot is computed representing the distribution of gap sizes. Gaps are calculated after aligning all contigs to the reference replicons. All gaps ≥1 basepair in length are considered. 
+\end{itemize}
+
+\subsubsection{Contiguity}
+
+The following metrics are computed and presented in tabular form:
+
+\begin{itemize}
+    \item \textbf{Nx (where 0  < x  ⩽ 100):} Length for which the collection of all contigs of that length or longer in an assembly covers at least a given percentage of the total length of the assembly
+\end{itemize}
+
+\subsubsection{Misassemblies}
+
+A misassembly event is defined as a continuously assembled contig being broken into multiple non-collinear blocks when mapping to the reference replicons, i.e. the contig produced by the assembler does not preserve the exact synteny observed in the reference replicon. This may reflect the addition or deletion of sequence stretches or the shuffling of sequence blocks relative to the reference replicons. For a large insertion or deletion to be considered it must be $\geq $50 basepairs in length \cite{kosugi_comprehensive_2019}. This metric is computed for the filtered set of contigs, i.e. those of length above a user-specified minimum size and mapping to the reference replicons (see \ref{chap5_sup_misassembly}). The misassemblies are processed with custom python code. 
+
 
