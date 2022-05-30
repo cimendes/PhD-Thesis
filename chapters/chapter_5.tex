@@ -377,13 +377,13 @@ The assembled sequences are first filtered for a minimum sequence length with BB
 
 The filtered assembled sequences are mapped against the tripled reference replicons, as explained above, with minimap2 \cite{li_minimap2_2018} (version 2.22) with the following parameters: “minimap2 --cs -N 0 -t -r 10000 -g 10000 -x asm20 --eqx”.
 
-\section{LMAS Metrics}
+\subsection{LMAS Metrics}
 
 The following metrics are computed by the LMAS workflow, globally for characteristics intrinsic to the assembled contigs, and relative to the replicons present in the sample. 
 
-\subsection{Global Metrics}
+\subsubsection{Global Metrics}
 
-\subsubsection{General contig information}
+\paragraph{General contig information} \mbox{}\\
 
 The following metrics are computed and presented in tabular form: 
 
@@ -402,7 +402,7 @@ For each plot, the following metrics are presented:
     \item \textbf{Gap size distribution per assembler:} For each assembler in LMAS, a boxplot is computed representing the distribution of gap sizes. Gaps are calculated after aligning all contigs to the reference replicons. All gaps ≥1 basepair in length are considered. 
 \end{itemize}
 
-\subsubsection{Contiguity}
+\paragraph{Contiguity} \mbox{}\\
 
 The following metrics are computed and presented in tabular form:
 
@@ -410,7 +410,7 @@ The following metrics are computed and presented in tabular form:
     \item \textbf{Nx (where 0  < x  $\leq$ 100):} Length for which the collection of all contigs of that length or longer in an assembly covers at least a given percentage of the total length of the assembly
 \end{itemize}
 
-\subsubsection{Misassemblies}
+\paragraph{Misassemblies} \mbox{}\\
 
 A misassembly event is defined as a continuously assembled contig being broken into multiple non-collinear blocks when mapping to the reference replicons, i.e. the contig produced by the assembler does not preserve the exact synteny observed in the reference replicon. This may reflect the addition or deletion of sequence stretches or the shuffling of sequence blocks relative to the reference replicons. For a large insertion or deletion to be considered it must be $\geq $50 basepairs in length \cite{kosugi_comprehensive_2019}. This metric is computed for the filtered set of contigs, i.e. those of length above a user-specified minimum size and mapping to the reference replicons (see \ref{chap5_sup_misassembly}). The misassemblies are processed with custom python code. 
 
@@ -447,9 +447,9 @@ In the plot, the metrics are presented for the filtered set of contigs:
 \label{fig:chap5_sup_figure_1}
 \end{figure*}
 
-\section{Per Reference Metrics}
+\subsubsection{Per Reference Metrics}
 
-\subsection{General contig information}
+\paragraph{General contig information} \mbox{}\\
 
 The following metrics are computed and presented in tabular form: 
 
@@ -459,5 +459,136 @@ The following metrics are computed and presented in tabular form:
     \item \textbf{Number of ‘N’s:} Number of uncalled bases (N's) in the contigs that align to the reference replicon.
 \end{itemize}
 
+\paragraph{COMPASS} \mbox{}\\
 
+A measure of the quality of a replicon assembly can be considered the proportion of the reference covered by the contigs, i.e. the breadth of coverage of the reference replicon. The COMPASS metrics \cite{bradnam_assemblathon_2013} complement our view of the quality of the assembly with other metrics such as how much redundancy is there in the assembly or the parsimony of the contigs relative to the reference. COMPASS is composed of the following metrics, presented in tabular form:
+
+\begin{itemize}
+    \item \textbf{Breadth of Coverage:} Ratio of covered sequence on the reference by aligned contigs;
+    \item \textbf{Multiplicity:} Ratio of the length of the alignable assembled sequence to covered sequence on the reference;
+    \item \textbf{Validity:} Ratio of the length of the alignable assembled sequence to total basepairs in the aligned contigs;
+    \item \textbf{Parsimony:} Cost of the assembly (multiplicity over validity);
+\end{itemize}
+
+Additionally, the Breadth of Coverage metric is displayed graphically:
+
+\begin{itemize}
+    \item \textbf{Genome Fragmentation:} Scatter plot representing the number of contigs per breadth of coverage of the reference, per assembler.
+\end{itemize}
+
+\paragraph{Contiguity} \mbox{}\\
+
+To supplement the traditional NA and NG contiguity metrics implemented in QUAST \cite{gurevich_quast_2013}, we define the LSA metric as the longest single alignment between the assembly and the reference replicon, relative to the reference replicon length, as proposed previously \cite{wick_benchmarking_2021}. This provides a simpler picture of assembly quality as lower contiguity immediately suggests a higher fragmentation, missing sequences or more misassemblies. The following metrics are presented in tabular form:
+
+
+\begin{itemize}
+    \item \textbf{LSA:} longest single alignment between the assembly and the reference, relative to the reference length;
+    \item \textbf{NAx (where 0  < x  $\leq$ 100):} Length for which the collection of aligned contigs of that length or longer in an assembly covers at least a given percentage of the total length of the reference replicon;
+    \item \textbf{NGx (where 0  < x  $\leq$ 100):} Length for which the collection of aligned contigs of that length or longer covers at least a given percentage of the sequence of the reference.
+    \item \textbf{Lx (where 0  < x  $\leq$ 100):} Minimal number of contigs that cover x \% of the sequence of the reference;
+\end{itemize}
+
+The NAx, NGx and Lx metrics are presented graphically in a line plot for each value of x, where x represents the percentage of the sequence of the reference, ranging from 0 to 100, per assembler.  
+
+\paragraph{Identity} \mbox{}\\
+
+The identity is defined as the number of exact matches between the contigs and the reference replicon, relative to the reference replicon length. The following metrics are presented in tabular form:
+
+\begin{itemize}
+    \item \textbf{Identity:} Ratio of identical basepairs in all aligned contigs to the reference;
+    \item \textbf{Lowest identity:} Identity of the lowest scoring contig to the reference;
+\end{itemize}
+
+For each plot, the metrics are presented for the contigs filtered for a minimum length that align with the reference replicon.
+
+\begin{itemize}
+    \item \textbf{Pls Metric:} Scatter plot for the Phred-like score per contig, per assembler;
+    \item \textbf{Gaps: }Location of gaps in comparison to the reference sequence, per assembler, with the cumulative number of gaps per position in the reference. Gaps with 1 basepair or more in length are considered;
+    \item \textbf{SNPs:} Location of substitutions in comparison to the reference sequence, per assembler, with the indication of the substitution type and coordinate in the reference. Additionally, the cumulative number of SNPs per position in the reference is presented.
+\end{itemize}
+
+\paragraph{Misassembly} \mbox{}\\
+
+Similar to what is performed in Global Metrics, this metric is computed for the filtered set of contigs. An aligned contig is considered misassembled when broken into multiple blocks when mapping to the linear reference replicon. Chimeric contigs aligning to more than one reference replicon are counted in each reference individually. 
+
+\begin{itemize}
+    \item \textbf{Misassembled contigs:} Number of aligned contigs that contain a misassembly event;
+    \item \textbf{Misassembly events:} Total number of misassemblies in the aligned contigs;
+\end{itemize}
+
+Additionally, the following information is shown graphically:
+
+\begin{itemize}
+    \item \textbf{Misassemblies:} Location of the alignment blocks of misassembled contigs in comparison to the reference sequence, per assembler, with the cumulative number of basepairs in the alignment blocks per position in the reference.
+\end{itemize}
+
+\subsubsection{Computational Performance Metrics}
+
+Different software, implementing distinct de novo assembly algorithms, have distinct computational requirements. As such, computational statistics are registered for each assembler. The following metrics are presented in tabular form:
+
+\begin{itemize}
+    \item \textbf{Avg Time:} Average run-time formatted as “hour:minute:second”;
+    \item \textbf{CPU/Hour:} Average amount of time, in hours, of CPU usage by an assembler. CPU load obtained from the number of CPUs and their usage percentage;
+    \item \textbf{Max Memory (GB):} Maximum peak memory usage by the assembler;
+    \item \textbf{Average Read (GB):} Average data size read from disk by the assembler;
+    \item \textbf{Average Write (GB):} Average data size written to disk by the assembler.
+\end{itemize}
+
+Additionally, for reproducibility and traceability purposes, the following information is also registered for each assembler in the table:
+
+\begin{itemize}
+    \item \textbf{Version:} Version of the assembler captured from stdout;
+    \item \textbf{Container:} Full tag of the container used to run the assembler, with a link to the container location in Docker Hub \cite{noauthor_docker_nodate}.
+\end{itemize}
+
+\subsection{LMAS Report}
+
+LMAS comes pre-packaged with the JS source code for the interactive report, available in the resources/ folder. The source code for the report is available in the LMAS.js repository \cite{noauthor_lmas_2021}. It was built with the JavaScript frameworks React \cite{noauthor_react_nodate} (version 16.8.0) and Material-UI \cite{noauthor_mui_nodate} (version 4.11.00). All interactive charts were rendered with the graph visualisation library Plotly.js \cite{noauthor_plotly_nodate} (version 1.57.1) through its React component, react-plotly \cite{noauthor_react_nodate}(version 2.5.0).
+
+\subsection{ZymoBIOMICS microbial community standards}
+
+The “get\_data.sh” bash script file provided with LMAS downloads the ZymoBIOMICS Microbial Community Standard data and saves it in the “data” folder, in conformation with the default parameters. The simulated samples and all reference replicons saved in a singular multi-sequence fasta are publicly available in Zenodo under the DOI \url{https://doi.org/10.5281/zenodo.4588969}. 
+
+\subsubsection{Reference Sequences}
+
+The complete bacterial genomes and plasmid sequences for the Microbial Community Standards were obtained from ZymoBIOMICS’ Amazon Simple Storage Service, available at \url{https://s3.amazonaws.com/zymo-files/BioPool/ZymoBIOMICS.STD.refseq.v2.zip}.
+
+For the analysis of LMAS results, the complete ZymoBIOMICS’ reference genomes were annotated with PROKKA \cite{seemann_prokka_2014} (version 1.14.5), using the species-specific database for each reference sequence when available. The number of tRNA, rRNA and mobile element coding genes is available in Supplemental Table S19. Pairwise comparisons among the set of reference replicons were conducted by calculating the Average Nucleotide Identity (ANI)  through BLASTn (version 2.12.0) \cite{camacho_blast_2009} using pyani \cite{pritchard_pyani_2022} (version 0.2.11) \cite{pritchard_genomics_2016}. The results are available in Supplemental Table S23. 
+
+\subsubsection{Real Sequencing Data}
+
+The real paired-end Illumina sequencing data for the ZymoBIOMICS Microbial Community Standards, both evenly and logarithmic distributed, was obtained from the PRJEB29504 study accession \cite{nicholls_ultra-deep_2019}. The evenly distributed community standard, containing 8.5 million read pairs, is available under the ERR2984773 accession, and the logarithmically distributed sample, containing 47.5 million read pairs, is available under the accession ERR2935805. 
+
+\subsubsection{Mock Sequencing Data}
+
+A set of simulated samples were generated from the genomes in the ZymoBIOMICS standard through the InSilicoSeq sequence simulator (version 1.5.2) \cite{gourle_simulating_2019}, including both even and logarithmic distribution, with and without Illumina error model. The error model was obtained from each corresponding real sample depending on the distribution and used to generate the mock data with matching characteristics, including read number and abundance of species in the community (Supplemental Table S4). 
+
+\subsubsection{Mock Sequencing Data}
+
+The taxonomic composition of the ZymoBIOMICS standard samples, both real and mocks was determined through Kraken2 \cite{wood_improved_2019} using the Standard Database (\url{https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20210517.tar.gz}). The following command was used:  “kraken2 --output \$sample.kraken --report \$sample.kraken\_report --memory-mapping --paired --gzip-compressed  \$fastq\_pair[0] \$fastq\_pair[1]” where \$sample is the sample name, \$fastq\_pair[0] contains the forward-facing reads, and \$fastq\_pair[1] the reverse-facing reads.
+
+The processing of the kraken reports was performed through custom python code \cite{noauthor_lmas_2022} where all the percentage of reads that matched for the species in the dataset were saved, as well as the percentage of unclassified reads. For the \textit{Lactobacillus fermentum}, as in the Standard Kraken database no general Species level classification is available, the percentage of reads was calculated as the sum of all reads aligning to one of the \textit{L. fermentum} subspecies. The rest of the reads that were classified as any other species were saved conjunctively as “Other”. Supplemental Table S20 contains the percentage of classified reads for each of the species in the community, as well as “other” and unclassified reads. 
+
+\subsubsection{Assessment of Assembly Success}
+
+The complete set of results for 3 LMAS runs for the raw sequence reads of mock communities with an even and logarithmic distribution of species, from real sequencing runs \cite{nicholls_ultra-deep_2019} and simulated read datasets, with and without error, matching the intended distribution of species in each sample for the eight bacterial genomes and four plasmids of the ZymoBIOMICS Microbial Community Standards as reference is available in Supplemental Table S21 and S22. For the assessment of the assembly success for each sample, the different metrics for all LMAS runs were combined and descriptive statistics, such as the average value, standard deviation, minimum and maximum, were obtained through Python’s Pandas describe function \cite{noauthor_pandas_nodate, noauthor_pandasdataframedescribe_nodate}. Both global and reference based for each assembler, each reference replicon and each sample (ENN - evenly distributed without error model; EMS - evenly distributed with Illumina MiSeq error model; ERR2984773 - real evenly distributed Illumina MiSeq sample, LNN - logarithmically distributed without error model; LHS - logarithmically distributed  with Illumina HiSeq error model; ERR2935805 - real logarithmically distributed Illumina HiSeq sample). For descriptive statistics on several assembler by each assembly type (genomic or metagenomic) and each assembler algorithm (single or multiple k-mer), the use of median was preferred due to its higher robustness against outliers and the high range of the distribution of the results. Plotly \cite{noauthor_plotly_nodate} was used to compute the graphs aggregating the results obtained. The jupyter notebooks \cite{noauthor_project_nodate} with the data processing and all resulting files are available at \cite{noauthor_lmas_2022}. 
+
+The top result of each assembler for each sample was selected, based on the following criteria:
+\begin{itemize}
+    \item For the number of uncalled bases, number of misassembled contigs and number of misassembly events, the lower the value, the better, with the exception of 0 for the number of contigs;
+    \item For the percentage of mapped reads and N50, the higher the value, the better; 
+    \item The number of basepairs, the best results was the one closest to the target value of the number of basepairs in the reference replicons;
+\end{itemize}
+
+For reference-specific metrics, in addition to the ones stated above when applicable (Number of contigs produced, number of uncalled bases, number of misassembled contigs and number of misassembly events), the following criteria were used:
+
+\begin{itemize}
+    \item For the L90 metric, the lower value was better, with the exception of 0;
+    \item For LSA, NA, NG, breadth of coverage, identity and lowest identity, the higher the value the better;
+    \item For multiplicity, parsimony and validity, the closer to 1, the better;
+\end{itemize}
+ 
+To obtain the worst value in each metric, the opposite criteria were used. The normalised score for each metric was obtained from the best result for each assembler in each sample through Equation 1. For the assessment of assembler consistency, each contig for each assembler was considered the same as its size was exactly the same in each LMAS run. 
+
+\subsubsection{Assessment of Assembly Success}
 
