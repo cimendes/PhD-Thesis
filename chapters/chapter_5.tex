@@ -541,6 +541,13 @@ Additionally, for reproducibility and traceability purposes, the following infor
     \item \textbf{Container:} Full tag of the container used to run the assembler, with a link to the container location in Docker Hub \cite{noauthor_docker_nodate}.
 \end{itemize}
 
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 2.png}
+\caption{Computational resources used by each assembler for the evenly and logarithmically distributed samples. Each plot describes the distribution of resource consumption for 3 LMAS runs for the ZymoBIOMICS microbial community standard dataset for the following metrics: A) CPU/hour, B) Maximum memory in GB; C) Data written to disk in GB; D) Data read from dist in GB; E) Run time in hours. The mean for all samples and all assemblers is indicated in red. The samples are indicated as follows: ENN: dark blue, EMS: teal, ERR2984773: green, LNN: light green, LHS: yellow, ERR2935805: light orange. }
+\label{fig:chap5_sup_figure_2}
+\end{figure*}
+
 \subsection{LMAS Report}
 
 LMAS comes pre-packaged with the JS source code for the interactive report, available in the resources/ folder. The source code for the report is available in the LMAS.js repository \cite{noauthor_lmas_2021}. It was built with the JavaScript frameworks React \cite{noauthor_react_nodate} (version 16.8.0) and Material-UI \cite{noauthor_mui_nodate} (version 4.11.00). All interactive charts were rendered with the graph visualisation library Plotly.js \cite{noauthor_plotly_nodate} (version 1.57.1) through its React component, react-plotly \cite{noauthor_react_nodate}(version 2.5.0).
@@ -588,7 +595,36 @@ For reference-specific metrics, in addition to the ones stated above when applic
     \item For multiplicity, parsimony and validity, the closer to 1, the better;
 \end{itemize}
  
-To obtain the worst value in each metric, the opposite criteria were used. The normalised score for each metric was obtained from the best result for each assembler in each sample through Equation 1. For the assessment of assembler consistency, each contig for each assembler was considered the same as its size was exactly the same in each LMAS run. 
+To obtain the worst value in each metric, the opposite criteria were used. The normalised score for each metric was obtained from the best result for each assembler in each sample through Equation \ref{chap5_sup_eq}. For the assessment of assembler consistency, each contig for each assembler was considered the same as its size was exactly the same in each LMAS run. 
 
-\subsubsection{Assessment of Assembly Success}
+\begin{equation} \label{chap5_sup_eq}
+\left\{\begin{matrix}
+1 - \frac{x}{min(X)} & \textup{if maximum value is best}\\ 
+\frac{x}{min(X)} & \textup{if minimum value is best}\\ 
+1 - \frac{|x - T|}{T}\ & \textup{if target value is best}  
+\end{matrix}\right.
+\end{equation}
 
+Where $x$ is the given value of a metric for an assembler, $X$ the list of values for that metric for all assemblers, and $T$ the target value.
+
+
+\begin{figure*}[]
+\centering
+\includegraphics[scale=0.95]{figures/chapter 5/Supplemental Figure 3.png}
+\caption{Performance per reference of genomic and metagenomic assemblers for the evenly distributed samples in the ZymoBIOMICS Microbial Community Standards dataset. For each sample in the dataset and for the 3 runs, the best and worst scores for each assembler category were selected: genomic (in blue) and metagenomic (in red). The results for each global assembly metric was normalised, with 1 representing the best result, and 0 the worst.}
+\label{fig:chap5_sup_figure_3}
+\end{figure*}
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 4.png}
+\caption{Assembler performance per reference for the ZymoBIOMICS Microbial Community Standards dataset for sample ENN. The best score for each assembler was selected for 3 LMAS runs. The results for each global assembly metric was normalised, with 1 representing the best result, and 0 the worst. The following assemblers are represented: GATBMiniaPipeline: dark blue, IDBA-UD: light blue, MEGAHIT: dark green, metaSPAdes: light green, SKESA: yellow, SPAdes: orange, Unicycler: red.}
+\label{fig:chap5_sup_figure_4}
+\end{figure*}
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 5.png}
+\caption{Assembler performance per reference for the ZymoBIOMICS Microbial Community Standards dataset for sample EMS. The best score for each assembler was selected for 3 LMAS runs. The results for each global assembly metric was normalised, with 1 representing the best result, and 0 the worst. The following assemblers are represented: GATBMiniaPipeline: dark blue, IDBA-UD: light blue, MEGAHIT: dark green, metaSPAdes: light green, SKESA: yellow, SPAdes: orange, Unicycler: red.}
+\label{fig:chap5_sup_figure_5}
+\end{figure*}
