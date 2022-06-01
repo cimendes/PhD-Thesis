@@ -167,7 +167,7 @@ Of the 12 de novo prokaryotic assemblers included in LMAS, five stand out as hav
 \label{fig:chap5_figure3}
 \end{figure*}
 
-Regarding the quality assessment of the assemblies produced (Figure \ref{fig:chap5_figure4}, Supplementary Table S12), ABySS, BCALM2 and minia are the only single k-mer \ac{dBg} assemblers in the collection and were found to mostly underperform relative to their multiple k-mer \ac{dBg} counterparts, generally resulting in more fragmented assemblies, although there were significant differences in performance across samples. Among multiple k-mer assemblers, VelvetOptimiser frequently produced a very high number of contigs of very small size (over 99\% of the contigs not surpassing the minimum length of 1,000 \ac{bp}) and therefore a low N50 (an average of 29,768 \ac{bp} versus a global average of 84,114 \ac{bp}) (Supplementary tables S5-S10). Additionally, ABySS and VelvetOptimizer produced contigs with a very large number of Ns, with an average of 1,019 and 3,035 uncalled bases per assembly, respectively. MetaHipMer2, although having overall average metrics in the two evenly distributed mock samples (ENN and EMS, Supplementary Tables S5-S6) where it was able to run successfully, it severely underperformed in the real samples (ERR2984773 and ERR2935805, Supplementary Tables S7 and S10). Generally, the performance scores of the assemblers decreased considerably for the real samples in comparison with the simulated ones, either with or without error. High utilisation of the reads in the dataset is observed for most assemblers, with on average at least 90\% of the reads mapping back to the assembly, except for ABySS, BCALM2, MetaHipMer2 and VelvetOptimiser whose values are in the range of 46-79\%. Despite an overall good performance, SPAdes produced the highest number of misassembled contigs, with an average of 98 and a maximum of 572 (sample ERR2935805, Supplementary Table S10), in comparison to the global average of 11 misassembled contigs for all assemblers across all samples.
+Regarding the quality assessment of the assemblies produced (Figure \ref{fig:chap5_figure4}, Supplementary Table S12), ABySS, BCALM2 and minia are the only single k-mer \ac{dBg} assemblers in the collection and were found to mostly underperform relative to their multiple k-mer \ac{dBg} counterparts, generally resulting in more fragmented assemblies, although there were significant differences in performance across samples. Among multiple k-mer assemblers, VelvetOptimiser frequently produced a very high number of contigs of very small size (over 99\% of the contigs not surpassing the minimum length of 1,000 \ac{bp}) and therefore a low N50 (an average of 29,768 \ac{bp} versus a global average of 84,114 \ac{bp}) (Supplementary tables S5-S10). Additionally, ABySS and VelvetOptimizer produced contigs with a very large number of Ns, with an average of 1,019 and 3,035 uncalled bases per assembly, respectively. MetaHipMer2, although having overall average metrics in the two evenly distributed mock samples (ENN and EMS, Supplementary Tables S5-S6) where it was able to run successfully, it severely underperformed in the real samples (ERR2984773 and ERR2935805, Supplementary Tables S7 and S10). Generally, the performance scores of the assemblers decreased considerably for the real samples in comparison with the simulated ones, either with or without error. High utilisation of the reads in the dataset is observed for most assemblers, with on average at least 90\% of the reads mapping back to the assembly, except for ABySS, BCALM2, MetaHipMer2 and VelvetOptimiser whose values are in the range of 46-79\%. Despite an overall good performance, SPAdes produced the highest number of misassembled contigs, with an average of 98 and a maximum of 572 (sample ERR2935805, Supplementary \ac{Pls}0), in comparison to the global average of 11 misassembled contigs for all assemblers across all samples.
 
 Due to their poor performance discussed above, the following assemblers have not been included in subsequent analyses: ABySS, BCALM2, MetaHipmer2, minia and VelvetOptimiser. 
 
@@ -299,10 +299,10 @@ In LMAS, a set of default parameters is provided but these can be altered, eithe
 Several options are available to alter the behaviour of the assemblers incorporated in LMAS, namely to alter the values of the k-mer for each assembly iteration, as detailed in the documentation \cite{}. By default, these values reflect the corresponding default settings of the assemblers. Additionally, each assembler can be skipped from the workflow, and the resources for the execution, such as CPUs, memory and time limit, can be altered for all assembly processes. For the assembly quality assessment performed by LMAS, the following parameters are provided and can be adjusted: 
 
 \begin{itemize}
-    \item “--minLength”: Value for minimum contig length, in basepairs. By default, this value is set to 1000 basepairs;
-    \item “--mapped\_reads\_threshold”: Value for the minimum percentage of a read aligning to the contig to be considered as mapped. By default, this value is set to 75\%;
-    \item “--n\_target”: Target value for the N, NA and NG metrics, ranging from 0 to 100\%. By default, this value is set to 50\%;
-    \item “--l\_target”: Target value for the L metric, ranging from 0 to 100\%. By default, this value is set to 90\%;
+    \item \textbf{ “--minLength”:} Value for minimum contig length, in basepairs. By default, this value is set to 1000 basepairs;
+    \item \textbf{“--mapped\_reads\_threshold”:} Value for the minimum percentage of a read aligning to the contig to be considered as mapped. By default, this value is set to 75\%;
+    \item \textbf{“--n\_target”:} Target value for the N, NA and NG metrics, ranging from 0 to 100\%. By default, this value is set to 50\%;
+    \item \textbf{“--l\_target”:} Target value for the L metric, ranging from 0 to 100\%. By default, this value is set to 90\%;
 \end{itemize}
 
 \subsection{Short-read de novo assemblers}
@@ -541,13 +541,6 @@ Additionally, for reproducibility and traceability purposes, the following infor
     \item \textbf{Container:} Full tag of the container used to run the assembler, with a link to the container location in Docker Hub \cite{noauthor_docker_nodate}.
 \end{itemize}
 
-\begin{figure*}[h!]
-\centering
-\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 2.png}
-\caption{Computational resources used by each assembler for the evenly and logarithmically distributed samples. Each plot describes the distribution of resource consumption for 3 LMAS runs for the ZymoBIOMICS microbial community standard dataset for the following metrics: A) CPU/hour, B) Maximum memory in GB; C) Data written to disk in GB; D) Data read from dist in GB; E) Run time in hours. The mean for all samples and all assemblers is indicated in red. The samples are indicated as follows: ENN: dark blue, EMS: teal, ERR2984773: green, LNN: light green, LHS: yellow, ERR2935805: light orange. }
-\label{fig:chap5_sup_figure_2}
-\end{figure*}
-
 \subsection{LMAS Report}
 
 LMAS comes pre-packaged with the JS source code for the interactive report, available in the resources/ folder. The source code for the report is available in the LMAS.js repository \cite{noauthor_lmas_2021}. It was built with the JavaScript frameworks React \cite{noauthor_react_nodate} (version 16.8.0) and Material-UI \cite{noauthor_mui_nodate} (version 4.11.00). All interactive charts were rendered with the graph visualisation library Plotly.js \cite{noauthor_plotly_nodate} (version 1.57.1) through its React component, react-plotly \cite{noauthor_react_nodate}(version 2.5.0).
@@ -607,6 +600,16 @@ To obtain the worst value in each metric, the opposite criteria were used. The n
 
 Where $x$ is the given value of a metric for an assembler, $X$ the list of values for that metric for all assemblers, and $T$ the target value.
 
+\subsubsection{Resource requirements differ greatly}
+
+Regarding computational resources, there is a disparity in usage for the evenly and logarithmically distributed samples (Figure \ref{fig:chap5_sup_figure_2}), with the latter having more resource-intensive requirements possibly due mostly to a higher number of reads. The resource usage also varied greatly by assembler, with multiple k-mer dBG (SPAdes, metaSPAdes, MEGAHIT, SKESA, IDBA-UD, GATBMiniaPipeline and Unicycler) having overall higher resource usage. ABySS performance was inconsistent, having reached a maximum of 1412 CPU hours to produce an assembly (sample ERR2984773), resulting in a run time of 35.52 hours.  MetaHipmer2 was the assembler with the highest memory usage, reaching a maximum of 68.7 GB.  
+
+\begin{figure*}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 2.png}
+\caption{Computational resources used by each assembler for the evenly and logarithmically distributed samples. Each plot describes the distribution of resource consumption for 3 LMAS runs for the ZymoBIOMICS microbial community standard dataset for the following metrics: A) CPU/hour, B) Maximum memory in GB; C) Data written to disk in GB; D) Data read from dist in GB; E) Run time in hours. The mean for all samples and all assemblers is indicated in red. The samples are indicated as follows: ENN: dark blue, EMS: teal, ERR2984773: green, LNN: light green, LHS: yellow, ERR2935805: light orange. }
+\label{fig:chap5_sup_figure_2}
+\end{figure*}
 
 \begin{figure*}[]
 \centering
@@ -628,3 +631,21 @@ Where $x$ is the given value of a metric for an assembler, $X$ the list of value
 \caption{Assembler performance per reference for the ZymoBIOMICS Microbial Community Standards dataset for sample EMS. The best score for each assembler was selected for 3 LMAS runs. The results for each global assembly metric was normalised, with 1 representing the best result, and 0 the worst. The following assemblers are represented: GATBMiniaPipeline: dark blue, IDBA-UD: light blue, MEGAHIT: dark green, metaSPAdes: light green, SKESA: yellow, SPAdes: orange, Unicycler: red.}
 \label{fig:chap5_sup_figure_5}
 \end{figure*}
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 6.png}
+\caption{Assembler performance per reference for the ZymoBIOMICS Microbial Community Standards dataset for sample ERR2984773. The best score for each assembler was selected for 3 LMAS runs. The results for each global assembly metric was normalised, with 1 representing the best result, and 0 the worst. The following assemblers are represented: GATBMiniaPipeline: dark blue, IDBA-UD: light blue, MEGAHIT: dark green, metaSPAdes: light green, SKESA: yellow, SPAdes: orange, Unicycler: red.}
+\label{fig:chap5_sup_figure_6}
+\end{figure*}
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 5/Supplemental Figure 7.png}
+\caption{Genome fragmentation for each reference replicon of the ZimoBIOMICS community standards dataset for the logarithmically distributed samples. Genome fragmentation for the 3 LMAS runs is represented by the number of contigs and breadth of coverage of the reference per assembler for the logarithmically distributed samples: LNN (logarithmically distributed without error model, identified by a circle), LHS (logarithmically distributed with Illumina HiSeq error model, identified by a square) and ERR2935805 (real Illumina HiSeq sample, identified by a diamond). Each assembler is identified with the following colour scheme - dark blue: Unicycler, light blue: SPAdes, dark green: SKESA, light green: metaSPAdes, yellow: MEGAHIT, orange: IDBA-UD, red: GATBMiniaPipeline.}
+\label{fig:chap5_sup_figure_7}
+\end{figure*}
+
+\begin{landscape}
+\input{tables/chapter_5/suptable1}
+\end{landscape}
