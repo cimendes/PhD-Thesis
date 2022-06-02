@@ -11,9 +11,9 @@ Metagenomics, and in particular \ac{SMg}, has emerged as a promising approach fo
 
 Several limitations have been identified that, in its current form, curb the applicability of these methods in both clinical and public health microbiology. 
 
-\subsection{Limitation to the application of metagenomics in clinical microbiology}
+\section{Limitation to the application of metagenomics in clinical microbiology}
 
-\subsubsection{Limitations of sequencing technologies}
+\subsection{Limitations of sequencing technologies}
 
 While the application of genomics in clinical microbiology has been increasing, the translation of genetic information remains challenging. Recent advances in DNA sequencing technologies have expanded their application as a diagnostic tool, but limitations still prevail. After over a quarter of a century of development and maturation, several technologies are available to be used both in research and in the clinic, from the first generation DNA chain termination sequencing to third generation long-read sequencing. Despite this, the main benefit if current clinical microbiology testing paradigm in comparison with genomic approaches is that it allows for cost-effective negative results \citep{greninger_challenge_2018}. The initial capital cost of setting up a genomics capable facility for the use of metagenomics are considerable, having been estimated at around one million United States dollars \citep{greninger_challenge_2018}. Additionally, several factors can reduce the sensitivity and specificity of these methods. Sequencing only one type of molecule, either \ac{DNA} or \ac{RNA}, can lead to the missing of sample components such as RNA viruses or non-replicating DNA viruses, although sequencing all nucleic acids present increases the overall cost per sample \citep{schuele_future_2021}. Additionally to the sample composition, the specimen volume, collection method, transport and sequencing method can affect \ac{SMg} sensitivity, with multiple possible approaches to the wet lab work which require optimisation \citep{petersen_third-generation_2019}. Regarding the sequencing technologies available, each have their own pitfalls. 
 
@@ -25,7 +25,7 @@ Third generation sequencing technologies have been emerging as a viable alternat
 
 In chapter \ref{ch:paper2} it was shown that even when hybrid assembly with Illumina and \ac{ONT} data is employed, leveraging both second and third generation methodologies, complete genomic sequences, particularly chimeric ones such as plasmids, are still not fully recovered. Although Nanopore sequencing, employed in chapter \ref{ch:paper2} is able to produce reads of up to 2 megabases in length, the biggest drawbacks to date have been a lower throughput of sequence data and a high error rate (approximately 10\%) \citep{petersen_third-generation_2019}. Regardless, rapid advancements are being achieved with new, more accurate flowcells \citep{sereika_oxford_2021}. 
 
-\subsubsection{Limitations of host sequence contamination}
+\subsection{Limitations of host sequence contamination}
 
 The unbiased nature of \ac{SMg} allows the sequencing of the nucleic acid of all pathogens (including commensal microbes) and the host. Nearly all \ac{DNA} and \ac{RNA} content in most clinical samples is host (human) derived, this unbiased nature of SMg further lowers the sensitivity of potential pathogen detection as the sequencing library comprises both nucleic acids from the patient and pathogens. The sequence coverage of the pathogen depends on the ratio of host/pathogen nucleic acid present in the sample, with most samples being dominated by human host background \citep{gu_clinical_2019}. The presence of an overwhelming amount of host \ac{DNA} or \ac{RNA} is one of the most important problems to be addressed in \ac{SMg}.
 
@@ -33,7 +33,7 @@ As observed in chapter \ref{ch:paper1}, the number of human reads differed betwe
 
 The depletion steps aim to decrease the relative proportion of human host background sequences through capture probes, lysis and deoxyribonuclease and/or ribonuclease treatment \citep{gu_clinical_2019}. Theoretically the microbial proportion of the sample is protected within viral capsids and microbial cell walls, but alterations to the microbial composition can still occur. Alternatively, the host sequences can be removed after sequencing, as performed in chapter \ref{ch:paper3}. In this chapter the reads of interest were captured through a mapping approach to a large collection of reference genomes but the opposite methodology can be applied, where the contaminant host sequences are removed (in their majority) my mapping to a human reference genome. This method is not as cost efficient as host DNA depletion in the bench, as a greater proportion of background sequences are sequenced, but the community remains, theoretically, unaltered. 
 
-\subsubsection{Limitations of the bioinformatic analysis}
+\subsection{Limitations of the bioinformatic analysis}
 
 In addition to the variability of wet lab protocols, the bioinformatics for data handling and interpretation can be resource intense. Bioinformatic analysis requires highly trained staff, valid analysis tools, including the reference database, the computational infrastructure, and the creation of standardised procedures \citep{petersen_third-generation_2019}. In routine settings, automation and standardisation of the analysis are significant for the reliability of the diagnostic and surveillance test results. Computational pipelines for metagenomic analysis of \ac{SMg} have unique challenges and requirements, from host depletion, taxonomic classification, to metagenomic \textit{de novo} assembly and binning of \ac{MAG}s and strain characterisation. Additionally, as observed in chapter \ref{ch:paper1} and \ref{ch:paper2}, each sequencing platform, from second (Illumina) and third generation (\ac{ONT}), requires their own data processing steps and quality control metrics. For bioinformatics, the tools that have been developed in the research community for short-read data are not feasible for long-read data. Data interpretation adds an additional level of complexity.  
 
@@ -45,14 +45,14 @@ Other areas of bioinformatics not directly covered in this thesis, such as conti
 
 There is no standard method for interpreting \ac{SMg} results. Chapters \ref{ch:paper1} and \ref{ch:paper4} highlight how different bioinformatics approaches, and different tools for the same approach, can affect the overall interpretation of the results. In particular, in chapter \ref{ch:paper1} substantial differences were noted between the taxonomic classification tools, with the results being highly dependent on the tools, and especially the database that was chosen for the analysis greatly impacts its applicability in a clinical setting. 
 
-\subsection{Better standards in metagenomics for clinical microbiology}
+\section{Better standards in metagenomics for clinical microbiology}
 
-\subsubsection{The need for better assessment}
+\subsection{The need for better assessment}
 
 The constant changes in versions and/or the discontinuation of a bioinformatics tool complicates the standardisation of data analysis. In routine settings, automation and standardisation of the analysis are significant for the reliability of the diagnostic test results. With the lack of proper benchmarks to validate in what approach is to be followed, no hope of standardisation can be achieved.
 
 
-\paragraph{Performing proper benchmarking of software} \mbox{}\\
+\subsubsection{Performing proper benchmarking of software}
 
 In chapter \ref{ch:paper1} the the suitability of SMg for the microbiological diagnosis, with particular emphasis on the bioinformatic process. In total, 3 different bioinformatics pipelines were evaluated to identify those which could provide the clinical microbiologist with the maximum of relevant and accurate information and differences between them: an open-source Unix-based approach, and two commercial alternatives, Basespace and CLC Genomics Workbench. No approach outperformed the other, and very disparate results were obtained for each one. One of the limitations of this study was that, although several approaches were used, no comprehensive assessment of the tools available for each step of the workflow was performed (quality control, removal of host sequences, taxonomic identification, gene detection and \textit{de novo} assembly). Overall, we found that CLC Genomics Workbench has advantages over the other methods as it does not require previous knowledge of Unix-based tools, it is arguably the most user-friendly, but this conclusion is limited to the set of tools evaluated. Currently, no open-source, user-friendly, one-stop, comprehensive metagenomics toolkit with a visual user interface for shotgun metagenomics analysis is available, but efforts are being made to change this paradigm. Alternatives, such as Anvi'o \citep{eren_anvio_2015} for shotgun metagenomics, and Qiime2 \citep{bolyen_reproducible_2019} for metataxonomics, leverage the individual components into a streamlined manner, but still require  command-line familiarity. Still, each individual component of such software should be individually assessed.
 
@@ -60,7 +60,7 @@ In chapter \ref{ch:paper5}, 12 \textit{de novo} assemblers were benchmarked with
 
 Despite these efforts, this is just a small subset of the commonly bioinformatics methods applied to \ac{SMg} have been assessed. Regarding the binning process, disparate results have been observed \citep{bharti_current_2021, yue_evaluating_2020, yang_review_2021, sczyrba_critical_2017}, highlighting that the need for proper benchmark cannot be limited to the tools itself, but also the standardisation of the data used for the benchmark. Similarly, the same has been observed for taxonomic assignment \citep{sczyrba_critical_2017,ye_benchmarking_2019, tamames_assessing_2019}.
 
-\paragraph{The use of mock communities} \mbox{}\\
+\subsubsection{The use of mock communities}
 
 In chapter \ref{ch:paper5}, its shown that suitable mock communities, reproducing the users’ samples of interest, can be used as a gold standard to evaluate tool performance. Several well characterised mock communities are currently available to be used by the community when assessing and benchmarking software suitable for \ac{SMg} analysis. Chapter \ref{ch:paper5} features the ZymoBIOMICS Microbial Community Standard, composed of eight bacterial species and two fungi, and is available commercially, with reference sequences made publicly available, with both even and logarithmically distribution of species\footnote{\url{https://www.zymoresearch.com/collections/zymobiomics-microbial-community-standards}}. Still, ZymoBIOMICS Microbial Community Standards might not be representative of the metagenomic complexity of the samples of interest of most researchers, its relative simplicity means that the results shown probably represent a best-case scenario. 
 
@@ -69,7 +69,7 @@ MSA-1000\footnote{\url{https://www.atcc.org/products/msa-1000}} and 20 Strain Ev
 
 For the replication of more complex communities, the MICROBIOME Community of Special Interest\footnote{\url{https://www.microbiome-cosi.org/}} makes available through their \ac{CAMI} initiative\footnote{\url{https://data.cami-challenge.org/}}, makes available several datasets, varying in complexity, replicating several communities such as human microbiome and the rhizosphere. Sources of truth are not made available, including the complete genomes of the community profile, so comparison are difficult. 
 
-\subsubsection{Ensuring reproducibility}
+\subsection{The need for better reproducibility}
 
 The analysis of biological data is driven by the development of a myriad of open-source software tools, each carrying out a specialised step, that then can be chained together to generate new knowledge and insights. However, as with any complex system, susceptibility to variation can cause the entire system to collapse. Such variation can be the use of different operating systems, the availability of computational resources, and ambiguities with tool versioning and documentation \citep{wratten_reproducible_2021}. 
 
@@ -79,8 +79,16 @@ Favouring open-source tools, with clear documentation describing the methodology
 
 In chapters \ref{ch:paper4} and \ref{ch:paper5}, one of the main key objectives was to  
 
-\subsubsection{The need for intuitive and responsive reports}
+\subsubsection{The need for Container Software} 
 
-\subsubsection{The adoption of standard specifications}
+\subsubsection{The need for Workflow managers}
 
-\subsubsection{Crowdsourcing for better standards}
+\subsubsection{The need for Version Control}
+
+\subsubsection{The need for Open Integration testing }
+
+\subsection{The need for better Interpretability}
+
+\subsection{The need for better Interoperability}
+
+\subsection{The need for Crowdsourcing}
