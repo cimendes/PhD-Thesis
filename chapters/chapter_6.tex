@@ -7,8 +7,70 @@ This chapter is a reproduction of the following submitted manuscript for publica
 C. I. Mendes, F. Maguire, A. Manuele, D. Fornika, S. Tausch, T. Le-Viet, J. Phelan, C. Meehan, A. Raphenya, B. Alcock, E. Culp, A. McArthur, M. Feldgarden, G. Tyson, M. Galas, J. Campos, A. Witney, D. Aanensen, A. Black, L. Katz, P. Oluniyi, I. Olawoye, R. Timme, A. T. Vasconcelos, A. Page, D. MacCannell, E. Griffiths. 
 hAMRonization: Enhancing antimicrobial resistance prediction using PHA4GE standards and specification
 
+My contribution to this publication included the development of the antimicrobial detection contextual data specification package, including it’s conversion and availability in a machine-applicable JSON format. It also includes the design and implementation of the hAMRonization package, results analysis, manuscript production and editing. 
 
+\cleardoublepage 
 
-My contribution to this publication included the development of the antimicrobial detection con-
-textual data specification package, including it’s conversion and availability in a machine-
-applicable JSON format. It also includes the design and implementation of the hAMRonization package, results analysis, manuscript production and editing. 
+\begin{center}
+\large
+\textbf{hAMRonization: Enhancing antimicrobial resistance  prediction using PHA4GE standards and specification}
+\end{center}
+
+F Maguire$^1,*$,
+Catarina I Mendes$^2,*$, 
+A Manuele, 
+D Fornika, 
+S H Tausch, 
+T Le-Viet, 
+A R Raphenya, 
+B Alcock, 
+E Culp, 
+A G McArthur, 
+M Feldgarden, 
+G H Tyson, 
+M Galas, 
+J Campos, 
+A A Witney, 
+D M Aanensen, 
+A Black, 
+E Hodcroft, 
+L S Katz, 
+P E Oluniyi, 
+I B Olawoye, 
+R E Timme, 
+A T R Vasconcelos, 
+A J Page, 
+D R MacCannell, 
+E J Griffiths, 
+on behalf of the Public Health Alliance for Genomic Epidemiology (PHA4GE) consortium Data Structures Working Group
+
+$^1$ 
+
+$^2$Instituto de Microbiologia, Instituto de Medicina Molecular, Faculdade de Medicina, Universidade de Lisboa, Lisboa, Portugal 
+
+$^*$ Contributed equally 
+
+\section{Abstract}
+
+The detection of antimicrobial resistance (AMR) directly from genomic or metagenomic data has become a standard procedure in public health, with a large number of different bioinformatic tools currently available to perform this task. These tools, although implementing similar principles, differ in supported inputs, search algorithms, parameterisation, and underlying reference databases. Each of these tools generates a report of detected AMR genes or variants in a distinct, non-standard, format. This is a huge barrier to the comparison of results and the modularity of tools within bioinformatic workflows. 
+
+The Public Health Alliance for Genomic Epidemiology (PHA4GE) (\url{https://pha4ge.org}) has developed a standardized output specification for the bioinformatic detection of AMR from genomes. hAMRonization, a python package and command-line utility, implements PHA4GE’s AMR specification to combine the outputs of disparate antimicrobial resistance gene detection tools into a single unified format.  hAMRonization can be easily extended, currently supporting XX different  tools, both species-agnostic and species-specific, for the detection of genes and/or variants conferring AMR. The harmonized reports are available in tabular form, JSON or through an interactive HTML file that can be opened within the browser for navigable data exploration. The hAMRonization and underlying specification are open-source and freely available through PyPI, conda and GitHub (\url{https://github.com/pha4ge/hAMRonization}).
+
+\subsubsection{Keywords}
+
+interoperability; antimicrobial resistance; public health; workflows
+
+\section{Introduction}
+
+Antimicrobial resistance (AMR) represents a present and growing public health crisis with a global impact.  Multidrug resistance is increasing in a broad range of pathogens \cite{aslam_antibiotic_2018}; combined with low rates of antimicrobial drug discovery \cite{brown_antibacterial_2016} this represents a threat to human and animal health \cite{who_who_2015}. National and international action plans e.g., \cite{jim_oneill_antimicrobial_2014, jim_oneill_tackling_2016, public_health_agency_of_canada_antimicrobial_2014, who_who_2015}, have identified several strategies to mitigate the risk of AMR such as rapid diagnosis of the AMR determinants present within a clinical sample, improved surveillance of AMR, and gaining a better understanding of the mechanisms of environmental AMR transmission.
+
+Diagnostic and public health surveillance analyses are increasingly performed using genomic and metagenomic data \cite{mcarthur_antimicrobial_2017}. Therefore, accurate identification of genes or variants from genomic data which are predicted to confer resistance to antimicrobials is critical for monitoring and attempting to mitigate the spread of AMR. This work is being performed all over the world by public health agencies, clinicians, industry, and academic researchers. Given the scale of this problem and the number of stakeholders involved, many bioinformatics tools have been developed that are dedicated to the task of AMR gene and variant detection \cite{boolchandani_sequencing-based_2019, hendriksen_using_2019, mcarthur_antimicrobial_2017}. 
+
+These tools include several developed to work with a specific primary database, e.g., the Resistance Gene Identifier (RGI) for the Comprehensive Antibiotic Resistance Database (CARD)\cite{alcock_card_2020}, AMRFinderPlus and the National Center for Biotechnology Information (NCBI) Pathogen Detection Reference Gene catalogue \cite{feldgarden_validating_2019}, and ResFinder and KmerResistance \cite{clausen_benchmarking_2016} for the ResFinder database \cite{zankari_identification_2012}. Other tools exist that use merged forms of existing databases such as ResFams \cite{gibson_improved_2015}, AMRplusplus \cite{doster_megares_2020}, and DeepARG \cite{arango-argoty_deeparg_2018}. Finally, there are AMR gene identification tools that provide a database-agnostic approach using novel algorithms (e.g., GROOT \cite{rowe_indexed_2018}, ARIBA \cite{hunt_ariba_2017}), or a different interface (e.g., ABRicate \cite{torsten_seeman_abricate_2020}, sraX \cite{panunzi_srax_2020}). 
+
+These tools all have different strengths and weaknesses attributable to varied underlying databases, search algorithms, and default parameterisations.  Based on the specific requirements of a given AMR analysis context one tool may be better suited in the analytical workflow than another.    
+
+Unfortunately, all these tools also generate differently formatted outputs using divergent terminology.  This poses a significant challenge to effective integration, modularity, and comparison of AMR gene detection methods.  The consequence of this is that it is difficult for researchers and public health experts to systematically evaluate the suitability of different tools in their workflow. With the limited examples of these comparisons largely reliant on development of custom ad-hoc tool-specific parsers, e.g., \cite{feldgarden_validating_2019, hunt_ariba_2017}), or has skipped the tools entirely and directly compared the underlying algorithms e.g., \cite{mccall_comparative_2018}. Even in cases where benchmarking has been performed, the disparate output formats means it requires significant work to modify a workflow to use a different AMR detection tool. This greatly limits modularity and flexibility to integrate new tools into existing analyses or repurpose them to new or changing requirements. Given the recent calls to mitigate these issues in public health genomic epidemiology \cite{black_ten_2020}, it is critical that data structures and methods are developed which enable tool-agnostic, robust parsing, manipulation, and transformation of AMR gene detection results.
+
+To this end, we compared and consolidated the outputs of existing AMR gene detection tools to develop the hAMRonization specification. This is a standardised set of recommended and mandatory output terms and labels for AMR gene detection tools, such as “Gene Name”, “\% Coverage (breadth)”, and “Drug Class”.  The outputs for all currently maintained, general purpose, AMR gene detection tools can be directly converted to this unified specification.  Furthermore, this conversion to a common AMR gene detection output specification can be performed automatically using a companion library of biopython compatible parsers.
+
