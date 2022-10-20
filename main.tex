@@ -362,9 +362,14 @@ The mould of your life is in your hands to break."} \\
 %-----------------------------------------------------------------
 \newpage
 \chapter{Conclusion \label{ch:conclusion}}
-\thispagestyle{empty}
-\newpage
+
+\clearpage \thispagestyle{empty}\mbox{}\clearpage
+\begin{conclusion}
 \include{chapters/conclusion}
+\newpage
+\section{References}
+\printbibliography[heading=none]
+\end{conclusion}
 
 %-----------------------------------------------------------------
 % Appendix

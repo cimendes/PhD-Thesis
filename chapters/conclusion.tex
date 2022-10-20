@@ -1,3 +1,18 @@
 \mbox{}\\
 \vspace{8cm}
 
+\begin{itemize}
+    \item Standardise the process of metagenomic analysis, allowing the comparison of results obtained across domains and stakeholders
+    \item Develop computationally efficient and robust frameworks that allow scientists and/or medical experts with limited programming experience to rapidly and easily query the abundance of specific taxa and genes across the samples of interest, obtaining simple and intuitive reports. 
+\end{itemize}
+
+The work I hereby present aims to evaluate the use of bioinformatics methods for the analysis of metagenomic data to allow the rapid identification, virulence analysis and antimicrobial susceptibility prediction of pathogens with clinical relevance. 
+
+\ac{SMg} still presents as a promising methodology to obtain very fast results for the identification of pathogens and their virulence and resistance properties directly from samples, without the need for culture. 
+To be accredited and used in clinical settings, this approach must be standardised and the statistical metrics used to analyse and report the data must be validated.
+
+The impact and applicability of \ac{SMg} in clinical microbiology, including both a diagnosis and surveillance and infection prevention, has been assessed, with the unique challenges of both highlighted. For diagnostics, the biggest drawback of this methodology is the extremely cost-ineffective negative results, allied with the very high sensitivity that translates into several false-positive results. It has been used as a last-resort diagnostic technique \citep{he_case_2022, vijayvargiya_application_2019, sanabria_shotgun-metagenomics_2020, hirakata_application_2021}, with great success when classical approaches fail to detect the causative agent of a disease. Chapter \ref{ch:paper1} aimed to evaluate \ac{SMg} approaches in a collection of varied samples, with particular interest in the bioinformatic pipeline applied, and how it affected the results obtained in a potential diagnosis setting. Most pathogens identified by culture were also identified through metagenomics, but substantial differences were noted between the taxonomic classification tools. In surveillance and infection prevention, \ac{SMg} has also been successfully applied \citep{loman_culture-independent_2013, huang_metagenomics_2017, li_microbiome_2021}, with programs existing relying on this methodology for the monitoring of emerging or of global interest pathogens \citep{ko_metagenomics-enabled_2022}. Chapter \ref{ch:paper2}, the novel detection of an \textit{mcr}-5 gene, named \textit{mcr}-5.4, is reported, from a concentrated water sample. 
+
+The accurate identification of pathogens of interest from \ac{SMg} remains one of the biggest challenges when analysing this type of data. A hybrid approach of read mapping and \textit{de novo} assembly methods sometimes proved the only way to successfully recover sequences of interest with enough quality for genome reconstruction. In Chapter \ref{ch:paper3}, both approaches were employed to provide, in a single methodological step, identification and characterization of a whole viral genome at the nucleotide level. Furthermore, Chapter \ref{ch:paper4} highlighted that no assembler stood out as an undisputed all-purpose choice for short-read metagenomic prokaryote genome assembly, hence efforts are still needed to further improve metagenomic assembly performance. 
+
+Chapters \ref{ch:paper3} and \ref{ch:paper4} were strongly focused on the standardisation and reproducibility of the results obtained, with the employment of new technologies to do so, such as container software and workflow managers. 
