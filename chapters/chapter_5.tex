@@ -1,7 +1,7 @@
 \mbox{}\\
 \vspace{8cm}
 
-This chapter is a reproduction of the following submitted manuscript for publication in GigaScience:
+This chapter is a reproduction of the following manuscript accepted for publication in GigaScience:
 
 C. I. Mendes, P. Vila-Cerqueira, Y. Motro, J. Moran-Gilad, J. A. Carriço, M. Ramirez. LMAS: Evaluating metagenomic short de novo assembly methods through defined communities
 
@@ -13,7 +13,7 @@ In this chapter, we present LMAS, an automated workflow developed as a flexible 
 
 To showcase LMAS we initially used a test dataset of eight bacterial genomes and four plasmids of the ZymoBIOMICS Microbial Community Standards with linear and logarithmic distribution and found that k-mer De Bruijn graph assemblers outperformed the alternative approaches but came with a greater computational cost. Furthermore, assemblers branded as metagenomic specific did not consistently outperform other genomic assemblers in metagenomic samples. Some assemblers still in use, such as ABySS, MetaHipmer2, minia and VelvetOptimiser,  showed significant performance problems and their usability may be limited, particularly when assembling complex samples. 
 
-To test assembler performance with an even more complex dataset, we used the 12 strain BMock12 community standard. This sample includes a non-even distribution of species and several closely related sets: two replicons of Halomonas sp. (ANIb=0.98), three replicons of the Micromonospora genus (average ANIb=0.85) and two replicons of Marinobacter sp (ANIb=0.78). Furthermore, and to represent a mock community trying to reproduce an existing microbiome, the NIBSC Gut DNA Reference Gut-Mix-RR and Gut-Mix-HiLo community standard were analysed, consisting of 20 common gut microbiome strains in an even and staggered composition respectively.
+To test assembler performance with an even more complex dataset, we used the 12-strain BMock12 community standard. This sample includes a non-even distribution of species and several closely related sets: two replicons of Halomonas sp. (ANIb=0.98), three replicons of the Micromonospora genus (average ANIb=0.85) and two replicons of Marinobacter sp (ANIb=0.78). Furthermore, and to represent a mock community trying to reproduce an existing microbiome, the NIBSC Gut DNA Reference Gut-Mix-RR and Gut-Mix-HiLo community standards were analysed, consisting of 20 common gut microbiome strains in an even and staggered composition respectively.
 
 The performance of each assembler varied depending on the species of interest and its abundance in the sample, with less abundant species presenting a significant challenge for all assemblers. No assembler stood out as an undisputed all-purpose choice for short-read metagenomic prokaryote genome assembly, highlighting that efforts are still needed to further improve metagenomic assembly performance. Our results also suggest that sample complexity and a particular interest in some sample components may affect assembler choice. Using LMAS could help users in their choice of assembler for their specific purpose.  As such, we believe that this manuscript is appropriate for publication in Microbiome as a Software article. 
 
