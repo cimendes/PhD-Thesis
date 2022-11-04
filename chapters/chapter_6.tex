@@ -4,7 +4,7 @@
 
 This chapter is a reproduction of the following manuscript to be submitted for publication in eLife:
 
-C. I. Mendes, F. Maguire, A. Manuele, D. Fornika, S. Tausch, T. Le-Viet, J. Phelan, C. Meehan, A. Raphenya, B. Alcock, E. Culp, A. McArthur, M. Feldgarden, G. Tyson, M. Galas, J. Campos, A. Witney, D. Aanensen, A. Black, L. Katz, P. Oluniyi, I. Olawoye, R. Timme, A. T. Vasconcelos, A. Page, D. MacCannell, E. Griffiths. 
+C. I. Mendes, E. Griffiths, A. Manuele, D. Fornika, S. Tausch, T. Le-Viet, J. Phelan, C. Meehan, A. Raphenya, B. Alcock, E. Culp, A. McArthur, M. Feldgarden, G. Tyson, M. Galas, J. Campos, A. Witney, D. Aanensen, A. Black, L. Katz, P. Oluniyi, I. Olawoye, R. Timme, A. T. Vasconcelos, A. Page, D. MacCannell, F. Maguire. 
 hAMRonization: Enhancing antimicrobial resistance prediction using PHA4GE standards and specification. 
 
 As discussed in Chapters \ref{ch:introduction} \ref{ch:paper1} and \ref{ch:paper2}, \ac{SMg} can offer relatively unbiased pathogen detection and characterisation, potentially able to provide antimicrobial resistance and virulence profiling in a single methodological step. The rise of \ac{AMR} poses a major threat to human health worldwide.
@@ -25,35 +25,79 @@ My contribution to this publication included the development of the antimicrobia
 \textbf{hAMRonization: Enhancing antimicrobial resistance  prediction using PHA4GE standards and specification}
 \end{center}
 
-Catarina I Mendes$^{1,*}$, 
-E J Griffiths$^{2,*}$, 
-A Manuele, 
-D Fornika, 
-S H Tausch, 
-T Le-Viet, 
-A R Raphenya, 
-B Alcock, 
-E Culp, 
-A G McArthur, 
-M Feldgarden, 
-G H Tyson, 
-M Galas, 
-J Campos, 
-A A Witney, 
-D M Aanensen, 
-A Black, 
-E Hodcroft, 
-L S Katz, 
-P E Oluniyi, 
-I B Olawoye, 
-R E Timme, 
-A T R Vasconcelos, 
-A J Page, 
-D R MacCannell, 
-F Maguire
+Catarina I. Mendes$^{1,*}$, 
+Emma J. Griffiths$^{2,*}$, 
+Alex Manuele$^3$, 
+Dan Fornika$^4$, 
+Simon H. Tausch$^5$, 
+Thanh Le-Viet $^6$, 
+Amogelang R. Raphenya$^7$, 
+Brian Alcock$^7$, 
+Elizabeth Culp$^7$, 
+Andrew G. McArthur$^7$, 
+Michael Feldgarden$^8$, 
+Gregory H. Tyson$^9$, 
+Marcelo Galas$^{10}$, 
+Josefina Campos$^{11}$, 
+Adam A. Witney$^{12}$, 
+David M. Aanensen$^{13,14}$, 
+Allison Black$^{15}$, 
+Emma Hodcroft$^{16,17}$, 
+Lee S. Katz$^{18,19}$, 
+Paul E. Oluniyi$^{20,21}$, 
+Idowu B. Olawoye$^{20,21}$, 
+Ruth E. Timme$^{22}$, 
+Ana Tereza R. Vasconcelos$^{23}$, 
+Andrew J. Page$^6$, 
+Duncan R. MacCannell$^{19}$, 
+Finlay Maguire$^3$
 on behalf of the Public Health Alliance for Genomic Epidemiology (PHA4GE) consortium Data Structures Working Group
 
 $^1$Instituto de Microbiologia, Instituto de Medicina Molecular, Faculdade de Medicina, Universidade de Lisboa, Lisboa, Portugal 
+
+$^2$  Faculty of Health Sciences, Simon Fraser University, Burnaby, BC, Canada
+
+$^3$ Faculty of Computer Science, Dalhousie University, NS, Canada
+
+$^4$ British Columbia Centre for Disease Control, Vancouver, BC, Canada
+
+$^5$ Department of Biological Safety, German Federal Institute for Risk Assessment, 10589 Berlin, Germany
+
+$^6$ Quadram Institute, Norwich, UK
+
+$^7$ Department of Biochemistry and Biomedical Sciences and the Michael G. DeGroote Institute for Infectious Disease Research, McMaster University; Hamilton; Ontario; Canada
+
+$^8$ National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health; Bethesda; Maryland; USA
+
+$^9$ Center for Veterinary Medicine, U.S. Food and Drug Administration; Laurel; Maryland; USA
+
+$^{10}$ Communicable Diseases and Environmental Determinants of Health, Pan American Health Organization; Washington DC; USA
+
+$^{11}$ INEI-ANLIS "Dr Carlos G. Malbrán"; Buenos Aires;  Argentina
+
+$^{12}$ Institute for Infection and Immunity, St George’s, University of London; London; UK
+
+$^{13}$ Centre for Genomic Pathogen Surveillance, Wellcome Genome Campus; Cambridge; UK; 
+
+$^{14}$ The Big Data Institute, Li Ka Shing Centre for Health Information and Discovery, Nuffield Department of Medicine, University of Oxford; Oxford; UK
+
+$^{15}$ Department of Epidemiology, University of Washington; Washington; USA.
+
+$^{16}$ Biozentrum, University of Basel, Basel, Switzerland
+
+$^{17}$ Swiss Institute of Bioinformatics; Lausanne; Switzerland
+
+$^{18}$ Center for Food Safety, University of Georgia; Georgia; USA; 
+
+$^{19}$ National Center for Emerging and Zoonotic Infectious Diseases, Centers for Disease Control and Prevention; Georgia; USA
+
+$^{20}$ African Center of Excellence for Genomics of Infectious Diseases (ACEGID), Redeemer's University, Ede; Osun State; Nigeria; 
+
+$^{21}$ Department of Biological Sciences, College of Natural Sciences, Redeemer's University; Ede; Osun State; Nigeria
+
+$^{22}$ Center for Food Safety and Applied Nutrition, U.S. Food and Drug Administration; College Park; MD; USA
+
+$^{23}$ Bioinformatics Laboratory National Laboratory of Scientific Computation LNCC/MCTI; Rio de Janeiro; Brazil
 
 $^*$ Contributed equally 
 
@@ -84,18 +128,27 @@ To this end, we compared and consolidated the outputs of existing AMR gene detec
 
 \subsection{The PHA4GE hAMRonization Detection Specification}
 
-The PHA4GE hAMRonization Detection specification was designed to harmonize information prioritised by public health practitioners for genomic surveillance, outbreak investigations and research with direct public health impacts. Fields from various widely used AMR detection tools were compared, and a set of 36 fields were selected to capture information regarding the software and database provenance, information about reference genes and genomes, as well as mutations and resistance genes detected in sequences of interest. The field labels are standardised using terms sourced or contributed to open-source ontologies. Ontologies are sets of controlled vocabulary arranged in a hierarchy, in which terms are linked using logical relationships and the meanings of the terms are disambiguated by the assignment of unique and persistent identifiers. The positions of detected mutations with respect to reference genes/genomes/proteins are specified using the machine-readable Human Genome Variation Society (HGVS) notation system, a sequence variant nomenclature that has been used previously for encoding tuberculosis drug resistance mutations (den Dunnen et al., 2016). To translate HGVS notations into clinician-friendly, human-readable language, a simplified interpretation of mutation coordinates is also provided within the specification. A list of the fields in the specification, along with their ontology identifiers, definitions, expected value types, examples of use, and additional guidance for implementation, are presented in Table 1. It should be noted that the guidance is meant to provide recommendations for developers and may contain suggestions that go beyond the immediate aims of the specification.
+The PHA4GE hAMRonization Detection specification was designed to harmonize information prioritised by public health practitioners for genomic surveillance, outbreak investigations and research with direct public health impacts. Fields from various widely used AMR detection tools were compared, and a set of 36 fields were selected to capture information regarding the software and database provenance, information about reference genes and genomes, as well as mutations and resistance genes detected in sequences of interest. The field labels are standardised using terms sourced or contributed to open-source ontologies. Ontologies are sets of controlled vocabulary arranged in a hierarchy, in which terms are linked using logical relationships and the meanings of the terms are disambiguated by the assignment of unique and persistent identifiers. The positions of detected mutations with respect to reference genes/genomes/proteins are specified using the machine-readable Human Genome Variation Society (HGVS) notation system, a sequence variant nomenclature that has been used previously for encoding tuberculosis drug resistance mutations (den Dunnen et al., 2016). To translate HGVS notations into clinician-friendly, human-readable language, a simplified interpretation of mutation coordinates is also provided within the specification. A list of the fields in the specification, along with their ontology identifiers, definitions, expected value types, examples of use, and additional guidance for implementation, are presented in Table \ref{tab:ch6_table1}. It should be noted that the guidance is meant to provide recommendations for developers and may contain suggestions that go beyond the immediate aims of the specification.
+
+\input{tables/chapter_6/table1.tex}
 
 \subsection{hAMRonization Data Transformation, Parsing Tools, and Harmonized Reports}
 
-To enable automated data transformations from variable tool outputs to the PHA4GE hAMRonization specification, fields from 18 gene and mutation detection tools (i.e. ABRicate, AMRFinderPlus, AMRPlusPlus, ARIBA, C-SSTAR, DeepARG, GROOT, KmerResistance, ResFams, ResFinder (includes PointFinder), SraX, SRST2, and StarAMR) were mapped to the specification (see example mappings in Supplementary Figure 1). It’s worth noting that not all tools provide values for all specification fields. Also, many tools provide outputs beyond what is captured by the specification. 
+To enable automated data transformations from variable tool outputs to the PHA4GE hAMRonization specification, fields from 18 gene and mutation detection tools (i.e. ABRicate, AMRFinderPlus, AMRPlusPlus, ARIBA, C-SSTAR, DeepARG, GROOT, KmerResistance, ResFams, ResFinder (includes PointFinder), SraX, SRST2, and StarAMR) were mapped to the specification. It’s worth noting that not all tools provide values for all specification fields. Also, many tools provide outputs beyond what is captured by the specification. 
 
-Parsers were then constructed to automate the transformation and movement of outputs into the appropriate fields in the hAMRonization reports. Parser code is open source, and all code and installation instructions are available at \url{https://github.com/pha4ge/hAMRonization}. hAMRonization can be executed from the command-line, and alternatively, can be installed and used in Galaxy via the Galaxy tool shed.
+Parsers were then constructed to automate the transformation and movement of outputs into the appropriate fields in the hAMRonization reports (Figure \ref{fig:chap6_figure1}). Parser code is open source, and all code and installation instructions are available at \url{https://github.com/pha4ge/hAMRonization}. hAMRonization can be executed from the command-line, and alternatively, can be installed and used in Galaxy via the Galaxy tool shed.
 hAMRonization provides both tabular and interactive reporting formats. The interactive report provides the user with an HTML file that can be opened within the browser for navigable data exploration.
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 6/Fig 1.png}
+\caption{ Overview of hAMRonization within standard AMR genomics/metagenomics workflows. The hAMRonization module and command-line utility tools allow the creation of a single unified output report from any of 18 established disparate AMR gene and/or variant prediction tools. This facilitates users such as national public health reference laboratories and academic institutions to compare results across tools and change their workflow to different tools without having to develop custom code.  It also means that the communication of results to downstream knowledge users, such as infection control prevention clinicians, can be done in a consistent standardised manner regardless of which AMR prediction tool was used in the genomic/metagenomic analysis.}
+\label{fig:chap6_figure1}
+\end{figure*}
 
 \subsection{hAMRonization Snakemake Pipeline}
 
-The developed  hAMRonization snakemake pipeline (see Materials and  Methods;  hAMRonization Proof of Concept Workflow) was used to run two sets of data through a selection of AMR detection tools, using various AMR gene databases. 
+The developed  hAMRonization snakemake pipeline (see \ref{ch6_materials_workflow}) was used to run two sets of data through a selection of AMR detection tools, using various AMR gene databases. 
 
 \subsection{Piloting hAMRonization in Real-World Public Health Settings}
 
@@ -103,7 +156,7 @@ To test the utility and value of the hAMRonization specification and its associa
 
 Subgrant participants used hAMRonization to analyse data from hospital settings and/or national surveillance projects involving a variety of organisms e.g. \textit{Salmonella paratyphi}, Methicillin-Resistant \textit{Staphylococcus aureus} (MRSA). Feedback included the need for improved definitions of fields and guidance on required inputs, the need for certain fixes for circumstances causing hAMRonization crashes, and the need for more clinician-friendly installation and execution instructions. Some participants also suggested that the inclusion of sequence contextual data would be helpful for analysis (i.e. hospital name and country of sample collection, ward (medical vs surgical), collection date, specimen type (e.g. blood, urine), latitude/longitude of sample collection). In addition to the testing exercise performed, the Nigeria Team (led by the University of Ibadan) integrated hARMonization into their NextflowTower platform for AMR bioinformatics analysis training workshops. To better enable their clinician colleagues without bioinformatics expertise to use the hAMRonization, the Malaysia/Argentina Team (led by the National University of Malaysia) developed a Google Colaboratory (a Google Notebook that enables code to be executed from a Browser) and has distributed it to their network partners.
 
-The ReLAVRA pilot included National Reference Laboratories from Argentina, Brasil, Chile, Colombia, Costa Rica, México and Paraguay. Laboratories and were provided with a dataset of 20 \textit{Shigella sonnei} genomes from a previous Latin America regional project analysed with 5 different AMR detection tools: ABRIcate, AMRFinderPlus, ARIBA, SRST2, StarAMR. Participants received the outputs of the AMR detection tools together with the instructions for installing and running hAMRonization. When participants completed the exercise, they were asked to complete the structured poll. Twelve responses from the seven participating nations were received, and a summary report was prepared by ReLAVRA and provided to PHA4GE. Most of the participants were bioinformaticians and laboratory technicians. For bioinformaticians, the installation instructions were easy to follow, however, laboratory technicians without a bioinformatics background expressed difficulties largely with the dependencies installation. Participants agreed that all harmonised output fields provided relevant information for AMR detection but the most useful were the fields that cover the AMR gene detected and the confidence of that result. Respondents were concerned about the importance of having knowledge of AMR and genomic data analysis for the correct interpretation of the results, especially with regard to decision-makers in clinical settings. An example related to this concern was that when detecting \textit{blaTEM-1} gene by AMRFinderPlus, the field “antimicrobial agent” indicates "Beta-lactam", but this type of drug includes a wide variety of antibiotics, from amoxicillin to extended-spectrum cephalosporins (ESC) and carbapenems. However, \textit{TEM-1} is an extended-spectrum beta-lactamase that does not confer resistance to ESC or carbapenems. While this concern arises from the output of AMRFinderPlus rather than hAMRonization, this challenge is a barrier to the implementation of genomics for AMR surveillance in clinical settings and should be addressed. PHA4GE is cataloguing such critical challenges and will work with the community to solve them. In terms of output summary format, most of the participants preferred the tabular report, citing that a single file combining all the relevant information was more convenient and amenable to processing with different downstream software. Some participants preferred citing its user-friendly visual interface was helpful for comparing which tools identified the same gene. Recommendations from participants can be found in Figure 2.
+The ReLAVRA pilot included National Reference Laboratories from Argentina, Brasil, Chile, Colombia, Costa Rica, México and Paraguay. Laboratories and were provided with a dataset of 20 \textit{Shigella sonnei} genomes from a previous Latin America regional project analysed with 5 different AMR detection tools: ABRIcate, AMRFinderPlus, ARIBA, SRST2, StarAMR. Participants received the outputs of the AMR detection tools together with the instructions for installing and running hAMRonization. When participants completed the exercise, they were asked to complete the structured poll. Twelve responses from the seven participating nations were received, and a summary report was prepared by ReLAVRA and provided to PHA4GE. Most of the participants were bioinformaticians and laboratory technicians. For bioinformaticians, the installation instructions were easy to follow, however, laboratory technicians without a bioinformatics background expressed difficulties largely with the dependencies installation. Participants agreed that all harmonised output fields provided relevant information for AMR detection but the most useful were the fields that cover the AMR gene detected and the confidence of that result. Respondents were concerned about the importance of having knowledge of AMR and genomic data analysis for the correct interpretation of the results, especially with regard to decision-makers in clinical settings. An example related to this concern was that when detecting \textit{blaTEM-1} gene by AMRFinderPlus, the field “antimicrobial agent” indicates "Beta-lactam", but this type of drug includes a wide variety of antibiotics, from amoxicillin to extended-spectrum cephalosporins (ESC) and carbapenems. However, \textit{TEM-1} is an extended-spectrum beta-lactamase that does not confer resistance to ESC or carbapenems. While this concern arises from the output of AMRFinderPlus rather than hAMRonization, this challenge is a barrier to the implementation of genomics for AMR surveillance in clinical settings and should be addressed. PHA4GE is cataloguing such critical challenges and will work with the community to solve them. In terms of output summary format, most of the participants preferred the tabular report, citing that a single file combining all the relevant information was more convenient and amenable to processing with different downstream software. Some participants preferred citing its user-friendly visual interface was helpful for comparing which tools identified the same gene.
 
 While differences in gene nomenclature arise from variability in reference databases, users expressed that harmonization of gene names across different reference databases would be extremely helpful (especially those produced by ARIBA). Fields that require knowledge to interpret should not be included e.g. “antimicrobial agent”. While hAMRonization does not generate the tool-specific error warnings that users sometimes encounter while running the tools, it would be useful to provide explanations of these warnings in the user guide. 
 
@@ -117,11 +170,25 @@ To test the utility and value of the hAMRonization specification and its associa
 
 \subsubsection{\textit{Klebsiella pneumoniae} and tool benchmarking}
 
-A dataset of 89 Klebsiella pneumoniae were analysed using RGI, relying on BLASTp and the CARD database, RGI btw, relying on Bowtie2 and the CARD database, AMRFinderPlus which uses BLASTx and the BARRG database, and ResFinder with BLASTn and the ResFinder database. The aim was to determine the number of unique AMR genes identified, with a large variation having been identified across the four tools (Figure 3). RGI bwt and RGI identified the highest number of hits (n=223 and n=140 respectively), albeit using different identification methods both use the same database. AMRFinderPlus and Resfinder identified an order of magnitude less AMR genes (n=70 and n=46 respectively), even though both rely on BLAST, as does RGI. This highlights the impact of the database chosen when assessing AMR genes. 
+A dataset of 89 Klebsiella pneumoniae were analysed using RGI, relying on BLASTp and the CARD database, RGI btw, relying on Bowtie2 and the CARD database, AMRFinderPlus which uses BLASTx and the BARRG database, and ResFinder with BLASTn and the ResFinder database. The aim was to determine the number of unique AMR genes identified, with a large variation having been identified across the four tools (Figure \ref{fig:chap6_figure2}). RGI bwt and RGI identified the highest number of hits (n=223 and n=140 respectively), albeit using different identification methods both use the same database. AMRFinderPlus and Resfinder identified an order of magnitude less AMR genes (n=70 and n=46 respectively), even though both rely on BLAST, as does RGI. This highlights the impact of the database chosen when assessing AMR genes. 
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 6/Fig 2.png}
+\caption{Unique AMR genes idenfiied by RGI, RGI bwt, AMRFInderPlus and ResFinder. The heatmap represents the percenetage of AMR genes found by the combination of the four tools. Although a very large percentage of the ResFinder and AMRFinderPlus detected genes are identified by all tools, RGI and in particular RGI bwt identify a very large subset of AMR genes not present in the othe datasets.}
+\label{fig:chap6_figure2}
+\end{figure*}
 
 \subsubsection{Characterizing \textit{Pseudomonas aeruginosa} Sequence Types associated with Metallo-Carbapenemase resistance in an outbreak}
 
-A set of 87 \textit{Pseudomonas aeruginosa} sequences (ST 111) associated with a Metallo-Carbapenemases resistance outbreak in the United Kingdom \cite{witney_genome_2014}, were analysed using ABRIcate, AMRFinderplus, C-SSTAR, Resfinder, StarAMR with default parameters and databases. The resulting outputs were combined using hAMRonization (Figure 4). Most isolates (n=73) carried the \textit{VIM-2} gene, conferring the observed resistance phenotype. Some genes, such as \textit{crpP} and \textit{sul1},  are repeatedly identified by most of the tools. Differences in gene nomenclature in different databases complicate comparisons e.g. the same gene was also seen with different spelling, such as \textit{blaVIM-2} being called a \textit{blaVIM}. Nomenclature issues aside, harmonised outputs from different tools served to increase the body of evidence (and confidence in results) indicating the role of different AMR determinants in the outbreak.
+A set of 87 \textit{Pseudomonas aeruginosa} sequences (ST 111) associated with a Metallo-Carbapenemases resistance outbreak in the United Kingdom \cite{witney_genome_2014}, were analysed using ABRIcate, AMRFinderplus, C-SSTAR, Resfinder, StarAMR with default parameters and databases. The resulting outputs were combined using hAMRonization (Figure \ref{fig:chap6_figure3}). Most isolates (n=73) carried the \textit{VIM-2} gene, conferring the observed resistance phenotype. Some genes, such as \textit{crpP} and \textit{sul1},  are repeatedly identified by most of the tools. Differences in gene nomenclature in different databases complicate comparisons e.g. the same gene was also seen with different spelling, such as \textit{blaVIM-2} being called a \textit{blaVIM}. Nomenclature issues aside, harmonised outputs from different tools served to increase the body of evidence (and confidence in results) indicating the role of different AMR determinants in the outbreak.
+
+\begin{figure*}[]
+\centering
+\includegraphics[width=\textwidth]{figures/chapter 6/Fig 3.png}
+\caption{Heatmap of the number of predictions made by the AMR gene detection tools (abricate, amrfinderplus, csstar, resfinder, staramr) that find each resistance gene, overlaid on a tree from those isolates.}
+\label{fig:chap6_figure3}
+\end{figure*}
 
 \subsubsection{hAMRonization and Hackathon-based Community Development}
 
@@ -155,7 +222,7 @@ The finalised hAMRonization specification was then encoded in JSON format to ena
 
 Mappings from the output fields in each of the 18 tools to the hAMRonization specification were then encoded in a python package (github.com/pha4ge/hAMRonization). This package was developed following the modular approach of biopython \cite{cock_biopython_2009} and provides an easy-to-use command line tool to enable automatic conversion of output files from each of these tools to a standardised report following the hAMRonization specification. Where appropriate and when tools don’t provide the full set of essential core metadata will prompt for this information to ensure high-quality reproducible analyses.  This tool allows the collation of results from multiple tools and samples into a single standardised report to aid comparison and analysis.  These reports can optionally be generated as spreadsheets (CSV), JSON, and an interactive navigable HTML format to maximise utility and compatibility with downstream processes. Finally, this package also provides a python module to enable direct integration of the functions into other python software. To ensure practical installation in as broad a range of computing infrastructures across varied public health, academic, and industry research settings this tool is open source and is freely available via GitHub, PyPI, bioconda, docker, and the galaxy toolshed.  
 
-\subsection{hAMRonization Proof of Concept Workflow}
+\subsection{hAMRonization Proof of Concept Workflow} \label{ch6_materials_workflow}
 
 As a proof-of-concept, a  snakemake pipeline \cite{koster_snakemake--scalable_2012} was created which automatically runs arbitrary microbial genomic data through a set of species-agnostic AMR gene detection tools, supported by hAMRonization, and generates a single report for each. This set is composed by abricate (version 1.0.1), amrfinderplus \cite{feldgarden_validating_2019} (version 3.10.1), amrplusplus \cite{doster_megares_2020} (v1.0.0), ariba \cite{hunt_ariba_2017}(version 2.14.6), c-SSTAR \cite{de_man_sstar_2016} (version 1.1.01), groot \cite{rowe_indexed_2018} (version 1.1.2), kmerresistance \cite{clausen_benchmarking_2016}( (version 2.2.0), resfams \cite{gibson_improved_2015} via hmmer (v3.3.2), resfinder \cite{bortolaia_resfinder_2020} (version 3.2), rgi \cite{alcock_card_2020} (version 5.1.1), srax \cite{panunzi_srax_2020} (version 1.5), srst2 \cite{inouye_srst2_2014} (version 0.2.0) and staramr \cite{zankari_identification_2012} (version 0.7.2).In order to guarantee the reproducibility of the results obtained, it integrates fixed versions of the tools implemented in the pipeline from conda. The pipeline is available at  \url{https://github.com/pha4ge/hAMRonization_workflow}. 
 
@@ -170,3 +237,10 @@ Nothing to declare.
 \section{Funding statements}
 
 All authors have read this manuscript and consented to its publication. We wish to thank the Bill and Melinda Gates Foundation for supporting the establishment and work of the PHA4GE consortium. CIM was supported by the Fundação para a Ciência e Tecnologia (grant SFRH/BD/129483/2017). Work by EJG was funded by a Genome Canada Bioinformatics and Computational Biology 2017 Grant (286GET) and a 2018 Canadian Institutes of Health Research (CIHR) Project Grant (APP356925). FM is supported by a Donald Hill Family Fellowship. 
+
+
+\section{Supplemental Materials}
+
+\input{tables/chapter_6/suptable1.tex}
+
+\input{tables/chapter_6/suptable2.tex}
